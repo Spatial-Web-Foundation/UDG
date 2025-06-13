@@ -1,0 +1,387 @@
+@prefix Class: <hstp:org:swf:hsml:hsml:Class:> .
+@prefix ColorGroup: <hstp:org:swf:hsml:hsml:Domain:Game:Monopoly:ColorGroup> .
+@prefix Domain: <hstp:org:swf:hsml:hsml:Domain:> .
+@prefix Hyperspace: <hstp:org:swf:hsml:hsml:Hyperspace> .
+@prefix Monopoly: <hstp:org:swf:hsml:hsml:Domain:Game:Monopoly:> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+Monopoly:Property:Shape a sh:NodeShape;
+    rdfs:label "Go"@en;
+    rdfs:comment "The starting point of the game."@en;
+    sh:property [
+        sh:path Monopoly:propertyName ;
+        sh:name "Property Name"@en ;
+        sh:description "Name of the property"@en ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:nodeKind sh:Literal ;
+    ],
+    [
+        sh:path Monopoly:propertyValue ;
+        sh:name "Property Value"@en ;
+        sh:description "Value of the property in the game"@en ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:decimal ;
+        sh:nodeKind sh:Literal ;
+    ],
+    [
+        sh:path Monopoly:ColorGroup ;
+        sh:name "ColorGroup"@en ;
+        sh:description "Color of the Neighborhood"@en ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:nodeKind sh:Literal ;
+    ]    
+.
+
+Monopoly:Property:ColorGroup a sh:NodeShape;
+    rdfs:label "Monopoly Property Color Group"@en;
+    rdfs:comment "Shape for the color group of Monopoly properties."@en;
+    sh:property [
+        sh:path Monopoly:colorGroup ;
+        sh:name "Color Group"@en ;
+        sh:description "Color group of the property"@en ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:class ColorGroup:ColorGroup ;
+    ].
+
+Monopoly:ColorGroup:Shape a sh:NodeShape;
+    rdfs:label "Color Group"@en;
+    rdfs:comment "Color group of the property."@en;
+    sh:property [
+        sh:path Monopoly:colorGroup ;
+        sh:name "Color Group"@en ;
+        sh:description "Name of the color group"@en ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:in (ColorGroup:Brown ColorGroup:LightBlue ColorGroup:Pink ColorGroup:Orange ColorGroup:Red ColorGroup:Yellow ColorGroup:Green ColorGroup:DarkBlue ColorGroup:None);
+        sh:nodeKind sh:IRI ;
+        sh:class: ColorGroup:ColorGroup ;
+    ]
+.
+
+Monopoly:Game:Shape a sh:NodeShape;
+    rdfs:label "Monopoly Game"@en;
+    rdfs:comment "Shape for the Monopoly game."@en;
+    sh:property [
+        sh:path  Hyperspace:properties ;
+        sh:name "Monopoly Property"@en ;
+        sh:description "Properties in the Monopoly game"@en ;
+        sh:minCount 1 ;
+        sh:maxCount 40 ;
+        sh:nodeKind sh:IRI ;
+        sh:class Monopoly:Property ;
+    ] ;
+.
+
+
+Monopoly:Piece:Shape a sh:NodeShape;
+    rdfs:label "Monopoly Piece"@en;
+    rdfs:comment "Pieces used in the game of Monopoly."@en;
+    sh:property [
+        sh:path Monopoly:pieceName ;
+        sh:name "Piece Name"@en ;
+        sh:description "Name of the Monopoly piece"@en ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:nodeKind sh:Literal ;
+    ] ;
+    sh:property [
+        sh:path Monopoly:pieceValue ;
+        sh:name "Piece Value"@en ;
+        sh:description "Value of the Monopoly piece in the game"@en ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:decimal ;
+        sh:nodeKind sh:Literal ;
+    ].
+
+ColorGroup:Brown a ColorGroup:ColorGroup ;
+    rdfs:label "Brown"@en ;
+    rdfs:comment "Brown color group in Monopoly."@en .
+
+ColorGroup:LightBlue a ColorGroup:ColorGroup ;
+    rdfs:label "Light Blue"@en ;
+    rdfs:comment "Light Blue color group in Monopoly."@en .
+ColorGroup:Pink a ColorGroup:ColorGroup ;
+    rdfs:label "Pink"@en ;
+    rdfs:comment "Pink color group in Monopoly."@en .
+ColorGroup:Orange a ColorGroup:ColorGroup ;
+    rdfs:label "Orange"@en ;
+    rdfs:comment "Orange color group in Monopoly."@en .
+ColorGroup:Red a ColorGroup:ColorGroup ;
+    rdfs:label "Red"@en ;
+    rdfs:comment "Red color group in Monopoly."@en .
+ColorGroup:Yellow a ColorGroup:ColorGroup ;
+    rdfs:label "Yellow"@en ;
+    rdfs:comment "Yellow color group in Monopoly."@en .
+ColorGroup:Green a ColorGroup:ColorGroup ;
+    rdfs:label "Green"@en ;
+    rdfs:comment "Green color group in Monopoly."@en .
+ColorGroup:DarkBlue a ColorGroup:ColorGroup ;
+    rdfs:label "Dark Blue"@en ;
+    rdfs:comment "Dark Blue color group in Monopoly."@en .  
+ColorGroup:None a ColorGroup:ColorGroup ;
+    rdfs:label "None"@en ;
+    rdfs:comment "No color group in Monopoly."@en .
+
+Monopoly:Property rdfs:subClassOf Class:Domain .
+Monopoly:ColorGroup rdfs:subClassOf Class:Concept .
+Monopoly:Game  rdfs:subClassOf Class:Agenda .
+
+Monopoly:Property:Go a Monopoly:Property ;
+    Monopoly:propertyName "Go" ;
+    Monopoly:propertyValue 0 ;
+    Monopoly:colorGroup ColorGroup:None ;
+    Monopoly:index 0 .
+Monopoly:Property:MediterraneanAve a Monopoly:Property ;
+    Monopoly:propertyName "Mediterranean Avenue" ;
+    Monopoly:propertyValue 60 ; 
+    Monopoly:colorGroup ColorGroup:Brown ;
+    Monopoly:index 1 .
+Monopoly:Property:CommunityChest1 a Monopoly:Property ;
+    Monopoly:propertyName "Community Chest 1" ;
+    Monopoly:propertyValue 0 ;
+    Monopoly:colorGroup ColorGroup:None  ;
+    Monopoly:index 2 .
+Monopoly:Property:BalticAve a Monopoly:Property ;
+    Monopoly:propertyName "Baltic Avenue" ;
+    Monopoly:propertyValue 60 ;
+    Monopoly:colorGroup ColorGroup:Brown ;
+    Monopoly:index 3 .
+Monopoly:Property:IncomeTax a Monopoly:Property ;
+    Monopoly:propertyName "Income Tax" ;
+    Monopoly:propertyValue 0 ;
+    Monopoly:colorGroup ColorGroup:None ;
+    Monopoly:index 4 .
+Monopoly:Property:ReadingRailroad a Monopoly:Property ;
+    Monopoly:propertyName "Reading Railroad" ;
+    Monopoly:propertyValue 200 ;
+    Monopoly:colorGroup ColorGroup:None  ;
+    Monopoly:index 5 .
+Monopoly:Property:OrientalAve a Monopoly:Property ;
+    Monopoly:propertyName "Oriental Avenue" ;
+    Monopoly:propertyValue 100 ;
+    Monopoly:colorGroup ColorGroup:LightBlue  ;
+    Monopoly:index 6 .
+Monopoly:Property:Chance1 a Monopoly:Property ;
+    Monopoly:propertyName "Chance 1" ;
+    Monopoly:propertyValue 0 ;
+    Monopoly:colorGroup ColorGroup:None ;
+    Monopoly:index 7 .
+Monopoly:Property:VermontAve a Monopoly:Property ;
+    Monopoly:propertyName "Vermont Avenue" ;
+    Monopoly:propertyValue 100 ;
+    Monopoly:colorGroup ColorGroup:LightBlue  ;
+    Monopoly:index 8 .
+Monopoly:Property:ConnecticutAve a Monopoly:Property ;
+    Monopoly:propertyName "Connecticut Avenue" ;
+    Monopoly:propertyValue 120 ;
+    Monopoly:colorGroup ColorGroup:LightBlue ;
+    Monopoly:index 9 .
+Monopoly:Property:JustVisiting a Monopoly:Property ;
+    Monopoly:propertyName "Just Visiting" ;
+    Monopoly:propertyValue 0 ;
+    Monopoly:colorGroup ColorGroup:None ;
+    Monopoly:index 10 .
+Monopoly:Property:StCharlesPlace a Monopoly:Property ;
+    Monopoly:propertyName "St. Charles Place" ;
+    Monopoly:propertyValue 140 ;
+    Monopoly:colorGroup ColorGroup:Pink ;
+    Monopoly:index 11 .
+Monopoly:Property:ElectricCompany a Monopoly:Property ;
+    Monopoly:propertyName "Electric Company" ;
+    Monopoly:propertyValue 150 ;
+    Monopoly:colorGroup ColorGroup:None ;
+    Monopoly:index 12 .
+Monopoly:Property:StatesAve a Monopoly:Property ;
+    Monopoly:propertyName "States Avenue" ;
+    Monopoly:propertyValue 140 ;
+    Monopoly:colorGroup ColorGroup:Pink ;
+    Monopoly:index 13 .
+Monopoly:Property:VirginiaAve a Monopoly:Property ;
+    Monopoly:propertyName "Virginia Avenue" ;
+    Monopoly:propertyValue 160 ;
+    Monopoly:colorGroup ColorGroup:Pink ;
+    Monopoly:index 14 .
+Monopoly:Property:PennsylvaniaRailroad a Monopoly:Property ;
+    Monopoly:propertyName "Pennsylvania Railroad" ;
+    Monopoly:propertyValue 160 ;
+    Monopoly:colorGroup ColorGroup:Pink ;
+    Monopoly:index 15 .
+Monopoly:Property:StJamesPlace a Monopoly:Property ;
+    Monopoly:propertyName "St. James Place" ;
+    Monopoly:propertyValue 180 ;
+    Monopoly:colorGroup ColorGroup:Orange ;
+    Monopoly:index 16 .
+Monopoly:Property:CommunityChest2 a Monopoly:Property ;
+    Monopoly:propertyName "Community Chest 2" ;
+    Monopoly:propertyValue 0 ;
+    Monopoly:colorGroup ColorGroup:None ;
+    Monopoly:index 17 .
+Monopoly:Property:TennesseeAve a Monopoly:Property ;
+    Monopoly:propertyName "Tennessee Avenue" ;
+    Monopoly:propertyValue 180 ;
+    Monopoly:colorGroup ColorGroup:Orange ;
+    Monopoly:index 18 .
+Monopoly:Property:NewYorkAve a Monopoly:Property ;
+    Monopoly:propertyName "New York Avenue" ;
+    Monopoly:propertyValue 200 ;
+    Monopoly:colorGroup ColorGroup:Orange ;
+    Monopoly:index 19 .
+Monopoly:Property:FreeParking a Monopoly:Property ;
+    Monopoly:propertyName "Free Parking" ;
+    Monopoly:propertyValue 0 ;
+    Monopoly:colorGroup ColorGroup:None ;
+    Monopoly:index 20 .
+Monopoly:Property:KentuckyAve a Monopoly:Property ;
+    Monopoly:propertyName "Kentucky Avenue" ;
+    Monopoly:propertyValue 220 ;
+    Monopoly:colorGroup ColorGroup:Red ;
+    Monopoly:index 21 .
+Monopoly:Property:Chance2 a Monopoly:Property ;
+    Monopoly:propertyName "Chance 2" ;
+    Monopoly:propertyValue 0 ;
+    Monopoly:colorGroup ColorGroup:None ;
+    Monopoly:index 22 .
+Monopoly:Property:IndianaAve a Monopoly:Property ;
+    Monopoly:propertyName "Indiana Avenue" ;
+    Monopoly:propertyValue 220 ;
+    Monopoly:colorGroup ColorGroup:Red ;
+    Monopoly:index 23 .
+Monopoly:Property:IllinoisAve a Monopoly:Property ;
+    Monopoly:propertyName "Illinois Avenue" ;
+    Monopoly:propertyValue 240 ;
+    Monopoly:colorGroup ColorGroup:Red ;
+    Monopoly:index 24 .
+Monopoly:Property:BnORailroad a Monopoly:Property ;
+    Monopoly:propertyName "BnO Railroad" ;
+    Monopoly:propertyValue 200 ;
+    Monopoly:colorGroup ColorGroup:None ;
+    Monopoly:index 25 .
+Monopoly:Property:AtlanticAve a Monopoly:Property ;
+    Monopoly:propertyName "Atlantic Avenue" ;
+    Monopoly:propertyValue 260 ;
+    Monopoly:colorGroup ColorGroup:Yellow ;
+    Monopoly:index 26 .
+Monopoly:Property:VentnorAve a Monopoly:Property ;
+    Monopoly:propertyName "Ventnor Avenue" ;
+    Monopoly:propertyValue 260 ;
+    Monopoly:colorGroup ColorGroup:Yellow ;
+    Monopoly:index 27 .
+Monopoly:Property:WaterWorks a Monopoly:Property ;
+    Monopoly:propertyName "Water Works" ;
+    Monopoly:propertyValue 150 ;
+    Monopoly:colorGroup ColorGroup:None ;
+    Monopoly:index 28 .
+Monopoly:Property:MarvinGardens a Monopoly:Property ;
+    Monopoly:propertyName "Marvin Gardens" ;
+    Monopoly:propertyValue 280 ;
+    Monopoly:colorGroup ColorGroup:Yellow ;
+    Monopoly:index 29 .
+Monopoly:Property:GoToJail a Monopoly:Property ;
+    Monopoly:propertyName "Go To Jail" ;
+    Monopoly:propertyValue 0 ;
+    Monopoly:colorGroup ColorGroup:None ;
+    Monopoly:index 30 .
+Monopoly:Property:PacificAve a Monopoly:Property ;
+    Monopoly:propertyName "Pacific Avenue" ;
+    Monopoly:propertyValue 300 ;
+    Monopoly:colorGroup ColorGroup:Green ;
+    Monopoly:index 31 .
+Monopoly:Property:NorthCarolinaAve a Monopoly:Property ;
+    Monopoly:propertyName "North Carolina Avenue" ;
+    Monopoly:propertyValue 300 ;
+    Monopoly:colorGroup ColorGroup:Green ;
+    Monopoly:index 32 .
+Monopoly:Property:CommunityChest3 a Monopoly:Property ;
+    Monopoly:propertyName "Community Chest 3" ;
+    Monopoly:propertyValue 0 ;
+    Monopoly:colorGroup ColorGroup:None ;
+    Monopoly:index 33 .
+Monopoly:Property:PennsylvaniaAve a Monopoly:Property ;
+    Monopoly:propertyName "Pennsylvania Avenue" ;
+    Monopoly:propertyValue 320 ;
+    Monopoly:colorGroup ColorGroup:Green ;
+    Monopoly:index 34 .
+Monopoly:Property:ShortLineRailroad a Monopoly:Property ;
+    Monopoly:propertyName "Short Line Railroad" ;
+    Monopoly:propertyValue 200 ;
+    Monopoly:colorGroup ColorGroup:None ;
+    Monopoly:index 35 .
+Monopoly:Property:Chance3 a Monopoly:Property ;
+    Monopoly:propertyName "Chance 3" ;
+    Monopoly:propertyValue 0 ;
+    Monopoly:colorGroup ColorGroup:None ;
+    Monopoly:index 36 .
+Monopoly:Property:ParkPlace a Monopoly:Property ;
+    Monopoly:propertyName "Park Place" ;
+    Monopoly:propertyValue 350 ;
+    Monopoly:colorGroup ColorGroup:DarkBlue ;
+    Monopoly:index 37 .
+Monopoly:Property:LuxuryTax a Monopoly:Property ;
+    Monopoly:propertyName "Luxury Tax" ;
+    Monopoly:propertyValue 0 ;
+    Monopoly:colorGroup ColorGroup:None ;
+    Monopoly:index 38 .
+Monopoly:Property:Boardwalk a Monopoly:Property ;
+    Monopoly:propertyName "Boardwalk" ;
+    Monopoly:propertyValue 400 ;
+    Monopoly:colorGroup ColorGroup:DarkBlue ;
+    Monopoly:index 39 .
+
+Monopoly:Game:Game1 a Monopoly:Game ;
+    Monopoly:property 
+        Monopoly:Property:Go, 
+        Monopoly:Property:MediterraneanAve, 
+        Monopoly:Property:CommunityChest1, 
+        Monopoly:Property:BalticAve ,
+        Monopoly:Property:IncomeTax ,
+        Monopoly:Property:ReadingRailroad, 
+        Monopoly:Property:OrientalAve ,
+        Monopoly:Property:Chance1 ,
+        Monopoly:Property:VermontAve, 
+        Monopoly:Property:ConnecticutAve, 
+        Monopoly:Property:JustVisiting ,
+        Monopoly:Property:StCharlesPlace, 
+        Monopoly:Property:ElectricCompany, 
+        Monopoly:Property:StatesAve ,
+        Monopoly:Property:VirginiaAve, 
+        Monopoly:Property:CommunityChest2 ,
+        Monopoly:Property:StJamesPlace ,
+        Monopoly:Property:TennesseeAve ,
+        Monopoly:Property:NewYorkAve ,
+        Monopoly:Property:FreeParking ,
+        Monopoly:Property:KentuckyAve ,
+        Monopoly:Property:Chance2 ,
+        Monopoly:Property:IndianaAve,
+        Monopoly:Property:IllinoisAve,
+        Monopoly:Property:BnORailroad,
+        Monopoly:Property:AtlanticAve,
+        Monopoly:Property:VentnorAve,
+        Monopoly:Property:WaterWorks,
+        Monopoly:Property:MarvinGardens,
+        Monopoly:Property:GoToJail,
+        Monopoly:Property:PacificAve,
+        Monopoly:Property:NorthCarolinaAve,
+        Monopoly:Property:CommunityChest3  ,
+        Monopoly:Property:PennsylvaniaAve,
+        Monopoly:Property:ShortLineRailroad,
+        Monopoly:Property:Chance3,
+        Monopoly:Property:ParkPlace,    
+        Monopoly:Property:LuxuryTax,
+        Monopoly:Property:Boardwalk
+        .  
+
+    
+
+
