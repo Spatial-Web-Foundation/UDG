@@ -17,6 +17,3 @@ An entity may have other other attributes, but these are not required:
 * Zero or more __activities__, which provides the operational instructions for the entity in question. The structure of the activity is language independent and declarative.
 * Zero or more __style__ resources, which provides a mechanism for rendering the entity with different content types. _Please note, this has not been formally proposed yet, and may be removed._
 * Zero or one __link__ references to an external domain. Some entities provide a link that can be activated through certain interfaces or affordances. This is a simple link, meaning it changes the context (domain) of the agent initiating the link without specific constraints, which is analogous to an HTTP standard hyperlink. More information about links will be covered in the subsection [Links](Links.md).
-nimal, mystical alien pyramid or similar construct, is ultimately an entity, and is addressable within the context of the spatial web.
-
-An entity exists within the context of a [Domain](Domain.md).  
