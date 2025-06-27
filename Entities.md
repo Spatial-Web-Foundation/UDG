@@ -1,6 +1,7 @@
 # Entities
 
-An **entity** is the fundamental class within the UDG for describing the various things, agents, and places that make up the Spatial Web. Every structure, building, planet, character (agent),# Entities
+* [Entities and Domain Type](#entities-and-domain-types)
+* [Links](#links)
 
 An **entity** is the fundamental class within the UDG for describing the various things, agents, and places that make up the Spatial Web. Every structure, building, planet, character (agent), animal, mystical alien pyramid or similar construct, is ultimately an entity, and is addressable within the context of the spatial web.
 
@@ -15,5 +16,9 @@ There are a specific set of attributes which are required for the entity. Specif
 An entity may have other other attributes, but these are not required:
 * A __location__, which identifies the entity's position in a state space (or __hyperspace__), relative to either the containing domain, or to an externally defined domain. If a domain exists solely as a vehicle for containment, then location is not specifically required, though it often contains additional state information that is not strictly speaking positional. 
 * Zero or more __activities__, which provides the operational instructions for the entity in question. The structure of the activity is language independent and declarative.
-* Zero or more __style__ resources, which provides a mechanism for rendering the entity with different content types. _Please note, this has not been formally proposed yet, and may be removed._
-* Zero or one __link__ references to an external domain. Some entities provide a link that can be activated through certain interfaces or affordances. This is a simple link, meaning it changes the context (domain) of the agent initiating the link without specific constraints, which is analogous to an HTTP standard hyperlink. More information about links will be covered in the subsection [Links](Links.md).
+* Zero or more __style__ resources, which provides a mechanism for rendering the entity with different content types. _Please note, this has not been formally proposed yet, and may be removed_.
+* Zero or one __link__ references to an external domain. Some entities provide a link that can be activated through certain interfaces or affordances. This is a simple link, meaning it changes the context (domain) of the agent initiating the link without specific constraints, which is analogous to an HTTP standard hyperlink. More information about links will be covered in the subsection [Links](#links).
+
+## Entities and Domain Types
+
+## Links
