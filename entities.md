@@ -16,8 +16,4 @@ An entity may have other other attributes, but these are not required:
 * Zero or more __style__ resources, which provides a mechanism for rendering the entity with different content types. _Please note, this has not been formally proposed yet, and may be removed_.
 * Zero or one __link__ references to an external domain. Some entities provide a link that can be activated through certain interfaces or affordances. This is a simple link, meaning it changes the context (domain) of the agent initiating the link without specific constraints, which is analogous to an HTTP standard hyperlink. More information about links will be covered in the subsection [Links](#links).
 
-<<<<<<< HEAD
 [Next](domain-entity-types.md)
-=======
-[Next](domain-entity-types.md)
->>>>>>> 976001c997d27905bbca5d047bbebd77dd1cc3ba
