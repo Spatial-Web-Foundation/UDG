@@ -6,7 +6,7 @@ A link uses the [SWID](swids.md) of an entity as its target. When activated (thr
 
 If the link's target is not a place but some other form of entity, then the activiting agent will be placed at the [location of that entity within the domain](places.md#entities-as-places).
 
-## Taking a RISK
+## Example: Risk
 
 For example, in a RISK game, there is a global RISK map domain that consists of multiple "countries".
 
@@ -85,5 +85,63 @@ Again, it is worth emphasizing here that this is a topologically, rather than ph
 
 ## Links as Movement
 
-This topological perspect presents some challenges that help to differentiate a Spatial Web domain from a web page document. The first is that there is no intrinsic "direction" within the Spatial Web, as compared to a document, which has a specific "reading order". To go from one place to another, your agents has to traverse a link.
+This topological perspect presents some challenges that help to differentiate a Spatial Web domain from a web page document. The first is that there is no intrinsic "direction" within the Spatial Web, as compared to a document, which has a specific "reading order". To go from one place to another, your agent has to traverse a link.
+
+This means that moving from one place to another within a domain involves following a particular path of intervening places. This approach is straightforward and especially conducive to optimization of path traversals to minimize energy expenditure, though as the number of places goes up, so too does the complexity of such computations.
+
+In the real world, of course, we do not hop from place to place but move in a continuous fashion, and a robot or physical twin has to determine the "how" of traversal. Typically, this process lives in the interface between the virtual and physical twin.
+
+In general, this information may be stored in metadata that is associated with the link, but that is outside of the scope of the spatial web. For instance, a robot needs to move from the bottom of a hill to the top of a hill along a road. The link may indicate characteristics of the hill - its inclination in particular - but from the standpoint of the Spatial Web, this slope is a challenge that has to be met prior to achieving the key to allow the transition from one place (the bottom of the hill) to another (the top of the hill). 
+
+In this case, the link challenge would be to solve a physics problem - is the weight of the robot, the power of the motor, and the inclination of the slope sufficient to reach the top, and are there any routes (sequences of places) that the robot can take if the slope is too challenging? If the problem is solved, then the robot goes ahead with the selected route, otherwise, the lock remains locked.
+
+For a sufficient large hyperspace, the mesh of potential paths can more closely represent a curve. For instance, the road may be treated as a space with a fairly high density of hexes, and rather than trying to tackle the road head-on in a linear fashion, it ascends the road as a series of switchbacks (much like a sailboat tacking against the wind).
+
+![Tacking](images/tacking.png)
+
+In the case where there is a physical twin bound to an agent, the link remains active until the physical twin indicates it has successfully completed the task, at which point it may update the metadata associated with the agent with physical coordinates that can be translated back into tiling.
+
+This means that in general the physical location of a tile will typically be its centrum, unless this is specifically overrriden with a centrum property. 
+
+This analogy, by the way, also corresponds with non-Hilbert spaces, such as heat/pressure state regimes. In this case, the tiles represent specific regimes of behavior for the system, as the agent (or token) moves from one such state to the next. In the real world, these transitions are usually analog and may be subtle, but modeling these as a state diagram can be useful:
+```mermaid
+---
+config:
+   layout: elk
+---
+graph LR
+   perovskite[Perovskite]
+   ice[Ice]
+   liquidWater[Liquid Water]
+   steam[Steam]
+   plasma[Plasma]
+   perovskite <--> ice <-->liquidWater <--> steam <--> plasma
+   ice <--> steam
+```
+The agent's position across the hyperspace of places indicates what state the agent is in, where the agent can be seen as a marker for the current state.
+
+## Specialized Link Properties
+
+A link can be set to be *__inactive__* and/or *__hidden__*. It's also possible to have *__nested links__*.
+
+### Inactive Links
+An inactive link is visible, but can't be activated. Inactive links may serve the purpose of being descriptive (in a way similar to an inactive option in a select control in HTML works) or may be a divider. 
+
+### Hidden Links
+
+__Hidden Links__ are links that cause their containing entity to be invisible until a specific condition is met in the environment (such as the agent finding a magic scroll or having a certain power level).
+
+### Nexted Links
+
+__Nested Links__ are links that point to other links. These are frequently used in menus, but they can also be used for things like double key authentication.
+
+## Programmatic Links
+
+Ordinarily a link changes the location of the activating agent to a target SWID. Howevever, if a link does not have a target but does have an activity, then the activity is initiated once the initiating conditions are met, with the agent being passed as an argument.
+
+This is a mechanism by which activation of a link may introduce a change in the agent. For instance, dringing a magic potion (activating the link of that potion, may make the agent "stronger" in game terms ... or may turn them into a frog.
+
+Such a programmatic link also passes the linking entity. This can, for instance, inactivate the link once the potion is consumed, or make it hidden and inactive (which means that it can be removed from the domain).
+
+## Links and Spatial Web Nodes
 
