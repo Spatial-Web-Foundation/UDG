@@ -156,4 +156,4 @@ Links are one of the few actions that can cross spacial web node boundaries. A S
 
 This is more complex than moving within a given node because the latter simply requires changing pointers.
 
-
+[[Previous]](places.md) [[Next]](sensors.md)
