@@ -169,3 +169,5 @@ Typically links will take you from a place to another place, but it is possible 
 Places are a fundamental component of domains, but the two should not be confused. A domain is a context, a way of organizing information, and because this is the spatial web, a domain is frequently (but not always) associated with a place.
 
 ONe of the most important principles of working with places is in the recognition that topological relationships will likely be more important than direct geospatial relationships. The exact mechanism to determine how best to balance these two concerns is still TBD.
+
+[[Previous]](domain-entity-types.md) [[Next]](links.md)
