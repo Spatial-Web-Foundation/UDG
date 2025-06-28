@@ -18,4 +18,4 @@ Currently several core extensions are defined: Place, Link, Domain, Sensor, Thin
 
 * An __assemblage__ is an aggregate structure of things, places, and agents. It is intended to model corporations, institutions, governments, and so forth, but it can also model physical or other composite structures.  Cf. [Assemblages](#assemblages) for more information. 
 
-[Previous](entities.md)
+[[Previous]](entities.md) [[Next]](places.md)
