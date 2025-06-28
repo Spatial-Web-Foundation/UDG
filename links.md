@@ -145,3 +145,15 @@ Such a programmatic link also passes the linking entity. This can, for instance,
 
 ## Links and Spatial Web Nodes
 
+Links are one of the few actions that can cross spacial web node boundaries. A SWID is a pointer to both a given entity or domain and its hosting corresponing SW Node. Activating the link initiates a sequence of steps:
+
+* Negotiate a challenge that checks to make sure that the agent can be moved.
+* Identify if the agent has a corresponding swid on the new system. If not, create one.
+* Copy the metadata for that agent in the graph of the new server.
+* Attach the agent to the indicated place within the new domain.
+* Notify the current server that the agent has been successfully replaced.
+* Deactivate the agent on the current node (not remove, just deactivate) if the transfer was successful, otherwise send a note to the actor of the current agent that the link failed.
+
+This is more complex than moving within a given node because the latter simply requires changing pointers.
+
+
