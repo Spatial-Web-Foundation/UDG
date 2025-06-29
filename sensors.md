@@ -1,0 +1,45 @@
+# Sensors
+
+The challenge that is faced with the Spatial Web is that what you see is not always what you get. In general, the way that a given domain is perceived will vary depending upon the observer - some observers will be capable of seeing a great deal, others, not much at all. In order to manage this, one particularly useful entity is the *__sensor__*.
+
+> A __sensor__ is a mechanism to get a particular point of view on a domain from the perspective of either a place, agent, assemblage or thing.
+
+The most obvious form of sensor is an _eyeball_, or the mechanical equivalent, the _camera_. However, this gives a fairly restrictive idea about what sensors are capable of. 
+
+As an example, a very common sensor is a map-view sensor, which provides a representation of a particular domain from the perspective of an all encompassing eye (the map-view, or omniscient-view). This need not be a direct satellite view, but instead may be some form of boundary heat map drawing or icon view of entities within the domain. This may also generate an ESRI shape file, KML, GeoJSON, Geographic Markup Language, OSM, IDRISI Vectors, or similar format map resources. 
+
+Similarly, a sensor may be a game-view, which shows the places in a game map with pieces (agents) located within those places. For instance, the game of RISK would generate such a game view that would be similar to a "standard" RISK board.
+
+Sensors are also not just visual. A sensor may provide a written or verbal description, data files, audio, image or video renditions and ao forth. The idea behind this is essential that a sensor provides information from multiple potential perspectives, across multiple filters, to generate multiple formats.
+
+Sensors ask sensory information about a thing or environment, and most specifically are used to answer the question? What is a description of this thing?
+
+Sensors are typically attached to an entity, with a single entity having multiple potential sensors (also known as a __sensor array__).
+
+Every entity has a state description graph, also known as a hyperspace represented as an n-dimensional hypercube (likely implemented as a W3C datacube). This represents the broadcast or public properties or features of the entity. The sensor array acts as a filter to perceive specific properties and interpret them.
+
+Sensors are basically data plugins - they are intended to provide some meaningful mapping of information coming from the entity state description graph and make that available in a consistent fashion.
+
+The exact mechanism for how sensors work is still under development, but runs roughly along the following lines:
+
+```mermaid
+---
+config:
+    layout: elk
+---
+graph TD
+    start([start])-->hstpReq[HSTP requests<br>View]
+    hstpReq-->iterate[Agent iterates<br>through other<br>entities' states]
+    iterate --> filter[Filter through<br>known sensor<br>Filters]
+    filter --> transform[Transform the<br>result into<br>requested format]
+    transform --> respond[Send to<br>output channel]
+    respond-->stop
+```
+In general, this output is performed as an HSTP request to get a description of state of either a given entity or the domain of entities.
+
+A similar loop occurs for each entity's internal update, but does not include the filter or transform, and typically does not respond to data outside of the hsml namespace. This is used in order to query the state of the surrounding graph in order to adjust movement to desired goals. This is handled by the internal udg daemon.
+
+[[previous]](links.md) [[next]](domains.md)
+
+
+
