@@ -71,7 +71,9 @@ Once a given node with the relevant templates are found, active domains that imp
 
 This principle is important:
 
-> __Important__. A public domain registry does not store active domain references. Instead, it stores the location of SW Servers capable of instantiating a domain template to create a game, simulation, tour, interactive lesson or similar construct.
+> __Important__. A public domain registry __does not__ store active domain references. Instead, it stores the addresses of SW Nodes capable of instantiating a domain template to create a game, simulation, tour, interactive lesson or similar construct.
+
+> __Editor's Note__. This architecture differs a little from the initial recommendations in 3.3.1, but is key in understanding that domains are in essence a form of program - they are instantiated, they transition through states via the actions of agents with the things in the system, they reach an end-condition, and they end (or more accurately, they cease allowing for interactions). This architecture is also necessary to support multi-agent interactions. In cases where the domain is intended to control an IoT system, the system still instantiates a domain from the domain template, but while that domain is active, no other templates can be created. Otherwise, the two scenarios are the same.
 
 
 

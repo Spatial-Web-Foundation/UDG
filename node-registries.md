@@ -30,7 +30,9 @@ When a nodelink is activated, it follows a specific discovery process:
 
 Once a connection is made, the corresponding certificate is cached so that this process of discovery doesn't need to take place again until the next TTL.
 
+## Augmented Node Graphs
 
+In some cases, it is possible to attach the graph of one node to another in order to create a larger federated graph. This bypasses the normal HSTP protocol system. This is used primarily for those cases where a single domain may in fact be distributed across multiple servers, or where common resources such as schemas are shared across multiple chained nodes. The chained nodes are called __Augmenting Node Graphs__ and the chaining graph is called the __Augmented Node Graph__. More information will be forthcoming regarding such graphs.  
 
 
 
