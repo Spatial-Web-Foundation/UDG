@@ -1,0 +1,36 @@
+# SW Node Registries
+
+## SW Nodes
+
+> __Definition.__ A __Spatial Web Node__ (or __SW Node__) is a daemon on a computer server that host a spatial web node instance. It is roughly analogous to an http.d daemon that hosts a web server, and typically hosts a *__domain graph__* that maintains the state of multiple *__entities__*, *__domains__*, *__credentials__*, *__contracts__* and related content. Every spatial web node typically has a SWID that references a document indicating its underlying hosting environment (if it isn't native HSTP) and that provides ancillary metadata links that identify the characteristics of the node.
+
+## SW Node Networks
+
+A SW Node communicates with other SW Nodes via HSTP. SW Nodes connect in one of two ways: 
+
+1. Via __neighborhood connections__ made when the node connects via a nodelink (a specialized form of link that identifies a node) to another node. The successful negotiation caches the nodelink in the node's __nodecache__. This is a peer-to-peer connection.
+2. Via registration with a __public node registry__. In this case, the node becomes visible to all other members of the registry. The registration process returns a set of credentials that translate selected links from a search into neighborhood links.
+
+In both cases, when a node queries another node about its neighborhood, it can cache the connections of the queried node. Case #2 in fact is essentially Case #1 at a larger scale. Each node contains a certain amount of intrinsic metadata about the type of domains on the system, which can in turn be used to provide a facet query to find links from another node that have similar or overlapping facets. 
+
+For instance, if a given node mostly contained shipping information, the facets that it has can provide scores against another SW Node's registry metadata that was tied into shipping to retrieve those particular SW Nodes that are most like the requested nodes.
+
+In addition to that, when a Spatial Web Node first registers with a registry, it can retrieve schema definitions, common resources, code libraries and a "starter" set of node links that can then be used to add to the neighborhood of the registering node.
+
+Nodelinks typically have a time-to-live attribute (TTL) that indicates how long a link can remain active before it needs to be refreshed. If a nodelink cannot be resolved, then a secondary TTL is activated that indicates how long an interval should be taken before the link is considered dead, and consequently should be purged.
+
+## Discovery
+
+When a nodelink is activated, it follows a specific discovery process:
+
+* Is there a corrresponding certificate in the local nodelink cache. If so, use this, if it's not expired.
+* Otherwise, check the immediate peers (the immediate neighborhood) to see if a nodelink is resolvable. This is important because not all nodelinks are public.
+* If the link cannot be resolved in the immediate neighborhood, go to the public node registries. 
+* If no node is found at that point of resolution, return an HSTP No Address error (the analog to an HTTP 404 code).
+
+Once a connection is made, the corresponding certificate is cached so that this process of discovery doesn't need to take place again until the next TTL.
+
+
+
+
+
