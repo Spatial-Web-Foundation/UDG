@@ -2,7 +2,7 @@
 
 | Section | Requirement | Sections | Source | Status |
 | --- | --- | --- | --- | --- |
-| 1.2.1 | Enable discovery of virtual representations of physical entities | [Representations](https://www.notion.so/Representations-1fc40ac3a1e880ce9e8bf6df04da6192?pvs=21), [HSQL](https://www.notion.so/HSQL-1fc40ac3a1e880efbfd6e5ad819b025f?pvs=21) | [5.2.3.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.1 | Enable discovery of virtual representations of physical entities | [Representations](representations.md) | [5.2.3.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
 | 1.2.2 | Enable discovery of physical and virtual entities via discovery services | [Entity Registries](entity_registries.md) | [5.2.3.3.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
 | 1.2.3 | Validate SWIDs generated using SWID Method | [UDG SWIDs](udg-swids.md) | [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
 | 1.2.4 | Include Spatial Web registration service | [Entity Registries](entity-registries.md) | [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
@@ -15,18 +15,18 @@
 | 1.2.11 | Provide distributed operations | [UDG and HSTP](udg-and-hstp.md) | [6.3.5.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
 | 1.2.12 | Provide seamless domain interactions | [UDG and HSTP](udg-and-hstp.md) | [6.3.5.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
 | 1.2.13 | Implement registration processes | [Node Registries](node-registries.md) | [6.3.5.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.14 | Enable varied access methods | [**Agents, Security and Credentials**](https://www.notion.so/Actors-and-Agents-1fc40ac3a1e8809588dfc00f5ba9a4de?pvs=21) | [6.3.5.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.14 | Enable varied access methods | [UDG and HSTP](udg-and-hstp.md) | [6.3.5.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
 | 1.2.15 | Register and manage ACTIVITIES | [UDG Activities](https://www.notion.so/UDG-Activities-1fc40ac3a1e88086b23bd4fe3e97d361?pvs=21) | [6.4.4.8](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
 | 1.2.16 | Record HSML ACTIVITIES | UDG Activities | [6.4.4.8](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.17 | Support high-performance networking | [UDG State Management](https://www.notion.so/UDG-State-Management-1fc40ac3a1e880a6932ecb44e15e116e?pvs=21) | [7.1.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.17 | Support high-performance networking | [UDG and HSTP](udg-and-hstp.md) | [7.1.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
 | 1.2.18 | Enable automatic node discovery | [Node Registries](node-registries.md) | [7.1.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
 | 1.2.19 | Scale to internet level | [Node Registries](node-registries.md) | [7.1.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
 | 1.2.20 | Include Spatial Index Servers | [Hyperspace](https://www.notion.so/HyperSpace-1fc40ac3a1e88073baabdb1c94038473?pvs=21), [Entity Registries](entity_registries.md) | [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
 | 1.2.21 | Manage entity updates | [UDG and HSTP](https://www.notion.so/UDG-and-HSTP-1fc40ac3a1e88011aa18e39a6557dfc3?pvs=21) | [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
 | 1.2.22 | Manage rapid entity changes | [UDG and HSTP](https://www.notion.so/UDG-and-HSTP-1fc40ac3a1e88011aa18e39a6557dfc3?pvs=21) | [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
 | 1.2.23 | Manage slow-changing entities | [UDG and HSTP](https://www.notion.so/UDG-and-HSTP-1fc40ac3a1e88011aa18e39a6557dfc3?pvs=21) | [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.24 | Handle consensus latency | [**Agents, Security and Credentials**](https://www.notion.so/Actors-and-Agents-1fc40ac3a1e8809588dfc00f5ba9a4de?pvs=21) | [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.25 | Implement specified use cases | [UDG and HSTP](https://www.notion.so/UDG-and-HSTP-1fc40ac3a1e88011aa18e39a6557dfc3?pvs=21), [Representations](https://www.notion.so/Representations-1fc40ac3a1e880ce9e8bf6df04da6192?pvs=21) | [7.4.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.24 | Handle consensus latency | [UDG and HSTP](udg-and-hstp.md) | [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.25 | Implement specified use cases | [UDG and HSTP](https://www.notion.so/UDG-and-HSTP-1fc40ac3a1e88011aa18e39a6557dfc3?pvs=21), [Representations](representations.md) | [7.4.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
 
 1. UDG shall enable discovery of the virtual representation of physical entities. Source: [5.2.3.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
     - *The UDG system provides for a number of different representations of both physical and virtual entities and domains. This will be covered in the section **Representations**.*
