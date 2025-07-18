@@ -35,7 +35,45 @@ At each exhibit, she can see photographs, 3D renderings or movies showing the co
 * The museum domain has a home place that would correspond to the entryway into the museum, and each gallery would have a home place that would indicate the first kiosk "seen" by the agent when entering the agent.
 * The default map function on the museum domain would show each gallery, while the default map function on each gallery domain would show the kiosks within that gallery. 
 * A map function can also pass a level of detail (LOD) parameter that would indication how many levels deep the map response whould discover. Thus, an LOD of 2 would show each gallery and each station in the gallery, along with all agents within the relevant domain at that level, depending upon agent access privileges.
+* The data feeds for the kiosks are language sensitive. This means that the agent can set the language for output (or at least select from a list of available languages).
 
 #### Observations
+
+* The tour is one of the most prevalent paradigms of the spatial web. Almost every scenario involves either requesting a map, moving through that map via links, or interacting with a thing within that domain as part of that tour. 
+* In this respect, you can think of one of the roles of an agent is to act as the focus of intent within a given domain. 
+* This museum is a single agent instance of a SI-NHM museum domain template. It will stay active until either an end condition is met (even if that is simply terminating the instance). As such domains are kind of like virtual machines - they can be paused to retain their state, or they can be deleted when no longer needed.
+
+### 5.3.5.2. An XR Experience
+
+This is a similar scenario to 5.3.5.1, with the following differences:
+
+#### Scenario
+
+Jane goes to the museum, with her trusty VR glasses perched on her nose, synched to the museum's instance. As she enters the front entrance, the spatial web sensors correlate the position (via GPS or other positional sensor tech) to a given place, as defined by its H3 tile(s). If she is within the relevant tile, the spatial web glasses indicate that there is additional relevant metadata in the place, which can be activated to show the relevant media (videos, perhaps).
+
+Jane summons up a map to see what is available, and starts to move, and as she leaves a given region and moves into another, the old billboard goes away to be replaced by a new map or billboard icon (possibly both) that can then be expanded.
+
+At some point, she gets hungry, and wants to know how to get to the cafeteria. She asks for the cafeteria and either an arrow will pop up in front of her indicating the direction to follow or a map will appear with a path to that area. 
+
+As she eats, Jane decides that she wants to go from a visual to a light visual + audio display. From then on, instead of billboards, a running commentary comes through her earbuds, with directions, recommendations, and warnings being spoken rather than displayed as imagery or text video.
+
+At the end of her tour, she can ask for an itinerary and transcription, which reproduces critical information that can then be transmitted as compressed HSML and saved for later review.
+
+#### What Does This Test?
+
+* Everything in 5.3.5.1
+* Geopositioning with external environment synching.
+* Search
+* Modalities of perception
+* Path negotiation and optimization
+* History and Transcription
+
+#### Requirements
+
+* Sensors within the client device can provide mapping to a spatial position, which can then be transformed into a tile position, correlating with a given place within the model. Note that if somehow the actor ends up outside of defined tiles, then an algorithm can be used to determine the closest place within the domain, which can be correlated to suggest directions. 
+* Search is a query against places, things and agents respectively that will suggest candidates that most closely match the query parameters. This will generally be displayed as a list, and can be filtered by type. Search is sensitive to agent permissions.
+* Modality may be a function of the client or the node, but will typically work by transforming a map in RDF into some other form (an image, a diagram, audio, a movie, 3d environment, etc.) that can be consequently rendered by the client. The exact mechanism for performing this is TBD. 
+* As an agent moves through a domain, that agent creates a history correlated to the agent and the domain that can be persisted, then transformed into various forms, such as a transcript or summary.
+
 
 
