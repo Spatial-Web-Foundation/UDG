@@ -87,8 +87,61 @@ One of the roles of the chronometer is to indicate when a given domain should ch
 
 Most domains have objectives and goals. A remote drone domain, for instance, exists to get the drone to a target, perform a function, and hopefully return safely. These objectives typically will put the domain into a different state (Reset, Archive, Delete, etc.) In a game, these are the conditions that end the game and determine the winner. In a story, this is The End. In a device controller, this the termination of the updates to the devices in question. When the domain is instantiated, the why is set up as an end condition and is evaluated as part of the processing cycle for the domain. 
 
-## Domains, Links and Holonics
+## Domains, Links and Hyperspaces
 
 Places have an obvious containment relationship - Earth is made up of continents, which are made up of ountries, which are made up of cities, which are made up of even smaller divisions.
 
-Domains are not places, though they might appear to be at first glance. A domain has a place property that can in fact refer to multiple places. For instance, one can make up a domain of Red States, a domain of Blue States, and possible a domain of Purple States in the United States. It also has a Home place property that acts as a default when the domain is referenced as the target of a link.
+Domains are not places, though they might appear to be at first glance. A domain has a place property that can in fact refer to multiple places. For instance, one can make up a domain of Red States, a domain of Blue States, and possible a domain of Purple States in the United States. It also has a Home place property that acts as a default when the domain is referenced as the target of a link - this can be thought of as the equivalent of a landing page (or index.html in HTTP terms).
+
+This creates an interesting phenomenon. The most common form of link within the UDG is a link from one place to another place typically within the same domain. The links exist primarily for agents, but an agent may also have the ability to carry certain things from one place to another within a given domain.
+
+This is different behavior from the way that a link works in HTTP. There, activating a link sends the browser (the user agent) to a new address. With HSTP, activating a link will typically move the agent to a new Place within the domain. In a game environment such as Monopoly, this basically moves the agent's token to the new place (say from Pennsylvania Ave to Boardwalk). In a game like chess, each player in effect controls sixteen agents, one for each chess piece on their side, though they can only control one such agent at any given turn.
+
+This also raises an interesting quandry. Links can be contextual, and are also not necessarily contiguous. The valid links for a knight agent, for instance, is L shaped, and it can jump over adjacent squares, but can't jump outside of the boundaries of the board. The bishop can only move across diagonals, and only until it encounters a piece of the opposite's side (a capture) or a piece of the active side (a block). This indicates that the hyperspace of a domain is topological.
+
+## The Topological Hyperspace
+
+A topological space is one in which direct physical constraints are minimized in favor of conceptual ones. In effect, a domain consists of a set of places, each of which is a conceptual node connected by links. The set of all places that are traversable within the graph makeup the hyperspace for that domain, with the links in turn controlling access from one place to another within the domain.
+
+```mermaid
+---
+config:
+    layout: elk
+---
+graph LR
+    r1[Room1]
+    r2[Room2]
+    r3[Room3]
+    r4[Room4]
+    r5[Room5]
+    r6[Room6]
+    r1 -->|#9758;| r2
+    r1 -->|#9919;| r3
+    r2 -->|#9919;| r4
+    r3 -->|#9758;| r4
+    r2 -->|#9758;| r3
+    r4 -->|#9719;| r5
+    r4 -->|#9758;| r6
+```
+In this case, the hyperspace for the domain consists of six "rooms", each connected by links of various types:
+* Pointers (&#9758;) represent open links - an agent can move from one room to the next freely. 
+* Keys (&#9919;) represent locked links - the agent needs some form of key to open the link and move to the next room.
+* Finally, clocks (&#9719;) represents conditional locks - an external condition (such as a store being closed for the night) must be met before traversal can happen.
+
+This is an example of a topological domain. It consists of six Places, but each Place does not necessarily have to represent a physical location in the real world. Instead, the place is simply a scope for containment. It could represent stations in an assembly line, steps in a process, a detailed internal representation of a given subsystem, and so forth.
+
+The notion of linked places can be used to create an alternative for managing holonic viewpoints. For instance, if you have a place that represents a car, there is a link (perhaps the button that releases the latch that holds the hood closed), which will then take you to an entry place ("room") that contains the engine compartment, and that lets you in turn dig deeper into the engine, the battery, the alternator and so forth.
+
+This approach has a number of key advantages - first - you can control access to various subsystems because they are topological just places within the overall domain that are constrained by the links that connect them. Because links are contextual, you can only access certain subsystem if either you (or your agent) have the relevant key or some external condition is in force.
+
+This also relieves the Spatial Web of having to do heavy extensive physical mapping. This can be added back in, either by increasing the number of places to better represent a tighter partitioning of the space, or by providing more subtle links to create more neighborhoods (these are essentially equivlent actions).
+
+The hyperspace of the domain then becomes the set of all places within that domain. This solves another problem that a more physical realization introduces - determining whether you are at the edge of, or out of the boundaries of, a physical space. In a topological model, if the place is not in the domain, then it is not accessible by ANY agent. 
+
+## Topological vs Continuous Hyperspace
+
+The topological view is one where a domain consists of a finite number of discrete places, each with its own SWID. 
+
+## Domains and Domain Templates
+
+> __Definition.__ A __domain template__ is an *__activity__* that generates a domain. 
