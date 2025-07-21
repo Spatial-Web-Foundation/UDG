@@ -2,7 +2,7 @@
 
 ## 5.3.5. Cultural Location Tourism
 
-There are a number of different potential scenarios with the UDG for the D3.3.1 specification 5.3.5. 
+There are a number of different potential scenarios with the UDG for the D3.3.1 specification 5.3.5, which focuses on cultural location tourism. git 
 
 ### 5.3.5.1. A Virtual Tour
 
@@ -159,10 +159,76 @@ graph
 * One additional caveat is that in general, assets (specializations of THINGs) will be represented as encrypted key entities that can consequently be transferred to the wallet of the client controlling the respective agent of a given actor. For instance, in the gift shop example given in this use case, Jane can be awarded a magic shell (a ___token___) from the tour guide for answering a question correctly. The exact representation of the token will obvious vary from domain to domain (as will it's value), but it clearly represents an asset that can be assessed within some e-commerce system. 
 A __token__ in this case can be thought of as a specific store of value within the spatial web. The ___actor___ authorizes the ___agent___ to spend tokens within the ___domain___ in order to fulfill the terms of a ___contract___, and correspondingly retrieves tokens when the conditions for fulfilling a clause of the contract have happened. _It is still TBD whether or not tokens issues within one domain are fungible within other domains._
 
+### 5.3.5.4. Tracking Movement
+
+This builds on 5.3.5.2, with the following differences:
+
+#### Scenario
+
+Jane wants to be able to see where the other members of the tour (including her family) are, and send them messages to meet at a particular place at a certain time.
+
+#### What Does This Test?
+
+* Hyperspace
+* Positioning within Places
+* Avatars and Map Representations
+
+#### Observations
+
+* The dominant paradigm within the World Wide Web since its inception was based on the principle of publishing, and can best be articulated as: _"How do I find and access published content?_ This in turn was related to _"How do I publish content?"_ 
+* The dominant paradigm for the Spatial Web, however, is different. It can be expressed as: "_Where are the things in the world that I interact with?_" with the correlative question, "_How do things in my world publish where things are and what they do_?" While similar in scope, this is different in terms of the overall mission of this technology. 
+* The Spatial Web does not replace the World Wide Web. Rather, it provides another layer to the __noosphere__ or knowledge sphere, providing not only the context of philosophical thought but also of epistemological thought.
+* The spatial web has three different layers that ask the question "Where?":
+    * ___Domain___ or application layer.
+    * ___Place___ or conceptual space layer.
+    * ___Location___, or positional space layer.
+* The __domain layer__ is an existential context layer. By itself, a domain does not necessarily specify where things are, but instead, it indicates what process or system things are apart of. This systemic view is purely abstract, though it may have implicit hierarchies that arise because such hierarchies make it easier to compress process nested subroutines.
+* The __place layer__ is a conceptual space layer, and generally identifies a partition of a "hyperspace" into discrete, interconnected nodes within a lattice of links. A hyperspace can be thought of as the set of all relevant places within the broader domain, and will vary from domain to domain in terms of breakdown and structure. Places by themselves have relationships, but do not necessarily have the notion of a metric.
+* The __location layer__ contains specific metrics and the notion of distance. The specific mechanisms for describing that distance will vary from place to place. For instance, one _place_ might be a particular gallery within a museum, but within that gallery, there may be an ability to indicate location relative to the defined layer (possibly using some kind of a global coordinate system, or at a minimum level a local coordinate system that is common to that place). If you wanted to specify, for instance, that you are in a hexagon within a set of hexagons that identify the extent of that place as an index, then the location would be a single index value. 
+* A place will always have, at a minimum, one location - in the case where there are no effective degrees of freedom, this becomes the implicit location. As you increase the number of degrees of freedom within that place, you can better specify location if it is necessary. 
+* A place does have a location for mapping purposes, but it is defined as a bounding box within a unit hypercube (something called an __object coordinate system__), with the assumption that the domain represents the the maximal extent of this cube. This hypercube is then passed through a defined __projection filter__ (typically, but not always, a tensor) to create a visual representation of the domain in the target mapping dimensions. In most cases, this will be a two dimensional planar representation, even if the hypercube itself is of higher dimension and curved.
+* It is important to recognize that the hyperspace envelope of places does not usually completely tile (cover) the object coordinate system. The set of places is contextual and topological (a graph) and is internally connected by links, __holes__ (areas that are in the map but not actually within the model) are inevitable. Another way of putting this is that the map shows the relevant areas of the models, but anything that is not relevant (negative space) is simply an undefined region in the map. This is another way of stating the famous dictum "_The map is not the territory._".
+* An __avatar__ is a representation of an ___entity___ on a ___map___ within a given ___medium___ (or ___content-type___). It is typically represented in object coordinates, depending on the place's positional system and the medium in question. An entity, including an agent, may have multiple different avatars, with the best one for the mapping context being chosen prior to rendering. More on Avatars TBD.
+* Movement itself is managed by the udg.d daemon, which refreshes the state of the system at regular, frequent intervals, then renders this movement via hstp.d requests to the mapping service. 
+* The __UDG.d daemon__ also manages communication between the UDG and the HSTP layers. For instance, if a domain template has been previously defined (which will be covered in the next phase), then the HSTP will pass messages to the udg.d daemon to initiate a domain instantiation. The UDG.d itself is responsible for the creation of that instance, but it also communicates with HSTP when it has successfully completed the instantiation. Most of the operational logic that is initiated by the ___hstp.d___ is actually performed by the ___udg.d___, then transmitted back to other nodes via the hstp.d messaging system.
+
+### 5.3.5.5. Museum Discovery
+
+This supports other 5.3.5.x use cases.
+
+#### Scenario
+
+Jane wants to find other museums in the Smithsonian Institute complex to virtually visit, utilizing the same agent avatar that she had previously, including retaining knowledge and assets.
+
+#### What Does This Test?
+
+* Cross Domain Discovery and Linking
+* Directories
+* Spatial Web Domain Registries
+* Agent Persistence
+
+#### Observations
+* __Cross Domain Linking__. There are multiple layers of linking that exist within the spatial web. One of these is __cross-domain linking__. Such a link moves an agent from one domain to another, rather than simply from one place to another. This is roughly analogous to an external link in HTML that takes you outside of the document, albeit one that has more complexity.
+* __Intranode Domain Agent Linking__. Unlike HTML links, cross domain links are stateful - you are in essence transferring an agent from one graph to another, potentially outside of the Spatial Web Node itself. If the __originating domain__ (which has the link to the agent) is within the same node, this becomes a fairly simple matter of delinking the agent from one node and relinking it to the __destination domain__.
+* __Internode Domain Agent Linking__. If the destination domain, on the other hand, is outside of the spatial web node, then the agent on on the originating domain must in effect be _frozen_ or deactivated, while the agent's information and assets are transferred to the __destination spatial web node__. Additionally, a forwarding address is added to the frozen agent on the initial node to the active agenton the destination nnode. This makes it possible to search the evolution of agents across nodes. If an agent returns to the originating node, it's associated asset metadata is _appended to_ the previous agent, allowing the agent to learn information over time.
+* __Affiliation Networks__. Note additionally that transferring of agents can only occur if the domains have contracts allowing the transfer of agents, which in general means that they have created an affiliated network. This would be like multiple museums each agreeing to honor the contracts of other museums in the network. The exact mechanisms for doing so are currently to be determined.
+* __Directories and Landing Domains__. Each Spatial Web Node has a specific landing domain for that node. This identifies the domain templates that are supported on that node, and for each template, the active and completed domains for those templates. This landing Place is generated dynamically, and can be thought of as being analogous to a train station that allows agents to go to a particular domain. This is not a registry per se, but more akin to a directory.
+* __Domain Registries__. A __Domain Registry__ is a way for organizations to register the ___domain templates__ that are publicly available. Domains themselve may be very effervescent (though they can also be long lived), but domain templates are generally stable. In the museum scenario, for instance, there may be any number of active SI-NHM domains active at any given moment, with individual agents or teams of agents interacting with a given domain, but the SI-NHM domain template that informs these domains will remain fixed as a stable point of reference.
+* The domain registry, consequently, can tell you which spatial web nodes contain the relevant domain templates, allowing you to search these nodes to see if the domains (the games, simulations, IoT environments, and scenarios) are of interest. This domain registry is managed by (or delegated from) the ___Spatial Web Registration Authority___. The mechanics of registration are being worked out.
+* __Associated Metadata__. There is a core taxonomy being worked out for helping search and discovery for the domain registry. This is associated with both a __Place__ registry for registering places (distinct from domain, though interrelated) and for conceptual registries for identifying __Topics__, where a topic in general is used primarily for descriptive metadata (find me all domains that focus on global warming, for instance). There will similarly be a such registries for __Personages__ and __Organizations__. 
+
 ### Design Considerations on 5.3.5
 
 * The model presented here within the UDG looks at the environment of a Spatial Web Node as being a collection of applications built around domains, supported by secondary components, with this particular application being an example of what the author would consider an ___Exploration___ pattern. 
 * __Exploration Pattern.__ This pattern works on the assumption that one or more agents, acting as proxies for various external actors, are navigating a space (geophysical, conceptual, organizational, etc.), retrieving information, interacting with other agents and things within the system, and gaining respective keys (tokens) that can be used both for "unlocking" specific places within the system and for exchanging as stores of value inside and outside the system.
 * __Maps and Properties.__ What is most significant here is that the spatial web uses a knowledge graph as its store (and for now is assumed to query and update through a KG layer) but that it's not really a graph in the traditional sense. When you want to ___query___ the property of a given thing or agent in the system, what you are doing is retrieving a map of the thing within one or more domains, expressed in RDF (as JSON-LD, most likely), that will retrieve a representation of the object containing just _that_ property, more than likely as a time-series unless you specify a temporal constraint. For instance, you can get a map of the museum domain showing each of the exhibits, or only those exhibits focused on animals, or the exhibits within a gallery, and so forth.
 * __Maps as Data Structures.__ Maps are data structures first - they can be rendered into other forms, but every map is at its core a query against the UDG graph to retrieve representations of entities within the context of a given domain. It should also be noted that a map can be tabularized (this is what the SELECT statement in both SQL and SPARQL do) to provide a slice of this information in tabular form, but even so, the underlying query will be retrieving the subgraph containing relevant entities before applying this transformation to a table. 
-* __ 
+
+## Suggested Use Cases
+
+* Adding a new exhibit
+* Adding a new gallery
+* Creating a Museum Domain Template
+* Moving an Agent From One Domain to Another
+
+
