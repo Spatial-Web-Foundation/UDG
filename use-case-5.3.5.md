@@ -2,7 +2,7 @@
 
 ## 5.3.5. Cultural Location Tourism
 
-There are a number of different potential scenarios with the UDG for the D3.3.1 specification 5.3.5, which focuses on cultural location tourism. git 
+There are a number of different potential scenarios with the UDG for the D3.3.1 specification 5.3.5, which focuses on cultural location tourism.
 
 ### 5.3.5.1. A Virtual Tour
 
