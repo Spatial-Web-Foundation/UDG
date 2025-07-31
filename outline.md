@@ -25,7 +25,7 @@
     9. Stuctures in the UDG. Identification and representation of patterns in the UDG. Some patterns will be created by a single Agent other patterns will emerge from the actions of multiple agents. 
     10. Enable Polycentric Governance
 3. Distributed computing: UDG as a set of computing nodes interconnected the the Internet; distributed replication and syncing of content. All things HSTP.
-    1. Overall architecture of the spatial web node system, which involves both communication across HSTP protocols (query/response) as well as joining nodes together to create ad-hoc super nodes (i.e., spatial web federation).
+    1. [__Spatial Web Architecture__](spatial-web-architecture.md). Overall architecture of the spatial web node system, which involves both communication across HSTP protocols (query/response) as well as joining nodes together to create ad-hoc super nodes (i.e., spatial web federation).
     2. Structure of the Spatial Web Node, including the primary hstp.d and hsml.d daemons, the domain graph, a credential graph, and a schema graph.
     3. Bridging HSTP and UDG scopes (handled through hstp.d and hsml.d respectively)
     4. Managing internal local hstp.d clocks (repeating internal events) to manage query and updates against live resources.
