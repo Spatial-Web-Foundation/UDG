@@ -1,0 +1,15 @@
+flowchart TD
+    domain[fa:fa-globe Smart Home Automation<br/>A smart home scene with comprehensive time-based automation.]
+    livingRoom[fa:fa-home Living Room<br/>Main living area with smart devices.<br/>---<br/>size: 12x15<br/>location: main floor]
+
+    %% Relationships
+    domain --> livingRoom
+
+    %% Styling
+    classDef domain fill:#e1f5fe,stroke:#0277bd,stroke-width:3px
+    classDef room fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef light fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    classDef thermostat fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+
+    class domain domain
+    class livingRoom room

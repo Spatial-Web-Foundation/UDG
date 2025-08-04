@@ -1,0 +1,68 @@
+﻿<hsml>
+   <domain>
+      <name>Smart Home Automation</name>
+      <description>A smart home scene with comprehensive time-based automation.</description>
+      <defs>
+         <thing id="smartLight">
+            <name>Smart Light</name>
+            <description>A light that can be controlled remotely.</description>
+            <type>light</type>
+            <properties>
+               <property id="brightness"/>
+               <property id="color"/>
+               <property id="power"/>
+            </properties>
+         </thing>
+        <thing id="smartThermostat">
+            <name>Smart Thermostat</name>
+            <description>A thermostat that adjusts temperature automatically.</description>
+            <type>thermostat</type>
+            <properties>
+                <property id="temperature"/>
+                <property id="mode"/>
+            </properties>
+        </thing>
+      </defs>
+      <scene>
+         <place id="livingRoom">
+            <name>Living Room</name>
+            <description>Main living area with smart devices.</description>
+            <type>room</type>
+            <properties>
+               <property name="size" value="12x15"/>
+               <property name="location" value="main floor"/>
+            </properties>
+         </place>
+         
+         <!-- Frame 1: Early Morning (6:00 AM) -->
+         <frame duration="6:00 AM">
+            <thing ref="smartLight" brightness="30%" color="warm white" power="on"/>
+            <thing ref="smartThermostat" temperature="68°F" mode="heat"/>
+         </frame>
+         
+         <!-- Frame 2: Late Morning (9:00 AM) -->
+         <frame duration="9:00 AM">
+            <thing ref="smartLight" brightness="50%" color="bright white" power="on"/>
+            <thing ref="smartThermostat" temperature="70°F" mode="auto"/>
+         </frame>
+         
+         <!-- Frame 3: Midday Peak (12:00 PM) -->
+         <frame duration="12:00 PM">
+            <thing ref="smartLight" brightness="80%" color="daylight" power="on"/>
+            <thing ref="smartThermostat" temperature="72°F" mode="auto"/>
+         </frame>
+         
+         <!-- Frame 4: Evening Comfort (6:00 PM) -->
+         <frame duration="6:00 PM">
+            <thing ref="smartLight" brightness="60%" color="warm white" power="on"/>
+            <thing ref="smartThermostat" temperature="70°F" mode="auto"/>
+         </frame>
+         
+         <!-- Frame 5: Night Mode (10:00 PM) -->
+         <frame duration="10:00 PM">
+            <thing ref="smartLight" brightness="0%" color="off" power="off"/>
+            <thing ref="smartThermostat" temperature="65°F" mode="night"/>
+         </frame>
+      </scene>
+    </domain>
+</hsml>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home Automation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .tabs {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px 15px 0 0;
+            overflow: hidden;
+        }
+        
+        .tab {
+            flex: 1;
+            padding: 15px 20px;
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-size: 1em;
+        }
+        
+        .tab:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .tab.active {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-weight: bold;
+        }
+        
+        .content {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 0 0 15px 15px;
+            min-height: 500px;
+        }
+        
+        .frame {
+            display: none;
+        }
+        
+        .frame.active {
+            display: block;
+        }
+        
+        .frame-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .mermaid {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Smart Home Automation</h1>
+        <p style="text-align: center; margin-bottom: 30px; opacity: 0.9;">
+            A smart home scene with comprehensive time-based automation
+        </p>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="showFrame(1)">
+                6:00 AM<br>
+                <small>Early Morning</small>
+            </button>
+            <button class="tab" onclick="showFrame(2)">
+                9:00 AM<br>
+                <small>Late Morning</small>
+            </button>
+            <button class="tab" onclick="showFrame(3)">
+                12:00 PM<br>
+                <small>Midday Peak</small>
+            </button>
+            <button class="tab" onclick="showFrame(4)">
+                6:00 PM<br>
+                <small>Evening</small>
+            </button>
+            <button class="tab" onclick="showFrame(5)">
+                10:00 PM<br>
+                <small>Night Mode</small>
+            </button>
+        </div>
+        
+        <div class="content">
+            <!-- Frame 1: 6:00 AM -->
+            <div class="frame active" id="frame1">
+                <div class="frame-info">
+                    <h3>🌅 6:00 AM - Early Morning</h3>
+                    <p>Smart Light: 30% brightness, warm white, on | Smart Thermostat: 68°F, heat mode</p>
+                </div>
+                <div class="mermaid">
+flowchart TD
+    A[Smart Home Automation]
+    B[Living Room<br/>Main living area]
+    C[Smart Light<br/>30% brightness<br/>warm white<br/>power: on]
+    D[Smart Thermostat<br/>68°F<br/>heat mode]
+
+    A --> B
+    B --> C
+    B --> D
+
+    classDef home fill:#e1f5fe,stroke:#0277bd,stroke-width:3px
+    classDef room fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef light fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    classDef thermo fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+
+    class A home
+    class B room
+    class C light
+    class D thermo
+                </div>
+            </div>
+            
+            <!-- Frame 2: 9:00 AM -->
+            <div class="frame" id="frame2">
+                <div class="frame-info">
+                    <h3>☀️ 9:00 AM - Late Morning</h3>
+                    <p>Smart Light: 50% brightness, bright white, on | Smart Thermostat: 70°F, auto mode</p>
+                </div>
+                <div class="mermaid">
+flowchart TD
+    E[Smart Home Automation]
+    F[Living Room<br/>Main living area]
+    G[Smart Light<br/>50% brightness<br/>bright white<br/>power: on]
+    H[Smart Thermostat<br/>70°F<br/>auto mode]
+
+    E --> F
+    F --> G
+    F --> H
+
+    classDef home fill:#e1f5fe,stroke:#0277bd,stroke-width:3px
+    classDef room fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef light fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    classDef thermo fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+
+    class E home
+    class F room
+    class G light
+    class H thermo
+                </div>
+            </div>
+            
+            <!-- Frame 3: 12:00 PM -->
+            <div class="frame" id="frame3">
+                <div class="frame-info">
+                    <h3>🌞 12:00 PM - Midday Peak</h3>
+                    <p>Smart Light: 80% brightness, daylight, on | Smart Thermostat: 72°F, auto mode</p>
+                </div>
+                <div class="mermaid">
+flowchart TD
+    I[Smart Home Automation]
+    J[Living Room<br/>Main living area]
+    K[Smart Light<br/>80% brightness<br/>daylight<br/>power: on]
+    L[Smart Thermostat<br/>72°F<br/>auto mode]
+
+    I --> J
+    J --> K
+    J --> L
+
+    classDef home fill:#e1f5fe,stroke:#0277bd,stroke-width:3px
+    classDef room fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef light fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    classDef thermo fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+
+    class I home
+    class J room
+    class K light
+    class L thermo
+                </div>
+            </div>
+            
+            <!-- Frame 4: 6:00 PM -->
+            <div class="frame" id="frame4">
+                <div class="frame-info">
+                    <h3>🌆 6:00 PM - Evening Comfort</h3>
+                    <p>Smart Light: 60% brightness, warm white, on | Smart Thermostat: 70°F, auto mode</p>
+                </div>
+                <div class="mermaid">
+flowchart TD
+    M[Smart Home Automation]
+    N[Living Room<br/>Main living area]
+    O[Smart Light<br/>60% brightness<br/>warm white<br/>power: on]
+    P[Smart Thermostat<br/>70°F<br/>auto mode]
+
+    M --> N
+    N --> O
+    N --> P
+
+    classDef home fill:#e1f5fe,stroke:#0277bd,stroke-width:3px
+    classDef room fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef light fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    classDef thermo fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+
+    class M home
+    class N room
+    class O light
+    class P thermo
+                </div>
+            </div>
+            
+            <!-- Frame 5: 10:00 PM -->
+            <div class="frame" id="frame5">
+                <div class="frame-info">
+                    <h3>🌙 10:00 PM - Night Mode</h3>
+                    <p>Smart Light: 0% brightness, off, power off | Smart Thermostat: 65°F, night mode</p>
+                </div>
+                <div class="mermaid">
+flowchart TD
+    Q[Smart Home Automation]
+    R[Living Room<br/>Main living area]
+    S[Smart Light<br/>0% brightness<br/>off<br/>power: off]
+    T[Smart Thermostat<br/>65°F<br/>night mode]
+
+    Q --> R
+    R --> S
+    R --> T
+
+    classDef home fill:#e1f5fe,stroke:#0277bd,stroke-width:3px
+    classDef room fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef light fill:#ffebee,stroke:#757575,stroke-width:2px
+    classDef thermo fill:#e8f5e8,stroke:#388e3c,stroke-width:2px
+
+    class Q home
+    class R room
+    class S light
+    class T thermo
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({
+            startOnLoad: false, // Manual control
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true
+            }
+        });
+        
+        function showFrame(frameNumber) {
+            // Hide all frames
+            const frames = document.querySelectorAll('.frame');
+            frames.forEach(frame => frame.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected frame
+            document.getElementById(`frame${frameNumber}`).classList.add('active');
+            
+            // Add active class to selected tab
+            tabs[frameNumber - 1].classList.add('active');
+        }
+        
+        // Process all Mermaid diagrams on page load
+        async function initializeAllDiagrams() {
+            const allFrames = document.querySelectorAll('.frame');
+            const allMermaidDivs = document.querySelectorAll('.mermaid');
+            
+            console.log(`Processing ${allMermaidDivs.length} Mermaid diagrams...`);
+            
+            // Temporarily make all frames visible
+            allFrames.forEach(frame => {
+                frame.style.display = 'block';
+                frame.style.visibility = 'hidden';
+            });
+            
+            try {
+                // Process all Mermaid diagrams at once
+                await mermaid.run();
+                console.log('All Mermaid diagrams processed successfully');
+            } catch (error) {
+                console.error('Mermaid processing failed:', error);
+            }
+            
+            // Hide all frames again and restore normal visibility
+            allFrames.forEach(frame => {
+                frame.style.display = '';
+                frame.style.visibility = '';
+                frame.classList.remove('active');
+            });
+            
+            // Show the first frame
+            showFrame(1);
+        }
+        
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeAllDiagrams();
+        });
+    </script>
+</body>
+</html>
