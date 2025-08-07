@@ -229,7 +229,15 @@ Place:Room101 a Class:Room ;
     rdfs:label "Room 101" ;
     Place:hasAgent Agent:JaneDoe, Agent:KarenFree ;
     . 
-Domain:ApartmentBldg a Class:Domain ;
+Place:Floor1 a Class:Floor ;
+Place:contains Place:Room101, Place:Room102,
+    Place:Room103, Place:Room104 .
+
+Place:ApartmentBuilding1000 a Class:Building ;
+    Place:contains Place:Floor1, Place:Floor2,
+        Place:Floor3 .
+
+Domain:ApartmentScenario_123 a Class:Domain ;
     Domain:hasAgent Agent:JaneDoe, Agent:KarenFree, ... ;
     Domain:hasPlace Place:Room101, Place:Room102,
      Place:Room103, ... ;
@@ -256,6 +264,8 @@ WHERE {
     ?person rdfs:label ?personLabel .
     ?room rdfs:label ?roomLabel .
     ?room Place:hasAgent ?person .
+    ?building a Class:Building .
+    ?building Place:contains+ ?room .
     ?domain Domain:hasAgent ?person .
     ?domain Domain:hasPlace ?room .
     ?domain ?domainP ?domainO. 
@@ -264,5 +274,18 @@ WHERE {
 ```
 
 This will give you the graphs of ALL of the domains with all of the agents in all of the places in each domain, where the agents are people, and the places are rooms.
+
+Most SPARQL queries are constraint queries - they limit the facets so that rather than dealing with a potentially huge graph, you are dealing only with constrained subgraphs. For instance, if you only wanted rooms that are in a specific building, in a certain domain, you could parameterise the query to constrain the query. 
+
+For instance, you can use the above query and set the variable `?building` to the IRI `<Place:ApartmentBuilding1000>`. This would give you all occupied rooms in _Apartment Building 1000_ across all domains that contain that apartment building.
+
+The same query, however, could also take as an argument the `?person` variable with value `<Person:JaneDoe>`. Since there should only be one active agent in the spatial web with this identifier, this will also tell you what apartment building, floor, and room that particular agent is located in.
+
+This is an important point, because it means that the results of a query will be dependent upon a linear dictionary of named variables and values passed to the query. This flexibility makes SPARQL queries much more powerful than their SQL counterparts, especially when you can also use inferencing to determine the relationships between structures.
+
+### Named Queries and Metadata
+
+
+
 
 
