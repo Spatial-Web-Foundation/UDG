@@ -416,18 +416,40 @@ Every spatial web node has a distinct base, and for the most part, resources are
 
 One other key point - the spatial web does not recognize URL parameters being passed as part of a GET request - if you need to pass parameters, these should be passed as the body of a POST request. This keeps the address space clean, makes it easier to validate incoming requests, and is more consistent with regards to semantic web principles.
 
-
-
-
-
-
 ### Links
 
 Links are fundamental to the World Wide Web. The behavior of a link in that context is simple - it indicates a new URL (a place) that the user agent goes to in a specific domain, whereupon it retrieves the document associated with that address.
 
-A link makes use of a SWURL. 
+In the Spatial Web, links are more powerful and varied. At its core, a link associates a SWURL for a resource with an activity. For instance, one of the most common kinds of links is a ___portal link___ that is applied to a given link (styled as a door or other kind of portal), that causes the activating agent (such as a player character in a game) to move to a different, specified place:
 
-This behavior is not all that different with the spatial web, but such links are more complex as they are more contextual, and as such can be broken down into different types of behaviours. Some of these are given as follows:
+```mermaid
+graph LR
+    portal1-1[fa:fa-door-open<br><b>Agent</b><br>Portal]:::agent
+    pc1-1[fa:fa-chess-pawn<br><b>Agent</b><br>Player Character]:::agent
+    room1-1[fa:fa-map-marker-alt<br><b>Place</b><br>Room 1]:::place
+    room2-1[fa:fa-map-marker-alt<br><b>Place</b><br>Room 2]:::place
+    activity1-1[fa:fa-bolt <br><b>Activity</b><br>Transfer Agent]:::activity
+    credential1-1[fa:fa-wallet <br><b>Credential</b><br>Traversal Document]:::credential
+    link1-1[fa:fa-link<br><b>Link</b><br>Link]:::swlink
+    link1-1 -->|initiating agent| pc1-1
+    link1-1 -->|targeted agent| pc1-1
+    link1-1 -->|from| room1-1
+    link1-1 -->|to| room2-1
+    link1-1 -->|has activity| activity1-1
+    link1-1 -->|requires credential| credential1-1
+    portal1-1 -->|has link| link1-1
+    pc1-1 -->|has credential| credential1-1
+    
+    classDef swlink fill:orange
+    classDef agent fill:lightBlue
+    classDef place fill:lightGreen
+    classDef activity fill:yellow
+    classDef credential fill:ivory
+```
+
+In this particular case, 
+
+This behavior is not all that different with the spatial web, but such links are more complex as they are more contextual, and as such can be broken down into different types of behaviours. Some of these are given as follows: 
 
 #### Subsystem or Holonic Links
 
@@ -797,9 +819,13 @@ graph LR
     axes -->|has Topic| halberd & battleaxe
 ```
 
+### Importing Taxonomies and Schemas
+
 The predicate `hsml:importDomain` is an instruction to add the graph of the indicated domain as part of the graph search, and is applied to the hsml:Domain object. This makes it possible to import external taxonomies and schemas into an existing domain. This has a lot of utility, in that it means that a domain can be defined that contains common taxonomy and schema definitions which can then be used within another domain.
 
-The argument of `hsml:importDomain` can either be a URL for a domain.
+Typically, a spatial web node will contain a primary domain that contains many of the core concepts, structures, and places and common agents to be found within the majority of domains on that node. This can be imported into any given domain, providing a common framework for terms 
+
+
 
 
 
