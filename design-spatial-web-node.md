@@ -842,9 +842,9 @@ The primary difference between `hsml:includeDomain` and `hsml:importDomain` is t
 
 Note also that in both cases, the node server MUST have the relevant credentials to load in the external domain. Otherwise this statement will fail and an error message will be sent to the error channel.
 
-# Repositories
+### Repositories and Registries
 
-
+A __repository__ is a spatial web node that contains commonly utilized taxonomies, schemas, agents, activities, and other resources. 
 
 
 
