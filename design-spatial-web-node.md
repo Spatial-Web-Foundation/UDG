@@ -821,9 +821,30 @@ graph LR
 
 ### Importing Taxonomies and Schemas
 
-The predicate `hsml:importDomain` is an instruction to add the graph of the indicated domain as part of the graph search, and is applied to the hsml:Domain object. This makes it possible to import external taxonomies and schemas into an existing domain. This has a lot of utility, in that it means that a domain can be defined that contains common taxonomy and schema definitions which can then be used within another domain.
+The predicate `hsml:includeDomain` is an instruction to add the graph of the indicated domain as part of the graph search, and is applied to the hsml:Domain object. This makes it possible to import external taxonomies and schemas into an existing domain. This has a lot of utility, in that it means that a domain can be defined that contains common taxonomy and schema definitions which can then be used within another domain.
 
-Typically, a spatial web node will contain a primary domain that contains many of the core concepts, structures, and places and common agents to be found within the majority of domains on that node. This can be imported into any given domain, providing a common framework for terms 
+Typically, a spatial web node will contain a primary domain that contains many of the core concepts, structures, and places and common agents that may be used within the majority of domains on that node. This can be imported into any given domain, providing a common framework for terms. In general, this is like a link in that the SWURL for the resource is passed. This is then interpreted by HSML (through the graph.d engine) to add this as resource into the active graph for the domain.
+
+This can also be done across node boundaries. A __resource repository__ is a domain server that contains various entity resources that may be used across the entirety of the spatial web. By working from these common repositories, entities such as common places, frequently defined agents, taxonomy terms, and so forth can be referenced within a domain, while staying up to date.
+
+Note that because of latency considerations, there are times where it may be more advantageous to autoload an external domain's contents permanently onto a given spatial web node. The `hsml:importDomain` is similar to the `hsml:includeDomain` but copies the imported domain content to the server directly, rather than referencing them from an external server. This creates an internal domain, and requires that you specify both the external SWURL and the internal name:
+
+```
+[] a hsml:Domain ;
+    hsml:swurl <#domain/ExternalTaxonomy>
+    hsml:importDomain <https://myExternalResources.com#domain/externalTaxonomy> . 
+    .
+```
+
+When this is interpreted by the hsml parser, it will retrieve the subgraph from the external domain and load it into the graph as a named graph with associated local-name SWURL. This may frequently be done from packages that are loaded in initially, and that may be periodicallly refreshed.
+
+The primary difference between `hsml:includeDomain` and `hsml:importDomain` is that the latter creates a domain extension from the external system that is always up to date but that may have higher latency, while the latter creates a local copy of the external domain that may be out of date but that has much lower latency.
+
+Note also that in both cases, the node server MUST have the relevant credentials to load in the external domain. Otherwise this statement will fail and an error message will be sent to the error channel.
+
+# Repositories
+
+
 
 
 
