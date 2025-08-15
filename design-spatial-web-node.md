@@ -355,7 +355,7 @@ For instance, if the spatial web node has a SWURL of:
 https://mySmartRoom.com:8200
 ```
 
-with 8200 indicating the port number where the hstp.d daemon is located, then resources that are defined on that node (such as domains, agents, scripts, etc.) can be further accessed by normal http qualification methods, such as:
+with 8200 indicating the port number where the hstp.d daemon is located (there is no port specifically dedicated to the spatial web, but it would be a good idea to be thinking about this), then resources that are defined on that node (such as domains, agents, scripts, etc.) can be further accessed by normal http qualification methods, such as:
 
 ```
 https://mySmartRoom.com:8200#agent-light-123
@@ -844,7 +844,22 @@ Note also that in both cases, the node server MUST have the relevant credentials
 
 ### Repositories and Registries
 
-A __repository__ is a spatial web node that contains commonly utilized taxonomies, schemas, agents, activities, and other resources. 
+A __repository__ is a spatial web node that contains commonly utilized taxonomies, schemas, agents, activities, and other resources. A __registry__, on the other hand, is a way of registering the locations of specific spatial web nodes and their associated resources. The spatial web nodes, then would make use of the same DNS registry that HTTP and HTTPS uses, with the additional caveat that access would be moderated by credentials.
+
+The Spatial Web Foundation should be responsible for maintaining core repositories, especially places, taxonomic concepts, activity components and schemas. This is a common requirement, and while others can and will create their own definitions, they can use spatial web concepts to provide core provenance and structure.
+
+The Spatial Web Foundation should also be responsible for a Spatial Web Registration Authority (SWRA). The purpose of such a registry is to provide a clearinghouse for identifying and classifying public domains, using the Spatial Web UDG Taxonomy (and the corresponding hsml:hasTopic and related predicates) to help to identify relevant content.
+
+When a Spatial Web Node is registered with SWRA several things happen:
+
+* The ipv6 address of the node server is registered, along with a web domain name and (if different from the default) a port. The SWRA registry can also register the relevant IP addresses.
+* A SW domain on a SW node can be assigned a public SWRA credential that indicates that the domain in question is a part of the SWRA network (similar networks can be established with different sets of credentials).
+* Periodically, the spatial web node can send an update of all domains on that node that have the relevant credentials. This include any metadata (topics) that are associated with the domain. Note that these domains provide access points to other domains that may not necessarily be transmitted to the registry. As such they should be seen as starting points for various domain activities. Not all domains on a node need (or should) be so registered.
+* Registries that issue their own credentials create __affiliation networks__. For instance, a given company that produces lines of IoT devices with associated HSML interfaces may end up providing both an affiliation network of all nodes that make use of these devices, and as such share common domain and agent interfaces, taxonomies, structures and so forth. Similarly, a multi-system role playing game may set up an affiliation network where each node hosts one or more domains in that particular universe, with the ability for agents to move from one node to another through the use of supported credentials in that affiliation network. 
+* A SW Node (and associated domains) can be part of multiple affiliation networks. For instance, a federal government may provide a core affiliation network for its member states, each both sharing resources and providing information, as well as identifying what other nodes are part of that affiliation.
+* Both a repository and a registry are spatial web nodes. What differentiates them is primarily whether they have the additional functions of registration and whether they permit sharing within one or more affiliate networks. This are additional modules that can be added on to the base functionality of the spatial web node.
+
+
 
 
 
