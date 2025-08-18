@@ -1,4 +1,115 @@
-﻿# Spatial Web Design
+﻿# Universal Domain Graph (UDG) Design
+
+## Requirements
+
+| Section | Requirement | Sections | Source | Status |
+| --- | --- | --- | --- | --- |
+| 1.2.1 | Enable discovery of virtual representations of physical entities | [Representations](https://www.notion.so/Representations-1fc40ac3a1e880ce9e8bf6df04da6192?pvs=21), [HSQL](https://www.notion.so/HSQL-1fc40ac3a1e880efbfd6e5ad819b025f?pvs=21) | [5.2.3.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.2 | Enable discovery of physical and virtual entities via discovery services | [Entity Registries](https://www.notion.so/Entity-Registries-1fc40ac3a1e88035950cc7a2ab4009b3?pvs=21), [Annotations](https://www.notion.so/Annotations-1fc40ac3a1e88023812aeb50c2de5af8?pvs=21) | [5.2.3.3.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.3 | Validate SWIDs generated using SWID Method | [UDG SWIDs](https://www.notion.so/UDG-SWIDs-and-IRIs-1fc40ac3a1e88022a7e4c536d8f5a056?pvs=21) | [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.4 | Include Spatial Web registration service | [Entry Registries](https://www.notion.so/Entity-Registries-1fc40ac3a1e88035950cc7a2ab4009b3?pvs=21) | [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.5 | Register all SWIDs in Spatial Web Registry | [Entry Registries](https://www.notion.so/Entity-Registries-1fc40ac3a1e88035950cc7a2ab4009b3?pvs=21) | [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.6 | Enable domain verification and validation | [Entry Registries](https://www.notion.so/Entity-Registries-1fc40ac3a1e88035950cc7a2ab4009b3?pvs=21) | [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.7 | Support flexible SWID generation | [Entry Registries](https://www.notion.so/Entity-Registries-1fc40ac3a1e88035950cc7a2ab4009b3?pvs=21) | [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.8 | Ensure SWID uniqueness | [UDG SWIDs](https://www.notion.so/UDG-SWIDs-and-IRIs-1fc40ac3a1e88022a7e4c536d8f5a056?pvs=21) | [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.9 | Maintain SWIDs in Registry | [Entry Registries](https://www.notion.so/Entity-Registries-1fc40ac3a1e88035950cc7a2ab4009b3?pvs=21) | [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.10 | Maintain resilient operations | [**UDG and HSTP**](https://www.notion.so/UDG-and-HSTP-1fc40ac3a1e88011aa18e39a6557dfc3?pvs=21) | [6.3.4.9](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.11 | Provide distributed operations | [**UDG and HSTP**](https://www.notion.so/UDG-and-HSTP-1fc40ac3a1e88011aa18e39a6557dfc3?pvs=21) | [6.3.5.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.12 | Provide seamless domain interactions | [**UDG and HSTP**](https://www.notion.so/UDG-and-HSTP-1fc40ac3a1e88011aa18e39a6557dfc3?pvs=21) | [6.3.5.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.13 | Implement registration processes | [Node Registry](https://www.notion.so/The-UDG-Node-Registry-1fc40ac3a1e880688beddbce64a17471?pvs=21) | [6.3.5.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.14 | Enable varied access methods | [**Agents, Security and Credentials**](https://www.notion.so/Actors-and-Agents-1fc40ac3a1e8809588dfc00f5ba9a4de?pvs=21) | [6.3.5.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.15 | Register and manage ACTIVITIES | [UDG Activities](https://www.notion.so/UDG-Activities-1fc40ac3a1e88086b23bd4fe3e97d361?pvs=21) | [6.4.4.8](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.16 | Record HSML ACTIVITIES | UDG Activities | [6.4.4.8](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.17 | Support high-performance networking | [UDG State Management](https://www.notion.so/UDG-State-Management-1fc40ac3a1e880a6932ecb44e15e116e?pvs=21) | [7.1.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.18 | Enable automatic node discovery | [Node Registry](https://www.notion.so/The-UDG-Node-Registry-1fc40ac3a1e880688beddbce64a17471?pvs=21) | [7.1.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.19 | Scale to internet level | [Node Registry](https://www.notion.so/The-UDG-Node-Registry-1fc40ac3a1e880688beddbce64a17471?pvs=21) | [7.1.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.20 | Include Spatial Index Servers | [Hyperspace](https://www.notion.so/HyperSpace-1fc40ac3a1e88073baabdb1c94038473?pvs=21), [Entity Registries](https://www.notion.so/Entity-Registries-1fc40ac3a1e88035950cc7a2ab4009b3?pvs=21) | [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.21 | Manage entity updates | [UDG and HSTP](https://www.notion.so/UDG-and-HSTP-1fc40ac3a1e88011aa18e39a6557dfc3?pvs=21) | [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.22 | Manage rapid entity changes | [UDG and HSTP](https://www.notion.so/UDG-and-HSTP-1fc40ac3a1e88011aa18e39a6557dfc3?pvs=21) | [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.23 | Manage slow-changing entities | [UDG and HSTP](https://www.notion.so/UDG-and-HSTP-1fc40ac3a1e88011aa18e39a6557dfc3?pvs=21) | [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.24 | Handle consensus latency | [**Agents, Security and Credentials**](https://www.notion.so/Actors-and-Agents-1fc40ac3a1e8809588dfc00f5ba9a4de?pvs=21) | [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+| 1.2.25 | Implement specified use cases | [UDG and HSTP](https://www.notion.so/UDG-and-HSTP-1fc40ac3a1e88011aa18e39a6557dfc3?pvs=21), [Representations](https://www.notion.so/Representations-1fc40ac3a1e880ce9e8bf6df04da6192?pvs=21) | [7.4.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+
+1. UDG shall enable discovery of the virtual representation of physical entities. Source: [5.2.3.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+    - *The UDG system provides for a number of different representations of both physical and virtual entities and domains. This will be covered in the section **Representations**.*
+2. UDG shall enable discovery of physical and virtual entities via discovery services. Source: [5.2.3.3.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+    - *This is a multipart problem. Public entities will be identified within a set of spatial web registries, broken down by category, location, or similar systems. **(Entity Registries)**. Individual SW Nodes (SWNodes) may reference these entities, and may also annotate them. Entity annotations are only available if users have the relevant access to these separate SWNodes).  Cf. **Annotations**.*
+3. UDG shall validate SWIDs generated using SWID Method prior to issuance, e.g., assess uniqueness. Source: [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+    - *Any SWNode may generate SWID nodes (typically following a specific syntax) that includes a UUID identifier component. cf. **UDG SWIDS***
+4. UDG shall include a Spatial Web registration service for Public and Top domains. Source: [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+    - *All public and top domains will be part of the **Entity Registries,** which are specfic SWNodes that incorporate registration services. Private entities and domains are issued through the respective SWNode, but are not necessarily registered.*
+5. UDG shall, for audit purposes, register all SWIDs related to all public and top domains in a Spatial Web Registry. Source: [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+    - See **Entity Registries**.
+6. UDG shall enable verification and validation services for domains prior to their registration. Source: [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+    - See **Entity Registries**
+7. UDG shall support the generation of SWIDs one at a time, such as for Top Domains, or generate many at a time, such as for Public Domains. Source: [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+    - See **Entity Registries**
+8. UDG shall ensure SWID uniqueness. Source: [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+    - See **UDG SWIDs**
+9. UDG shall ensure that SWIDs are maintained in the Spatial Web Registry. Source: [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+    - See **Entity Registries**
+10. UDG operations shall be resilient to inconsistencies in relationships between nodes and in the content of nodes. Source: [6.3.4.9](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+    - In general, the responsibility for the consistency of the graph within a SWNode will reside primarily for the host of the node, though certainly the UDG specification will offer mechanisms to test and compare entity representation between nodes. See **UDG and HSTP**
+11. UDG shall provide for distributed operations of the UDG including propagation of changes and consistency. Source: [6.3.5.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+    - See **UDG and HSTP**
+12. UDG shall provide Spatial Web Domain interactions that are seamlessly managed and integrated. Source: [6.3.5.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+    - See **UDG and HSTP**
+13. UDG shall implement Spatial Web Domain registration processes as defined in clause [6.3.6](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21). Source: [6.3.5.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+    - A Spatial Web Node is registered in a manner similar to that used by DNS, as specifically covered in **Node Registry**
+14. UDG design and procedures shall enable a range of methods for accessing the UDG from basic, open access to UDG access services with enhanced value in accord with economic exchange, e.g, fee, advertising, etc. Source: [6.3.5.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+    - UDG makes use of a role based ACL system that enables multiple levels of access and interface visibility See **Agents, Security and Credentials**
+15. UDG shall provide the capability to register and manage ACTIVITIES that are associated with AGENTs, reflecting their capabilities and permissions. Source: [6.4.4.8](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+    - ACTIVITIES are defined with respect to roles, and have their own specific SWID identifiers. A CONTRACT is a specific entity that identifies a AGENT ROLE with an associated binding to the relevant PERSON to perform an ACTIVITY. When the CONTRACT is executed, a REPORT is created and persisted indicating the outcome of the contract. See **UDG Activities**.
+16. UDG shall keep a record of HSML ACTIVITIES that were executed as part of a Contract, providing a history of the Activity, verification of the execution of the Activity, and enabling the tracking of the Activity’s progress. Source: [6.4.4.8](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+    - See **UDG Activities**
+17. UDG shall be designed to operate with communication network performance where bandwidth ranging from hundreds of gigabits per second to several terabits per second (i.e. having latency in the sub-millisecond range). Source: [7.1.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+    - This is implementation specific and is outside the scope or purview of this project. See **UDG State Management**.
+18. UDG shall provide mechanisms for automatic discovery of nodes, and their properties and capabilities as well as the means to access them. Source: [7.1.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+    - The master Node Registry contains a primary list to registered nodes in the Spatial Web Network. Each Node also contains a cache of existing nodes as node records within the UDG graph that can also include subdomain nodes that are not formally registered. These follow the same credentialling mechanism. See **Node Registry**
+19. UDG shall support the ability to accommodate an increasing number of connectivity endpoints, reaching internet scale. Source: [7.1.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+    - See **Node Registry**.
+20. UDG shall include Spatial Index Servers that make maps ranging from simple SQL indexes to graph-based databases to widely adopted and standard spatial indexing services which deliver spatial indexing. Source: [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+    - The UDG supports a mechanism to specific the characteristics of a given **Hyperspace** through the Unit interface, with publicly available Units contained in the Unit Registry. This includes mechanisms for linking to external servers for resolution of indexed-based hyperspace metrics (see **External Services**). The Place Registry ****is an **Entity Registry** that provides Atlas and Gazeteer functionality.
+21. UDG shall manage entity replication and update with consideration of how quickly the entities are changing. Source: [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) 
+    - Entities are created, modified, and deprecated through the HSTP interfaces (entities in general are not replicated). This process is covered in **UDG and HSTP**. Note that the latency of the Spatial Web System will be a function of the implementation of that system on any given node, and as such is out of scope of this particular project.
+22. UDG shall manage rapidly changing entities using a peer-to-peer methodology between Spatial Severs, managed by cloud instance(s), but bound by spatial CONTRACTs stored in a DLT Spatial Domain. Source: [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+    - As with #21, the specific latency of a given system will be a fairly complex function of graph speed, network latency, complexity of queries, processor throughput and so forth, and as such is out of scope of this particular specification (see **UDG and HSTP** for details about these issues). Private entities that “move” between different servers (such as a character moving from one game-world to another) will use HSTP to communicate the state change, with the old entity being deprecated and a new entity with associated metadata being created from one system to another. See **Entity and Domain Transfer**.
+23. UDG shall manage slow-changing cross-ledger entities and CONTRACTs on a distributed ledger. Source: [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+    - See **Entity and Domain Transfer**. Please note, in general, no information is lost on a given node, it is only deprecated or deactivated.
+24. UDG System may incur latency when achieving consensus. Source: [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+    - In general, credentials will be cached on each SWNode within a separate secured graph on that node (not part of the domain graph) in order to significantly reduce latency. See **Security and Credentials**.
+25. UDG shall implement the use cases: [7.4.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21), and [7.4.11](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21). Source: [7.4.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+    - All domains make use of an update process that takes a parametric bundle (with credentials but without specific identifiers) and maps them to an HSML structure stored within the graph cf. **UDG and HSTP**) . This bundle will vary from domain to domain, which means that there is a discovery mechanism in place that provides the requisite properties as a JSON encoded SHACL file. This process will then generate the relevant subgraphs in the UDG Node and return a REPORT containing the node identifier and displayable information for that domain or entity. See **Representations**
+
+[Entity Registries](https://www.notion.so/Entity-Registries-1fc40ac3a1e88035950cc7a2ab4009b3?pvs=21)
+
+[Representations](https://www.notion.so/Representations-1fc40ac3a1e880a792f5d5a20a47a48f?pvs=21)
+
+[Annotations](https://www.notion.so/Annotations-1fc40ac3a1e88023812aeb50c2de5af8?pvs=21)
+
+[UDG SWIDs and IRIs](https://www.notion.so/UDG-SWIDs-and-IRIs-1fc40ac3a1e88022a7e4c536d8f5a056?pvs=21)
+
+[**UDG Node Architecture**](https://www.notion.so/UDG-Node-Architecture-1fc40ac3a1e880438df4c3d3823e1170?pvs=21)
+
+[UDG and HSTP](https://www.notion.so/UDG-and-HSTP-1fc40ac3a1e88011aa18e39a6557dfc3?pvs=21)
+
+[**Actors and Agents**](https://www.notion.so/Actors-and-Agents-1fc40ac3a1e8809588dfc00f5ba9a4de?pvs=21)
+
+[UDG Activities](https://www.notion.so/UDG-Activities-1fc40ac3a1e88086b23bd4fe3e97d361?pvs=21)
+
+[UDG State Management](https://www.notion.so/UDG-State-Management-1fc40ac3a1e880a6932ecb44e15e116e?pvs=21)
+
+[The UDG Node Registry](https://www.notion.so/The-UDG-Node-Registry-1fc40ac3a1e880688beddbce64a17471?pvs=21)
+
+[External Services and Channels](https://www.notion.so/External-Services-and-Channels-1fc40ac3a1e8809ab6b3d08c0c440b0f?pvs=21)
+
+[**Entity and Domain Transfer**](https://www.notion.so/Entity-and-Domain-Transfer-1fc40ac3a1e880a6984bed9b34258df8?pvs=21)
+
+[HyperSpace](https://www.notion.so/HyperSpace-1fc40ac3a1e88073baabdb1c94038473?pvs=21)
+
+[HSQL](https://www.notion.so/HSQL-1fc40ac3a1e880efbfd6e5ad819b025f?pvs=21)
+
+## Spatial Web Node Design
 
 This section focuses primarily on the broad scope of the spatial web node system and how it interacts with the UDG. 
 
@@ -838,11 +949,15 @@ Note that because of latency considerations, there are times where it may be mor
 
 When this is interpreted by the hsml parser, it will retrieve the subgraph from the external domain and load it into the graph as a named graph with associated local-name SWURL. This may frequently be done from packages that are loaded in initially, and that may be periodicallly refreshed.
 
-The primary difference between `hsml:includeDomain` and `hsml:importDomain` is that the latter creates a domain extension from the external system that is always up to date but that may have higher latency, while the latter creates a local copy of the external domain that may be out of date but that has much lower latency.
+The primary difference between `hsml:includeDomain` and `hsml:importDomain` is that `hsml:includeDomain` creates a domain extension from the external system that is always up to date but that may have higher latency (and is not actually stored on the same node as the including domain), while the `hsml:importDomain` creates a local copy of the external graph in the calling graph. This graph may be out of date but that has much lower latency.
+
+An example of an included domain would be a hotel that had a number of guest rooms, each of which were in their own domain (which may or may not be on the same spatial web node). An example of an imported domain would be one that incorporated a taxonomy that is commonly used by other domains but that also does not change frequently and may be heavily referenced.
+
+Another way of thinking about imports vs. includes is that an import is essentially a cache of one domain within another, while, an include is a temporary reference. 
 
 Note also that in both cases, the node server MUST have the relevant credentials to load in the external domain. Otherwise this statement will fail and an error message will be sent to the error channel.
 
-### Repositories and Registries
+### Repositories, Registries
 
 A __repository__ is a spatial web node that contains commonly utilized taxonomies, schemas, agents, activities, and other resources. A __registry__, on the other hand, is a way of registering the locations of specific spatial web nodes and their associated resources. The spatial web nodes, then would make use of the same DNS registry that HTTP and HTTPS uses, with the additional caveat that access would be moderated by credentials.
 
@@ -855,13 +970,250 @@ When a Spatial Web Node is registered with SWRA several things happen:
 * The ipv6 address of the node server is registered, along with a web domain name and (if different from the default) a port. The SWRA registry can also register the relevant IP addresses.
 * A SW domain on a SW node can be assigned a public SWRA credential that indicates that the domain in question is a part of the SWRA network (similar networks can be established with different sets of credentials).
 * Periodically, the spatial web node can send an update of all domains on that node that have the relevant credentials. This include any metadata (topics) that are associated with the domain. Note that these domains provide access points to other domains that may not necessarily be transmitted to the registry. As such they should be seen as starting points for various domain activities. Not all domains on a node need (or should) be so registered.
-* Registries that issue their own credentials create __affiliation networks__. For instance, a given company that produces lines of IoT devices with associated HSML interfaces may end up providing both an affiliation network of all nodes that make use of these devices, and as such share common domain and agent interfaces, taxonomies, structures and so forth. Similarly, a multi-system role playing game may set up an affiliation network where each node hosts one or more domains in that particular universe, with the ability for agents to move from one node to another through the use of supported credentials in that affiliation network. 
+* Registries that issue their own credentials create __affiliation networks__. For instance, a given company that produces lines of IoT devices with associated HSML interfaces may end up providing an affiliation network of all nodes that make use of these devices, and as such share common domain and agent interfaces, taxonomies, structures and so forth. Similarly, a multi-system role playing game may set up an affiliation network where each node hosts one or more domains in that particular universe, with the ability for agents to move from one node to another through the use of supported credentials in that affiliation network. 
 * A SW Node (and associated domains) can be part of multiple affiliation networks. For instance, a federal government may provide a core affiliation network for its member states, each both sharing resources and providing information, as well as identifying what other nodes are part of that affiliation.
 * Both a repository and a registry are spatial web nodes. What differentiates them is primarily whether they have the additional functions of registration and whether they permit sharing within one or more affiliate networks. This are additional modules that can be added on to the base functionality of the spatial web node.
+* Moreover, a spatial web node can be both a repository and a registry. 
+
+### Affiliation Networks
+
+An __affiliation network__ is a network of spatial web nodes which shares common resources, taxonomic classifications and typically a common registry. The registry serves as the hub of the network, identifying membership in the affiliation network as well as providing a mechanism for discovery within that network.
+
+One of the roles of a registry is to issue and affiliation credential. This credential serves as a way of verifying that nodes within the network are in fact part of that network, and provide permissions that spatial web clients need to have in order to access certain features.
+
+For instance, a group of universities in a given region may establish an affiliated network. This means that each university effectively agrees to abide by specific taxonomies as a way of organizing information, provides common set of activities for performing such tasks as transferring students between universities, enrolling in classes, and so forth, and will often allow students and faculty from one university to access resources or get consistent grading at other universities within the affiliation.
+
+This is accomplished through a "university league" credential which is issued when the node is added to the network. When a student registers to a given node, their user agent (the software client they interact with) within the system receives a corresponding private key credential that both makes the user a resource in the system and provides them access to that system.
+
+This serves a number of functions. For instance, an administrator can perform an affiliation level search for a given student, faculty member, class, or program (among many other things), either by ID or by attributes. A student can register with another university within the affiliation to take a class remotely, or can even sign up to and use remotely controlled laboratories stations (such as observatory time at a telescope or participation within a collaborative concert). A teacher can make available resources such as books or training videos from protected repositories to all of her students.
+
+In this particular case, the registry serves to identify those domains within the network of nodes of affiliated members that may contain the desired resources. When a query is made in the broader context of the affiliation, each of these affiliated nodes are then queried in turn and return the associated links to those resources as a structure (analogous to an RSS or Atom type structure) that are then collated by the calling domain.
+
+Note that the nodes in these affiliated networks are not (typically) graph extensions. A graph extension expands the active domain graph of a given node and is normally secured, because it exposes all resources within that graph. An affiliation query, on the other hand, is a request for information (typically links but also maps) from other nodes in the affiliated network. 
+
+```mermaid
+---
+config:
+  layout: elk
+---
+flowchart TD
+  subgraph SWRAF[Spatial Web Affiliation]
+      subgraph ULN[University Network]
+         direction TB
+            Oxbridge1[<b>Domain</b><br>Oxbridge University]
+            Camford[<b>Domain</b><br>Camford University]
+            Eden[<b>Domain</b><br>Eden University]
+            Queens[<b>Domain</b><br>Queens College]
+      end
+      subgraph CL[College Rugby League]
+         direction TB 
+         Oxbridge2[<b>Domain</b><br>Oxbridge University]
+         Amhurter[<b>Domain</b><br>Anhurter]
+         Chancery[<b>Domain</b><br>Chancery]
+      end
+      Oxbridge1 -.- Oxbridge2
+      ulna[<b>Domain</b><br>University League Registry]
+      cla[<b>Domain</b><br>College Rugby Registry]
+      ulna -->ULN
+      cla -->CL
+  end
+  swra[<b>Domain</b><br>Spatial Web Registry]
+  swra -->SWRAF
+
+  style SWRAF fill:#FFFFF8
+```
+
+Here, Oxbridge University is part of two affiliation networks - a university network and a rugby league network. 
+
+### Places
+
+A __place__ is a specialized form of agent that represents a particular bounded region with a domain. The set of all places inside of a domain identifies the __hyperspace__ of that domain.
+
+Note that a place is a conceptual entity, not necessarily just a geophysical one. The role of a place is to indicate _where_ a particular agent performs a specific activity within a given domain, and an agent will always be connected to a place, though the specific place may change from one domain to the next.
+
+Within this context, a _tour_ can be thought of as the navigation of an agent through various places within a given domain. The specific mechanisms for how that agent moves from place to place are abstracted out in HSML, which is not necessarily a high fidelity representation of the physical world. What is important is only that the agent has moved from one operational context to another.
+
+As mentioned, a place is itself an agent, and is an abstraction. For instance, suppose that you were representing a field hospital in a wartime setting. This is a place - it is where agents perform activities - but it is not necessarily fixed in space. When you say, "I am going to Field Hospital #4077", for instance, what you are indicating is that you are going to a place but the specific location of that place will vary over time.
+
+This becomes especially important when dealing with vessels or platforms of various sorts. A cruise ship is a place, but its position will vary. That ship, in turn, can be decomposed (in its own subdomain) into multiple decks, rooms and cabins, each of which are also places.
+
+Two critical points to note:
+
+* A domain can have just a single place. If there is no particular need to indicate changes in spatial focus, then only one place is needed.* An agent may specify a location on its associated place, in either ___absolute___ or ___relative____ terms.
+    * An __absolute location__ is one given by an absolute coordinate system such as h3 or wgs-84, and assumes an orthogonal vector system used for specifying position, orientation and/or extent. This is typically used for larger scale domains, such as those on a planet. It may also be a custom tiling system where each tile has a specific address.
+    * A __relative location__ is a little more complicated to define, and is strictly speaking Euclidean. In this particular case, the domain identifies a set of places within it and associates each place with an orthogenal vector, along with one place that's an origin vector (a point). These places are markers, with n + 1 markers where n is the desired dimension, and n = 0 represents the origin. Once these are defined, any place can be defined relative to the corresponding coordinate system. Note, these do not necessarily need to be cartesian - you can set a 2D space as (r,θ), for instance.
+
+One advantage of using relative coordinates is that it can be used to simplify modeling of smaller structures. For instance, suppose that you wanted to model an apartment. You can set this up as follows:
+
+```
+[] a hsml:Domain ;
+    hsml:swid did:swid:ACE11921CD587AF245 ;
+    hsml:swurl <#domain/standardApartment-ACE11921CD587AF245>
+    hsml:hyperspace (_:origin _:x-axis :y-axis);
+    hsml:hasPlaces _:livingRoom, _:kitchen, _:bedroom, _:bathroom ;
+    hsml:hasHomePlace _:livingRoom ;
+    .
+_:origin a hsml:Place ;
+    hsml:hasLocation (0 0) ;
+    hsml:hasUnits <#concept/units/feet> ;
+    .
+_:x-axis a hsml:Place ;
+    hsml:hasLocation (1 0) ;
+    hsml:hasUnits <#concept/units/feet> ;
+    .
+
+_:y-axis a hsml:Place ;
+    hsml:hasLocation (0 1) ;
+    hsml:hasUnits <#concept/units/feet> ;
+    .
+
+_:livingRoom a hsml:Place ;
+    hsml:hasLocation (0 0) ;
+    hsml:hasExtent (12 8) ;
+    hsml:hasTopic <#concept/Room> ;
+    hsml:hasAgent [
+        # door from LR to Kitchen
+        a hsml:Agent ;
+        hsml:hasTopic topic:Door ;
+        hsml:hasLocation (12 4);
+        hsml:hasLink [
+            hsml:hasTarget _:kitchen ;
+        ] , [
+        # door from LR to Bedroom
+        a hsml:Agent ;
+        hsml:hasTopic topic:Door ;
+        hsml:hasLocation (6 8) ;
+        hsml:hasLink [
+            hsml:hasTarget _:kitchen ;
+        ]
+
+    ],[
+        # a person agent standing in to the living room
+        a hsml:Agent ;
+        hsml:swurl <#agent/JaneDoe> ;
+        hsml:hasTopic topic:Person, topic:Woman ;
+        hsml:hasLocation (7,3) ;
+    ].
+
+_:kitchen a hsml:Place ;
+    hsml:hasLocation (12 0) ;
+    hsml:hasExtent (6 8) ;
+    hsml:hasTopic <#concept/Room> ;
+    hsml:hasAgent [
+        # door from Kitchen to LR
+        a hsml:Agent ;
+        hsml:hasTopic topic:Door ;
+        hsml:hasLocation (12 4);
+        hsml:hasLink [
+            hsml:hasTarget _:livingRoom ;
+        ]
+    ]
+    .
+
+_:bedroom a hsml:Place ;
+    hsml:hasLocation (0 8) ;
+    hsml:hasExtent (10 8) ;
+    hsml:hasTopic <#concept/Room> ;
+    hsml:hasAgent [
+        # door from LR to Bedroom
+        a hsml:Agent ;
+        hsml:hasTopic topic:Door ;
+        hsml:hasLocation (6 8) ;
+        hsml:hasLink [
+            hsml:target _:livingRoom ;
+        ], [
+        # door from Bedroom to Bathroom
+        a hsml:Agent ;
+        hsml:hasTopic topic:Door ;
+        hsml:hasLocation (10 12) ;
+        hsml:hasLink [
+            hsml:hasTarget _:bathroom ;
+           ]
+        ]
+    .
+
+_:bathroom a hsml:Place ;
+    hsml:hasLocation (10 8) ;
+    hsml:hasExtent (8 8) ;
+    hsml:hasTopic <#concept/Room> ;
+    hsml:hasAgent [
+        # door from Bedroom to Bathroom
+        a hsml:Agent ;
+        hsml:hasTopic topic:Door ;
+        hsml:hasLocation (10 12) ;
+        hsml:hasLink [
+            hsml:hasTarget _:bathroom ;
+           ]
+        ]
+    .
+```
+
+This can be interpreted as follows:
+
+![Apartment Floorplan](images/apartment_floorplan-1-svg-08-16-2025_12_34_PM.png)
+
+Several key points:
+* _None of this has been normalized yet within the working group, so may change._
+* The () notation indicates an ordered linked list, which is used for any ordered sequence of items in RDF.
+* The use of the blank node (underscore notation) is to create local identifiers rather than global identifiers, and will be replaced by system scope identifiers when loaded into the graph.
+* Hyperspace here is identified by three places - an origin and two orthogonal vectors. 
+* Units are treated as conceptual entities in the taxonomy and are defined at the level of the spatial web node. If units are not included, then the default is an undifferentiated unit. 
+* The domain identifies the active places within the system (coordinate axes are usually not included as they don't normally take active agents).
+* Each place has a location that identifies where it is relative to either a global coordinate system or a custom (relative) system.
+* Agents are attached to places via the hsml:hasAgent predicate. In this particular case, the agents are doors with attached links that allow for transit between two rooms. Note that the door or portal agents have locations within the local coordinate system (and can have extents, though they are not necessary here). There is an additional icon showing a person and their current position within the apartment. 
+* The `hsml:hasExtent` predicate identifies the boundaries of a place. Note that such boundaries may be multi-dimensional in nature, and may be specified in a number of different ways. The `hsml:hasTopic` predicate can be used to clarify how this boundary is expressed, as indicated in the section [Extending Entities](#extending-entities).
+
+### Maps, Icons and Representations
+
+A __map__ has a very general meaning in HSML: it is a ___representation___ of a domain. A domain is a restful entity - it has an internal representation within the associated graph- but for a number of reasons the graph that gets produced when a request is made about a domain or other entity will likely not be identical to the internal graph, but will rather be a computed graph (as JSON-LD or similar structure).
+
+There are three alternative approaches that can be taken with regard to representation. 
+
+#### Thin Client (Declarative - Wave 1)
+
+This was the original approach taken with the web from about 1993 to the early 2000s. In this case, HTML was the declarative language that defined the structure of a web document, and while there was a limited amount of interaction via scripting (Javascript arrived in December 1995), for the most part the client experience tended to vary from browser to browser. Significantly, it should also be noted that most documents were comparatively small and self contained, meaning that all of the state of that document could be transmitted as a single message.
+
+#### Thick Client (Imperative - Wave 2)
+
+This approach had its heyday from about 2005 to around 2022, and primarily involved the increasing use of Javascript to build applications of increasing complexity, while at the same time, building on increasing standardization on both core functionality (e.g., ECMAScript) and the increased modularization of defineable web components. In general, this approach works best for a clearly defined client - the browser page in effect acting as a platform for development of specialized clients.
+
+#### Thin Client Streaming (Declarative - Wave 3?)
+
+This is the rise of the chat interface - in essence a continuous stream of information that emerges as part of the prompt/response pattern inherent with LLMs and GenAI systems. This approach shifted the interface from being primarily static and fixed to one that reflected a continuous update, and has since shifted into a multimodal design pattern involving just-in-time editors being launched to create or edit objects that are generated as artifacts.
+
+Ideally, the spatial Web should support all three of these modalities. There are two aspects that are important in all of these, however. First is the fact that the Spatial Web is temporal in nature as well as spatial - a typical application will not make one query against a particular system, but more than likely will continuously ask for changes in the state of that system. In essence, a connection is stateful, reporting the state of a system repeatedly until it is told not to. At the same time, there is a compelling use case for providing a historical rendition of a given domain or agent as it changes over time.
+
+This implies that the third case - streaming - will like be a major use case, which is actually one of the key advantages of using RDF. A typical interchange in this scenario may be as follows:
+
+```mermaid
+
+---
+config:
+  theme: redux
+---
+sequenceDiagram
+  actor client as Spatial Web<br>Client
+  actor swnode as Spatial Web<br>Node
+  actor domain as Spatial Web<br>Domain
+  autonumber
+  client ->> swnode: Open connection to domain
+  swnode ->> domain: Validate and Connect
+  domain ->> swnode: Connected
+  swnode ->> client: Connected and Open
+  client ->> domain: Get Map
+  domain ->> client: Full State of Map
+  loop  Every second
+    domain ->> client: Update of Map
+  end
+  client ->> domain: Stop Get Map
+  domain ->> client: Return summary
+  client ->> domain: Close connection
+  domain ->> swnode: Connection closed
+  swnode ->> client: Connection closed
+
+```
 
 
-
-
-
+### Extending Entities
 
 
