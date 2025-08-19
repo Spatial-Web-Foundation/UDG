@@ -527,6 +527,12 @@ Every spatial web node has a distinct base, and for the most part, resources are
 
 One other key point - the spatial web does not recognize URL parameters being passed as part of a GET request - if you need to pass parameters, these should be passed as the body of a POST request. This keeps the address space clean, makes it easier to validate incoming requests, and is more consistent with regards to semantic web principles.
 
+#### Home Domains
+
+There is a chicken and egg situation with regard to whether a given Spatial Web Node can be considered an agent or a domain. To get around this, there is a specific exception to the idea that all agents exist on places within domains. There is assumed to be on a given spatial web node a designated Home Domain that is explicitly stated to be associated with the node itself. It's "agency" in this particular case is the action of the node daemons, with specific capabilities. When a spatial web node is first set up, this home domain/agent holds the configuration metadata for the node itself, as well as any credentials that are specific to the node.
+
+Put another way, ___from the standpoint of the UDG, the Spatial Web Node is a domain, with an implicit super agent___. The mechanics of this are still to be determined.
+
 ### Links
 
 Links are fundamental to the World Wide Web. The behavior of a link in that context is simple - it indicates a new URL (a place) that the user agent goes to in a specific domain, whereupon it retrieves the document associated with that address.
@@ -1212,8 +1218,156 @@ sequenceDiagram
   swnode ->> client: Connection closed
 
 ```
+In this particular case, the user requests an hsml:Map object (not currently defined) which can be represented as a JSON instance or Turtle stream that gives the current state of the domain, then periodically a delta indicated a state change. For the apartment as an example, the map would indicate the full state of the map domain as given above (assuming the user has the correct permissions). Thereafter, 
+the domain will send messages along the lines of:
 
+```
+<<__:JaneDoe hsml:hasLocation (7,3) >> hsml:message [ hsml:status hsml:DeleteNode;
+hsml:time "2025-08-04T09:10:11"^^xsd:dateTime ;
+].
+<<__:JaneDoe hsml:hasLocation (8,4) >> hsml:message [
+hsml:status hsml:AddNode;
+hsml:time "2025-08-04T09:10:11"^^xsd:dateTime ;
+].
+
+```
+where _:JaneDoe resolves to the internal identifier for the agent, and <<>> indicates a reifier for the statement.
+
+To summarize, the client requests that the Spatial Web Node opens a connection to a domain, handing back the channel key for that domain to the client for direct communication. Once the key is open, the client requests a map (i.e, descriptive representations) that gives the relevant queried context for the domain in question as a structure, then, as the environment changes, provides updates to the map indicating when resources have changed.
+
+When the client sends a message to stop, the server will stop the update and generate a new whole map that reflects the state of the domain at the end of the run.
+
+Note that this process can be interspersed with commands to the representative agent within the domain. The commands coming from the client do not directly change the state of the domain. Rather they indicate to the domain that the agents should be directed to change their configuration to either achieve the goal or determine that they can't achieve the goal. An internal loop then manages the updates to the graph to set the relevant changes in state within the various agents in the domain.
+
+Note that this approach can also work well when you have multiple agents that are interacting in the same domain, driven by different external clients (or internal autonomous agents).
+
+### Icons
+
+The Spatial Web by itself is not meant as a vehicle for transmitting imagery or 3D models, but because what it does generate are descriptions of physical systems, it is frequently desireable to have some way of indicating to a spatial web client how it should represent the entity in a map or projection. This is the role of icons, as represented by an `hsml:Icon` entity.
+
+An __icon__ is an entity with a reference to either an internal or external media source, likely in the form:
+
+```
+[] a hsml:Place ;
+     hsml:topic <#concept/Countries/Canada>
+     hsml:hasIcon [
+        hsml:href <#images/maps/Canada.jpg> ;
+        hsml:hasMediaType <#concept/mediaTypes/Image> ;
+     ] .
+[] a hsml:Agent ;
+     hsml:topic <#concept/People/JaneDoe>
+     hsml:hasIcon [
+        hsml:href <#images/icons/JaneDoe.jpg> ;
+    ] .
+[] a hsml:Agent ;
+     hsml:topic <#concept/Building/EiffelTower>
+     hsml:hasIcon [
+        hsml:href <#images/icons/EiffelTower.png> ;
+        hsml:hasMediatype <#concept/mediaType/Image>
+    ], [
+        hsml:href <#models/icons/EiffelTower.obj> ;
+        hsml:hasMediatype <#concept/mediaType/3DModel>
+    ] .
+```
+
+The `hsml:href` is a pointer to the media resource in question, while `hsml:mediaType` indicates which media type it is used. This may be inferred based upon the extension in the href resource if this is known (as in the second example). The media type is used primarily to indicate to the user client how the resource should be displayed.
+
+For instance, in the third example, you have an agent representing the Eiffel Tower in Paris, France. If the user client is a 2D browser, then this may be represented as a transparent PNG file on top of a map. On the other hand, if the client is a 3D browser, this may be represented using the EiffelTower.obj 3D model.
+
+Icons can maintain positional and orientation information appropriate to the entity. The goal with such icons is not necessarily to provide a precise representation or rendering, but rather to provide to the user agent a way of constructing an approximate representation to indicate symbolic relationships.
+
+Note that a given entity may include both an icon and a link. The link is an abstraction on the entity, not the icon.
 
 ### Extending Entities
+
+While the Spatial Web makes use of core classes such as Domain, Place, or Agent, the use of a traditional class mechanism for identifying different kinds of entities breaks down quickly when dealing with the sheer number of potential classes that could be created.
+
+To compensate for this, and to better work within the domain framework, a SHACL framework is defined that can identify nodes contextually using topics and state dependencies. For instance, suppose that you wanted to add a property to a given country called population. In this case, a property node can be added via SHACL.
+
+```
+[] a hsml:Domain ;
+    hsml:hasShape [
+        a sh:NodeShape ;
+        sh:targetClass hsml:Place ;
+        sh:property [
+            a sh:PropertyShape ;
+            sh:path ex:population ;
+            sh:nodeKind sh:Literal ;
+            sh:datatype xsd:nonNegativeInteger;
+            sh:minOccurs 0 ;
+            sh:maxOccurs 1 ;
+        ],[
+            a sh:PropertyShape ;
+            sh:path hsml:hasTopic ;
+            sh:nodeKind sh:IRI ;
+            sh:class hsml:Topic ;
+            sh:value <#concept/Country> ;
+        ]
+     ] .
+```
+In this case, the domain holds the shape definitions via the `hsml:hasShape` property, and when the domain is instantiated, this provides information to the system about how the given property or properties are implemented. 
+
+For instance, in this particular case, the place (a country) is defined with a property `ex:population` as well as a second property `hsml:hasTopic`. The first is considered valid if it has a nonNegative integer (and is an optional parameter), the second is considered valid if the hsml:hasTopic property has the value <#concept/Country>. If either of these are not true for the place, then the structure generates an error for the shape.
+
+Within the graph, then, this would be applied to the Canada place node as follows:
+
+```
+[] a hsml:Place ;
+    hsml:swid did:swid:0CANADA ;
+    hsml:swurl <#country/Canada> ;
+    hsml:hasTopic <#concept/Country> ;
+    ex:population 32159219 ;
+    .
+```
+
+This makes it possible to add any number of properties to entities within the domain in question, as well as to set constraints that more accurately specify things such as topicality or state configurations.
+
+Note that common shapes can be bound specifically to reference domains and included or imported, as specified in the section [Importing Taxonomies and Schemas](#importing-taxonomies-and-schemas).
+
+### Security and Credentials
+
+A central part of the Spatial Web is the use of secure credentials in order to maintain ___surety___ within the web, where __surety__ can be defined as the verification that an assertion being made about a particular entity was valid.
+
+Surety is made possible through the use of credentials that can be issued both by spatial web nodes that identify that specific resources have been created by that node, as well as assertions made by external authorities that a given agent has the relevant credentials to perform specific activities pursuant to a contract.
+
+The mechanism that binds these credentials is the __Spatial Web Identifier__ (or __SWID__), which is a specific key that references a credential ___within___ the Spatial Web Node. This key is a ___decentralized identifier___ (or __DID__) according to the [W3C DiD Specification](https://www.w3.org/TR/did-1.0/). All DiDs issued by a spatial web node are further considered to have a SWID method that indicates that such credentials follow the Spatial Web standard (D3.3.1). The specific format for such credentials is still being worked out.
+
+#### Credential Stores and Addresses
+
+The __credential.d__ daemon is responsible for both the issuance of SWIDs as well as the resolution of SWIDs. It is _recommended_ that each Spatial Web node maintains a specific cache of credentials that are issued by it as part of the domain graph architecture, with the SWIDs then being treated as identifiers by the system to those credentials.
+
+A credential in this particular case can serve primarily as a passthru reference to an external DiD that has a specific issuer that can be resolved within the internal SW Credential structure, and which utilizes a separate addressing mechanism (such as https) to identify the location of the issuing server _if that server is not the current spatial web node_.
+
+A SWID is ___not___ a ___Spatial Web URL___ (__SWURL__). The SWID serves to either identify the credential within the current Spatial Web Node or, through reference, to point to the location of an issuing server, while the SWURL provides an address (a ___Uniform Resource Locator___ or ___URL___) to a resource within the broader spatial web network, which in turn may have a SWID to its relevant credential.
+
+The D3.3.1 specification indicates that all entities must have SWIDs. This perforce indicates that all entities must have credentials. It should be noted that not all credentials issued by the spatial web nodes _must_ be cryptographically secure, though this may be a requirement imposed within a future specification.
+
+#### Credential Issuance
+
+A Spatial Web node is able to issue credentials to all entities that it creates. When that entity, such as a domain or agent, is created within the domain graph for the node, the SW Node will issue a cryptographically bound SWID that is associated with that entity and that consequently provides surety for the existence of that entity throughout the entity's life span.
+
+Moreover, when an entity undergoes a material change, such as an agent moving from one domain to another which necessitates the creation of an additional proxy between those domains, then a new credential is issued indicating the change of "ownership" of that entity, along with a pointer indicating the previous owner (in effect forming a transitive chain). Such SWID transfers act, in effect, as a chain of custody for the resource.
+
+One key point - an entity is always bound to its spatial web node. The flipside to this is that ___each spatial web node issues its own SWIDs___. Put another way, there is no centralized authority for the issuance of SWIDs on resources. Instead, to find a given entity, you use the SWURL for that entity to locate it in the Spatial Web, then you validate that the entity is as stated based upon its credential on the indicated node.
+
+Additionally, additional credentials can be bound to the same SWID, a key point in making contracts work. These are typically tied into activities and norms and often require multiple different SWID holders to create a contract with its own SWID that binds the activities of agents together as specified by the boundaries of the contract itself. This work is still under development.
+
+#### Credential Revocation and Registries
+
+Just as the Spatial Web Node is the issuer of a credential, so too can it revoke a particular credential to indicate that the credential is no longer valid. Note that Spatial Web Nodes can also issue credentials indicating membership by other spatial web nodes within an affiliated network for which it acts as a registry.
+
+This in turn means that revocation of a given spatial web node from a given affiliation network is never accomplished by that node, but rather by the affiliation holder, unless the registry node is also part of the affiliation network (ie, is self registering).
+> __Editor Note__: It may be that a given registry is explicitly not a part of its own affiliation network. This is still to be determined, as it has implications on what a registry node can support.
+
+Because a spatial web node has its own implicit home domain, a node can be removed from a network by revoking the credentials of the home domain for that machine. The machine is still findable via a URL, but the lack of credentials mean that the request for data can't validate (it will send back an error across hstp indicating the data won't validate).
+
+
+
+
+
+
+
+
+
 
 
