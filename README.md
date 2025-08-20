@@ -632,7 +632,7 @@ This operation is handled by the domain manager. Note that in fully autonomous o
 
 
 
-### Agent State Descriptors
+### State Descriptors
 
 > Within a given domain, all that is known about an agent is what can be determined by its external state. 
 
@@ -905,6 +905,87 @@ In this case, while these are all geoFeatures, Vancouver is a city while Canada 
 ### Domains with `hsml:hasTopic` and `hsml:hasConstraint`
 
 The topics and constraints of a domain are the same as the topics and constraints of the associated super-agent that binds that domain. 
+
+### Proxies
+
+Suppose that you have a scenario (domain) where the Place under consideration is the planet Earth. This is a common resource - many different organizations may want to use it, but if each had a direct connection to that resource, the number of dependencies on it would become unwieldy fast. This is where proxies come in.
+
+A __proxy__ is a local identifier for a global resource, and is used to make a reference to the global resource while at the same time ensuring that only domain specific relationships are maintained on that resource.
+
+For instance, the following illustrates how a domain might include Earth as a proxy:
+
+```
+PREFIX Places: <https://spatialwebfoundation.org/Registy/Places#>
+PREFIX h3: <https://h3geo.org#>
+_:ShipsDomain a hsml:Domain ;
+    hsml:hasPlace _:Earth .
+
+_:Earth a hsml:Place ;
+    hsml:proxyOf Places:Earth ;
+    hsml:hasAgent _:MyShip ;
+    .
+
+_:MyShip a hsml:Agent ;
+    hsml:hasLocation h3:512951238 ;
+    .
+```
+
+Here the _: IRIs are indicative of blank nodes that are local to the domain rather than universal.
+
+Multiple systems can consequently have proxies to the same resource:
+
+```mermaid
+graph TD
+    d1[<b>Domain</b><br>Domain 1]
+    d2[<b>Domain</b><br>Domain 2]
+    d3[<b>Domain</b><br>Domain 3]
+    e1[<b>Place</b><br>Earth Proxy 1]
+    e2[<b>Place</b><br>Earth Proxy 2]
+    e3[<b>Place</b><br>Earth Proxy 3]
+    earth[<b>Place</b><br>Earth]
+    d1 -->|has place| e1
+    d2 -->|has place| e2
+    d3 -->|has place| e3
+    e1 & e2 & e3 --> |proxy of| earth
+```
+
+One consequence of this is that you can query all of the domains of a given node to see which focus on the given place (here, Earth) through a SPARQL query:
+
+```
+PREFIX Places: <https://spatialwebfoundation.org/Registy/Places#>
+
+select ?domain where {
+    values ?refPlace {Places:Earth}
+    ?domain hsml:hasPlace ?place .
+    ?place hsml:proxyOf ?refPlace .
+}
+```
+
+Proxies can be used with domains as well. For instance, suppose that you have a board game such as Monopoly, with a limited number of players for each game. This means that, rather than having one Monopoly game, there's a general domain template, and a number of proxies. The structure looks similar to that for Places:
+
+
+```
+PREFIX Places: <https://spatialwebfoundation.org/Registy/Places#>
+PREFIX Domains: <https://spatialwebfoundation.org/Registy/Domains#>
+
+<#Domains/Monopoly> a hsml:Domain ;
+    hsml:hasPlaces <#Places/Monopoly/
+        MediterraneanAve>, ...,
+        <#Places/Monopoly/Boardwalk> .
+
+_:Monopoly1 a hsml:Domain ;
+    hsml:proxyOf <#Domains/Monopoly> ;
+    hsml:hasPlaces _:MediterraneanAve, ...,
+        _:Boardwalk .
+
+_:MediterraneanAve a hsml:Place ;
+    hsml:proxyOf <#Places/Monopoly/MediterraneanAve> .
+
+_:Boardwalk a hsml:Place ;
+    hsml:proxyOf <#Places/Monopoly/Boardwalk> .
+```
+
+
 
 ### Topics vs. States
 
