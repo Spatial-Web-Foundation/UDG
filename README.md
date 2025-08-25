@@ -134,9 +134,10 @@ agent["Agent Manager (agent.d)"]
 hsml["HSML Manager (hsml.d)"]
 cred["Credential Manager (cred.d)"]
 client["Client Manager (swclient.d)"]
+activity["Activity Manager (activity.d)"]
 nm <--> hstp & dm & cred & client
 hstp <--> dm & gm
-dm <--> gm & agent & hsml
+dm <--> gm & agent & hsml & activity
 ```
 
 ## Spatial Web Managers
@@ -172,6 +173,10 @@ Things within domains are agents. An agent can be thought of as something that i
     * Agent may be passive (they can only be activated by activities from other agents), active (they are capable of action independent of other agents), or inactive (they do not receive messages except for messages to activate in either passive or active mode). The inactive state exists primarily to reduce the number of cycles that a given agent requires for processing if not necessary.
     * The agent manager handles moving an agent from place to place, either through linking or through replication across domains over spatial web node boundaries. If linking between such boundaries (typical, for instance, accross affiliated nodes that have similar domain constraints), then the agent manager will freeze an agent (make it inactive and hidden) on one machine, and will then replicate the agent on a different spatial web node, or updating the existing history of the agent to an existing proxy on a different node.
     * Agents maintain an internal state history, the mechanisms for which are TBD, through the interface of the agent manager (there may be a history manager that specifically handles that operation, again TBD)
+
+### Activity Manager 
+
+The activity manager evaluates and invokes activities, especially those that are tied into IoT components, managing agent and domain events, and working with the graph manager to call named queries and updates.
 
 ### Credential Manager 
 
@@ -751,6 +756,45 @@ In this particular case, multiple reifications on the property sets of a particu
 
 This section to be expanded in future releases.
 
+## Activities
+
+An __activity__ is a particular action that is taken on the part of an agent, either due to external events (changes in the environment, or domain) or through internal motivations (goals). 
+
+Activities are particular complex in the spatial web model because in many cases, the domain acts as a representation of an external system (such as a physical twin) which has its own inherent states, and that can be both queried by and controlled from the digital twin. This meant that there are in essence three distinct systems that have to be synced in order for the model to work:
+
+* external changes to the environment (evernal-level)
+* state changes within the domain (domain-level)
+* internal changes to the state of an agent (agent-level)
+* changes due to the controlled piloted system (device-level)
+
+This creates the following interaction loop:
+
+```mermaid
+graph LR
+
+ext[External<br>Environment]
+domain[Domain<br>Environment]
+agent[Agent<br>Environment]
+device[Device<br>Environment]
+ext -->|influences| domain
+domain -->|influences| agent
+agent -->|influences| device
+device -->|informs| agent
+agent -->|informs| domain
+domain -->|informs| ext
+```
+The external environment involves changes coming from an external client either requesting information or making requests to change state (such as turning on a light bulb).
+
+This makes designing stateful systems particularly complicated, because each step to the right involves a certain degree of latency and potential for error, especially since these are likely asynchronous connections at each level.
+
+As a rule of thumb, each set of commands are handled by different managers:
+
+* External Environment (hstp.d) - HSTP handles node to node communication within the spatial web, which in general means messages from other nodes and from clients. These are typically used for external queries, aggregation, and synchronization, and if relevant messages are then passed to the domain.d daemon.
+* Domain Environment (domain.d) - 
+
+
+
+
 ## The UDG Taxonomy
 
 The __UDG Taxonomy__ is a taxonomy designed to augment discovery within the spatial web by providing common concepts and definitions for agents and, by extensions, domains.
@@ -985,8 +1029,6 @@ _:Boardwalk a hsml:Place ;
     hsml:proxyOf <#Places/Monopoly/Boardwalk> .
 ```
 
-
-
 ### Topics vs. States
 
 At first glance, topics and state properties would appear to be similar - one could express topics as states, though they serve somewhat different purposes. A state typically associates a facet value with a normalized value indicating the strength of that value, while a topic typically is a binary relationship used for classification exclusively (you could say that a state property is a topic with a value of either 0 or 1, not something in between).
@@ -996,6 +1038,134 @@ Moreover, topics tend to be relatively stable once assigned to an agent or place
 Discovery on a given spatial web node then becomes a matter of querying the node for desired topics. Note that the topics can include synonyms (analogous to `skos:altLabel`) that can be compared to the base topic labels for mapping to the respective node. Moreover, multiple language versions of the same topic can be provided in order to match in different languages.
 
 Note that topics can be used for state variables. In that particular case, however, they won't necessarily participate in search unless they are also incorporated as hsml:hasTopic objects.
+
+### State Variables and Vectors
+
+All entities have state vectors. A state vector provides information reflecting the state of that entity to other entities within a domain.
+
+A state vector is made up of vector components, one for each position in the vector. A component looks like the following:
+
+```mermaid
+graph TD
+    entity[<B>Entity</B><br>Light]
+    stateVector[State Vector]
+    entity-->|has state vector| stateVector
+    stateVector --> |has State| s1 & s2
+    s1["State"]:::blank 
+    s1 --> |has value| s1State
+    s1 --> |has Property| s1Property
+    s1 --> |has index| s1Index
+    s1State[<b>Enumerant</b><br>Medium]
+    s1Index[<b>Index</b><br>1]
+    s1Property["<b>Property</b><br>Intensity"]
+    s1Property -->|has member| s1State
+    s1Property-->|has min value| s1MinState[<b>Enumerant</b><br>Dim] 
+    s1Property-->|has max value| s1MaxState[<b>Enumerant</b><br>Bright]
+    s1MinState --> |has weight| s1MinVal[<b>Weight</b><br>0.0]
+    s1MaxState --> |has weight| s1MaxVal[<b>Weight</b><br>1.0]
+    s1State --> |has weight| s1Val[<b>Weight</b><br>0.5]
+    s1State --> |has index| s1ValOrd[<b>Order</b><br>2]
+    s1MinState --> |has index| s1MinValOrd[<b>Order</b><br>1]
+    s1MaxState --> |has index| s1MaxValOrd[<b>Order</b><br>3]
+    s1MinState -->|next| s1State --> |next| s1MaxState
+    s2["State"]:::blank 
+    s2 --> |has value| s2StateGreen
+    s2 --> |has Property| s2Property
+    s2 --> |has index| s2Index
+    s2MinState[<b>Enumerant</b><br>Green]
+    s2Index[<b>Index</b><br>5]
+    s2Property["<b>Property</b><br>Color"]
+    s2Property -->|has member| s2StateGreen & s2StateYellow & s2StateRed & s2StateWhite[<b>Enumerant</b><br>White]
+    s2StateYellow[<b>Enumerant</b><br>Yellow] 
+    s2Property-->|has min value| s2StateGreen[<b>Enumerant</b><br>Green] 
+    s2Property-->|has max value| s2StateRed[<b>Enumerant</b><br>Red]
+    s2StateGreen --> |has weight| s2StateGreenVal[<b>Weight</b><br>0.0]
+    s2StateYellow --> |has weight| s2StateYellowVal[<b>Weight</b><br>0.333]
+    s2StateRed --> |has weight| s2StateRedVal[<b>Weight</b><br>0.667]
+    s2StateWhite --> |has weight| s2StateWhiteVal[<b>Weight</b><br>1.0]
+    s2State --> |has index| s2ValOrd[<b>Order</b><br>2]
+    s2MinState --> |has index| s2MinValOrd[<b>Order</b><br>1]
+    s2MaxState --> |has index| s2MaxValOrd[<b>Order</b><br>4]    
+
+    s2StateRed -->|next| s2StateYellow --> |next| s2StateGreen -->|next| s2StateWhite -->|has index| s2StateWhiteIndex[4]
+
+    classDef blank fill:black,color:white 
+```
+
+This model makes several assumptions:
+
+* A state consists of a property holding a specific value. For instance the property `color` holds the value `red`.
+* To avoid overloading terms, the value comes from a set of values called `enumerants`.
+* Each enumerant has an associated index with 1 being the lowest value in the index, and the total number of items being the highest value of the index.
+* The weight of an enumerant is equal to (the value's index - the minimum enumerant's index) divided by (the max index - the min index). This means that the weight is the normalized index.
+* Each enumerant has an associated next property that indicates the next enumerant in order. This means that all enumerants for a given property form a linked list.
+
+This in turn can be used to generate tensors mapping to different information states. For instance, in the above example, if you iterate across each enumerant for a given property, you can create a vector, i.e.,
+
+__Intensity__
+dim|medium|bright
+---|---|---
+0|0.5|1.0
+
+__Color__
+green|yellow|red|white
+---|---|---|---
+0|0.333|0.667|1.0
+
+The cross product of these two vectors creates a rank 2 tensor:
+
+intensity/<br>color|dim|medium|bright
+---|---|---|---
+green|0|0|0
+yellow|0|0.167|0.333
+red|0|0.333|0.667
+white|0|0.5|1.0
+
+Another state (or feature) could be speed of strobing for the light, and would form a rank 3 tensor and so forth.
+
+Similarly, the graph-based weights could also be used to handle the deployment of priors. For instance, suppose that the light cycles through its four color states. A prior matrix for this can be developed readily
+
+previous/<br>current|green|yellow|red|white
+---|---|---|---|---
+green|0|0|0|1
+yellow|1|0|0|0
+red|0|1|0|0
+white|0|0|1|0
+
+You can also add a property called a prior through a reification:
+
+```
+:green :next :yellow {| :hasPrior 0.8 }
+:green :next :red {| :hasPrior 0.2 }
+...
+```
+
+The prior table for this would then look like:
+
+previous/<br>current|green|yellow|red|white
+---|---|---|---|---
+green|0|0.1|0|0.9
+yellow|0.8|0|0.15|0.05
+red|0.2|0.75|0|0.05
+white|0|0.15|0.85|0
+
+Similar independency tensors (Bayesians) can be built for other states. 
+
+One key aspect of this approach is that states are discrete rather than continuous. This makes it easier to facilitate vector store (and from there LLM) encodings, while at the same time allowing for evolution via graph operations and state machines.
+
+If you have a known outcome, for a state, then you need to ensure that there is a path between the existing state value and the desired state value. This is more easily facilitated with graph operations, which can quickly calculate minimum possible paths between two nodes. For instance, 
+
+let's say that you have a house and you want to move from one particular room to another. To do so, you need to find the minimum path between those two rooms first (which most graph engines are capable of doing), then build your plan based upon that path. This can be handled by successive transformations of Bayesians on an initial vector, but getting the best path (with or without weighting) can often be done without the need of switching to tensor mode. 
+
+![Shortest Path](images/shortestPath.png)
+
+The above diagram illustrates a shortest path approach for navigating a discrete tiled space state, where each tile is a place. The red hexes indicate the start and end places, the orange indicates a shortest path, the yellows indicating other possible shortest paths. Once the path had been determined, links can be set up via a state machine to determine the next locations to traverse, which can then be managed via a state transition machine with associated bayesians. By weighting the links between items in the path, you can also calculate a minimum free energy path (for instance, some places may be hillier than others, necessitating a greater cost for navigating over one route vs. another).
+
+One additional advantage of dealing with a discrete state space is that you can identify a path through the information space (not necessarily geometric) from a much larger set of such places that would form a tiling grid, and with that path (or ensemble of paths), then constitute an ordered linked list that can be traversed.
+
+This becomes especially important when dealing with _holes_ in the space, areas that are within a boundary but are effectively untraversable. For instance, if a ship was navigating between two place tiles in the Atlantic, and a hurricane formed, then the tiles the constituted the dangerous part of the hurricane (or disabled) could be removed from the hyperspace, forcing a re-evaluation of potential routes.
+
+This approach of identifying paths between state values can dramatically simplify (and speed-up) processing, because it effectively identifies an ensemble of paths rather than a complete contextual sweep of the entire space. In effect, the valid items in that path can then be stored in an interim graph and referenced (i.e., not hardcoded in the initial ontology). While this has obvious ramifications for positional information in a space, it could be used whenever you have a large number of potential state values and consequent transitions.
 
 ### Taxonomies and Schemas with Domains
 
@@ -1061,6 +1231,7 @@ When a Spatial Web Node is registered with SWRA several things happen:
 * A SW Node (and associated domains) can be part of multiple affiliation networks. For instance, a federal government may provide a core affiliation network for its member states, each both sharing resources and providing information, as well as identifying what other nodes are part of that affiliation.
 * Both a repository and a registry are spatial web nodes. What differentiates them is primarily whether they have the additional functions of registration and whether they permit sharing within one or more affiliate networks. This are additional modules that can be added on to the base functionality of the spatial web node.
 * Moreover, a spatial web node can be both a repository and a registry. 
+
 
 ### Affiliation Networks
 
@@ -1442,13 +1613,172 @@ This in turn means that revocation of a given spatial web node from a given affi
 
 Because a spatial web node has its own implicit home domain, a node can be removed from a network by revoking the credentials of the home domain for that machine. The machine is still findable via a URL, but the lack of credentials mean that the request for data can't validate (it will send back an error across hstp indicating the data won't validate).
 
+## Use Cases
+
+The following section highlights specific use cases, drawing from the previous contents in this document. The following table comes from Section 7.4 of version 3.3.1 of P2874.
+
+__Summary of Spatial Web Use Cases
+
+Prepare for activities|Conduct activities
+--|--
+[Create a new DOMAIN](#creating-an-entity)|[SWID registration process](#registering-an-entity-on-a-registry)
+[Update DOMAIN state](#modifying-the-specific-state-of-an-entity)|[Discover DOMAIN using UDG (Spatial DNS)](#searching-a-registry)
+[Create child DOMAIN of a DOMAIN](#creating-an-entity)|[Update DOMAIN state](#modifying-the-specific-state-of-an-entity)
+Create SPACE representation of a DOMAIN|[Query DOMAIN state](#querying-an-entity)
+[Issue CREDENTIAL for DOMAIN Create](#attach-a-credential-to-an-entity)|[route DOMAIN in SPACE](#moving-an-agent-from-one-domain-to-another)
+[Transfer DOMAIN between DOMAINs](#importing-an-entity-graph)
+[Monitor CHANNEL for ACTIVITY](#subscribing-to-a-channel)
+
+### Creating an Entity
+
+1. Request a credential to create a particular entity (domain, agent, place, etc.).
+1. If the credential is valid, this returns a SWID for the parent entity.  
+1. Submit an HSML document that describes the entity, using an HSML posted message that includes the containing SWID (this may be accomplished via some form of an editor)
+1. The HSML document is checked for validity, and is rejected if it fails a validity check.
+1. If the document is accepted, the document is created within a named graph.
+1. For all entities within the named graph, SWIDs are created and attached to each entity.
+1. The named graph identifier is then attached to the parent entity.
+
+[[Back]](#use-cases)
+
+### Attach a Credential to an Entity
+
+1. If an agent has a relevant mutation credential on a given entity (meaning that they can edit that node), the agent can attach a credential referencing the SWID of that entity through HSTP.
+1. If the credential is an affiliation credential, then the entity becomes visible through queries against that node if the querant has the corresponding affiliation key.
+1. A public entity is one that has a Public Affiliation Key, meaning that it is visible to anyone on the spatial web if they reference the spatial web node. This will generally apply to domains.
+1. All immediate entities within a domain will share the credentials within that domain. If a subdomain exists on an entity, the entity needs to extend the credential to that domain explicitly.
+
+[[Back]](#use-cases)
+
+### Invalidate an Entity
+
+1. An entity is made invalid by setting the :isInactive flag (typically through a sparql update). 
+1. An inactive entity remains in the system but is no longer visible to queries (all queries check the inactive flag for that entity). 
+1. When an entity is made inactive, the datetime is noted, and after a system settable time, the entity will be purged. Note that if an entity has a subordinate or linked domain, that domain will NOT be made inactive (there may be other references to the subdomain).
+1. All queries against an entity must specifically check to see if the entity is valid before returning it as part of a search result.
+
+[[Back]](#use-cases)
 
 
+### Querying an Entity
+
+1. All entities have a default Query Activity that will retrieve a JSON-LD representation of that entity (this may not be a faithful copy of the internal state of the entity).
+2. The editor of that entity may incorporate one or more override activities that provides different representations based upon parameters sent within the HSTP request message.
+3. The querant may request that the query be made subscribable, which means that a new message is passed every time a change is made to the state of the entity in question.
+
+[[Back]](#use-cases)
 
 
+### Querying a Specific State of an Entity
+
+1. The querant can request a specific state variable for a given entity. This will retrieve a JSON structure containing the variable and it's associated value.
+1. As with querying an entity, querying the state of an entity can be done asynchronously using a pub/sub protocol. This will return information about the state periodically as it changes.
+1. A query can also be made to retrieve the entity state array, either once or upon state changes.
+1. Any asynchronous query will return an identifier for that query, and the calling agent may cancel the query by passing back that identifier.
+
+[[Back]](#use-cases)
+
+### Modifying the Specific State of an Entity
+
+1. If a particular state of an entity is  modifiable, then this will cause a mutation event to occur that will instruct the entity to initiate a mutation activity to occur. 
+1. In the simplest (default) case, this just updates the value of the state in the graph.
+1. If the agent is autonomous, this will cause the agent manager to attempt to align the agent to the requested condition.
+1. If the agent is also bound to a physical twin, the agent manager will make the attempt to change the state of the physical twin before updating. If this fails, an error will be raised, and any changes will be rolled back.
+
+[[Back]](#use-cases)
+
+### Subscribing to a State of an Entity
+
+1. Subscribing to the state of an entity is the same as querying the state of an entity asynchronously.
+1. When a state changes in the subscribed entity, the subscribing entity will receive a notification (via domain.d) that can be caught with a subscribed state update event activity (the default is to do nothing).
+2. If the publishing entity is located on a different node, the message will be routed through hstp.d first, and then to the relevant entity.
+3. The first message returned from the publisher will be the current state, even if that state has not changed.
+4. The exact contents of various entity state descriptors are TBD, but will likely be a stream of contained entity messages (filtered by specific state if this is requested).
+5. Typically, such messages will be managed over channels, possibly as a part of a message queue.
+
+[[Back]](#use-cases)
+
+### Extending an Entity Graph
+
+1. The graph for a given entity (primarily domains) may be extended by use of the hsml:include property. 
+1. This provides a (generally) read-only ability to query an exterior graph, either from a different domain on the current machine, a different domain from an external domain, or a non-spatial web graph resource.
+1. This is frequently used to access domains containing collections of commonly defined entities (such as places, activities, agents, contracts and so forth).
+1. Such extensions typically require having the relevant credentials to access the external servers, and more than likely will be associated with affiliated nodes. 
+
+[[Back]](#use-cases)
+
+### Importing an Entity Graph
+1. An imported graph is one that is copied from an entity outside the existing domaing graph. Unlike extended graphs, imports effectively copy the contents of the given external entity but assign new SWIDs. SWURLs are typically fragments, so take on a new identifier (via it's HTTP domain).
+1. Importing a domain is the same as creating a domain, including assigning new SWIDs as needed. 
+1. Importing a domain creates a copy of that domain. This will typically be use when a domain acts as the "template" that is then filled out parametrically, such as that used by games or simulations.
+1. Importing a domain is considered an HTTP operation, while extending (including) a domain is part of UDG.
+
+[[Back]](#use-cases)
+
+### Subscribing to a Channel
+
+1. A channel is an entity, and utilizes the same mechanism that any entity does when receiving changes in state. 
+1. In this particular case, an inbound channel has a queue that receives messages. When a message comes in, any entity that has subscribed to this channel will received a notification that new messages are in the queue that are specifically addressed to that entity.
+1. A domain or entity within that domain may also publish to a channel through an activity. This is what is used for multiagent communication. 
+
+[[Back]](#use-cases)
 
 
+### Registering an Entity on a Registry
 
+1. Registering an entity on a spatial web node makes that node available for search according to a specific affiliation credential on that entity. What you are actually registering is a link to the entity in question. 
+1. That link may contain additional metadata (such as topical or annotative information) that makes it easier to search for similar entities.
+1. An affiliate spatial web registry is a spatial web node with a single primary domain that mainly contains links to other entities on other affiliated nodes.
+1. To register on such an affiliated registry, a domain authority submits a request containing the link and associated metadata to the registry node, and if the request is accepted, a contract is formed by the registry (containing a new SWID) that contains the relevant links and metadata, and a credential containing this contract is then sent back to the requesting node, where it is stored in the relevant domain (typically the home domain of the node).
+1. Note, the registry does not contain the indicated entity, only a reference to that entity in the form of a link on a contract.
+
+[[Back]](#use-cases)
+
+### Searching a Registry
+
+1. A registry search is made by sending a query message containing relevant metadata (possibly including a SWID, a SWURL, topical metadata or a prompt) to the primary domain of the registry node.
+1. The registry will then perform the query, retrieving summarizations of links that satisfy the query in relevancy ranking.
+1. The formatting of this summarization may be an HSML document, but may also be formatted as a standard RSS or Atom feed, or as an HTML search summary page.
+
+[[Back]](#use-cases)
+
+### Refreshing a Registry
+
+1. Periodically, a registry will iterate through its contracts and request updated metadata from an affiliated node for entities that have the relevant affiliated credentials.
+1. Not all (not even most) entities on a given node will have these credentials, only those that need to be identified by the affiliation registry.
+1. Similarly, a node may be self-affiliated, with the home domain containing contracted links for entities that are considered important enough to be visible for search on that domain. This can be considered the directory for that node. A registry is a directory for domains (formally entities) that are external to that node.
+
+[[Back]](#use-cases)
+
+### Logging Into a Domain
+
+1. An external agent (such as a user agent) will have a link to a domain, presented as a SWID or SWURL, and will send this (with any appropriate metadata) to the resolved spatial web node. 
+1. The SWNode (the node manager) receives a request to initiate a connection, determines whether the relevant domain exists, and determines whether the external agent already has a proxy agent on the system representing that external agent.
+1. If the agent exists and the credential to access that agent is cached for (perhaps within, TBD) the relevant domain, then a channel is established between the external agent and the proxy agent, with a message then sent back to the external agent providing confirmation.
+1. If no credential exists (either this is a new user agent or the credential has expired), the SWNode sends a message back to the external agent requesting credentials. In the case of expiry, this is just a revalidation, new credentials are set up and the connection is made.
+1. If no agent exists for that domain, then a new agent is registered, typically at the home place for that domain, once credentials have been created and confirmed. This is the proxy agent for that user agent on that domain.
+
+[[Back]](#use-cases)
+
+### Moving an agent from one domain to another
+
+1. Agents, especially proxy agents, are typically mobile. When a proxy agent initiates a link connecting two places, a link between the old place and the agent will be augmented to indicate that the link is no longer active (likely through reification, but this is an implementation detail).
+1. If a link has an active credential requirement, then the credential must be presented or satisfied before the transfer can be initiated.
+1. Once the credentials have been satisfied, the connection between the place and the agent will be set as deprecated (likely through a reification), and a new connection is established between the target place and the agent. 
+1. If the new place is not located on the same node, then a check is made whether there exists an agent representing the same user agent on the target node. If there is, then the agent is "revived" and any relevant history data is transferred to the new node, then a new connection is established between the target place on the new node and the proxy agent on _that_ machine. (This is primarily for performance purposes).
+1. The deprecated connection will also include a forwarding address to the new agent. This way, if an agent is known but it has moved "off-node", then the movement through different nodes can be traced. 
+
+[[Back]](#use-cases)
+
+### Transporting an Agent Via Another Agent
+1. An agent with an associated subdomain can "transport" another agent within that subdomain. This may be the case when an agent is acting as a container or carrier.
+1. Moving a given agent into another agent's subdomain is the same as moving an agent from one domain to another. From the standpoint of the initial domain, the "carried" agent is effectively no longer in scope of the carrier's superdomain.
+1. When an agent moves, the link to the subdomain for that agent remains the same - even if the agent moves from one node to another.
+1. The carrier agent can release the carried agent in a new place, at which point this is treated as a transfer of the carried agent from one domain to another.  
+
+[[Back]](#use-cases)
+
+### Creating a New Place
 
 
 
