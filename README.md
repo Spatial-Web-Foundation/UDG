@@ -1617,14 +1617,14 @@ Because a spatial web node has its own implicit home domain, a node can be remov
 
 The following section highlights specific use cases, drawing from the previous contents in this document. The following table comes from Section 7.4 of version 3.3.1 of P2874.
 
-__Summary of Spatial Web Use Cases
+__Summary of Spatial Web Use Cases__
 
 Prepare for activities|Conduct activities
 --|--
 [Create a new DOMAIN](#creating-an-entity)|[SWID registration process](#registering-an-entity-on-a-registry)
 [Update DOMAIN state](#modifying-the-specific-state-of-an-entity)|[Discover DOMAIN using UDG (Spatial DNS)](#searching-a-registry)
 [Create child DOMAIN of a DOMAIN](#creating-an-entity)|[Update DOMAIN state](#modifying-the-specific-state-of-an-entity)
-Create SPACE representation of a DOMAIN|[Query DOMAIN state](#querying-an-entity)
+[Create SPACE representation of a DOMAIN](#creating-a-new-place)|[Query DOMAIN state](#querying-an-entity)
 [Issue CREDENTIAL for DOMAIN Create](#attach-a-credential-to-an-entity)|[route DOMAIN in SPACE](#moving-an-agent-from-one-domain-to-another)
 [Transfer DOMAIN between DOMAINs](#importing-an-entity-graph)
 [Monitor CHANNEL for ACTIVITY](#subscribing-to-a-channel)
@@ -1780,5 +1780,10 @@ Create SPACE representation of a DOMAIN|[Query DOMAIN state](#querying-an-entity
 
 ### Creating a New Place
 
-
+1. Create an HSML Place definition and instantiate it (see [Creating an Entity](#creating-an-entity)), appending it to the relevant domain through the `hsml:hasPlace` predicate.
+2. If the place is intended to be a proxy for an established place, create the relevant proxied link (e.g., Place:Earth).
+3. If the new place needs links to existing places, create link children (either directly on the link or indirectly through an object) on both the current place and on relevant backlinks (if the link is not bidirectional).
+4. Once links are created, a domain function can be identified called resolve_links, which creates backlinks if a link is bi-directional.
+5. Note that links are sensitive to the types of agents involved. For instance, in a chess game simulator there may be links of type rank, file, diagonal, and knight (the L shaped link) between different squares, and the movements that are possible will consequently be composed of the set of all paths that can be made to a given square from the starting square based upon the piece. The set of all possible paths that a given piece (agent) can take is known as an ensemble, and this represents the local hyperspace of that piece relative to the agent type.
+6. As with other entities, places can be deprecated, typically by reification.
 
