@@ -1626,8 +1626,9 @@ Prepare for activities|Conduct activities
 [Create child DOMAIN of a DOMAIN](#creating-an-entity)|[Update DOMAIN state](#modifying-the-specific-state-of-an-entity)
 [Create SPACE representation of a DOMAIN](#creating-a-new-place)|[Query DOMAIN state](#querying-an-entity)
 [Issue CREDENTIAL for DOMAIN Create](#attach-a-credential-to-an-entity)|[route DOMAIN in SPACE](#moving-an-agent-from-one-domain-to-another)
-[Transfer DOMAIN between DOMAINs](#importing-an-entity-graph)
-[Monitor CHANNEL for ACTIVITY](#subscribing-to-a-channel)
+[Transfer DOMAIN between DOMAINs](#importing-an-entity-graph)|[Handle Fast/Slow State Changes](#handle-fastslow-state-changes)
+[Monitor CHANNEL for ACTIVITY](#subscribing-to-a-channel)|[Replication and Failover](#replication-and-failover)
+[Manage SWIDs](#generating-and-resolving-swids)|
 
 ### Creating an Entity
 
@@ -1786,4 +1787,36 @@ Prepare for activities|Conduct activities
 4. Once links are created, a domain function can be identified called resolve_links, which creates backlinks if a link is bi-directional.
 5. Note that links are sensitive to the types of agents involved. For instance, in a chess game simulator there may be links of type rank, file, diagonal, and knight (the L shaped link) between different squares, and the movements that are possible will consequently be composed of the set of all paths that can be made to a given square from the starting square based upon the piece. The set of all possible paths that a given piece (agent) can take is known as an ensemble, and this represents the local hyperspace of that piece relative to the agent type.
 6. As with other entities, places can be deprecated, typically by reification.
+
+[[Back]](#use-cases)
+
+### Handle Fast/Slow State Changes
+
+1. Each domain has a heartbeat that determines how frequently up updates are made (and how frequently external systems are polled). When creating the domain, the heartbeat can be established as a property on the domain, and can be increased or decreased as need be.
+1. For those situations where the domain does not incorporate IoT devices, this heartbeat can usually be fairly fast, as the mechanisms for transmitting information exist primarily in the same process.
+1. For those domains where external services or IoT device connections exist, the heartbeat can generally be slowed dow (or sped up) to handle polling or publication/subscription (pub/sub) type architectures.
+1. Please note that the spatial web is primarily intended to be a predictive systems, involving a large amount of contextual data, rather than a close monitoring system.
+1. It is possible (though the exact mechanism is still TBD) for a service to spawn a direct connection to an Iot device or similar fast moving system, one that bypasses the normal domain calles. In such cases, simple filters may be placed on incoming messages that allow for specific signals to be detected which then prompts an update back into the domain manager. 
+
+[[Back]](#use-cases)
+
+### Replication and Failover
+
+1. The specific implementation of replication is dependent upon the particular knowledge graph store in question. The assumption here is that whatever KG store will likely have some native replication for multiple servers supporting failover by periodically streaming triples that are active as part of revisions to the graph. This will likely be expressed in more detail as prototypes reach a sufficient level of  maturity. 
+
+[[Back]](#use-cases)
+
+### Generating and Resolving SWIDs
+
+1. Because of the centrality of SWIDS in the Spatial Web architecture, a Spatial Web Node incorporates a SWID generator/resolver as part of the architecture.
+1. When an entity is created by the system, a SWID and corresponding documents are created, with the documents (likely public and private keys, or PPKs) stored as graph entities in a cryptographically secured named graph as part of the domain graph.
+1. This method exists primarily for convenience and performance as in general the ability to retrieve, parse, and reference external blockchains or similar mechanisms will be a major performance hit unless that ability is accessible from (and contained in) the graph.
+1. This becomes especially important if there is specific surety information within the SWID that is particular to the did.swid method, as will likely be the case.
+1. The Credential API handles SWID generation and resolution and acts as a wrapper for abstracting multiple different approaches for SWID management. 
+
+[[Back]](#use-cases)
+
+
+
+
 
