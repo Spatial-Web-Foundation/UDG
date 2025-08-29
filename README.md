@@ -1,13 +1,406 @@
 ﻿# Universal Domain Graph (UDG) Design
 
+[Universal Domain Graph (UDG) Design](#universal-domain-graph-udg-design)
+- [Universal Domain Graph (UDG) Design](#universal-domain-graph-udg-design)
+  - [Use Cases](#use-cases)
+    - [Setting Up a Spatial Web Node](#setting-up-a-spatial-web-node)
+    - [Generating and Resolving SWIDs](#generating-and-resolving-swids)
+    - [Registering a Node on an Affiliation Registry](#registering-a-node-on-an-affiliation-registry)
+    - [Searching an Affiliation Registry (User Client)](#searching-an-affiliation-registry-user-client)
+    - [Refreshing a Registry](#refreshing-a-registry)
+    - [Logging Into a Domain](#logging-into-a-domain)
+    - [Creating an Entity](#creating-an-entity)
+    - [Attach a Credential to an Entity](#attach-a-credential-to-an-entity)
+    - [Invalidate an Entity](#invalidate-an-entity)
+    - [Querying an Entity](#querying-an-entity)
+    - [Querying a Specific State of an Entity](#querying-a-specific-state-of-an-entity)
+    - [Modifying the Specific State of an Entity](#modifying-the-specific-state-of-an-entity)
+    - [Subscribing to a State of an Entity](#subscribing-to-a-state-of-an-entity)
+    - [Extending an Entity Graph](#extending-an-entity-graph)
+    - [Importing an Entity Graph](#importing-an-entity-graph)
+    - [Interacting with the Domain: User Agents](#interacting-with-the-domain-user-agents)
+    - [Activating an Agent's Activity](#activating-an-agents-activity)
+    - [Maintaining History](#maintaining-history)
+    - [Changing Internal State of an Entity](#changing-internal-state-of-an-entity)
+    - [Changing Level of Detail Graphs of an Entity](#changing-level-of-detail-graphs-of-an-entity)
+    - [Subscribing to a Channel](#subscribing-to-a-channel)
+    - [Moving an agent from one domain to another](#moving-an-agent-from-one-domain-to-another)
+    - [Transporting an Agent Via Another Agent](#transporting-an-agent-via-another-agent)
+    - [Creating a New Place](#creating-a-new-place)
+    - [Creating an Entity Instance](#creating-an-entity-instance)
+    - [Using the Node Domain Directory](#using-the-node-domain-directory)
+    - [Handle Fast/Slow State Changes](#handle-fastslow-state-changes)
+    - [Replication and Failover](#replication-and-failover)
+    - [Scale to Internet Level](#scale-to-internet-level)
+  - [Requirements](#requirements)
+  - [| 1.2.25 | Implement specified use cases | UDG and HSTP, Representations | 7.4.2 |  |](#-1225--implement-specified-use-cases--udg-and-hstp-representations--742---)
+  - [Spatial Web Node Design](#spatial-web-node-design)
+  - [Spatial Web Managers](#spatial-web-managers)
+    - [HSTP Manager](#hstp-manager)
+    - [Domain Manager](#domain-manager)
+    - [Graph Manager](#graph-manager)
+    - [HSML Manager](#hsml-manager)
+    - [Agent Manager](#agent-manager)
+    - [Activity Manager](#activity-manager)
+    - [Credential Manager](#credential-manager)
+    - [Client Manager.](#client-manager)
+  - [Distributed Graphs](#distributed-graphs)
+    - [Domain Graphs](#domain-graphs)
+    - [HSTP Node Queries](#hstp-node-queries)
+    - [UDG Graph Queries](#udg-graph-queries)
+    - [Combining the Two](#combining-the-two)
+    - [Registering Dependent Graph Nodes](#registering-dependent-graph-nodes)
+      - [Static Registries](#static-registries)
+      - [Domain Graphs](#domain-graphs-1)
+      - [Activity Graphs](#activity-graphs)
+    - [Named Queries and Security Considerations](#named-queries-and-security-considerations)
+    - [Understanding Graph Queries](#understanding-graph-queries)
+    - [Named Queries, Mutations, and Metadata](#named-queries-mutations-and-metadata)
+    - [Directory Domain and Home Places](#directory-domain-and-home-places)
+    - [Agents Are Not Domains, They Have Domains](#agents-are-not-domains-they-have-domains)
+    - [Spatial Web Addresses](#spatial-web-addresses)
+      - [Home Domains](#home-domains)
+    - [Places](#places)
+    - [Links](#links)
+      - [Subsystem or Holonic Links](#subsystem-or-holonic-links)
+      - [Portal Links](#portal-links)
+      - [Bag Links](#bag-links)
+      - [Agent-to-Agent Links and Channels](#agent-to-agent-links-and-channels)
+      - [Button or Selector Links](#button-or-selector-links)
+      - [Architecture of Links](#architecture-of-links)
+    - [Designing a Domain](#designing-a-domain)
+  - [Activities](#activities)
+  - [The UDG Taxonomy](#the-udg-taxonomy)
+    - [The hsml:hasTopic property](#the-hsmlhastopic-property)
+    - [Places with `hsml:hasTopic` and `hsml:hasConstraint`](#places-with-hsmlhastopic-and-hsmlhasconstraint)
+    - [Domains with `hsml:hasTopic` and `hsml:hasConstraint`](#domains-with-hsmlhastopic-and-hsmlhasconstraint)
+    - [Proxies](#proxies)
+  - [State Descriptors](#state-descriptors)
+    - [What Is The State Dictionary](#what-is-the-state-dictionary)
+      - [Subclassing of Agents](#subclassing-of-agents)
+      - [Separate State Container](#separate-state-container)
+      - [Feature Set](#feature-set)
+      - [Tensors, Datacubes, Time Series and Graphs](#tensors-datacubes-time-series-and-graphs)
+      - [Symbolic Active Inferencing, Factor Graphs and Reification](#symbolic-active-inferencing-factor-graphs-and-reification)
+    - [Topics vs. States](#topics-vs-states)
+    - [State Variables and Vectors](#state-variables-and-vectors)
+    - [Taxonomies and Schemas with Domains](#taxonomies-and-schemas-with-domains)
+    - [Importing Taxonomies and Schemas](#importing-taxonomies-and-schemas)
+    - [Maps, Icons and Representations](#maps-icons-and-representations)
+      - [Thin Client (Declarative - Wave 1)](#thin-client-declarative---wave-1)
+      - [Thick Client (Imperative - Wave 2)](#thick-client-imperative---wave-2)
+      - [Thin Client Streaming (Declarative - Wave 3?)](#thin-client-streaming-declarative---wave-3)
+    - [Icons](#icons)
+    - [Extending Entities](#extending-entities)
+  - [Repositories, Registries and Affiliation Networks](#repositories-registries-and-affiliation-networks)
+    - [Affiliation Networks](#affiliation-networks)
+    - [Security and Credentials](#security-and-credentials)
+      - [Credential Stores and Addresses](#credential-stores-and-addresses)
+      - [Credential Issuance](#credential-issuance)
+      - [Credential Revocation and Registries](#credential-revocation-and-registries)
+
+## Use Cases
+
+The following use cases identify operations that are considered part of the UDG. Because these tend to be interrelated, they are provided primarily in terms of creation and navigational progress. 
+
+### Setting Up a Spatial Web Node
+
+1. Go to Spatial Web Foundation site and download the spatial web foundation application.
+1. At this time, the authority for the site submits a form that will allow you to specify the domain information, authorization, and categorization for the spatial web node itself.
+1. At this time, the authority may choose zero or more affiliated networks that the spatial web node may participate in.
+1. The default network is the Spatial Web Registry Authority, but this doesn't have to be the one selected. Networks are defined thematically (by topic and language) and as such can be searched and ranked (rated).
+1. Each network is managed by an affiliate manager (a node registry) that maintains a cache of links in its primary domain. These node registries 
+1. Once an ensemble of networks are selected, a request link is sent to each affiliate manager in turn that adds the link to the new node (and it's primary domain) to that of the network in question. If the link is approved then the newly created node is added to the network (see [Registering a Node on Affiliation Registry](#registering-a-node-on-an-affiliation-registry)).
+1. Once registered, other domains and other entities can be added to the spatial web node (see [Creating an Entity](#creating-an-entity)).
+
+[[Back]](#use-cases)
+
+### Generating and Resolving SWIDs
+
+1. Because of the centrality of SWIDS in the Spatial Web architecture, a Spatial Web Node incorporates a SWID generator/resolver as part of the architecture.
+1. When an entity is created by the system, a SWID and corresponding documents are created, with the documents (likely public and private keys, or PPKs) stored as graph entities in a cryptographically secured named graph as part of the domain graph.
+1. This method exists primarily for convenience and performance as in general the ability to retrieve, parse, and reference external blockchains or similar mechanisms will be a major performance hit unless that ability is accessible from (and contained in) the graph.
+1. This becomes especially important if there is specific surety information within the SWID that is particular to the did.swid method, as will likely be the case.
+1. The Credential API handles SWID generation and resolution and acts as a wrapper for abstracting multiple different approaches for SWID management. 
+
+[[Back]](#use-cases)
+
+### Registering a Node on an Affiliation Registry
+
+1. Registering an entity on a spatial web node makes that node available for search according to a specific affiliation credential on that entity. What you are actually registering is a link to the entity in question. 
+1. That link may contain additional metadata (such as topical or annotative information) that makes it easier to search for similar entities.
+1. An affiliate spatial web registry is a spatial web node with a single primary domain that mainly contains links to other entities on other affiliated nodes.
+1. To register on such an affiliated registry, a domain authority submits a request containing the link and associated metadata to the registry node, and if the request is accepted, a contract is formed by the registry (containing a new SWID) that contains the relevant links and metadata, and a credential containing this contract is then sent back to the requesting node, where it is stored in the relevant domain (typically the home domain of the node).
+1. Note, the registry does not contain the indicated entity, only a reference to that entity in the form of a link on a contract.
+
+[[Back]](#use-cases)
+
+### Searching an Affiliation Registry (User Client)
+
+1. When a user client is downloaded, the user is directed to a web page that lets the user select one or more affiliation networks (including the Spatial Web Registry Authority).
+1. Alternatively, the user can download affiliation packages that contain links to common affiliation servers in a bundle.
+1. Affiliation servers periodically read each of spatial web node within their affiliation and extract links and metadata of those  entities that have been given an affiliation credential (typically domains, but they could be other resources).
+1. The client sends a request that can be decomposed as taxonomic metadata (or by indexing descripions and labels via vector search or AI), which can then be used to retrieve the links that best match the search.
+1. It should be noted that the affiliation registries will generally not be completely current (they will typically iterate through their affiliated nodes on a daily basis, but probably not much faster than that), and this will only pick up the domains and other entities that have received an affiliation credential.
+1. It is also possible (albeit probably not advisable) to retrieve a list of affiliates directly and query each node independently. It would require the user client, however, having the relevant credentials for each domain on each node 
+
+[[Back]](#use-cases)
+
+### Refreshing a Registry
+
+1. Periodically, a registry will iterate through its contracts and request updated metadata from an affiliated node for entities that have the relevant affiliated credentials.
+1. Not all (not even most) entities on a given node will have these credentials, only those that need to be identified by the affiliation registry.
+1. Similarly, a node may be self-affiliated, with the home domain containing contracted links for entities that are considered important enough to be visible for search on that domain. This can be considered the directory for that node. A registry is a directory for domains (formally entities) that are external to that node.
+
+[[Back]](#use-cases)
+
+### Logging Into a Domain
+
+1. An external agent (such as a user agent) will have a link to a domain, presented as a SWID or SWURL, and will send this (with any appropriate metadata) to the resolved spatial web node. 
+1. The SWNode (the node manager) receives a request to initiate a connection, determines whether the relevant domain exists, and determines whether the external agent already has a proxy agent on the system representing that external agent.
+1. If the agent exists and the credential to access that agent is cached for (perhaps within, TBD) the relevant domain, then a channel is established between the external agent and the proxy agent, with a message then sent back to the external agent providing confirmation.
+1. If no credential exists (either this is a new user agent or the credential has expired), the SWNode sends a message back to the external agent requesting credentials. In the case of expiry, this is just a revalidation, new credentials are set up and the connection is made.
+1. If no agent exists for that domain, then a new agent is registered, typically at the home place for that domain, once credentials have been created and confirmed. This is the proxy agent for that user agent on that domain.
+
+[[Back]](#use-cases)
+
+
+### Creating an Entity
+
+1. Request a credential to create a particular entity (domain, agent, place, etc.).
+1. If the credential is valid, this returns a SWID for the parent entity.  
+1. Submit an HSML document that describes the entity, using an HSML posted message that includes the containing SWID (this may be accomplished via some form of an editor)
+1. The HSML document is checked for validity, and is rejected if it fails a validity check.
+1. If the document is accepted, the document is created within a named graph.
+1. For all entities within the named graph, SWIDs are created and attached to each entity.
+1. The named graph identifier is then attached to the parent entity.
+1. At the time of creation, an entity MAY be assigned a ___level of detail domain___ or ___LoD Domain___ (see [Changing Level of Detail](#changing-level-of-detail)). 
+   > _It is possible that this will need to be changed to MUST and needs further discussion_. 
+
+[[Back]](#use-cases)
+
+### Attach a Credential to an Entity
+
+1. If an agent has a relevant mutation credential on a given entity (meaning that they can edit that node), the agent can attach a credential referencing the SWID of that entity through HSTP.
+1. If the credential is an affiliation credential, then the entity becomes visible through queries against that node if the querant has the corresponding affiliation key.
+1. A public entity is one that has a Public Affiliation Key, meaning that it is visible to anyone on the spatial web if they reference the spatial web node. This will generally apply to domains.
+1. All immediate entities within a domain will share the credentials within that domain. If a subdomain exists on an entity, the entity needs to extend the credential to that domain explicitly.
+
+[[Back]](#use-cases)
+
+### Invalidate an Entity
+
+1. An entity is made invalid by setting the :isInactive flag (typically through a sparql update). 
+1. An inactive entity remains in the system but is no longer visible to queries (all queries check the inactive flag for that entity). 
+1. When an entity is made inactive, the datetime is noted, and after a system settable time, the entity will be purged. Note that if an entity has a subordinate or linked domain, that domain will NOT be made inactive (there may be other references to the subdomain).
+1. All queries against an entity must specifically check to see if the entity is valid before returning it as part of a search result.
+
+[[Back]](#use-cases)
+
+
+### Querying an Entity
+
+1. All entities have a default Query Activity that will retrieve a JSON-LD representation of that entity (this may not be a faithful copy of the internal state of the entity).
+2. The editor of that entity may incorporate one or more override activities that provides different representations based upon parameters sent within the HSTP request message.
+3. The querant may request that the query be made subscribable, which means that a new message is passed every time a change is made to the state of the entity in question.
+
+[[Back]](#use-cases)
+
+
+### Querying a Specific State of an Entity
+
+1. The querant can request a specific state variable for a given entity. This will retrieve a JSON structure containing the variable and it's associated value.
+1. As with querying an entity, querying the state of an entity can be done asynchronously using a pub/sub protocol. This will return information about the state periodically as it changes.
+1. A query can also be made to retrieve the entity state array, either once or upon state changes.
+1. Any asynchronous query will return an identifier for that query, and the calling agent may cancel the query by passing back that identifier.
+
+[[Back]](#use-cases)
+
+### Modifying the Specific State of an Entity
+
+1. If a particular state of an entity is  modifiable, then this will cause a mutation event to occur that will instruct the entity to initiate a mutation activity to occur. 
+1. In the simplest (default) case, this just updates the value of the state in the graph.
+1. If the agent is autonomous, this will cause the agent manager to attempt to align the agent to the requested condition.
+1. If the agent is also bound to a physical twin, the agent manager will make the attempt to change the state of the physical twin before updating. If this fails, an error will be raised, and any changes will be rolled back.
+
+[[Back]](#use-cases)
+
+### Subscribing to a State of an Entity
+
+1. Subscribing to the state of an entity is the same as querying the state of an entity asynchronously.
+1. When a state changes in the subscribed entity, the subscribing entity will receive a notification (via domain.d) that can be caught with a subscribed state update event activity (the default is to do nothing).
+2. If the publishing entity is located on a different node, the message will be routed through hstp.d first, and then to the relevant entity.
+3. The first message returned from the publisher will be the current state, even if that state has not changed.
+4. The exact contents of various entity state descriptors are TBD, but will likely be a stream of contained entity messages (filtered by specific state if this is requested).
+5. Typically, such messages will be managed over channels, possibly as a part of a message queue.
+
+[[Back]](#use-cases)
+
+### Extending an Entity Graph
+
+1. The graph for a given entity (primarily domains) may be extended by use of the hsml:include property. 
+1. This provides a (generally) read-only ability to query an exterior graph, either from a different domain on the current machine, a different domain from an external domain, or a non-spatial web graph resource.
+1. This is frequently used to access domains containing collections of commonly defined entities (such as places, activities, agents, contracts and so forth).
+1. Such extensions typically require having the relevant credentials to access the external servers, and more than likely will be associated with affiliated nodes. 
+
+[[Back]](#use-cases)
+
+### Importing an Entity Graph
+1. An imported graph is one that is copied from an entity outside the existing domaing graph. Unlike extended graphs, imports effectively copy the contents of the given external entity but assign new SWIDs. SWURLs are typically fragments, so take on a new identifier (via it's HTTP domain).
+1. Importing a domain is the same as creating a domain, including assigning new SWIDs as needed. 
+1. Importing a domain creates a copy of that domain. This will typically be use when a domain acts as the "template" that is then filled out parametrically, such as that used by games or simulations.
+1. Importing a domain is considered an HTTP operation, while extending (including) a domain is part of UDG.
+
+### Interacting with the Domain: User Agents
+
+1. A __user agent__ is an agent that represents the interest and focus of an external agent within the domain. It is typically the _thing_ or _person_ that navigates the domain on behalf of that external agent.
+1. When an external agent "logs in" to a domain, the domain manager establishes a user agent representing that external agent, adding the user agent's credential to the domain credential store.
+1. If no user agent exists within that domain for that external agent, the domain manager creates that user agent and adds them to the ___home place___ for that domain. This can be thought of as the landing place for new agents.
+1. If a user agent already exists for the external agent, they will already be sited within the domain at a specific place. This establishes the context for that user agent within the domain.
+1. A user agent can interact with other agents within a given place, or with agents within an linked neighborhood (agents on a place that is directly connected to the current place). This is called the __interactive neighborhood__.
+1. Within the interactive neighborhood, the ___state matrix___ and ___activity matrix___ of all other agents in that neighborhood become visible. The activity matrix indicates all ___activities___ that a given agent can perform, relative to the user agent, while the state matrix identifies the state that is exposed to the user agent based upon the same mechanisms (typically a credential).
+1. It should be noted that such interactions are reciprocal - the user agent also exposes their state and activity matrices to other agents in the same way.
+1. The interactive neighborhood exists for two reasons - it more closely reflects the reality in which people have personal spaces that determine how they specifically interact, and it serves to reduce the overall complexity of any given domain. Note that if a communication link exists between two agents, this is considered part of the interactive neighborhood for each of those agents.
+
+### Activating an Agent's Activity
+
+1. In the case of a user-agent, the external agent is presented an activity matrix that indicates what specific activities the user-agent can perform. One of these activities as `selecting_an_activity`. This allows the agent to choose one from a set of activities that may be available of another agent, and make it the focus for subsequent actions (this may be set up on the agent as the hsml:targetEntity)
+1. Once an activity is selected, the user agent may then `activate_an_activity`. This is a signal to the targeted agent that the targeting agent is requesting that an activity be accomplished.
+1. The targeted agent that evaluates the request and, if it is within its capability and goals, will return a contract to the targeting agent with its conditions. If the conditions are acceptable to the targeting agent (for instance, if a fee is involved and paid, establishing a credential) then the activity will be initiated.
+1. Note that a contract can be extended to cover all activities that are visible to the targeting agent, and can remain in force until explicily terminated. This can reduce the negotiation process for subsequent calls to invoke other activities of a given agent.
+1. The targeted agent will then asynchronously perform the activity until the activity is completed, whereupon it notifies the targeting agent that the activity has been completed.
+1. If the targeted agent is unable to complete the activity, then it performs a forfeit activity (such as reimbursing the targeting agent) according to the terms of the contract.
+1. The activating agent can also perform an action to terminate the contract, but only once the contract has been either satisfied or forfeited. Most simple contracts are self-terminating. 
+
+[[Back]](#use-cases)
+
+### Maintaining History
+
+1. Maintaining history is handled in one of two ways - reifications and sampling, with four total options:
+   * __Reification__ involves the creation of assertions concerning the changes in the state of the various entities within a given domain. Reification can provide an exact replay of changes over time, but at the cost of performance and additional space.
+   * __Sampling__ involves the periodic sampling of the state matrix of one or more of the entities in a given domain, persisting them to an external channel. Sampling is more efficient, but it loses resolution.
+   *  __Neither.__ An entity simply does not maintain a history because it doesn't need to.
+   * __Both.__ Persistence tracking via reification allows for the replay of a given domain while external reporting can be done on the entity. This is the most comprehensive, but it is also the most processor intensive.
+1.  Reification is part of the graph services and is managed via graph.d. Sampling is part of the domain services and ties in more closely with HSTP and its associated daemon.
+
+[[Back]](#use-cases)
+
+
+### Changing Internal State of an Entity
+
+1. A given non-domain entity (such as a place or an agent) may have as __Internal State Link__  to a different domain that represents the internal state of that entity. 
+1. Such a domain may be empty of child agents or places.
+1. The current implementation of such an ISL domain is a named graph, but this may change based upon system representation of data structures.
+1. The ISL graph is used primarily to represent the internal state of that entity, though it can also (especially in the case of Places) represent a zoomed in view of the entity (such as a country place showing a detail of the various roads, cities, etc. within that country).
+1. ISL domains may have a state matrix that is similar to that of an non-domain entity, which is used primarily to store measurements and intermediate values from the interaction of the components within the subdomain.
+1. In general, access to the ISL is limited to administrators, and on user agents (spatial web browsers) will have a specialized entry point because of this.
+
+[[Back]](#use-cases)
+
+
+### Changing Level of Detail Graphs of an Entity
+
+1. A given non-domain entity (such as a place or an agent) may have one or more __Level of Detail Links__ (__LoDs__) to a different domain that represents a drill-down of subcomponents of that entity.
+1. Unlike an [ISL](#changing-internal-state-of-an-entity), a Level of Detail link is typically used to provide different representations or subsystems for a given entity. A country (a place) for instance, may have one LoD showing critical population centers, another showing primary traffic routes, another showing watersheds and other features.
+1. An LoD domain differs from an internal state domain primarily in that it does not communicate state changes back to the parent entity. This is important because it reduces synchronization issues.
+2. As a rule of thumb, if there is a child domain of a given non-domain entity that has multiple overlapping and interconnected systems, these would best be contained within a single ISL, while if there are mostly disconnected systems (such as the plumbing vs. electrical system in a house), this would work better as multiple LoD systems. 
+
+[[Back]](#use-cases)
+
+
+### Subscribing to a Channel
+
+1. A channel is an entity, and utilizes the same mechanism that any entity does when receiving changes in state. 
+1. In this particular case, an inbound channel has a queue that receives messages. When a message comes in, any entity that has subscribed to this channel will received a notification that new messages are in the queue that are specifically addressed to that entity.
+1. A domain or entity within that domain may also publish to a channel through an activity. This is what is used for multiagent communication. 
+
+[[Back]](#use-cases)
+
+### Moving an agent from one domain to another
+
+1. Agents, especially proxy agents, are typically mobile. When a proxy agent initiates a link connecting two places, a link between the old place and the agent will be augmented to indicate that the link is no longer active (likely through reification, but this is an implementation detail).
+1. If a link has an active credential requirement, then the credential must be presented or satisfied before the transfer can be initiated.
+1. Once the credentials have been satisfied, the connection between the place and the agent will be set as deprecated (likely through a reification), and a new connection is established between the target place and the agent. 
+1. If the new place is not located on the same node, then a check is made whether there exists an agent representing the same user agent on the target node. If there is, then the agent is "revived" and any relevant history data is transferred to the new node, then a new connection is established between the target place on the new node and the proxy agent on _that_ machine. (This is primarily for performance purposes).
+1. The deprecated connection will also include a forwarding address to the new agent. This way, if an agent is known but it has moved "off-node", then the movement through different nodes can be traced. 
+
+[[Back]](#use-cases)
+
+### Transporting an Agent Via Another Agent
+1. An agent with an associated subdomain can "transport" another agent within that subdomain. This may be the case when an agent is acting as a container or carrier.
+1. Moving a given agent into another agent's subdomain is the same as moving an agent from one domain to another. From the standpoint of the initial domain, the "carried" agent is effectively no longer in scope of the carrier's superdomain.
+1. When an agent moves, the link to the subdomain for that agent remains the same - even if the agent moves from one node to another.
+1. The carrier agent can release the carried agent in a new place, at which point this is treated as a transfer of the carried agent from one domain to another.  
+
+[[Back]](#use-cases)
+
+### Creating a New Place
+
+1. Create an HSML Place definition and instantiate it (see [Creating an Entity](#creating-an-entity)), appending it to the relevant domain through the `hsml:hasPlace` predicate.
+2. If the place is intended to be a proxy for an established place, create the relevant proxied link (e.g., Place:Earth).
+3. If the new place needs links to existing places, create link children (either directly on the link or indirectly through an object) on both the current place and on relevant backlinks (if the link is not bidirectional).
+4. Once links are created, a domain function can be identified called resolve_links, which creates backlinks if a link is bi-directional.
+5. Note that links are sensitive to the types of agents involved. For instance, in a chess game simulator there may be links of type rank, file, diagonal, and knight (the L shaped link) between different squares, and the movements that are possible will consequently be composed of the set of all paths that can be made to a given square from the starting square based upon the piece. The set of all possible paths that a given piece (agent) can take is known as an ensemble, and this represents the local hyperspace of that piece relative to the agent type.
+6. As with other entities, places can be deprecated, typically by reification.
+
+[[Back]](#use-cases)
+
+### Creating an Entity Instance
+
+1. An __Entity Instance__ is a copy of an existing entity that is used as a template. It is frequently used in those situations where you have multiple different instances of a given environment, such as a game or simulation.
+1. An entity instance can only be created if the entity or some subcomponent of that entity is not a shadow for an IoT device or similar physical system that can be mutated (such as turning on a light in a smart room).
+1. The domain.d API includes a call to create an entity instance, which will take the current entity definition passed as a SWID and then instantiate a new instance that generates independent SWIDs and relevant identifiers.
+2. Entity instances do not necessarily copy affiliation credentials (this is a flag), meaning that while the original entity may be visible to an affiliation search, the instances do not necessarily need to be, though domain nodes will still appear in the landing page of the node directory, if this has been set up.
+
+[[Back]](#use-cases)
+
+### Using the Node Domain Directory
+
+1. A user can query the spatial web node for all of the domains for which the user agent has credentials. Typically this will be supported in the node domain, which has a specific agent that allows for generating and searching these domains (a __domain directory__).
+1. The domain directory is a kiosk control that can also be used to view and filter the domains by their relevant topics, and provide relevant summaries and metadata for each domain. 
+1. When invoked as JSON-LD (say via discovery applications), the domain directory generates either an HSML, Atom or RSS feed that contains this same metadata. 
+
+[[Back]](#use-cases)
+
+
+
+### Handle Fast/Slow State Changes
+
+1. Each domain has a heartbeat that determines how frequently up updates are made (and how frequently external systems are polled). When creating the domain, the heartbeat can be established as a property on the domain, and can be increased or decreased as need be.
+1. For those situations where the domain does not incorporate IoT devices, this heartbeat can usually be fairly fast, as the mechanisms for transmitting information exist primarily in the same process.
+1. For those domains where external services or IoT device connections exist, the heartbeat can generally be slowed dow (or sped up) to handle polling or publication/subscription (pub/sub) type architectures.
+1. Please note that the spatial web is primarily intended to be a predictive systems, involving a large amount of contextual data, rather than a close monitoring system.
+1. It is possible (though the exact mechanism is still TBD) for a service to spawn a direct connection to an Iot device or similar fast moving system, one that bypasses the normal domain calles. In such cases, simple filters may be placed on incoming messages that allow for specific signals to be detected which then prompts an update back into the domain manager. 
+
+[[Back]](#use-cases)
+
+### Replication and Failover
+
+1. The specific implementation of replication is dependent upon the particular knowledge graph store in question. The assumption here is that whatever KG store will likely have some native replication for multiple servers supporting failover by periodically streaming triples that are active as part of revisions to the graph. This will likely be expressed in more detail as prototypes reach a sufficient level of  maturity. 
+
+[[Back]](#use-cases)
+
+### Scale to Internet Level
+
+1. There are multiple tiers to the proposed spatial web structure
+   * **Places and Agents** - These represent the fundamental layer on which the spatial web is built
+   * **Domains** - Domains are in effect contextual, dynamic, interactive maps. They house places, agents, and supporting structures. Domains may be linked together across multiple nodes, though a single domain can only be on one node.
+   * **Extended Domain Graphs** - this extends the scope of a given domain by incorporating external graphs into the systems at the query level. This makes using common codebases and templates feasible
+   * **Spatial Web Nodes** - Spatial web nodes are the physical backbone of the spatial web, and are primarily the servers that host the various managers of resources.
+   * **Affiliation Networks** - Each node (and many domains within the nodes) belong to one or more affiliation networks. Some of these may be huge, with potentially millions of nodes, others may be the equivalent of local intranets. Moreover, affiliations can themselves be affiliated, creating a superstructure that can scale up to:
+   * **The Spatial Web** - This is the aggregate of all affiliation networks. 
+ 
+ 1. It is worth noting that not all (perhaps not even most) domains will be in publicly available affiliates. Many of these domains will be private networks intended for access only by  those with need to know (or to modify), especially those with IoT interconnections.
+1. The affiliate design is also a specific requirement for a decentralized architecture. A true peer-to-peer system likely will not scale to the same level (there are few Internet scale peer-to-peer systems after more than 35 years). This would especially be the case given the requirements to ensure private control over domains, along with the sensitivity of much of the internal data.
+
 ## Requirements
 
-| Section | Requirement | Sections | Source | Status |
-| --- | --- | --- | --- | --- |
-| 1.2.1 | Enable discovery of virtual representations of physical entities | [Representations](https://www.notion.so/Representations-1fc40ac3a1e880ce9e8bf6df04da6192?pvs=21), [HSQL](https://www.notion.so/HSQL-1fc40ac3a1e880efbfd6e5ad819b025f?pvs=21) | [5.2.3.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.2 | Enable discovery of physical and virtual entities via discovery services | [Entity Registries](https://www.notion.so/Entity-Registries-1fc40ac3a1e88035950cc7a2ab4009b3?pvs=21), [Annotations](https://www.notion.so/Annotations-1fc40ac3a1e88023812aeb50c2de5af8?pvs=21) | [5.2.3.3.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.3 | Validate SWIDs generated using SWID Method | [UDG SWIDs](https://www.notion.so/UDG-SWIDs-and-IRIs-1fc40ac3a1e88022a7e4c536d8f5a056?pvs=21) | [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.4 | Include Spatial Web registration service | [Entry Registries](https://www.notion.so/Entity-Registries-1fc40ac3a1e88035950cc7a2ab4009b3?pvs=21) | [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+ Section | Requirement | Sections | Source 
+  --- | --- | --- | --- 
+ 1.2.1 | Enable discovery of virtual representations of physical entities |[Querying an Entity](#querying-an-entity)|[5.2.3.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+1.2.2 | Enable discovery of physical and virtual entities via discovery services | [Searching a Registry](#searching-a-registry) | [5.2.3.3.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+| 1.2.3 | Validate SWIDs generated using SWID Method | [Generating and Resolving SWIDs](#generating-and-resolving-swids) | [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
+| 1.2.4 | Include Spatial Web registration service | [Affiliation Networks](#affiliation-networks) | [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
 | 1.2.5 | Register all SWIDs in Spatial Web Registry | [Entry Registries](https://www.notion.so/Entity-Registries-1fc40ac3a1e88035950cc7a2ab4009b3?pvs=21) | [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
 | 1.2.6 | Enable domain verification and validation | [Entry Registries](https://www.notion.so/Entity-Registries-1fc40ac3a1e88035950cc7a2ab4009b3?pvs=21) | [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
 | 1.2.7 | Support flexible SWID generation | [Entry Registries](https://www.notion.so/Entity-Registries-1fc40ac3a1e88035950cc7a2ab4009b3?pvs=21) | [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
@@ -29,6 +422,7 @@
 | 1.2.23 | Manage slow-changing entities | [UDG and HSTP](https://www.notion.so/UDG-and-HSTP-1fc40ac3a1e88011aa18e39a6557dfc3?pvs=21) | [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
 | 1.2.24 | Handle consensus latency | [**Agents, Security and Credentials**](https://www.notion.so/Actors-and-Agents-1fc40ac3a1e8809588dfc00f5ba9a4de?pvs=21) | [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
 | 1.2.25 | Implement specified use cases | [UDG and HSTP](https://www.notion.so/UDG-and-HSTP-1fc40ac3a1e88011aa18e39a6557dfc3?pvs=21), [Representations](https://www.notion.so/Representations-1fc40ac3a1e880ce9e8bf6df04da6192?pvs=21) | [7.4.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
+- 
 
 1. UDG shall enable discovery of the virtual representation of physical entities. Source: [5.2.3.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
     - *The UDG system provides for a number of different representations of both physical and virtual entities and domains. This will be covered in the section **Representations**.*
@@ -538,6 +932,144 @@ There is a chicken and egg situation with regard to whether a given Spatial Web 
 
 Put another way, ___from the standpoint of the UDG, the Spatial Web Node is a domain, with an implicit super agent___. The mechanics of this are still to be determined.
 
+### Places
+
+A __place__ is a specialized form of agent that represents a particular bounded region with a domain. The set of all places inside of a domain identifies the __hyperspace__ of that domain.
+
+Note that a place is a conceptual entity, not necessarily just a geophysical one. The role of a place is to indicate _where_ a particular agent performs a specific activity within a given domain, and an agent will always be connected to a place, though the specific place may change from one domain to the next.
+
+Within this context, a _tour_ can be thought of as the navigation of an agent through various places within a given domain. The specific mechanisms for how that agent moves from place to place are abstracted out in HSML, which is not necessarily a high fidelity representation of the physical world. What is important is only that the agent has moved from one operational context to another.
+
+As mentioned, a place is itself an agent, and is an abstraction. For instance, suppose that you were representing a field hospital in a wartime setting. This is a place - it is where agents perform activities - but it is not necessarily fixed in space. When you say, "I am going to Field Hospital #4077", for instance, what you are indicating is that you are going to a place but the specific location of that place will vary over time.
+
+This becomes especially important when dealing with vessels or platforms of various sorts. A cruise ship is a place, but its position will vary. That ship, in turn, can be decomposed (in its own subdomain) into multiple decks, rooms and cabins, each of which are also places.
+
+Two critical points to note:
+
+* A domain can have just a single place. If there is no particular need to indicate changes in spatial focus, then only one place is needed.* An agent may specify a location on its associated place, in either ___absolute___ or ___relative____ terms.
+    * An __absolute location__ is one given by an absolute coordinate system such as h3 or wgs-84, and assumes an orthogonal vector system used for specifying position, orientation and/or extent. This is typically used for larger scale domains, such as those on a planet. It may also be a custom tiling system where each tile has a specific address.
+    * A __relative location__ is a little more complicated to define, and is strictly speaking Euclidean. In this particular case, the domain identifies a set of places within it and associates each place with an orthogenal vector, along with one place that's an origin vector (a point). These places are markers, with n + 1 markers where n is the desired dimension, and n = 0 represents the origin. Once these are defined, any place can be defined relative to the corresponding coordinate system. Note, these do not necessarily need to be cartesian - you can set a 2D space as (r,θ), for instance.
+
+One advantage of using relative coordinates is that it can be used to simplify modeling of smaller structures. For instance, suppose that you wanted to model an apartment. You can set this up as follows:
+
+```
+[] a hsml:Domain ;
+    hsml:swid did:swid:ACE11921CD587AF245 ;
+    hsml:swurl <#domain/standardApartment-ACE11921CD587AF245>
+    hsml:hyperspace (_:origin _:x-axis :y-axis);
+    hsml:hasPlaces _:livingRoom, _:kitchen, _:bedroom, _:bathroom ;
+    hsml:hasHomePlace _:livingRoom ;
+    .
+_:origin a hsml:Place ;
+    hsml:hasLocation (0 0) ;
+    hsml:hasUnits <#concept/units/feet> ;
+    .
+_:x-axis a hsml:Place ;
+    hsml:hasLocation (1 0) ;
+    hsml:hasUnits <#concept/units/feet> ;
+    .
+
+_:y-axis a hsml:Place ;
+    hsml:hasLocation (0 1) ;
+    hsml:hasUnits <#concept/units/feet> ;
+    .
+
+_:livingRoom a hsml:Place ;
+    hsml:hasLocation (0 0) ;
+    hsml:hasExtent (12 8) ;
+    hsml:hasTopic <#concept/Room> ;
+    hsml:hasAgent [
+        # door from LR to Kitchen
+        a hsml:Agent ;
+        hsml:hasTopic topic:Door ;
+        hsml:hasLocation (12 4);
+        hsml:hasLink [
+            hsml:hasTarget _:kitchen ;
+        ] , [
+        # door from LR to Bedroom
+        a hsml:Agent ;
+        hsml:hasTopic topic:Door ;
+        hsml:hasLocation (6 8) ;
+        hsml:hasLink [
+            hsml:hasTarget _:kitchen ;
+        ]
+
+    ],[
+        # a person agent standing in to the living room
+        a hsml:Agent ;
+        hsml:swurl <#agent/JaneDoe> ;
+        hsml:hasTopic topic:Person, topic:Woman ;
+        hsml:hasLocation (7,3) ;
+    ].
+
+_:kitchen a hsml:Place ;
+    hsml:hasLocation (12 0) ;
+    hsml:hasExtent (6 8) ;
+    hsml:hasTopic <#concept/Room> ;
+    hsml:hasAgent [
+        # door from Kitchen to LR
+        a hsml:Agent ;
+        hsml:hasTopic topic:Door ;
+        hsml:hasLocation (12 4);
+        hsml:hasLink [
+            hsml:hasTarget _:livingRoom ;
+        ]
+    ]
+    .
+
+_:bedroom a hsml:Place ;
+    hsml:hasLocation (0 8) ;
+    hsml:hasExtent (10 8) ;
+    hsml:hasTopic <#concept/Room> ;
+    hsml:hasAgent [
+        # door from LR to Bedroom
+        a hsml:Agent ;
+        hsml:hasTopic topic:Door ;
+        hsml:hasLocation (6 8) ;
+        hsml:hasLink [
+            hsml:target _:livingRoom ;
+        ], [
+        # door from Bedroom to Bathroom
+        a hsml:Agent ;
+        hsml:hasTopic topic:Door ;
+        hsml:hasLocation (10 12) ;
+        hsml:hasLink [
+            hsml:hasTarget _:bathroom ;
+           ]
+        ]
+    .
+
+_:bathroom a hsml:Place ;
+    hsml:hasLocation (10 8) ;
+    hsml:hasExtent (8 8) ;
+    hsml:hasTopic <#concept/Room> ;
+    hsml:hasAgent [
+        # door from Bedroom to Bathroom
+        a hsml:Agent ;
+        hsml:hasTopic topic:Door ;
+        hsml:hasLocation (10 12) ;
+        hsml:hasLink [
+            hsml:hasTarget _:bathroom ;
+           ]
+        ]
+    .
+```
+
+This can be interpreted as follows:
+
+![Apartment Floorplan](images/apartment_floorplan-1-svg-08-16-2025_12_34_PM.png)
+
+Several key points:
+* _None of this has been normalized yet within the working group, so may change._
+* The () notation indicates an ordered linked list, which is used for any ordered sequence of items in RDF.
+* The use of the blank node (underscore notation) is to create local identifiers rather than global identifiers, and will be replaced by system scope identifiers when loaded into the graph.
+* Hyperspace here is identified by three places - an origin and two orthogonal vectors. 
+* Units are treated as conceptual entities in the taxonomy and are defined at the level of the spatial web node. If units are not included, then the default is an undifferentiated unit. 
+* The domain identifies the active places within the system (coordinate axes are usually not included as they don't normally take active agents).
+* Each place has a location that identifies where it is relative to either a global coordinate system or a custom (relative) system.
+* Agents are attached to places via the hsml:hasAgent predicate. In this particular case, the agents are doors with attached links that allow for transit between two rooms. Note that the door or portal agents have locations within the local coordinate system (and can have extents, though they are not necessary here). There is an additional icon showing a person and their current position within the apartment. 
+* The `hsml:hasExtent` predicate identifies the boundaries of a place. Note that such boundaries may be multi-dimensional in nature, and may be specified in a number of different ways. The `hsml:hasTopic` predicate can be used to clarify how this boundary is expressed, as indicated in the section [Extending Entities](#extending-entities).
+
 ### Links
 
 Links are fundamental to the World Wide Web. The behavior of a link in that context is simple - it indicates a new URL (a place) that the user agent goes to in a specific domain, whereupon it retrieves the document associated with that address.
@@ -635,126 +1167,27 @@ Links can be set up by the domain designer via the periodicity property as one o
 
 This operation is handled by the domain manager. Note that in fully autonomous operations, open links simply cause the agent to reset to the new place (and domain, if this changes, without UX involvement. However, key activation still requires the relevant credentials.
 
+### Designing a Domain
 
+A ___domain___ is a __model__ or __application__. It provides context for the things within the model, and also describes a purpose for that model. It is, in a very real sense, a __map__, albeit one that is self-aware and changes dynamically over time, though the question about what a domain is a map ___of___ is something that is dependent upon the author or model maker.
 
-### State Descriptors
+Something that is central to the spatial web is that it is __not__ necessarily a reflection of reality. As with any map, a domain is an abstraction of a (typically physical) space and the entities that evolve within that space over time. For instance, one can create a domain showing the London subway system:
 
-> Within a given domain, all that is known about an agent is what can be determined by its external state. 
+![London Subway System 2025](images/_116112246_064832377.jpg.webp)
 
-This is an important statement because it is the agentic equivalent to the principle of ___encapsulation___ in programming. The domain that an agent is in represents the environment and the space of all things that the agent can interact with. It does not, from the domain perspective, make any difference what mechanism drives the agent - whether a human being, an external AI, a chatbot, a data feed, an internal autonomous entity or even magic. All that the rest of the agents within that domain "know" is that from the outside, there is a black box controlling the agent.
+The domain can even be seen as a representation showing where the individual trains are  within that subway system (to a close approximation). Note that such a map is not necessarily spatially correct - it shows routes and stations, but these are not positionally correct. In this case, what you are looking at is a topological construct, simplified to show what is relevant, not necessarily what is a detailed reflection of the subway on (or in this case under) the ground.
 
-This state description is fundamental to a given entity conceptually. A building and a vehicle, for instance, both have certain properties that are intrisic to existing within space (position, orientation, scale, etc.), but others which are very different (a building typically does not, or at least should not, have a velocity). The operant work here is _typically_ - a houseboat, for instance, is both a vehicle and a building. 
+To that end, designing a domain typically comes down to answering a number of questions:
 
-An object effectively is both a discrete agent and a domain of subcomponents, with the activity of each agent sending a message to the internals (the domain specific part) concerning the desired outcode of the external state of that agent. The external state also reflects changes to the internal configuration within the agent's subdomain.
+* __What is this a map of?__ Most maps show things of significance within a given context. Why is the map being created? what is it's purpose? Just as a document exists in the world wide web to inform, entertain, record, and persuade, a domain exists in the spatial web for much the same thing. 
+* __Does the map change over time?__ Until recently, all maps were effectively just snapshots in time, and it has only been comparatively recently that we could create maps that capture evolution of a system over time.
+* __Does the map reflect changes in the real world?__ This is a more subtle question, but an important one. Is there some form of feedback between a physical array of sensors and cameras that drive the evolution of the model, or is the driving factor in the map some form of algorithm or AI (a simulation).
+* __Can changes to the map cause changes in the real world?__ Put another way, if a user of the map indicates a change be made to some entity within that map, will that change be reflected in the real world system that the map is a reflection of? Is it interactive?
+* __Is the map participatory?__ Are there other agents that can change the state of the map (whether it reflects physical reality or not) and how do they interact with that map? How are changes in the map expressed back to the user.
+* __Is the map linked to other maps?__ Does the map describe a comprehensive system, or is it possible to change to a different map based upon linking, tiling or similar system?
+* __Does the map have multiple levels of detail (LOD)?__ Can you zoom in on an area to get more detail? Do you need to provide metadata (text and image content)? Is it dynamic?
+* __Does the map have persistance?__ When an agent enters the map, will that map reflect changes made to it by others (an environment), or are changes lost between sessions (typical of tours)? 
 
-This leads to an interesting conclusion. A domain does not intrinsically have a state. Rather, the (external) state of the agent that represents the domain is _calculated_ based upon the states of the sub-agents after they have performed specific activities within that agent's doimain.
-
-For example, consider an agent that represents a room, and that room has four lights within that room. Each light can be turned on or off. The total intensity of the light within the room will then be considered to be the sum of the intensity of each light (in reality, this equation becomes considerably more complex), with the base state of the room being the illumination in the room when none of the lights are turned on.
-
-The illumination of the room as an entity is not determined externally. Rather, it is a byproduct of the agents within the room domain.
-
-This can be extended beyond a single numeric value. For instance, suppose that you wanted to determine the illumination at any point in the room. One possible approach to this is to perform a calculation parametrically depending upon where the "probe" agent is located. However, this approach places a great deal of onus on real time calculations, while the domain itself likely only changes when the underlying agents change in some way.
-
-An alternate (and preferred) approach is to divide the domain into multiple places (such as square or hexagonal tiles) and for each place, determine the ambient light at that particular place. Then update the intensity field of the external state dictionary as a dictionary or similar container, with each place identifier then serving as an individual label for the intensity for that place. The higher the number of tiles, the greater the fidelity of the simulation, while at the same time, minimizing the amount of computation necessary at query time.
-
-This approach, using the subordinate entities in the subdomain of the agent to maintain internal state, means that you should not need to maintain two separate state mechanisms. This has a lot of implications:
-
-* You can create generic agents within a subdomain to hold and manipulate the super-agent. This is very much analogous to HTML Forms, XML Forms, and React or Vue on the web. That is to say, you may have subordinate agents that represents a position marker, a text or text block field, a selector from multiple potential values, a radio control, a gauge, tabs, and so forth.
-* The advantage to this approach is that it makes generating activities fairly easy, to the extent that you can essentially shift into the subdomain to control these subcomponents (and establish computational updates of the state vector) as a way of building interfaces (this can be thought of as performing getters and setters on the model to control/query the subordinate state).
-* The external state model of the agent then represents the relevant information about the agent that can be readily queried without needing to specifically understand the substructure inherent within the agent itself.
-* These structures can be established via SHACL at definition time, with default configurations that can then be customized as need be.
-
-
-### What Is The State Dictionary
-
-The current convention is to call this set of states a ___hyperspace___. The recommendation here is that a hyperspace identifies the set of all valid places within a given domain, while the __state dictionary__ consists of a dictionary that identifies the relevent properties for the agent.
-
-There are three approaches that can be taken with regard to such a dictionary, and they each have implications.
-
-#### Subclassing of Agents
-
-In this approach, the properties are added directly to the agents through inheritance. This makes the most sense semantically, as the sum of properties effectively define the class of the agent (for instance a Traffic Light class). Here, the properties exposed are defined in SHACL, which can also be used to then iterate over these properties. This approach works best when properties may be complex or multivalued (as the light intensity approach above illustrates).
-
-```mermaid
-graph LR
-    subgraph subdomain[Traffic Light Subdomain]
-        selector[<b>Agent</b><br>Selector]
-        selector -->|state option| red & green((green)) & yellow((yellow))
-    end
-    agent1[<b>Agent</b><br>Traffic Light]
-    agent1 -->|hasDomain| subdomain
-    agent1 -->|lightColor| red((Red))
-    selector -->|sets| red
-
-
-classDef blankNode fill:black, stroke:transparent, color:white
-style red fill:red, color:white
-style green fill:green,color:white
-style yellow fill:yellow,color:black
-```
-
-#### Separate State Container
-
-This approach puts the state dictionary in a separate node attached to the agent. This makes it harder to define as a SHACL node, even if it may seem a little easier conceptually to understand.
-
-```mermaid
-graph LR
-    subgraph subdomain[Traffic Light Subdomain]
-        selector[<b>Agent</b><br>Selector]
-        selector -->|state option| red & green((green)) & yellow((yellow))
-    end
-    agent1[<b>Agent</b><br>Traffic Light]
-    agent1 -->|hasDomain| subdomain
-    agent1 -->|hasState| stateArray[State Dict]:::blankNode
-    stateArray -->|lightColor| red((Red))
-    selector -->|sets| red
-
-
-classDef blankNode fill:black, stroke:transparent, color:white
-style red fill:red, color:white
-style green fill:green,color:white
-style yellow fill:yellow,color:black
-```
-
-#### Feature Set
-
-A feature set is similar to a dictionary in some respects, but very different in others, and is used primarily for machine learning processing utilizing tensor multiplication. In such a feature set, all of the potential states of a given facet make up a set of features, with a numeric float from 0 to 1 indicating both the presence of and intensity of a given fact and vacet value. For instance, the property `emotionalState` (the facet) may have potential values (facet values) indicating the extent to which the model exhibits that particular value:
-
-| facet | facet value | intensity |
-|--|--|--|
-|emotional state|happy|0.3|
-|emotional state|sad|0.7|
-|emotional state|angry|0.75|
-|emotional state|bored|0.2|
-|physical state|comfortable|0.3|
-|physical state|hungry|0.6|
-|physical state|tired|0.7|
-
-This approach can be thought of as similar to taking a survey where you are asked a question (the facet) that establishes a particular value (the facet value) and are asked to indicate on a scale from 1 to 10 how much you agree with this particular state. It is also something that is used in similarity analysis and machine learning, usually by indicating frequency of a particular token or set of tokens within a document or portion of a document, meaning that it works well in LLMs and vector stores.
-
-The advantage to this approach is that you can do similarity analysis on the resulting vector, which can then be used to identify moving closer to a given endstate. The disadvantage here is that you have to compute the vectors for all potential states, meaning that if states (facets + facet values + intensities) change, you have to recompute these dynamically. Computing these also requires that you have a number of different embedding algorithms based upon what kind of information is being kept.
-
-It's worth pointing out here, however, that a property can contain a feature set as a datacube, which is a tensor representation with associated metadata, or as a JSON representation of the same thing. In this particular case, each dimension of the datacube represents a particular facet, each facet value a property, and each feature value as a normalized scalar. From this, generating the corresponding feature set as JSON becomes trivial. This becomes true of OLAP represenations a as well.
-
-#### Tensors, Datacubes, Time Series and Graphs
-
-OLAP has been presented as an alernative to utilizing semantic graphs. In an OLAP approach, you create n-dimensional hypercubes, with each dimension representing a property (facet) and each value in then property representing a facet value. In a relatively high dimensional OLAP cube, you can consequently represent different "slices" of the information space.
-
-At a basic level, a graph can be represented as an OLAP cube with relatively sparse dataset values. This makes joins relatively efficient, but it doesn't necessarily work well once you need to do things with those joins. This means that if you have a graph that is predominantly read only and static, storing it an OLAP cube may be more efficient, but for updates or complex queries, it is dramatically less efficient. Given that the spatial web is constantly being updated, this means that OLAP cubes by themselves are not all that well suited for use within the spatial web, though they may be used as a mechanism for certain types of graph containers.
-
-However, there are ample cases where a property of a given agent may hold a datacube, which is a representation of a complex data set that may be the result of a computation or data access from an external resource. This can be stored using the W3C datacube specification or some other similar specification, and may very well represent time series or other independent tensors. These are not, technically, a part of HSML, though datacubes can be defined for work using SHACL.
-
-#### Symbolic Active Inferencing, Factor Graphs and Reification
-
-Active Inferencing makes use of factor graphs that determine probabilistic weights of action based upon Bayesian analysis, and plays a significant role in Agent systems.
-
-A factor graph can be seen as a transition across a state diagram. For instance, in a traffic light scenario, one property that will be present in the domain is the traffic density. When the density is heavy in both directions (assuming an intersection), then the interval and timing of each red and green state will be approximately the same, but if the density in one direction is significantly higher than it is in the other, then the traffic light will change the frequency of the light in either direction, giving more preference to the heavy roadway. In the case where there is no traffic in one direction, then the light never turns green for the opposite route.
-
-These can be represented as Bayesians, with behavior determined largely upon a decision tree that's dynamically weighted. The weightings for this can be set up by the use of either modeling or, more likely through rdf-star based reification. A reification is a statement about a statement, and in this particular case can be used to establish a context in which a given set of conditions are true. This is one potential implementation of a Factor Graph. 
-
-In this particular case, multiple reifications on the property sets of a particular agent with weightings can be set up in the graph, that can then be evaluated through a query mechanism on the reified graph to determine the best course of action given a starting scenario (state dictionary). This can in turn generate a working named graph that can walk through successive states to achieve a specific objective, using the principle of minimization of free energy to determine fitness.
-
-This section to be expanded in future releases.
 
 ## Activities
 
@@ -850,52 +1283,7 @@ classDef category fill:orange
 
 The power of the UDG taxonomy is in its ability to cluster agents by topic, mediated by category. For instance, car 1 and car 2 are both of the same make (Toyota) but of different models (Camry vs. Corolla) and trims. They are also of the same "domain Type" of automobile. Note that domain type here is not privileged, it is simply one more category that agents can be in, though a fairly broad category.
 
-### The `hsml:hasConstraint` Property
 
-Some times there are interdependencies between topics. For instance, the Corolla and the Camry are two different models produced by Toyota, and another car company will not produce those same models. Similarly trim provides variants for a given car model.
-
-These relationships are called __constraints_, which is a relationship indicating that one topic is dependent upon another. This changes the diagram somewhat:
-
-```mermaid
----
-config:
-    layout: elk
----
-graph LR
-    car1[<b>Agent</b><br>Car 1]:::agent
-    car2[<b>Agent</b><br>Car 2]:::agent
-    automobile[<b>Topic</b><br>Automobile]:::topic
-    sedan[<b>Topic</b><br>SUV]:::topic
-    toyota[<b>Topic</b><br>Toyota]:::topic
-    camry[<b>Topic</b><br>Camry]:::topic
-    corolla[<b>Topic</b><br>Corolla]:::topic
-    XE[<b>Topic</b><br>XE]:::topic
-    AE[<b>Topic</b><br>AE]:::topic
-    car1 -->|hsml:hasTopic| automobile & sedan & toyota & camry
-    car2 -->|hsml:hasTopic| automobile & sedan & toyota & corolla & AE
-    carriage[<b>Category</b><br>Carriage]:::category
-    make[<b>Category</b><br>Make]:::category
-    model[<b>Category</b><br>Model]:::category
-    trim[<b>Category</b><br>Trim]:::category
-    domainType[<b>Category</b><br>Domain Type]:::category
-    carriage --->|hsml:hasTopic| sedan
-    make --->|hsml:hasTopic| toyota
-    model --->|hsml:hasTopic| camry
-    model --->|hsml:hasTopic| corolla
-    trim --->|hsml:hasTopic| XE
-    trim --->|hsml:hasTopic| AE
-    domainType --->|hsml:hasTopic| automobile
-    camry --->|hsml:hasConstraint| toyota
-    corolla --->|hsml:hasConstraint| toyota
-    XE -->|hsml:hasConstraint| camry
-    AE -->|hsml:hasConstraint| corolla
-
-style car1 stroke-width:4
-classDef node stroke:black
-classDef agent fill:lightBlue
-classDef topic fill:yellow
-classDef category fill:orange
-```
 
 ### Places with `hsml:hasTopic` and `hsml:hasConstraint`
 
@@ -1028,6 +1416,124 @@ _:MediterraneanAve a hsml:Place ;
 _:Boardwalk a hsml:Place ;
     hsml:proxyOf <#Places/Monopoly/Boardwalk> .
 ```
+## State Descriptors
+
+> Within a given domain, all that is known about an agent is what can be determined by its external state. 
+
+This is an important statement because it is the agentic equivalent to the principle of ___encapsulation___ in programming. The domain that an agent is in represents the environment and the space of all things that the agent can interact with. It does not, from the domain perspective, make any difference what mechanism drives the agent - whether a human being, an external AI, a chatbot, a data feed, an internal autonomous entity or even magic. All that the rest of the agents within that domain "know" is that from the outside, there is a black box controlling the agent.
+
+This state description is fundamental to a given entity conceptually. A building and a vehicle, for instance, both have certain properties that are intrisic to existing within space (position, orientation, scale, etc.), but others which are very different (a building typically does not, or at least should not, have a velocity). The operant work here is _typically_ - a houseboat, for instance, is both a vehicle and a building. 
+
+An object effectively is both a discrete agent and a domain of subcomponents, with the activity of each agent sending a message to the internals (the domain specific part) concerning the desired outcode of the external state of that agent. The external state also reflects changes to the internal configuration within the agent's subdomain.
+
+This leads to an interesting conclusion. A domain does not intrinsically have a state. Rather, the (external) state of the agent that represents the domain is _calculated_ based upon the states of the sub-agents after they have performed specific activities within that agent's doimain.
+
+For example, consider an agent that represents a room, and that room has four lights within that room. Each light can be turned on or off. The total intensity of the light within the room will then be considered to be the sum of the intensity of each light (in reality, this equation becomes considerably more complex), with the base state of the room being the illumination in the room when none of the lights are turned on.
+
+The illumination of the room as an entity is not determined externally. Rather, it is a byproduct of the agents within the room domain.
+
+This can be extended beyond a single numeric value. For instance, suppose that you wanted to determine the illumination at any point in the room. One possible approach to this is to perform a calculation parametrically depending upon where the "probe" agent is located. However, this approach places a great deal of onus on real time calculations, while the domain itself likely only changes when the underlying agents change in some way.
+
+An alternate (and preferred) approach is to divide the domain into multiple places (such as square or hexagonal tiles) and for each place, determine the ambient light at that particular place. Then update the intensity field of the external state dictionary as a dictionary or similar container, with each place identifier then serving as an individual label for the intensity for that place. The higher the number of tiles, the greater the fidelity of the simulation, while at the same time, minimizing the amount of computation necessary at query time.
+
+This approach, using the subordinate entities in the subdomain of the agent to maintain internal state, means that you should not need to maintain two separate state mechanisms. This has a lot of implications:
+
+* You can create generic agents within a subdomain to hold and manipulate the super-agent. This is very much analogous to HTML Forms, XML Forms, and React or Vue on the web. That is to say, you may have subordinate agents that represents a position marker, a text or text block field, a selector from multiple potential values, a radio control, a gauge, tabs, and so forth.
+* The advantage to this approach is that it makes generating activities fairly easy, to the extent that you can essentially shift into the subdomain to control these subcomponents (and establish computational updates of the state vector) as a way of building interfaces (this can be thought of as performing getters and setters on the model to control/query the subordinate state).
+* The external state model of the agent then represents the relevant information about the agent that can be readily queried without needing to specifically understand the substructure inherent within the agent itself.
+* These structures can be established via SHACL at definition time, with default configurations that can then be customized as need be.
+
+
+### What Is The State Dictionary
+
+The current convention is to call this set of states a ___hyperspace___. The recommendation here is that a hyperspace identifies the set of all valid places within a given domain, while the __state dictionary__ consists of a dictionary that identifies the relevent properties for the agent.
+
+There are three approaches that can be taken with regard to such a dictionary, and they each have implications.
+
+#### Subclassing of Agents
+
+In this approach, the properties are added directly to the agents through inheritance. This makes the most sense semantically, as the sum of properties effectively define the class of the agent (for instance a Traffic Light class). Here, the properties exposed are defined in SHACL, which can also be used to then iterate over these properties. This approach works best when properties may be complex or multivalued (as the light intensity approach above illustrates).
+
+```mermaid
+graph LR
+    subgraph subdomain[Traffic Light Subdomain]
+        selector[<b>Agent</b><br>Selector]
+        selector -->|state option| red & green((green)) & yellow((yellow))
+    end
+    agent1[<b>Agent</b><br>Traffic Light]
+    agent1 -->|hasDomain| subdomain
+    agent1 -->|lightColor| red((Red))
+    selector -->|sets| red
+
+
+classDef blankNode fill:black, stroke:transparent, color:white
+style red fill:red, color:white
+style green fill:green,color:white
+style yellow fill:yellow,color:black
+```
+
+#### Separate State Container
+
+This approach puts the state dictionary in a separate node attached to the agent. This makes it harder to define as a SHACL node, even if it may seem a little easier conceptually to understand.
+
+```mermaid
+graph LR
+    subgraph subdomain[Traffic Light Subdomain]
+        selector[<b>Agent</b><br>Selector]
+        selector -->|state option| red & green((green)) & yellow((yellow))
+    end
+    agent1[<b>Agent</b><br>Traffic Light]
+    agent1 -->|hasDomain| subdomain
+    agent1 -->|hasState| stateArray[State Dict]:::blankNode
+    stateArray -->|lightColor| red((Red))
+    selector -->|sets| red
+
+
+classDef blankNode fill:black, stroke:transparent, color:white
+style red fill:red, color:white
+style green fill:green,color:white
+style yellow fill:yellow,color:black
+```
+
+#### Feature Set
+
+A feature set is similar to a dictionary in some respects, but very different in others, and is used primarily for machine learning processing utilizing tensor multiplication. In such a feature set, all of the potential states of a given facet make up a set of features, with a numeric float from 0 to 1 indicating both the presence of and intensity of a given fact and vacet value. For instance, the property `emotionalState` (the facet) may have potential values (facet values) indicating the extent to which the model exhibits that particular value:
+
+| facet | facet value | intensity |
+|--|--|--|
+|emotional state|happy|0.3|
+|emotional state|sad|0.7|
+|emotional state|angry|0.75|
+|emotional state|bored|0.2|
+|physical state|comfortable|0.3|
+|physical state|hungry|0.6|
+|physical state|tired|0.7|
+
+This approach can be thought of as similar to taking a survey where you are asked a question (the facet) that establishes a particular value (the facet value) and are asked to indicate on a scale from 1 to 10 how much you agree with this particular state. It is also something that is used in similarity analysis and machine learning, usually by indicating frequency of a particular token or set of tokens within a document or portion of a document, meaning that it works well in LLMs and vector stores.
+
+The advantage to this approach is that you can do similarity analysis on the resulting vector, which can then be used to identify moving closer to a given endstate. The disadvantage here is that you have to compute the vectors for all potential states, meaning that if states (facets + facet values + intensities) change, you have to recompute these dynamically. Computing these also requires that you have a number of different embedding algorithms based upon what kind of information is being kept.
+
+It's worth pointing out here, however, that a property can contain a feature set as a datacube, which is a tensor representation with associated metadata, or as a JSON representation of the same thing. In this particular case, each dimension of the datacube represents a particular facet, each facet value a property, and each feature value as a normalized scalar. From this, generating the corresponding feature set as JSON becomes trivial. This becomes true of OLAP represenations a as well.
+
+#### Tensors, Datacubes, Time Series and Graphs
+
+OLAP has been presented as an alernative to utilizing semantic graphs. In an OLAP approach, you create n-dimensional hypercubes, with each dimension representing a property (facet) and each value in then property representing a facet value. In a relatively high dimensional OLAP cube, you can consequently represent different "slices" of the information space.
+
+At a basic level, a graph can be represented as an OLAP cube with relatively sparse dataset values. This makes joins relatively efficient, but it doesn't necessarily work well once you need to do things with those joins. This means that if you have a graph that is predominantly read only and static, storing it an OLAP cube may be more efficient, but for updates or complex queries, it is dramatically less efficient. Given that the spatial web is constantly being updated, this means that OLAP cubes by themselves are not all that well suited for use within the spatial web, though they may be used as a mechanism for certain types of graph containers.
+
+However, there are ample cases where a property of a given agent may hold a datacube, which is a representation of a complex data set that may be the result of a computation or data access from an external resource. This can be stored using the W3C datacube specification or some other similar specification, and may very well represent time series or other independent tensors. These are not, technically, a part of HSML, though datacubes can be defined for work using SHACL.
+
+#### Symbolic Active Inferencing, Factor Graphs and Reification
+
+Active Inferencing makes use of factor graphs that determine probabilistic weights of action based upon Bayesian analysis, and plays a significant role in Agent systems.
+
+A factor graph can be seen as a transition across a state diagram. For instance, in a traffic light scenario, one property that will be present in the domain is the traffic density. When the density is heavy in both directions (assuming an intersection), then the interval and timing of each red and green state will be approximately the same, but if the density in one direction is significantly higher than it is in the other, then the traffic light will change the frequency of the light in either direction, giving more preference to the heavy roadway. In the case where there is no traffic in one direction, then the light never turns green for the opposite route.
+
+These can be represented as Bayesians, with behavior determined largely upon a decision tree that's dynamically weighted. The weightings for this can be set up by the use of either modeling or, more likely through rdf-star based reification. A reification is a statement about a statement, and in this particular case can be used to establish a context in which a given set of conditions are true. This is one potential implementation of a Factor Graph. 
+
+In this particular case, multiple reifications on the property sets of a particular agent with weightings can be set up in the graph, that can then be evaluated through a query mechanism on the reified graph to determine the best course of action given a starting scenario (state dictionary). This can in turn generate a working named graph that can walk through successive states to achieve a specific objective, using the principle of minimization of free energy to determine fitness.
+
+This section to be expanded in future releases.
 
 ### Topics vs. States
 
@@ -1214,212 +1720,7 @@ Another way of thinking about imports vs. includes is that an import is essentia
 
 Note also that in both cases, the node server MUST have the relevant credentials to load in the external domain. Otherwise this statement will fail and an error message will be sent to the error channel.
 
-### Repositories, Registries
 
-A __repository__ is a spatial web node that contains commonly utilized taxonomies, schemas, agents, activities, and other resources. A __registry__, on the other hand, is a way of registering the locations of specific spatial web nodes and their associated resources. The spatial web nodes, then would make use of the same DNS registry that HTTP and HTTPS uses, with the additional caveat that access would be moderated by credentials.
-
-The Spatial Web Foundation should be responsible for maintaining core repositories, especially places, taxonomic concepts, activity components and schemas. This is a common requirement, and while others can and will create their own definitions, they can use spatial web concepts to provide core provenance and structure.
-
-The Spatial Web Foundation should also be responsible for a Spatial Web Registration Authority (SWRA). The purpose of such a registry is to provide a clearinghouse for identifying and classifying public domains, using the Spatial Web UDG Taxonomy (and the corresponding hsml:hasTopic and related predicates) to help to identify relevant content.
-
-When a Spatial Web Node is registered with SWRA several things happen:
-
-* The ipv6 address of the node server is registered, along with a web domain name and (if different from the default) a port. The SWRA registry can also register the relevant IP addresses.
-* A SW domain on a SW node can be assigned a public SWRA credential that indicates that the domain in question is a part of the SWRA network (similar networks can be established with different sets of credentials).
-* Periodically, the spatial web node can send an update of all domains on that node that have the relevant credentials. This include any metadata (topics) that are associated with the domain. Note that these domains provide access points to other domains that may not necessarily be transmitted to the registry. As such they should be seen as starting points for various domain activities. Not all domains on a node need (or should) be so registered.
-* Registries that issue their own credentials create __affiliation networks__. For instance, a given company that produces lines of IoT devices with associated HSML interfaces may end up providing an affiliation network of all nodes that make use of these devices, and as such share common domain and agent interfaces, taxonomies, structures and so forth. Similarly, a multi-system role playing game may set up an affiliation network where each node hosts one or more domains in that particular universe, with the ability for agents to move from one node to another through the use of supported credentials in that affiliation network. 
-* A SW Node (and associated domains) can be part of multiple affiliation networks. For instance, a federal government may provide a core affiliation network for its member states, each both sharing resources and providing information, as well as identifying what other nodes are part of that affiliation.
-* Both a repository and a registry are spatial web nodes. What differentiates them is primarily whether they have the additional functions of registration and whether they permit sharing within one or more affiliate networks. This are additional modules that can be added on to the base functionality of the spatial web node.
-* Moreover, a spatial web node can be both a repository and a registry. 
-
-
-### Affiliation Networks
-
-An __affiliation network__ is a network of spatial web nodes which shares common resources, taxonomic classifications and typically a common registry. The registry serves as the hub of the network, identifying membership in the affiliation network as well as providing a mechanism for discovery within that network.
-
-One of the roles of a registry is to issue and affiliation credential. This credential serves as a way of verifying that nodes within the network are in fact part of that network, and provide permissions that spatial web clients need to have in order to access certain features.
-
-For instance, a group of universities in a given region may establish an affiliated network. This means that each university effectively agrees to abide by specific taxonomies as a way of organizing information, provides common set of activities for performing such tasks as transferring students between universities, enrolling in classes, and so forth, and will often allow students and faculty from one university to access resources or get consistent grading at other universities within the affiliation.
-
-This is accomplished through a "university league" credential which is issued when the node is added to the network. When a student registers to a given node, their user agent (the software client they interact with) within the system receives a corresponding private key credential that both makes the user a resource in the system and provides them access to that system.
-
-This serves a number of functions. For instance, an administrator can perform an affiliation level search for a given student, faculty member, class, or program (among many other things), either by ID or by attributes. A student can register with another university within the affiliation to take a class remotely, or can even sign up to and use remotely controlled laboratories stations (such as observatory time at a telescope or participation within a collaborative concert). A teacher can make available resources such as books or training videos from protected repositories to all of her students.
-
-In this particular case, the registry serves to identify those domains within the network of nodes of affiliated members that may contain the desired resources. When a query is made in the broader context of the affiliation, each of these affiliated nodes are then queried in turn and return the associated links to those resources as a structure (analogous to an RSS or Atom type structure) that are then collated by the calling domain.
-
-Note that the nodes in these affiliated networks are not (typically) graph extensions. A graph extension expands the active domain graph of a given node and is normally secured, because it exposes all resources within that graph. An affiliation query, on the other hand, is a request for information (typically links but also maps) from other nodes in the affiliated network. 
-
-```mermaid
----
-config:
-  layout: elk
----
-flowchart TD
-  subgraph SWRAF[Spatial Web Affiliation]
-      subgraph ULN[University Network]
-         direction TB
-            Oxbridge1[<b>Domain</b><br>Oxbridge University]
-            Camford[<b>Domain</b><br>Camford University]
-            Eden[<b>Domain</b><br>Eden University]
-            Queens[<b>Domain</b><br>Queens College]
-      end
-      subgraph CL[College Rugby League]
-         direction TB 
-         Oxbridge2[<b>Domain</b><br>Oxbridge University]
-         Amhurter[<b>Domain</b><br>Anhurter]
-         Chancery[<b>Domain</b><br>Chancery]
-      end
-      Oxbridge1 -.- Oxbridge2
-      ulna[<b>Domain</b><br>University League Registry]
-      cla[<b>Domain</b><br>College Rugby Registry]
-      ulna -->ULN
-      cla -->CL
-  end
-  swra[<b>Domain</b><br>Spatial Web Registry]
-  swra -->SWRAF
-
-  style SWRAF fill:#FFFFF8
-```
-
-Here, Oxbridge University is part of two affiliation networks - a university network and a rugby league network. 
-
-### Places
-
-A __place__ is a specialized form of agent that represents a particular bounded region with a domain. The set of all places inside of a domain identifies the __hyperspace__ of that domain.
-
-Note that a place is a conceptual entity, not necessarily just a geophysical one. The role of a place is to indicate _where_ a particular agent performs a specific activity within a given domain, and an agent will always be connected to a place, though the specific place may change from one domain to the next.
-
-Within this context, a _tour_ can be thought of as the navigation of an agent through various places within a given domain. The specific mechanisms for how that agent moves from place to place are abstracted out in HSML, which is not necessarily a high fidelity representation of the physical world. What is important is only that the agent has moved from one operational context to another.
-
-As mentioned, a place is itself an agent, and is an abstraction. For instance, suppose that you were representing a field hospital in a wartime setting. This is a place - it is where agents perform activities - but it is not necessarily fixed in space. When you say, "I am going to Field Hospital #4077", for instance, what you are indicating is that you are going to a place but the specific location of that place will vary over time.
-
-This becomes especially important when dealing with vessels or platforms of various sorts. A cruise ship is a place, but its position will vary. That ship, in turn, can be decomposed (in its own subdomain) into multiple decks, rooms and cabins, each of which are also places.
-
-Two critical points to note:
-
-* A domain can have just a single place. If there is no particular need to indicate changes in spatial focus, then only one place is needed.* An agent may specify a location on its associated place, in either ___absolute___ or ___relative____ terms.
-    * An __absolute location__ is one given by an absolute coordinate system such as h3 or wgs-84, and assumes an orthogonal vector system used for specifying position, orientation and/or extent. This is typically used for larger scale domains, such as those on a planet. It may also be a custom tiling system where each tile has a specific address.
-    * A __relative location__ is a little more complicated to define, and is strictly speaking Euclidean. In this particular case, the domain identifies a set of places within it and associates each place with an orthogenal vector, along with one place that's an origin vector (a point). These places are markers, with n + 1 markers where n is the desired dimension, and n = 0 represents the origin. Once these are defined, any place can be defined relative to the corresponding coordinate system. Note, these do not necessarily need to be cartesian - you can set a 2D space as (r,θ), for instance.
-
-One advantage of using relative coordinates is that it can be used to simplify modeling of smaller structures. For instance, suppose that you wanted to model an apartment. You can set this up as follows:
-
-```
-[] a hsml:Domain ;
-    hsml:swid did:swid:ACE11921CD587AF245 ;
-    hsml:swurl <#domain/standardApartment-ACE11921CD587AF245>
-    hsml:hyperspace (_:origin _:x-axis :y-axis);
-    hsml:hasPlaces _:livingRoom, _:kitchen, _:bedroom, _:bathroom ;
-    hsml:hasHomePlace _:livingRoom ;
-    .
-_:origin a hsml:Place ;
-    hsml:hasLocation (0 0) ;
-    hsml:hasUnits <#concept/units/feet> ;
-    .
-_:x-axis a hsml:Place ;
-    hsml:hasLocation (1 0) ;
-    hsml:hasUnits <#concept/units/feet> ;
-    .
-
-_:y-axis a hsml:Place ;
-    hsml:hasLocation (0 1) ;
-    hsml:hasUnits <#concept/units/feet> ;
-    .
-
-_:livingRoom a hsml:Place ;
-    hsml:hasLocation (0 0) ;
-    hsml:hasExtent (12 8) ;
-    hsml:hasTopic <#concept/Room> ;
-    hsml:hasAgent [
-        # door from LR to Kitchen
-        a hsml:Agent ;
-        hsml:hasTopic topic:Door ;
-        hsml:hasLocation (12 4);
-        hsml:hasLink [
-            hsml:hasTarget _:kitchen ;
-        ] , [
-        # door from LR to Bedroom
-        a hsml:Agent ;
-        hsml:hasTopic topic:Door ;
-        hsml:hasLocation (6 8) ;
-        hsml:hasLink [
-            hsml:hasTarget _:kitchen ;
-        ]
-
-    ],[
-        # a person agent standing in to the living room
-        a hsml:Agent ;
-        hsml:swurl <#agent/JaneDoe> ;
-        hsml:hasTopic topic:Person, topic:Woman ;
-        hsml:hasLocation (7,3) ;
-    ].
-
-_:kitchen a hsml:Place ;
-    hsml:hasLocation (12 0) ;
-    hsml:hasExtent (6 8) ;
-    hsml:hasTopic <#concept/Room> ;
-    hsml:hasAgent [
-        # door from Kitchen to LR
-        a hsml:Agent ;
-        hsml:hasTopic topic:Door ;
-        hsml:hasLocation (12 4);
-        hsml:hasLink [
-            hsml:hasTarget _:livingRoom ;
-        ]
-    ]
-    .
-
-_:bedroom a hsml:Place ;
-    hsml:hasLocation (0 8) ;
-    hsml:hasExtent (10 8) ;
-    hsml:hasTopic <#concept/Room> ;
-    hsml:hasAgent [
-        # door from LR to Bedroom
-        a hsml:Agent ;
-        hsml:hasTopic topic:Door ;
-        hsml:hasLocation (6 8) ;
-        hsml:hasLink [
-            hsml:target _:livingRoom ;
-        ], [
-        # door from Bedroom to Bathroom
-        a hsml:Agent ;
-        hsml:hasTopic topic:Door ;
-        hsml:hasLocation (10 12) ;
-        hsml:hasLink [
-            hsml:hasTarget _:bathroom ;
-           ]
-        ]
-    .
-
-_:bathroom a hsml:Place ;
-    hsml:hasLocation (10 8) ;
-    hsml:hasExtent (8 8) ;
-    hsml:hasTopic <#concept/Room> ;
-    hsml:hasAgent [
-        # door from Bedroom to Bathroom
-        a hsml:Agent ;
-        hsml:hasTopic topic:Door ;
-        hsml:hasLocation (10 12) ;
-        hsml:hasLink [
-            hsml:hasTarget _:bathroom ;
-           ]
-        ]
-    .
-```
-
-This can be interpreted as follows:
-
-![Apartment Floorplan](images/apartment_floorplan-1-svg-08-16-2025_12_34_PM.png)
-
-Several key points:
-* _None of this has been normalized yet within the working group, so may change._
-* The () notation indicates an ordered linked list, which is used for any ordered sequence of items in RDF.
-* The use of the blank node (underscore notation) is to create local identifiers rather than global identifiers, and will be replaced by system scope identifiers when loaded into the graph.
-* Hyperspace here is identified by three places - an origin and two orthogonal vectors. 
-* Units are treated as conceptual entities in the taxonomy and are defined at the level of the spatial web node. If units are not included, then the default is an undifferentiated unit. 
-* The domain identifies the active places within the system (coordinate axes are usually not included as they don't normally take active agents).
-* Each place has a location that identifies where it is relative to either a global coordinate system or a custom (relative) system.
-* Agents are attached to places via the hsml:hasAgent predicate. In this particular case, the agents are doors with attached links that allow for transit between two rooms. Note that the door or portal agents have locations within the local coordinate system (and can have extents, though they are not necessary here). There is an additional icon showing a person and their current position within the apartment. 
-* The `hsml:hasExtent` predicate identifies the boundaries of a place. Note that such boundaries may be multi-dimensional in nature, and may be specified in a number of different ways. The `hsml:hasTopic` predicate can be used to clarify how this boundary is expressed, as indicated in the section [Extending Entities](#extending-entities).
 
 ### Maps, Icons and Representations
 
@@ -1576,6 +1877,76 @@ This makes it possible to add any number of properties to entities within the do
 
 Note that common shapes can be bound specifically to reference domains and included or imported, as specified in the section [Importing Taxonomies and Schemas](#importing-taxonomies-and-schemas).
 
+
+## Repositories, Registries and Affiliation Networks
+
+A __repository__ is a spatial web node that contains commonly utilized taxonomies, schemas, agents, activities, and other resources. A __registry__, on the other hand, is a way of registering the locations of specific spatial web nodes and their associated resources. The spatial web nodes, then would make use of the same DNS registry that HTTP and HTTPS uses, with the additional caveat that access would be moderated by credentials.
+
+The Spatial Web Foundation should be responsible for maintaining core repositories, especially places, taxonomic concepts, activity components and schemas. This is a common requirement, and while others can and will create their own definitions, they can use spatial web concepts to provide core provenance and structure.
+
+The Spatial Web Foundation should also be responsible for a Spatial Web Registration Authority (SWRA). The purpose of such a registry is to provide a clearinghouse for identifying and classifying public domains, using the Spatial Web UDG Taxonomy (and the corresponding hsml:hasTopic and related predicates) to help to identify relevant content.
+
+When a Spatial Web Node is registered with SWRA several things happen:
+
+* The ipv6 address of the node server is registered, along with a web domain name and (if different from the default) a port. The SWRA registry can also register the relevant IP addresses.
+* A SW domain on a SW node can be assigned a public SWRA credential that indicates that the domain in question is a part of the SWRA network (similar networks can be established with different sets of credentials).
+* Periodically, the spatial web node can send an update of all domains on that node that have the relevant credentials. This include any metadata (topics) that are associated with the domain. Note that these domains provide access points to other domains that may not necessarily be transmitted to the registry. As such they should be seen as starting points for various domain activities. Not all domains on a node need (or should) be so registered.
+* Registries that issue their own credentials create __affiliation networks__. For instance, a given company that produces lines of IoT devices with associated HSML interfaces may end up providing an affiliation network of all nodes that make use of these devices, and as such share common domain and agent interfaces, taxonomies, structures and so forth. Similarly, a multi-system role playing game may set up an affiliation network where each node hosts one or more domains in that particular universe, with the ability for agents to move from one node to another through the use of supported credentials in that affiliation network. 
+* A SW Node (and associated domains) can be part of multiple affiliation networks. For instance, a federal government may provide a core affiliation network for its member states, each both sharing resources and providing information, as well as identifying what other nodes are part of that affiliation.
+* Both a repository and a registry are spatial web nodes. What differentiates them is primarily whether they have the additional functions of registration and whether they permit sharing within one or more affiliate networks. This are additional modules that can be added on to the base functionality of the spatial web node.
+* Moreover, a spatial web node can be both a repository and a registry. 
+
+
+### Affiliation Networks
+
+An __affiliation network__ is a network of spatial web nodes which shares common resources, taxonomic classifications and typically a common registry. The registry serves as the hub of the network, identifying membership in the affiliation network as well as providing a mechanism for discovery within that network.
+
+One of the roles of a registry is to issue and affiliation credential. This credential serves as a way of verifying that nodes within the network are in fact part of that network, and provide permissions that spatial web clients need to have in order to access certain features.
+
+For instance, a group of universities in a given region may establish an affiliated network. This means that each university effectively agrees to abide by specific taxonomies as a way of organizing information, provides common set of activities for performing such tasks as transferring students between universities, enrolling in classes, and so forth, and will often allow students and faculty from one university to access resources or get consistent grading at other universities within the affiliation.
+
+This is accomplished through a "university league" credential which is issued when the node is added to the network. When a student registers to a given node, their user agent (the software client they interact with) within the system receives a corresponding private key credential that both makes the user a resource in the system and provides them access to that system.
+
+This serves a number of functions. For instance, an administrator can perform an affiliation level search for a given student, faculty member, class, or program (among many other things), either by ID or by attributes. A student can register with another university within the affiliation to take a class remotely, or can even sign up to and use remotely controlled laboratories stations (such as observatory time at a telescope or participation within a collaborative concert). A teacher can make available resources such as books or training videos from protected repositories to all of her students.
+
+In this particular case, the registry serves to identify those domains within the network of nodes of affiliated members that may contain the desired resources. When a query is made in the broader context of the affiliation, each of these affiliated nodes are then queried in turn and return the associated links to those resources as a structure (analogous to an RSS or Atom type structure) that are then collated by the calling domain.
+
+Note that the nodes in these affiliated networks are not (typically) graph extensions. A graph extension expands the active domain graph of a given node and is normally secured, because it exposes all resources within that graph. An affiliation query, on the other hand, is a request for information (typically links but also maps) from other nodes in the affiliated network. 
+
+```mermaid
+---
+config:
+  layout: elk
+---
+flowchart TD
+  subgraph SWRAF[Spatial Web Affiliation]
+      subgraph ULN[University Network]
+         direction TB
+            Oxbridge1[<b>Domain</b><br>Oxbridge University]
+            Camford[<b>Domain</b><br>Camford University]
+            Eden[<b>Domain</b><br>Eden University]
+            Queens[<b>Domain</b><br>Queens College]
+      end
+      subgraph CL[College Rugby League]
+         direction TB 
+         Oxbridge2[<b>Domain</b><br>Oxbridge University]
+         Amhurter[<b>Domain</b><br>Anhurter]
+         Chancery[<b>Domain</b><br>Chancery]
+      end
+      Oxbridge1 -.- Oxbridge2
+      ulna[<b>Domain</b><br>University League Registry]
+      cla[<b>Domain</b><br>College Rugby Registry]
+      ulna -->ULN
+      cla -->CL
+  end
+  swra[<b>Domain</b><br>Spatial Web Registry]
+  swra -->SWRAF
+
+  style SWRAF fill:#FFFFF8
+```
+
+Here, Oxbridge University is part of two affiliation networks - a university network and a rugby league network. 
+
 ### Security and Credentials
 
 A central part of the Spatial Web is the use of secure credentials in order to maintain ___surety___ within the web, where __surety__ can be defined as the verification that an assertion being made about a particular entity was valid.
@@ -1612,210 +1983,6 @@ This in turn means that revocation of a given spatial web node from a given affi
 > __Editor Note__: It may be that a given registry is explicitly not a part of its own affiliation network. This is still to be determined, as it has implications on what a registry node can support.
 
 Because a spatial web node has its own implicit home domain, a node can be removed from a network by revoking the credentials of the home domain for that machine. The machine is still findable via a URL, but the lack of credentials mean that the request for data can't validate (it will send back an error across hstp indicating the data won't validate).
-
-## Use Cases
-
-The following section highlights specific use cases, drawing from the previous contents in this document. The following table comes from Section 7.4 of version 3.3.1 of P2874.
-
-__Summary of Spatial Web Use Cases__
-
-Prepare for activities|Conduct activities
---|--
-[Create a new DOMAIN](#creating-an-entity)|[SWID registration process](#registering-an-entity-on-a-registry)
-[Update DOMAIN state](#modifying-the-specific-state-of-an-entity)|[Discover DOMAIN using UDG (Spatial DNS)](#searching-a-registry)
-[Create child DOMAIN of a DOMAIN](#creating-an-entity)|[Update DOMAIN state](#modifying-the-specific-state-of-an-entity)
-[Create SPACE representation of a DOMAIN](#creating-a-new-place)|[Query DOMAIN state](#querying-an-entity)
-[Issue CREDENTIAL for DOMAIN Create](#attach-a-credential-to-an-entity)|[route DOMAIN in SPACE](#moving-an-agent-from-one-domain-to-another)
-[Transfer DOMAIN between DOMAINs](#importing-an-entity-graph)|[Handle Fast/Slow State Changes](#handle-fastslow-state-changes)
-[Monitor CHANNEL for ACTIVITY](#subscribing-to-a-channel)|[Replication and Failover](#replication-and-failover)
-[Manage SWIDs](#generating-and-resolving-swids)|
-
-### Creating an Entity
-
-1. Request a credential to create a particular entity (domain, agent, place, etc.).
-1. If the credential is valid, this returns a SWID for the parent entity.  
-1. Submit an HSML document that describes the entity, using an HSML posted message that includes the containing SWID (this may be accomplished via some form of an editor)
-1. The HSML document is checked for validity, and is rejected if it fails a validity check.
-1. If the document is accepted, the document is created within a named graph.
-1. For all entities within the named graph, SWIDs are created and attached to each entity.
-1. The named graph identifier is then attached to the parent entity.
-
-[[Back]](#use-cases)
-
-### Attach a Credential to an Entity
-
-1. If an agent has a relevant mutation credential on a given entity (meaning that they can edit that node), the agent can attach a credential referencing the SWID of that entity through HSTP.
-1. If the credential is an affiliation credential, then the entity becomes visible through queries against that node if the querant has the corresponding affiliation key.
-1. A public entity is one that has a Public Affiliation Key, meaning that it is visible to anyone on the spatial web if they reference the spatial web node. This will generally apply to domains.
-1. All immediate entities within a domain will share the credentials within that domain. If a subdomain exists on an entity, the entity needs to extend the credential to that domain explicitly.
-
-[[Back]](#use-cases)
-
-### Invalidate an Entity
-
-1. An entity is made invalid by setting the :isInactive flag (typically through a sparql update). 
-1. An inactive entity remains in the system but is no longer visible to queries (all queries check the inactive flag for that entity). 
-1. When an entity is made inactive, the datetime is noted, and after a system settable time, the entity will be purged. Note that if an entity has a subordinate or linked domain, that domain will NOT be made inactive (there may be other references to the subdomain).
-1. All queries against an entity must specifically check to see if the entity is valid before returning it as part of a search result.
-
-[[Back]](#use-cases)
-
-
-### Querying an Entity
-
-1. All entities have a default Query Activity that will retrieve a JSON-LD representation of that entity (this may not be a faithful copy of the internal state of the entity).
-2. The editor of that entity may incorporate one or more override activities that provides different representations based upon parameters sent within the HSTP request message.
-3. The querant may request that the query be made subscribable, which means that a new message is passed every time a change is made to the state of the entity in question.
-
-[[Back]](#use-cases)
-
-
-### Querying a Specific State of an Entity
-
-1. The querant can request a specific state variable for a given entity. This will retrieve a JSON structure containing the variable and it's associated value.
-1. As with querying an entity, querying the state of an entity can be done asynchronously using a pub/sub protocol. This will return information about the state periodically as it changes.
-1. A query can also be made to retrieve the entity state array, either once or upon state changes.
-1. Any asynchronous query will return an identifier for that query, and the calling agent may cancel the query by passing back that identifier.
-
-[[Back]](#use-cases)
-
-### Modifying the Specific State of an Entity
-
-1. If a particular state of an entity is  modifiable, then this will cause a mutation event to occur that will instruct the entity to initiate a mutation activity to occur. 
-1. In the simplest (default) case, this just updates the value of the state in the graph.
-1. If the agent is autonomous, this will cause the agent manager to attempt to align the agent to the requested condition.
-1. If the agent is also bound to a physical twin, the agent manager will make the attempt to change the state of the physical twin before updating. If this fails, an error will be raised, and any changes will be rolled back.
-
-[[Back]](#use-cases)
-
-### Subscribing to a State of an Entity
-
-1. Subscribing to the state of an entity is the same as querying the state of an entity asynchronously.
-1. When a state changes in the subscribed entity, the subscribing entity will receive a notification (via domain.d) that can be caught with a subscribed state update event activity (the default is to do nothing).
-2. If the publishing entity is located on a different node, the message will be routed through hstp.d first, and then to the relevant entity.
-3. The first message returned from the publisher will be the current state, even if that state has not changed.
-4. The exact contents of various entity state descriptors are TBD, but will likely be a stream of contained entity messages (filtered by specific state if this is requested).
-5. Typically, such messages will be managed over channels, possibly as a part of a message queue.
-
-[[Back]](#use-cases)
-
-### Extending an Entity Graph
-
-1. The graph for a given entity (primarily domains) may be extended by use of the hsml:include property. 
-1. This provides a (generally) read-only ability to query an exterior graph, either from a different domain on the current machine, a different domain from an external domain, or a non-spatial web graph resource.
-1. This is frequently used to access domains containing collections of commonly defined entities (such as places, activities, agents, contracts and so forth).
-1. Such extensions typically require having the relevant credentials to access the external servers, and more than likely will be associated with affiliated nodes. 
-
-[[Back]](#use-cases)
-
-### Importing an Entity Graph
-1. An imported graph is one that is copied from an entity outside the existing domaing graph. Unlike extended graphs, imports effectively copy the contents of the given external entity but assign new SWIDs. SWURLs are typically fragments, so take on a new identifier (via it's HTTP domain).
-1. Importing a domain is the same as creating a domain, including assigning new SWIDs as needed. 
-1. Importing a domain creates a copy of that domain. This will typically be use when a domain acts as the "template" that is then filled out parametrically, such as that used by games or simulations.
-1. Importing a domain is considered an HTTP operation, while extending (including) a domain is part of UDG.
-
-[[Back]](#use-cases)
-
-### Subscribing to a Channel
-
-1. A channel is an entity, and utilizes the same mechanism that any entity does when receiving changes in state. 
-1. In this particular case, an inbound channel has a queue that receives messages. When a message comes in, any entity that has subscribed to this channel will received a notification that new messages are in the queue that are specifically addressed to that entity.
-1. A domain or entity within that domain may also publish to a channel through an activity. This is what is used for multiagent communication. 
-
-[[Back]](#use-cases)
-
-
-### Registering an Entity on a Registry
-
-1. Registering an entity on a spatial web node makes that node available for search according to a specific affiliation credential on that entity. What you are actually registering is a link to the entity in question. 
-1. That link may contain additional metadata (such as topical or annotative information) that makes it easier to search for similar entities.
-1. An affiliate spatial web registry is a spatial web node with a single primary domain that mainly contains links to other entities on other affiliated nodes.
-1. To register on such an affiliated registry, a domain authority submits a request containing the link and associated metadata to the registry node, and if the request is accepted, a contract is formed by the registry (containing a new SWID) that contains the relevant links and metadata, and a credential containing this contract is then sent back to the requesting node, where it is stored in the relevant domain (typically the home domain of the node).
-1. Note, the registry does not contain the indicated entity, only a reference to that entity in the form of a link on a contract.
-
-[[Back]](#use-cases)
-
-### Searching a Registry
-
-1. A registry search is made by sending a query message containing relevant metadata (possibly including a SWID, a SWURL, topical metadata or a prompt) to the primary domain of the registry node.
-1. The registry will then perform the query, retrieving summarizations of links that satisfy the query in relevancy ranking.
-1. The formatting of this summarization may be an HSML document, but may also be formatted as a standard RSS or Atom feed, or as an HTML search summary page.
-
-[[Back]](#use-cases)
-
-### Refreshing a Registry
-
-1. Periodically, a registry will iterate through its contracts and request updated metadata from an affiliated node for entities that have the relevant affiliated credentials.
-1. Not all (not even most) entities on a given node will have these credentials, only those that need to be identified by the affiliation registry.
-1. Similarly, a node may be self-affiliated, with the home domain containing contracted links for entities that are considered important enough to be visible for search on that domain. This can be considered the directory for that node. A registry is a directory for domains (formally entities) that are external to that node.
-
-[[Back]](#use-cases)
-
-### Logging Into a Domain
-
-1. An external agent (such as a user agent) will have a link to a domain, presented as a SWID or SWURL, and will send this (with any appropriate metadata) to the resolved spatial web node. 
-1. The SWNode (the node manager) receives a request to initiate a connection, determines whether the relevant domain exists, and determines whether the external agent already has a proxy agent on the system representing that external agent.
-1. If the agent exists and the credential to access that agent is cached for (perhaps within, TBD) the relevant domain, then a channel is established between the external agent and the proxy agent, with a message then sent back to the external agent providing confirmation.
-1. If no credential exists (either this is a new user agent or the credential has expired), the SWNode sends a message back to the external agent requesting credentials. In the case of expiry, this is just a revalidation, new credentials are set up and the connection is made.
-1. If no agent exists for that domain, then a new agent is registered, typically at the home place for that domain, once credentials have been created and confirmed. This is the proxy agent for that user agent on that domain.
-
-[[Back]](#use-cases)
-
-### Moving an agent from one domain to another
-
-1. Agents, especially proxy agents, are typically mobile. When a proxy agent initiates a link connecting two places, a link between the old place and the agent will be augmented to indicate that the link is no longer active (likely through reification, but this is an implementation detail).
-1. If a link has an active credential requirement, then the credential must be presented or satisfied before the transfer can be initiated.
-1. Once the credentials have been satisfied, the connection between the place and the agent will be set as deprecated (likely through a reification), and a new connection is established between the target place and the agent. 
-1. If the new place is not located on the same node, then a check is made whether there exists an agent representing the same user agent on the target node. If there is, then the agent is "revived" and any relevant history data is transferred to the new node, then a new connection is established between the target place on the new node and the proxy agent on _that_ machine. (This is primarily for performance purposes).
-1. The deprecated connection will also include a forwarding address to the new agent. This way, if an agent is known but it has moved "off-node", then the movement through different nodes can be traced. 
-
-[[Back]](#use-cases)
-
-### Transporting an Agent Via Another Agent
-1. An agent with an associated subdomain can "transport" another agent within that subdomain. This may be the case when an agent is acting as a container or carrier.
-1. Moving a given agent into another agent's subdomain is the same as moving an agent from one domain to another. From the standpoint of the initial domain, the "carried" agent is effectively no longer in scope of the carrier's superdomain.
-1. When an agent moves, the link to the subdomain for that agent remains the same - even if the agent moves from one node to another.
-1. The carrier agent can release the carried agent in a new place, at which point this is treated as a transfer of the carried agent from one domain to another.  
-
-[[Back]](#use-cases)
-
-### Creating a New Place
-
-1. Create an HSML Place definition and instantiate it (see [Creating an Entity](#creating-an-entity)), appending it to the relevant domain through the `hsml:hasPlace` predicate.
-2. If the place is intended to be a proxy for an established place, create the relevant proxied link (e.g., Place:Earth).
-3. If the new place needs links to existing places, create link children (either directly on the link or indirectly through an object) on both the current place and on relevant backlinks (if the link is not bidirectional).
-4. Once links are created, a domain function can be identified called resolve_links, which creates backlinks if a link is bi-directional.
-5. Note that links are sensitive to the types of agents involved. For instance, in a chess game simulator there may be links of type rank, file, diagonal, and knight (the L shaped link) between different squares, and the movements that are possible will consequently be composed of the set of all paths that can be made to a given square from the starting square based upon the piece. The set of all possible paths that a given piece (agent) can take is known as an ensemble, and this represents the local hyperspace of that piece relative to the agent type.
-6. As with other entities, places can be deprecated, typically by reification.
-
-[[Back]](#use-cases)
-
-### Handle Fast/Slow State Changes
-
-1. Each domain has a heartbeat that determines how frequently up updates are made (and how frequently external systems are polled). When creating the domain, the heartbeat can be established as a property on the domain, and can be increased or decreased as need be.
-1. For those situations where the domain does not incorporate IoT devices, this heartbeat can usually be fairly fast, as the mechanisms for transmitting information exist primarily in the same process.
-1. For those domains where external services or IoT device connections exist, the heartbeat can generally be slowed dow (or sped up) to handle polling or publication/subscription (pub/sub) type architectures.
-1. Please note that the spatial web is primarily intended to be a predictive systems, involving a large amount of contextual data, rather than a close monitoring system.
-1. It is possible (though the exact mechanism is still TBD) for a service to spawn a direct connection to an Iot device or similar fast moving system, one that bypasses the normal domain calles. In such cases, simple filters may be placed on incoming messages that allow for specific signals to be detected which then prompts an update back into the domain manager. 
-
-[[Back]](#use-cases)
-
-### Replication and Failover
-
-1. The specific implementation of replication is dependent upon the particular knowledge graph store in question. The assumption here is that whatever KG store will likely have some native replication for multiple servers supporting failover by periodically streaming triples that are active as part of revisions to the graph. This will likely be expressed in more detail as prototypes reach a sufficient level of  maturity. 
-
-[[Back]](#use-cases)
-
-### Generating and Resolving SWIDs
-
-1. Because of the centrality of SWIDS in the Spatial Web architecture, a Spatial Web Node incorporates a SWID generator/resolver as part of the architecture.
-1. When an entity is created by the system, a SWID and corresponding documents are created, with the documents (likely public and private keys, or PPKs) stored as graph entities in a cryptographically secured named graph as part of the domain graph.
-1. This method exists primarily for convenience and performance as in general the ability to retrieve, parse, and reference external blockchains or similar mechanisms will be a major performance hit unless that ability is accessible from (and contained in) the graph.
-1. This becomes especially important if there is specific surety information within the SWID that is particular to the did.swid method, as will likely be the case.
-1. The Credential API handles SWID generation and resolution and acts as a wrapper for abstracting multiple different approaches for SWID management. 
-
-[[Back]](#use-cases)
-
 
 
 
