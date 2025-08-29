@@ -442,7 +442,7 @@ Based on analysis of the UDG specification use cases and the IEEE P2874 requirem
 | | UDG-3 | UDG shall validate SWIDs generated using SWID Method prior to issuance, e.g., assess uniqueness |
 | | UDG-7 | UDG shall support the generation of SWIDs one at a time, such as for Top Domains, or generate many at a time, such as for Public Domains |
 | | UDG-9 | UDG shall ensure that SWIDs are maintained in the Spatial Web Registry |
-| **Registering a Node on an Affiliation Registry** | UDG-4 | UDG shall include a Spatial Web registration service for Public and Top domains |
+| [ **Registering a Node on an Affiliation Registry** ](#registering-a-node-on-an-affiliation-registry) | UDG-4 | UDG shall include a Spatial Web registration service for Public and Top domains |
 | | UDG-5 | UDG shall, for audit purposes, register all SWIDs related to all public and top domains in a Spatial Web Registry |
 | | UDG-6 | UDG shall enable verification and validation services for domains prior to their registration |
 | | DSA-7 | Domain-specific architectures shall provide a system of distributed, decentralized registries for SWIDs |
@@ -453,7 +453,7 @@ Based on analysis of the UDG specification use cases and the IEEE P2874 requirem
 | | UDG-18 | UDG shall include Spatial Index Servers that make maps ranging from simple SQL indexes to graph-based databases |
 | [ **Refreshing a Registry** ](#refreshing-a-registry) | UDG-19 | UDG shall manage entity replication and update with consideration of how quickly the entities are changing |
 | | HSTP-14 | HSTP shall provide mechanisms for managing updates and changes to entity registrations over time |
-| **Logging Into a Domain** | AIS-2 | AIS Rating Framework shall define procedures for real-time CREDENTIAL and certification management, based on an AGENT's attributes, capabilities, and relationships |
+| [ **Logging Into a Domain** ](#logging-into-a-domain) | AIS-2 | AIS Rating Framework shall define procedures for real-time CREDENTIAL and certification management, based on an AGENT's attributes, capabilities, and relationships |
 | | AIS-3 | AIS Rating Framework shall facilitate the dynamic adjustment of AGENT permissions, authorizations, and access based on changes in an AGENT's attributes, operational context, and ACTIVITIES |
 | | AIS-4 | AIS Rating Framework should support the integration of a credential and certification management framework |
 | | DSA-5 | Domain-specific architectures shall design identity management that meet the requirements of the domain |
