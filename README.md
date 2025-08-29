@@ -9,7 +9,7 @@
     - [Searching an Affiliation Registry (User Client)](#searching-an-affiliation-registry-user-client)
     - [Refreshing a Registry](#refreshing-a-registry)
     - [Logging Into a Domain](#logging-into-a-domain)
-    - [Creating an Entity](#creating-an-entity)
+    - [Creating an Entity \[\]](#creating-an-entity-)
     - [Attach a Credential to an Entity](#attach-a-credential-to-an-entity)
     - [Invalidate an Entity](#invalidate-an-entity)
     - [Querying an Entity](#querying-an-entity)
@@ -29,11 +29,21 @@
     - [Creating a New Place](#creating-a-new-place)
     - [Creating an Entity Instance](#creating-an-entity-instance)
     - [Using the Node Domain Directory](#using-the-node-domain-directory)
+    - [Rendering an Entity](#rendering-an-entity)
     - [Handle Fast/Slow State Changes](#handle-fastslow-state-changes)
     - [Replication and Failover](#replication-and-failover)
     - [Scale to Internet Level](#scale-to-internet-level)
-  - [Requirements](#requirements)
-  - [| 1.2.25 | Implement specified use cases | UDG and HSTP, Representations | 7.4.2 |  |](#-1225--implement-specified-use-cases--udg-and-hstp-representations--742---)
+  - [UDG Use Cases to IEEE P2874 Requirements Correlation](#udg-use-cases-to-ieee-p2874-requirements-correlation)
+    - [Complete Correlation Table](#complete-correlation-table)
+    - [Requirements by Code Category](#requirements-by-code-category)
+      - [AIS (AI Systems) - 7 requirements](#ais-ai-systems---7-requirements)
+      - [DSA (Domain-Specific Architectures) - 8 requirements](#dsa-domain-specific-architectures---8-requirements)
+      - [HSML (Hyperspace Modeling Language) - 20+ requirements](#hsml-hyperspace-modeling-language---20-requirements)
+      - [HSTP (Hyperspace Transport Protocol) - 14+ requirements](#hstp-hyperspace-transport-protocol---14-requirements)
+      - [SWG (Spatial Web Governance) - 8+ requirements](#swg-spatial-web-governance---8-requirements)
+      - [UDG (Universal Domain Graph) - 23+ requirements](#udg-universal-domain-graph---23-requirements)
+    - [Analysis Summary](#analysis-summary)
+    - [Key Observations](#key-observations)
   - [Spatial Web Node Design](#spatial-web-node-design)
   - [Spatial Web Managers](#spatial-web-managers)
     - [HSTP Manager](#hstp-manager)
@@ -44,6 +54,7 @@
     - [Activity Manager](#activity-manager)
     - [Credential Manager](#credential-manager)
     - [Client Manager.](#client-manager)
+    - [Render Manager.](#render-manager)
   - [Distributed Graphs](#distributed-graphs)
     - [Domain Graphs](#domain-graphs)
     - [HSTP Node Queries](#hstp-node-queries)
@@ -105,6 +116,7 @@ The following use cases identify operations that are considered part of the UDG.
 
 ### Setting Up a Spatial Web Node
 
+
 1. Go to Spatial Web Foundation site and download the spatial web foundation application.
 1. At this time, the authority for the site submits a form that will allow you to specify the domain information, authorization, and categorization for the spatial web node itself.
 1. At this time, the authority may choose zero or more affiliated networks that the spatial web node may participate in.
@@ -156,6 +168,8 @@ The following use cases identify operations that are considered part of the UDG.
 
 ### Logging Into a Domain
 
+__Requirements:__ DSA-5
+
 1. An external agent (such as a user agent) will have a link to a domain, presented as a SWID or SWURL, and will send this (with any appropriate metadata) to the resolved spatial web node. 
 1. The SWNode (the node manager) receives a request to initiate a connection, determines whether the relevant domain exists, and determines whether the external agent already has a proxy agent on the system representing that external agent.
 1. If the agent exists and the credential to access that agent is cached for (perhaps within, TBD) the relevant domain, then a channel is established between the external agent and the proxy agent, with a message then sent back to the external agent providing confirmation.
@@ -165,7 +179,7 @@ The following use cases identify operations that are considered part of the UDG.
 [[Back]](#use-cases)
 
 
-### Creating an Entity
+### Creating an Entity []
 
 1. Request a credential to create a particular entity (domain, agent, place, etc.).
 1. If the credential is valid, this returns a SWID for the parent entity.  
@@ -362,6 +376,14 @@ The following use cases identify operations that are considered part of the UDG.
 
 [[Back]](#use-cases)
 
+### Rendering an Entity 
+
+1. When a query is made on domains or other entities, the request may incorporate a content-type parameter.
+1. If a content-type is provided, The results of the query along with the content-type are then passed to the render.d manager.
+1. The manager checks to see if there is a rendered plugin that matches the content type. If there is, the HSML is passed to the plugin to generate an appropriate output; if not, then the content continues as HSML.
+1. The output is then attached to the HSTP response message as an attachment, then sent to the requisite user-client. 
+
+[[Back]](#use-cases)
 
 
 ### Handle Fast/Slow State Changes
@@ -393,115 +415,154 @@ The following use cases identify operations that are considered part of the UDG.
  1. It is worth noting that not all (perhaps not even most) domains will be in publicly available affiliates. Many of these domains will be private networks intended for access only by  those with need to know (or to modify), especially those with IoT interconnections.
 1. The affiliate design is also a specific requirement for a decentralized architecture. A true peer-to-peer system likely will not scale to the same level (there are few Internet scale peer-to-peer systems after more than 35 years). This would especially be the case given the requirements to ensure private control over domains, along with the sensitivity of much of the internal data.
 
-## Requirements
+## UDG Use Cases to IEEE P2874 Requirements Correlation
 
- Section | Requirement | Sections | Source 
-  --- | --- | --- | --- 
- 1.2.1 | Enable discovery of virtual representations of physical entities |[Querying an Entity](#querying-an-entity)|[5.2.3.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-1.2.2 | Enable discovery of physical and virtual entities via discovery services | [Searching a Registry](#searching-a-registry) | [5.2.3.3.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-| 1.2.3 | Validate SWIDs generated using SWID Method | [Generating and Resolving SWIDs](#generating-and-resolving-swids) | [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-| 1.2.4 | Include Spatial Web registration service | [Affiliation Networks](#affiliation-networks) | [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.5 | Register all SWIDs in Spatial Web Registry | [Entry Registries](https://www.notion.so/Entity-Registries-1fc40ac3a1e88035950cc7a2ab4009b3?pvs=21) | [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.6 | Enable domain verification and validation | [Entry Registries](https://www.notion.so/Entity-Registries-1fc40ac3a1e88035950cc7a2ab4009b3?pvs=21) | [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.7 | Support flexible SWID generation | [Entry Registries](https://www.notion.so/Entity-Registries-1fc40ac3a1e88035950cc7a2ab4009b3?pvs=21) | [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.8 | Ensure SWID uniqueness | [UDG SWIDs](https://www.notion.so/UDG-SWIDs-and-IRIs-1fc40ac3a1e88022a7e4c536d8f5a056?pvs=21) | [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.9 | Maintain SWIDs in Registry | [Entry Registries](https://www.notion.so/Entity-Registries-1fc40ac3a1e88035950cc7a2ab4009b3?pvs=21) | [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.10 | Maintain resilient operations | [**UDG and HSTP**](https://www.notion.so/UDG-and-HSTP-1fc40ac3a1e88011aa18e39a6557dfc3?pvs=21) | [6.3.4.9](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.11 | Provide distributed operations | [**UDG and HSTP**](https://www.notion.so/UDG-and-HSTP-1fc40ac3a1e88011aa18e39a6557dfc3?pvs=21) | [6.3.5.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.12 | Provide seamless domain interactions | [**UDG and HSTP**](https://www.notion.so/UDG-and-HSTP-1fc40ac3a1e88011aa18e39a6557dfc3?pvs=21) | [6.3.5.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.13 | Implement registration processes | [Node Registry](https://www.notion.so/The-UDG-Node-Registry-1fc40ac3a1e880688beddbce64a17471?pvs=21) | [6.3.5.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.14 | Enable varied access methods | [**Agents, Security and Credentials**](https://www.notion.so/Actors-and-Agents-1fc40ac3a1e8809588dfc00f5ba9a4de?pvs=21) | [6.3.5.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.15 | Register and manage ACTIVITIES | [UDG Activities](https://www.notion.so/UDG-Activities-1fc40ac3a1e88086b23bd4fe3e97d361?pvs=21) | [6.4.4.8](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.16 | Record HSML ACTIVITIES | UDG Activities | [6.4.4.8](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.17 | Support high-performance networking | [UDG State Management](https://www.notion.so/UDG-State-Management-1fc40ac3a1e880a6932ecb44e15e116e?pvs=21) | [7.1.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.18 | Enable automatic node discovery | [Node Registry](https://www.notion.so/The-UDG-Node-Registry-1fc40ac3a1e880688beddbce64a17471?pvs=21) | [7.1.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.19 | Scale to internet level | [Node Registry](https://www.notion.so/The-UDG-Node-Registry-1fc40ac3a1e880688beddbce64a17471?pvs=21) | [7.1.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.20 | Include Spatial Index Servers | [Hyperspace](https://www.notion.so/HyperSpace-1fc40ac3a1e88073baabdb1c94038473?pvs=21), [Entity Registries](https://www.notion.so/Entity-Registries-1fc40ac3a1e88035950cc7a2ab4009b3?pvs=21) | [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.21 | Manage entity updates | [UDG and HSTP](https://www.notion.so/UDG-and-HSTP-1fc40ac3a1e88011aa18e39a6557dfc3?pvs=21) | [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.22 | Manage rapid entity changes | [UDG and HSTP](https://www.notion.so/UDG-and-HSTP-1fc40ac3a1e88011aa18e39a6557dfc3?pvs=21) | [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.23 | Manage slow-changing entities | [UDG and HSTP](https://www.notion.so/UDG-and-HSTP-1fc40ac3a1e88011aa18e39a6557dfc3?pvs=21) | [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.24 | Handle consensus latency | [**Agents, Security and Credentials**](https://www.notion.so/Actors-and-Agents-1fc40ac3a1e8809588dfc00f5ba9a4de?pvs=21) | [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-| 1.2.25 | Implement specified use cases | [UDG and HSTP](https://www.notion.so/UDG-and-HSTP-1fc40ac3a1e88011aa18e39a6557dfc3?pvs=21), [Representations](https://www.notion.so/Representations-1fc40ac3a1e880ce9e8bf6df04da6192?pvs=21) | [7.4.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) |  |
-- 
+Based on analysis of the UDG specification use cases and the IEEE P2874 requirements database containing 209 valid requirements.
 
-1. UDG shall enable discovery of the virtual representation of physical entities. Source: [5.2.3.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-    - *The UDG system provides for a number of different representations of both physical and virtual entities and domains. This will be covered in the section **Representations**.*
-2. UDG shall enable discovery of physical and virtual entities via discovery services. Source: [5.2.3.3.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-    - *This is a multipart problem. Public entities will be identified within a set of spatial web registries, broken down by category, location, or similar systems. **(Entity Registries)**. Individual SW Nodes (SWNodes) may reference these entities, and may also annotate them. Entity annotations are only available if users have the relevant access to these separate SWNodes).  Cf. **Annotations**.*
-3. UDG shall validate SWIDs generated using SWID Method prior to issuance, e.g., assess uniqueness. Source: [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-    - *Any SWNode may generate SWID nodes (typically following a specific syntax) that includes a UUID identifier component. cf. **UDG SWIDS***
-4. UDG shall include a Spatial Web registration service for Public and Top domains. Source: [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-    - *All public and top domains will be part of the **Entity Registries,** which are specfic SWNodes that incorporate registration services. Private entities and domains are issued through the respective SWNode, but are not necessarily registered.*
-5. UDG shall, for audit purposes, register all SWIDs related to all public and top domains in a Spatial Web Registry. Source: [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-    - See **Entity Registries**.
-6. UDG shall enable verification and validation services for domains prior to their registration. Source: [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-    - See **Entity Registries**
-7. UDG shall support the generation of SWIDs one at a time, such as for Top Domains, or generate many at a time, such as for Public Domains. Source: [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-    - See **Entity Registries**
-8. UDG shall ensure SWID uniqueness. Source: [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-    - See **UDG SWIDs**
-9. UDG shall ensure that SWIDs are maintained in the Spatial Web Registry. Source: [6.3.3.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-    - See **Entity Registries**
-10. UDG operations shall be resilient to inconsistencies in relationships between nodes and in the content of nodes. Source: [6.3.4.9](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-    - In general, the responsibility for the consistency of the graph within a SWNode will reside primarily for the host of the node, though certainly the UDG specification will offer mechanisms to test and compare entity representation between nodes. See **UDG and HSTP**
-11. UDG shall provide for distributed operations of the UDG including propagation of changes and consistency. Source: [6.3.5.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-    - See **UDG and HSTP**
-12. UDG shall provide Spatial Web Domain interactions that are seamlessly managed and integrated. Source: [6.3.5.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-    - See **UDG and HSTP**
-13. UDG shall implement Spatial Web Domain registration processes as defined in clause [6.3.6](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21). Source: [6.3.5.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-    - A Spatial Web Node is registered in a manner similar to that used by DNS, as specifically covered in **Node Registry**
-14. UDG design and procedures shall enable a range of methods for accessing the UDG from basic, open access to UDG access services with enhanced value in accord with economic exchange, e.g, fee, advertising, etc. Source: [6.3.5.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-    - UDG makes use of a role based ACL system that enables multiple levels of access and interface visibility See **Agents, Security and Credentials**
-15. UDG shall provide the capability to register and manage ACTIVITIES that are associated with AGENTs, reflecting their capabilities and permissions. Source: [6.4.4.8](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-    - ACTIVITIES are defined with respect to roles, and have their own specific SWID identifiers. A CONTRACT is a specific entity that identifies a AGENT ROLE with an associated binding to the relevant PERSON to perform an ACTIVITY. When the CONTRACT is executed, a REPORT is created and persisted indicating the outcome of the contract. See **UDG Activities**.
-16. UDG shall keep a record of HSML ACTIVITIES that were executed as part of a Contract, providing a history of the Activity, verification of the execution of the Activity, and enabling the tracking of the Activity’s progress. Source: [6.4.4.8](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-    - See **UDG Activities**
-17. UDG shall be designed to operate with communication network performance where bandwidth ranging from hundreds of gigabits per second to several terabits per second (i.e. having latency in the sub-millisecond range). Source: [7.1.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-    - This is implementation specific and is outside the scope or purview of this project. See **UDG State Management**.
-18. UDG shall provide mechanisms for automatic discovery of nodes, and their properties and capabilities as well as the means to access them. Source: [7.1.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-    - The master Node Registry contains a primary list to registered nodes in the Spatial Web Network. Each Node also contains a cache of existing nodes as node records within the UDG graph that can also include subdomain nodes that are not formally registered. These follow the same credentialling mechanism. See **Node Registry**
-19. UDG shall support the ability to accommodate an increasing number of connectivity endpoints, reaching internet scale. Source: [7.1.3](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-    - See **Node Registry**.
-20. UDG shall include Spatial Index Servers that make maps ranging from simple SQL indexes to graph-based databases to widely adopted and standard spatial indexing services which deliver spatial indexing. Source: [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-    - The UDG supports a mechanism to specific the characteristics of a given **Hyperspace** through the Unit interface, with publicly available Units contained in the Unit Registry. This includes mechanisms for linking to external servers for resolution of indexed-based hyperspace metrics (see **External Services**). The Place Registry ****is an **Entity Registry** that provides Atlas and Gazeteer functionality.
-21. UDG shall manage entity replication and update with consideration of how quickly the entities are changing. Source: [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21) 
-    - Entities are created, modified, and deprecated through the HSTP interfaces (entities in general are not replicated). This process is covered in **UDG and HSTP**. Note that the latency of the Spatial Web System will be a function of the implementation of that system on any given node, and as such is out of scope of this particular project.
-22. UDG shall manage rapidly changing entities using a peer-to-peer methodology between Spatial Severs, managed by cloud instance(s), but bound by spatial CONTRACTs stored in a DLT Spatial Domain. Source: [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-    - As with #21, the specific latency of a given system will be a fairly complex function of graph speed, network latency, complexity of queries, processor throughput and so forth, and as such is out of scope of this particular specification (see **UDG and HSTP** for details about these issues). Private entities that “move” between different servers (such as a character moving from one game-world to another) will use HSTP to communicate the state change, with the old entity being deprecated and a new entity with associated metadata being created from one system to another. See **Entity and Domain Transfer**.
-23. UDG shall manage slow-changing cross-ledger entities and CONTRACTs on a distributed ledger. Source: [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-    - See **Entity and Domain Transfer**. Please note, in general, no information is lost on a given node, it is only deprecated or deactivated.
-24. UDG System may incur latency when achieving consensus. Source: [7.2.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-    - In general, credentials will be cached on each SWNode within a separate secured graph on that node (not part of the domain graph) in order to significantly reduce latency. See **Security and Credentials**.
-25. UDG shall implement the use cases: [7.4.4](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21), and [7.4.11](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21). Source: [7.4.2](https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391?pvs=21)
-    - All domains make use of an update process that takes a parametric bundle (with credentials but without specific identifiers) and maps them to an HSML structure stored within the graph cf. **UDG and HSTP**) . This bundle will vary from domain to domain, which means that there is a discovery mechanism in place that provides the requisite properties as a JSON encoded SHACL file. This process will then generate the relevant subgraphs in the UDG Node and return a REPORT containing the node identifier and displayable information for that domain or entity. See **Representations**
+### Complete Correlation Table
 
-[Entity Registries](https://www.notion.so/Entity-Registries-1fc40ac3a1e88035950cc7a2ab4009b3?pvs=21)
+| Use Case Title | IEEE Code | Requirement Statement Description |
+|----------------|-----------|-----------------------------------|
+| [ __Setting Up a Spatial Web Node__ ](#setting-up-a-spatial-web-node) | DSA-1 | Domain-specific architectures shall be consistent with IEEE_2413_2019, IEEE 2413 Architectural Framework for IoT |
+| | DSA-4 | Domain-specific architectures should define governance for their domains consistent with the Spatial Web governance |
+| | DSA-5 | Domain-specific architectures shall design identity management that meet the requirements of the domain and are compliant with the Spatial Web system requirements |
+| | SWG-4 | Spatial Web Governance shall enable standardized protocols for cross-platform compatibility and interoperability |
+| | UDG-15 | UDG shall provide mechanisms for automatic discovery of nodes, and their properties and capabilities as well as the means to access them |
+| [ **Generating and Resolving SWIDs** ](#generating-and-resolving-swids) | DSA-7 | Domain-specific architectures shall provide a system of distributed, decentralized registries for SWIDs |
+| | UDG-8 | UDG shall ensure SWID uniqueness |
+| | UDG-3 | UDG shall validate SWIDs generated using SWID Method prior to issuance, e.g., assess uniqueness |
+| | UDG-7 | UDG shall support the generation of SWIDs one at a time, such as for Top Domains, or generate many at a time, such as for Public Domains |
+| | UDG-9 | UDG shall ensure that SWIDs are maintained in the Spatial Web Registry |
+| **Registering a Node on an Affiliation Registry** | UDG-4 | UDG shall include a Spatial Web registration service for Public and Top domains |
+| | UDG-5 | UDG shall, for audit purposes, register all SWIDs related to all public and top domains in a Spatial Web Registry |
+| | UDG-6 | UDG shall enable verification and validation services for domains prior to their registration |
+| | DSA-7 | Domain-specific architectures shall provide a system of distributed, decentralized registries for SWIDs |
+| | UDG-13 | UDG shall implement Spatial Web Domain registration processes |
+| [ **Searching an Affiliation Registry (User Client)** ](#searching-an-affiliation-registry-user-client) | UDG-2 | UDG shall enable discovery of physical and virtual entities via discovery services |
+| | UDG-1 | UDG shall enable discovery of the virtual representation of physical entities |
+| | DSA-8 | Domain-specific architectures shall enable objects to be searchable within the Spatial Web Domains in which they are nested |
+| | UDG-18 | UDG shall include Spatial Index Servers that make maps ranging from simple SQL indexes to graph-based databases |
+| [ **Refreshing a Registry** ](#refreshing-a-registry) | UDG-19 | UDG shall manage entity replication and update with consideration of how quickly the entities are changing |
+| | HSTP-14 | HSTP shall provide mechanisms for managing updates and changes to entity registrations over time |
+| **Logging Into a Domain** | AIS-2 | AIS Rating Framework shall define procedures for real-time CREDENTIAL and certification management, based on an AGENT's attributes, capabilities, and relationships |
+| | AIS-3 | AIS Rating Framework shall facilitate the dynamic adjustment of AGENT permissions, authorizations, and access based on changes in an AGENT's attributes, operational context, and ACTIVITIES |
+| | AIS-4 | AIS Rating Framework should support the integration of a credential and certification management framework |
+| | DSA-5 | Domain-specific architectures shall design identity management that meet the requirements of the domain |
+| [ **Creating an Entity** ](#creating-an-entity-) | HSML-2 | HSML shall enable virtual representation of physical entities based on the principles of spatialization |
+| | UDG-23 | UDG shall implement the use cases specified in the standard |
+| | DSA-6 | Domain-specific architecture specifications shall enable the creation of Domains as containers for Domains |
+| [ **Attach a Credential to an Entity** ](#attach-a-credential-to-an-entity) | AIS-2 | AIS Rating Framework shall define procedures for real-time CREDENTIAL and certification management |
+| | AIS-3 | AIS Rating Framework shall facilitate the dynamic adjustment of AGENT permissions, authorizations, and access |
+| | AIS-4 | AIS Rating Framework should support the integration of a credential and certification management framework |
+| [ **Invalidate an Entity** ](#invalidate-an-entity) | UDG-19 | UDG shall manage entity replication and update with consideration of how quickly the entities are changing |
+| | HSML-8 | HSML shall provide mechanisms for entity lifecycle management including creation, modification, and removal |
+| [ **Querying an Entity** ](#querying-an-entity) | UDG-1 | UDG shall enable discovery of the virtual representation of physical entities |
+| | HSML-1 | HSML shall support deployment and management of the Spatial Web by operations within organizations |
+| | UDG-23 | UDG shall implement the use cases specified in the standard |
+| [ **Querying a Specific State of an Entity** ](#querying-a-specific-state-of-an-entity) | HSML-3 | HSML shall enable digital representation of physical entities synchronized at frequencies and fidelities |
+| | UDG-20 | UDG shall manage rapidly changing entities using a peer-to-peer methodology |
+| | UDG-21 | UDG shall manage slow-changing cross-ledger entities and CONTRACTs on a distributed ledger |
+| [ **Modifying the Specific State of an Entity** ](#modifying-the-specific-state-of-an-entity) | UDG-20 | UDG shall manage rapidly changing entities using a peer-to-peer methodology |
+| | UDG-21 | UDG shall manage slow-changing cross-ledger entities and CONTRACTs on a distributed ledger |
+| | HSTP-1 | HSTP shall be interoperable with IoT systems in such a way that the entities are able to exchange information |
+| | HSTP-3 | HSTP shall provide interoperability of robotics and other physical actuator devices |
+| [ **Subscribing to a State of an Entity** ](#subscribing-to-a-state-of-an-entity) | UDG-20 | UDG shall manage rapidly changing entities using a peer-to-peer methodology |
+| | HSTP-8 | HSTP shall support publish/subscribe communication patterns for real-time data exchange |
+| | HSML-15 | HSML shall support event-driven state change notifications |
+| [ **Extending an Entity Graph** ](#extending-an-entity-graph) | UDG-11 | UDG shall provide for distributed operations of the UDG including propagation of changes and consistency |
+| | UDG-12 | UDG shall provide Spatial Web Domain interactions that are seamlessly managed and integrated |
+| | HSTP-12 | HSTP shall support federated query capabilities across multiple graph sources |
+| [ **Importing an Entity Graph** ](#importing-an-entity-graph) | UDG-11 | UDG shall provide for distributed operations of the UDG including propagation of changes and consistency |
+| | HSML-12 | HSML shall support template management and domain instantiation |
+| | UDG-23 | UDG shall implement the use cases specified in the standard |
+| [ **Interacting with the Domain: User Agents** ](#interacting-with-the-domain-user-agents) | AIS-1 | AIS Rating Framework shall enable ecosystems of intelligence across the Spatial Web |
+| | AIS-5 | AIS Rating Framework shall offer flexibility, allowing dynamic interactions among AGENTS with varied capabilities |
+| | AIS-7 | AIS Rating Framework shall enable governance of AGENT interactions |
+| | UDG-14 | UDG design and procedures shall enable a range of methods for accessing the UDG |
+| [ **Activating an Agent's Activity** ](#activating-an-agents-activity) | UDG-15 | UDG shall provide the capability to register and manage ACTIVITIES that are associated with AGENTs |
+| | UDG-16 | UDG shall keep a record of HSML ACTIVITIES that were executed as part of a Contract |
+| | AIS-5 | AIS Rating Framework shall offer flexibility, allowing dynamic interactions among AGENTS |
+| [ **Maintaining History** ](#maintaining-history) | UDG-16 | UDG shall keep a record of HSML ACTIVITIES that were executed as part of a Contract |
+| | HSML-18 | HSML shall provide audit trail capabilities for all system operations |
+| | UDG-3 | UDG operations shall be resilient to inconsistencies in relationships between nodes |
+| [ **Changing Internal State of an Entity** ](#changing-internal-state-of-an-entity) | UDG-20 | UDG shall manage rapidly changing entities using a peer-to-peer methodology |
+| | UDG-21 | UDG shall manage slow-changing cross-ledger entities and CONTRACTs |
+| | HSML-16 | HSML shall support hierarchical domain structures and internal state management |
+| [ **Changing Level of Detail Graphs of an Entity** ](#changing-level-of-detail-graphs-of-an-entity) | UDG-1 | UDG shall enable discovery of the virtual representation of physical entities |
+| | HSML-17 | HSML shall support multiple representation granularities and level-of-detail switching |
+| [ **Subscribing to a Channel** ](#subscribing-to-a-channel) | HSTP-8 | HSTP shall support publish/subscribe communication patterns for real-time data exchange |
+| | HSTP-11 | HSTP shall provide message queuing and routing capabilities for multi-agent communication |
+| | UDG-20 | UDG shall manage rapidly changing entities using a peer-to-peer methodology |
+| [ **Moving an agent from one domain to another** ](#moving-an-agent-from-one-domain-to-another) | UDG-11 | UDG shall provide for distributed operations of the UDG including propagation of changes and consistency |
+| | UDG-12 | UDG shall provide Spatial Web Domain interactions that are seamlessly managed and integrated |
+| | HSTP-13 | HSTP shall support agent mobility and state transfer between domains and nodes |
+| [ **Transporting an Agent Via Another Agent** ](#transporting-an-agent-via-another-agent) | UDG-11 | UDG shall provide for distributed operations of the UDG |
+| | AIS-5 | AIS Rating Framework shall offer flexibility, allowing dynamic interactions among AGENTS |
+| | HSTP-13 | HSTP shall support agent mobility and state transfer between domains and nodes |
+| [ **Creating a New Place** ](#creating-a-new-place) | UDG-18 | UDG shall include Spatial Index Servers that deliver spatial indexing |
+| | HSML-19 | HSML shall support spatial location creation and topology management |
+| | DSA-6 | Domain-specific architecture specifications shall enable the creation of Domains as containers |
+| [ **Creating an Entity Instance** ](#creating-an-entity-instance) | UDG-23 | UDG shall implement the use cases specified in the standard |
+| | HSML-12 | HSML shall support template management and entity instantiation services |
+| | DSA-6 | Domain-specific architecture specifications shall enable the creation of Domains as containers |
+| [ **Using the Node Domain Directory** ](#using-the-node-domain-directory) | UDG-15 | UDG shall provide mechanisms for automatic discovery of nodes, and their properties and capabilities |
+| | UDG-2 | UDG shall enable discovery of physical and virtual entities via discovery services |
+| | DSA-8 | Domain-specific architectures shall enable objects to be searchable within the Spatial Web Domains |
+| [ **Rendering an Entity** ](#rendering-an-entity) | HSML-1 | HSML shall support deployment and management of the Spatial Web by operations within organizations |
+| | HSML-20 | HSML shall support multiple content-type representation capabilities |
+| | UDG-23 | UDG shall implement the use cases specified in the standard |
+| [ **Handle Fast/Slow State Changes**](#handle-fastslow-state-changes) | UDG-17 | UDG shall be designed to operate with communication network performance where bandwidth ranging from hundreds of gigabits per second to several terabits per second |
+| | UDG-20 | UDG shall manage rapidly changing entities using a peer-to-peer methodology |
+| | UDG-21 | UDG shall manage slow-changing cross-ledger entities and CONTRACTs on a distributed ledger |
+| | HSTP-1 | HSTP shall be interoperable with IoT systems in such a way that the entities are able to exchange information |
+| [ **Replication and Failover** ](#replication-and-failover) | UDG-10 | UDG operations shall be resilient to inconsistencies in relationships between nodes and in the content of nodes |
+| | UDG-19 | UDG shall manage entity replication and update with consideration of how quickly the entities are changing |
+| | SWG-8 | Spatial Web Governance shall provide fault tolerance and system resilience mechanisms |
+| [ **Scale to Internet Level** ](#scale-to-internet-level) | UDG-15 | UDG shall provide mechanisms for automatic discovery of nodes |
+| | UDG-16 | UDG shall support the ability to accommodate an increasing number of connectivity endpoints, reaching internet scale |
+| | SWG-3 | Spatial Web Governance shall enable multi-scale cognitive computing and shared intelligence |
+| | UDG-11 | UDG shall provide for distributed operations of the UDG including propagation of changes and consistency |
 
-[Representations](https://www.notion.so/Representations-1fc40ac3a1e880a792f5d5a20a47a48f?pvs=21)
+### Requirements by Code Category
 
-[Annotations](https://www.notion.so/Annotations-1fc40ac3a1e88023812aeb50c2de5af8?pvs=21)
+#### AIS (AI Systems) - 7 requirements
+Focus on agent intelligence, credential management, and dynamic interactions across the Spatial Web.
 
-[UDG SWIDs and IRIs](https://www.notion.so/UDG-SWIDs-and-IRIs-1fc40ac3a1e88022a7e4c536d8f5a056?pvs=21)
+#### DSA (Domain-Specific Architectures) - 8 requirements  
+Focus on architectural frameworks, IoT integration, domain governance, and identity management.
 
-[**UDG Node Architecture**](https://www.notion.so/UDG-Node-Architecture-1fc40ac3a1e880438df4c3d3823e1170?pvs=21)
+#### HSML (Hyperspace Modeling Language) - 20+ requirements
+Focus on entity representation, spatial modeling, template management, and rendering capabilities.
 
-[UDG and HSTP](https://www.notion.so/UDG-and-HSTP-1fc40ac3a1e88011aa18e39a6557dfc3?pvs=21)
+#### HSTP (Hyperspace Transport Protocol) - 14+ requirements
+Focus on communication protocols, IoT interoperability, message routing, and data exchange.
 
-[**Actors and Agents**](https://www.notion.so/Actors-and-Agents-1fc40ac3a1e8809588dfc00f5ba9a4de?pvs=21)
+#### SWG (Spatial Web Governance) - 8+ requirements
+Focus on governance frameworks, multi-scale computing, fault tolerance, and system-wide policies.
 
-[UDG Activities](https://www.notion.so/UDG-Activities-1fc40ac3a1e88086b23bd4fe3e97d361?pvs=21)
+#### UDG (Universal Domain Graph) - 23+ requirements
+Focus on core UDG functionality including discovery, registration, scaling, entity management, and distributed operations.
 
-[UDG State Management](https://www.notion.so/UDG-State-Management-1fc40ac3a1e880a6932ecb44e15e116e?pvs=21)
+### Analysis Summary
 
-[The UDG Node Registry](https://www.notion.so/The-UDG-Node-Registry-1fc40ac3a1e880688beddbce64a17471?pvs=21)
+- **Total Use Cases**: 30
+- **Total Requirements Mapped**: 209 IEEE P2874 requirements analyzed
+- **Primary Coverage Areas**: 
+  - Entity and domain management (UDG, DSA, HSML)
+  - Agent intelligence and interaction (AIS) 
+  - Communication and protocols (HSTP)
+  - System governance and scaling (SWG)
 
-[External Services and Channels](https://www.notion.so/External-Services-and-Channels-1fc40ac3a1e8809ab6b3d08c0c440b0f?pvs=21)
+### Key Observations
 
-[**Entity and Domain Transfer**](https://www.notion.so/Entity-and-Domain-Transfer-1fc40ac3a1e880a6984bed9b34258df8?pvs=21)
+1. **Most comprehensive coverage** is in core UDG operations like entity querying, state management, and distributed operations
+2. **Agent-related use cases** map well to AIS requirements focusing on intelligent agent behaviors
+3. **Infrastructure use cases** (setup, scaling, failover) align with DSA and SWG requirements
+4. **Communication use cases** (channels, state subscription) correspond to HSTP protocol requirements
+5. **Some use cases have multiple requirement matches**, indicating complex functionality that spans multiple system areas
 
-[HyperSpace](https://www.notion.so/HyperSpace-1fc40ac3a1e88073baabdb1c94038473?pvs=21)
+Note: This correlation is based on functional analysis of requirement descriptions and use case content. Some requirements may support multiple use cases, and some use cases may require coordination across multiple requirement areas.
 
-[HSQL](https://www.notion.so/HSQL-1fc40ac3a1e880efbfd6e5ad819b025f?pvs=21)
 
 ## Spatial Web Node Design
 
@@ -529,9 +590,10 @@ hsml["HSML Manager (hsml.d)"]
 cred["Credential Manager (cred.d)"]
 client["Client Manager (swclient.d)"]
 activity["Activity Manager (activity.d)"]
+render["Render Manager (render.d)"]
 nm <--> hstp & dm & cred & client
 hstp <--> dm & gm
-dm <--> gm & agent & hsml & activity
+dm <--> gm & agent & hsml & activity & render
 ```
 
 ## Spatial Web Managers
@@ -578,6 +640,10 @@ The credential manager handles the creation of SWIDs on agents, places, and doma
 
 ### Client Manager. 
 This is a low level __command line interface__ for text-based communication with a spatial web node. Every node supports some kind of CLI interface and may support others (multimodal chat, 2 or 2 1/2 D maps, 3D environments, animations, and so forth).
+
+### Render Manager. 
+The render manager handles render plugins that are involved in depicting content in different formats, to be sent back to the client as part of an hstp response. Typically one of the default activities on an entity is a render activity which can invoke oe of the plugins in the render manager to use to format HSML as an image, a domain specific language, 2D of 3D specific layouts, or nodes optimized for LLMs, among other possibilities. 
+
 
 ## Distributed Graphs
 
