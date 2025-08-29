@@ -47,17 +47,17 @@
     - [Key Observations](#key-observations)
   - [Spatial Web Node Design](#spatial-web-node-design)
     - [Domains and the Spatial Web](#domains-and-the-spatial-web)
-  - [Spatial Web Managers](#spatial-web-managers)
-    - [HSTP Manager](#hstp-manager)
-    - [Domain Manager](#domain-manager)
-    - [Graph Manager](#graph-manager)
-    - [HSML Manager](#hsml-manager)
-    - [Agent Manager](#agent-manager)
-    - [Activity Manager](#activity-manager)
-    - [Credential Manager](#credential-manager)
-    - [Client Manager.](#client-manager)
-    - [Render Manager.](#render-manager)
-  - [Distributed Graphs](#distributed-graphs)
+    - [Spatial Web Managers](#spatial-web-managers)
+      - [HSTP Manager](#hstp-manager)
+      - [Domain Manager](#domain-manager)
+      - [Graph Manager](#graph-manager)
+      - [HSML Manager](#hsml-manager)
+      - [Agent Manager](#agent-manager)
+      - [Activity Manager](#activity-manager)
+      - [Credential Manager](#credential-manager)
+      - [Client Manager.](#client-manager)
+      - [Render Manager.](#render-manager)
+    - [Distributed Graphs](#distributed-graphs)
     - [Domain Graphs](#domain-graphs)
     - [HSTP Node Queries](#hstp-node-queries)
     - [UDG Graph Queries](#udg-graph-queries)
@@ -674,9 +674,33 @@ Focus on core UDG functionality including discovery, registration, scaling, enti
 
 Note: This correlation is based on functional analysis of requirement descriptions and use case content. Some requirements may support multiple use cases, and some use cases may require coordination across multiple requirement areas.
 
+---
 
 ## Spatial Web Node Design
 
+### Domains and the Spatial Web
+
+A ___domain___ is a __model__ or __application__. It provides context for the things within the model, and also describes a purpose for that model. It is, in a very real sense, a __map__, albeit one that is self-aware and changes dynamically over time, though the question about what a domain is a map ___of___ is something that is dependent upon the author or model maker.
+
+Something that is central to the spatial web is that it is __not__ necessarily a reflection of reality. As with any map, a domain is an abstraction of a (typically physical) space and the entities that evolve within that space over time. For instance, one can create a domain showing the London subway system:
+
+![London Subway System 2025](images/_116112246_064832377.jpg.webp)
+
+The domain can even be seen as a representation showing where the individual trains are  within that subway system (to a close approximation). Note that such a map is not necessarily spatially correct - it shows routes and stations, but these are not positionally correct. In this case, what you are looking at is a topological construct, simplified to show what is relevant, not necessarily what is a detailed reflection of the subway on (or in this case under) the ground.
+
+To that end, designing a domain typically comes down to answering a number of questions:
+
+* __What is this a map of?__ Most maps show things of significance within a given context. Why is the map being created? what is it's purpose? Just as a document exists in the world wide web to inform, entertain, record, and persuade, a domain exists in the spatial web for much the same thing. 
+* __Does the map change over time?__ Until recently, all maps were effectively just snapshots in time, and it has only been comparatively recently that we could create maps that capture evolution of a system over time.
+* __Does the map reflect changes in the real world?__ This is a more subtle question, but an important one. Is there some form of feedback between a physical array of sensors and cameras that drive the evolution of the model, or is the driving factor in the map some form of algorithm or AI (a simulation).
+* __Can changes to the map cause changes in the real world?__ Put another way, if a user of the map indicates a change be made to some entity within that map, will that change be reflected in the real world system that the map is a reflection of? Is it interactive?
+* __Is the map participatory?__ Are there other agents that can change the state of the map (whether it reflects physical reality or not) and how do they interact with that map? How are changes in the map expressed back to the user.
+* __Is the map linked to other maps?__ Does the map describe a comprehensive system, or is it possible to change to a different map based upon linking, tiling or similar system?
+* __Does the map have multiple levels of detail (LOD)?__ Can you zoom in on an area to get more detail? Do you need to provide metadata (text and image content)? Is it dynamic?
+* __Does the map have persistance?__ When an agent enters the map, will that map reflect changes made to it by others (an environment), or are changes lost between sessions (typical of tours)? 
+* __Who or what is the intended audience of the map?__ Is this used primarily by humans or by automated systems? 
+
+The role of the Spatial Web system is to deliver these different kinds of maps, to make them integrated and useful across a wide variety of applications. Just as the world wide web exploded the concept of a library - a collection of documents - into a world-wide phenomenon, so too does the creation of domains enable the same thing for maps as a way of perceiving and understanding the worlds, both real and imagined, around us.
 This section focuses primarily on the broad scope of the spatial web node system and how it interacts with the UDG. 
 
 A spatial web node is the abstraction of a long running application (the node daemon) that connects to other spatial web nodes to provide information about specific HSML domains or the structures that support them, communicating over the HSTP protocol. 
@@ -707,36 +731,13 @@ hstp <--> dm & gm
 dm <--> gm & agent & hsml & activity & render
 ```
 
-### Domains and the Spatial Web
 
-A ___domain___ is a __model__ or __application__. It provides context for the things within the model, and also describes a purpose for that model. It is, in a very real sense, a __map__, albeit one that is self-aware and changes dynamically over time, though the question about what a domain is a map ___of___ is something that is dependent upon the author or model maker.
+### Spatial Web Managers
 
-Something that is central to the spatial web is that it is __not__ necessarily a reflection of reality. As with any map, a domain is an abstraction of a (typically physical) space and the entities that evolve within that space over time. For instance, one can create a domain showing the London subway system:
-
-![London Subway System 2025](images/_116112246_064832377.jpg.webp)
-
-The domain can even be seen as a representation showing where the individual trains are  within that subway system (to a close approximation). Note that such a map is not necessarily spatially correct - it shows routes and stations, but these are not positionally correct. In this case, what you are looking at is a topological construct, simplified to show what is relevant, not necessarily what is a detailed reflection of the subway on (or in this case under) the ground.
-
-To that end, designing a domain typically comes down to answering a number of questions:
-
-* __What is this a map of?__ Most maps show things of significance within a given context. Why is the map being created? what is it's purpose? Just as a document exists in the world wide web to inform, entertain, record, and persuade, a domain exists in the spatial web for much the same thing. 
-* __Does the map change over time?__ Until recently, all maps were effectively just snapshots in time, and it has only been comparatively recently that we could create maps that capture evolution of a system over time.
-* __Does the map reflect changes in the real world?__ This is a more subtle question, but an important one. Is there some form of feedback between a physical array of sensors and cameras that drive the evolution of the model, or is the driving factor in the map some form of algorithm or AI (a simulation).
-* __Can changes to the map cause changes in the real world?__ Put another way, if a user of the map indicates a change be made to some entity within that map, will that change be reflected in the real world system that the map is a reflection of? Is it interactive?
-* __Is the map participatory?__ Are there other agents that can change the state of the map (whether it reflects physical reality or not) and how do they interact with that map? How are changes in the map expressed back to the user.
-* __Is the map linked to other maps?__ Does the map describe a comprehensive system, or is it possible to change to a different map based upon linking, tiling or similar system?
-* __Does the map have multiple levels of detail (LOD)?__ Can you zoom in on an area to get more detail? Do you need to provide metadata (text and image content)? Is it dynamic?
-* __Does the map have persistance?__ When an agent enters the map, will that map reflect changes made to it by others (an environment), or are changes lost between sessions (typical of tours)? 
-* __Who or what is the intended audience of the map?__ Is this used primarily by humans or by automated systems? 
-
-The role of the Spatial Web system is to deliver these different kinds of maps, to make them integrated and useful across a wide variety of applications. Just as the world wide web exploded the concept of a library - a collection of documents - into a world-wide phenomenon, so too does the creation of domains enable the same thing for maps as a way of perceiving and understanding the worlds, both real and imagined, around us.
-
-## Spatial Web Managers
-
-### HSTP Manager
+#### HSTP Manager
 
 This handles message routing from both external agents (users) and from other spatial web nodes, taking in HSTP based messages carrying HSML and payloads and transmitting HSTP responses back to users or (through the onboard client) to other nodes. These messages are generally sent to the domain manager, rather than executed directly. (Note, this is different from the current implementation, though the primary change will likely just be which system handles these executions).
-### Domain Manager 
+#### Domain Manager 
 
 The domain manager has a number of roles:
     * generates a domain thread from a domain template and populates it with appropriate agents, things and places. 
@@ -746,18 +747,18 @@ The domain manager has a number of roles:
     * determines whether the domain has reached critical states (such as an end state in a simulation)
     * communications with the node domain graph to read and update state within the graph.
     * passes relevant map responses (entity streams) back to the hstp manager.
-### Graph Manager 
+#### Graph Manager 
 
 The graph manager is a low level service that interacts directly with the graphs within the node in order to provide an abstraction layer for graph management. It performs a number of functions.
     * Translates HSQL query requests and updates into the implementation specific requests of the current graph technology. This exists primarily to ensure that there are no explicit dependencies upon the underlying graph store.
     * Provides a mechanism to add multiple external graphs to the current graph so that they can be queried as if they were a single graph. This is what is known as a federated graph (and it is currently just specific to RDF, but that may change). Such a graph doesn't necessarily scale well towards a large number of nodes (>100), but it can be very useful when building a domain that scales across multiple machines. By separating the graph manager from the domain manager, it becomes possible for the domain manager on one machine to work with multiple nodes simultaneously without having to go across hstp.
     * Graph replication. Replicating a graph (while something of an edge case) is easy enough to accomplish at the graph layer; RDF has global identifiers, and as such a graph can be replicated by simple serialisation into any RDF format. Record deduplication is similarly straightforward, as RDF is specifically built to work on an index format such that multiple resources with the same URI automatically to the relevant ntuple index. This is one of the many reasons that RDF is recommended from the graph layer.
 
-### HSML Manager 
+#### HSML Manager 
 
 HSML is used to describe the state of domains within the graph, but it is also used to indicate activities, frames of activity over time, conditional expressions and contexts, both within the domains and within HSTP messages containing relevant changes and credentials. The HSML process is used in conjunction with the domain managers to provide indications of how entities change. It is not necessarily a daemon, but instead exists primarily as an interpreter that can then pass information off toe domain manager to implement, generally through the graph manager interface.
 
-### Agent Manager 
+#### Agent Manager 
 
 Things within domains are agents. An agent can be thought of as something that is capable of change within a domain, with the most prominant such change being a change of motion within some phase space, or a change of state. The agent manager performs a number of roles.
     * The domain manager typically manages the the "tick" of the system clock and its dissemination to the various agents. The agent manage is what interprets the messages of the domain to any given agent.
@@ -765,22 +766,22 @@ Things within domains are agents. An agent can be thought of as something that i
     * The agent manager handles moving an agent from place to place, either through linking or through replication across domains over spatial web node boundaries. If linking between such boundaries (typical, for instance, accross affiliated nodes that have similar domain constraints), then the agent manager will freeze an agent (make it inactive and hidden) on one machine, and will then replicate the agent on a different spatial web node, or updating the existing history of the agent to an existing proxy on a different node.
     * Agents maintain an internal state history, the mechanisms for which are TBD, through the interface of the agent manager (there may be a history manager that specifically handles that operation, again TBD)
 
-### Activity Manager 
+#### Activity Manager 
 
 The activity manager evaluates and invokes activities, especially those that are tied into IoT components, managing agent and domain events, and working with the graph manager to call named queries and updates.
 
-### Credential Manager 
+#### Credential Manager 
 
 The credential manager handles the creation of SWIDs on agents, places, and domains, as well as caching credentials from external hstp invocations, in effect acting as the wallet for the various domains within the node. This will typically be a proxy for various types of accredidation and verification mechanisms. Full implementation TBD.
 
-### Client Manager. 
+#### Client Manager. 
 This is a low level __command line interface__ for text-based communication with a spatial web node. Every node supports some kind of CLI interface and may support others (multimodal chat, 2 or 2 1/2 D maps, 3D environments, animations, and so forth).
 
-### Render Manager. 
+#### Render Manager. 
 The render manager handles render plugins that are involved in depicting content in different formats, to be sent back to the client as part of an hstp response. Typically one of the default activities on an entity is a render activity which can invoke oe of the plugins in the render manager to use to format HSML as an image, a domain specific language, 2D of 3D specific layouts, or nodes optimized for LLMs, among other possibilities. 
 
 
-## Distributed Graphs
+### Distributed Graphs
 
 There are two distinct methods that can be used for querying the state of a domain within a spatial web node: [___HSTP Node Queries___](#hstp-node-queries) and [___UDG Graph Query___](#udg-graph-queries). Both of these work on the [___Domain Graphs___](#domain-graphs) for a given node, but do so in very different ways.
 
