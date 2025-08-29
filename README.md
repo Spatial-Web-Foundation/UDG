@@ -266,6 +266,9 @@ __Requirements:__ DSA-5
 1. Importing a domain creates a copy of that domain. This will typically be use when a domain acts as the "template" that is then filled out parametrically, such as that used by games or simulations.
 1. Importing a domain is considered an HTTP operation, while extending (including) a domain is part of UDG.
 
+[[Back]](#use-cases)
+
+
 ### Interacting with the Domain: User Agents
 
 1. A __user agent__ is an agent that represents the interest and focus of an external agent within the domain. It is typically the _thing_ or _person_ that navigates the domain on behalf of that external agent.
@@ -276,6 +279,8 @@ __Requirements:__ DSA-5
 1. Within the interactive neighborhood, the ___state matrix___ and ___activity matrix___ of all other agents in that neighborhood become visible. The activity matrix indicates all ___activities___ that a given agent can perform, relative to the user agent, while the state matrix identifies the state that is exposed to the user agent based upon the same mechanisms (typically a credential).
 1. It should be noted that such interactions are reciprocal - the user agent also exposes their state and activity matrices to other agents in the same way.
 1. The interactive neighborhood exists for two reasons - it more closely reflects the reality in which people have personal spaces that determine how they specifically interact, and it serves to reduce the overall complexity of any given domain. Note that if a communication link exists between two agents, this is considered part of the interactive neighborhood for each of those agents.
+
+[[Back]](#use-cases)
 
 ### Activating an Agent's Activity
 
@@ -415,6 +420,9 @@ __Requirements:__ DSA-5
  
  1. It is worth noting that not all (perhaps not even most) domains will be in publicly available affiliates. Many of these domains will be private networks intended for access only by  those with need to know (or to modify), especially those with IoT interconnections.
 1. The affiliate design is also a specific requirement for a decentralized architecture. A true peer-to-peer system likely will not scale to the same level (there are few Internet scale peer-to-peer systems after more than 35 years). This would especially be the case given the requirements to ensure private control over domains, along with the sensitivity of much of the internal data.
+
+[[Back]](#use-cases)
+
 
 ## UDG Use Cases to IEEE P2874 Requirements Correlation
 
