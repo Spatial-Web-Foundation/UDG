@@ -46,6 +46,7 @@
     - [Analysis Summary](#analysis-summary)
     - [Key Observations](#key-observations)
   - [Spatial Web Node Design](#spatial-web-node-design)
+    - [Domains and the Spatial Web](#domains-and-the-spatial-web)
   - [Spatial Web Managers](#spatial-web-managers)
     - [HSTP Manager](#hstp-manager)
     - [Domain Manager](#domain-manager)
@@ -80,7 +81,6 @@
       - [Agent-to-Agent Links and Channels](#agent-to-agent-links-and-channels)
       - [Button or Selector Links](#button-or-selector-links)
       - [Architecture of Links](#architecture-of-links)
-    - [Designing a Domain](#designing-a-domain)
   - [Activities](#activities)
   - [The UDG Taxonomy](#the-udg-taxonomy)
     - [The hsml:hasTopic property](#the-hsmlhastopic-property)
@@ -706,6 +706,30 @@ nm <--> hstp & dm & cred & client
 hstp <--> dm & gm
 dm <--> gm & agent & hsml & activity & render
 ```
+
+### Domains and the Spatial Web
+
+A ___domain___ is a __model__ or __application__. It provides context for the things within the model, and also describes a purpose for that model. It is, in a very real sense, a __map__, albeit one that is self-aware and changes dynamically over time, though the question about what a domain is a map ___of___ is something that is dependent upon the author or model maker.
+
+Something that is central to the spatial web is that it is __not__ necessarily a reflection of reality. As with any map, a domain is an abstraction of a (typically physical) space and the entities that evolve within that space over time. For instance, one can create a domain showing the London subway system:
+
+![London Subway System 2025](images/_116112246_064832377.jpg.webp)
+
+The domain can even be seen as a representation showing where the individual trains are  within that subway system (to a close approximation). Note that such a map is not necessarily spatially correct - it shows routes and stations, but these are not positionally correct. In this case, what you are looking at is a topological construct, simplified to show what is relevant, not necessarily what is a detailed reflection of the subway on (or in this case under) the ground.
+
+To that end, designing a domain typically comes down to answering a number of questions:
+
+* __What is this a map of?__ Most maps show things of significance within a given context. Why is the map being created? what is it's purpose? Just as a document exists in the world wide web to inform, entertain, record, and persuade, a domain exists in the spatial web for much the same thing. 
+* __Does the map change over time?__ Until recently, all maps were effectively just snapshots in time, and it has only been comparatively recently that we could create maps that capture evolution of a system over time.
+* __Does the map reflect changes in the real world?__ This is a more subtle question, but an important one. Is there some form of feedback between a physical array of sensors and cameras that drive the evolution of the model, or is the driving factor in the map some form of algorithm or AI (a simulation).
+* __Can changes to the map cause changes in the real world?__ Put another way, if a user of the map indicates a change be made to some entity within that map, will that change be reflected in the real world system that the map is a reflection of? Is it interactive?
+* __Is the map participatory?__ Are there other agents that can change the state of the map (whether it reflects physical reality or not) and how do they interact with that map? How are changes in the map expressed back to the user.
+* __Is the map linked to other maps?__ Does the map describe a comprehensive system, or is it possible to change to a different map based upon linking, tiling or similar system?
+* __Does the map have multiple levels of detail (LOD)?__ Can you zoom in on an area to get more detail? Do you need to provide metadata (text and image content)? Is it dynamic?
+* __Does the map have persistance?__ When an agent enters the map, will that map reflect changes made to it by others (an environment), or are changes lost between sessions (typical of tours)? 
+* __Who or what is the intended audience of the map?__ Is this used primarily by humans or by automated systems? 
+
+The role of the Spatial Web system is to deliver these different kinds of maps, to make them integrated and useful across a wide variety of applications. Just as the world wide web exploded the concept of a library - a collection of documents - into a world-wide phenomenon, so too does the creation of domains enable the same thing for maps as a way of perceiving and understanding the worlds, both real and imagined, around us.
 
 ## Spatial Web Managers
 
@@ -1343,28 +1367,6 @@ Once this is received by the domain manager, it uses the context determined by t
 Links can be set up by the domain designer via the periodicity property as one of singleton (the link is only activated once) or periodic (the link is invoked across a given channel periodically until either the link is terminated or the channel's time-to-live (TTL) is exceeded). Once the link completes, it will either be reset (the default) or it will be expired (for links that expire upon use).
 
 This operation is handled by the domain manager. Note that in fully autonomous operations, open links simply cause the agent to reset to the new place (and domain, if this changes, without UX involvement. However, key activation still requires the relevant credentials.
-
-### Designing a Domain
-
-A ___domain___ is a __model__ or __application__. It provides context for the things within the model, and also describes a purpose for that model. It is, in a very real sense, a __map__, albeit one that is self-aware and changes dynamically over time, though the question about what a domain is a map ___of___ is something that is dependent upon the author or model maker.
-
-Something that is central to the spatial web is that it is __not__ necessarily a reflection of reality. As with any map, a domain is an abstraction of a (typically physical) space and the entities that evolve within that space over time. For instance, one can create a domain showing the London subway system:
-
-![London Subway System 2025](images/_116112246_064832377.jpg.webp)
-
-The domain can even be seen as a representation showing where the individual trains are  within that subway system (to a close approximation). Note that such a map is not necessarily spatially correct - it shows routes and stations, but these are not positionally correct. In this case, what you are looking at is a topological construct, simplified to show what is relevant, not necessarily what is a detailed reflection of the subway on (or in this case under) the ground.
-
-To that end, designing a domain typically comes down to answering a number of questions:
-
-* __What is this a map of?__ Most maps show things of significance within a given context. Why is the map being created? what is it's purpose? Just as a document exists in the world wide web to inform, entertain, record, and persuade, a domain exists in the spatial web for much the same thing. 
-* __Does the map change over time?__ Until recently, all maps were effectively just snapshots in time, and it has only been comparatively recently that we could create maps that capture evolution of a system over time.
-* __Does the map reflect changes in the real world?__ This is a more subtle question, but an important one. Is there some form of feedback between a physical array of sensors and cameras that drive the evolution of the model, or is the driving factor in the map some form of algorithm or AI (a simulation).
-* __Can changes to the map cause changes in the real world?__ Put another way, if a user of the map indicates a change be made to some entity within that map, will that change be reflected in the real world system that the map is a reflection of? Is it interactive?
-* __Is the map participatory?__ Are there other agents that can change the state of the map (whether it reflects physical reality or not) and how do they interact with that map? How are changes in the map expressed back to the user.
-* __Is the map linked to other maps?__ Does the map describe a comprehensive system, or is it possible to change to a different map based upon linking, tiling or similar system?
-* __Does the map have multiple levels of detail (LOD)?__ Can you zoom in on an area to get more detail? Do you need to provide metadata (text and image content)? Is it dynamic?
-* __Does the map have persistance?__ When an agent enters the map, will that map reflect changes made to it by others (an environment), or are changes lost between sessions (typical of tours)? 
-
 
 ## Activities
 
