@@ -35,6 +35,7 @@
     - [Scale to Internet Level](#scale-to-internet-level)
   - [UDG Use Cases to IEEE P2874 Requirements Correlation](#udg-use-cases-to-ieee-p2874-requirements-correlation)
     - [Complete Correlation Table](#complete-correlation-table)
+  - [Complete Correlation Table (Sorted by IEEE Code)](#complete-correlation-table-sorted-by-ieee-code)
     - [Requirements by Code Category](#requirements-by-code-category)
       - [AIS (AI Systems) - 7 requirements](#ais-ai-systems---7-requirements)
       - [DSA (Domain-Specific Architectures) - 8 requirements](#dsa-domain-specific-architectures---8-requirements)
@@ -522,6 +523,108 @@ Based on analysis of the UDG specification use cases and the IEEE P2874 requirem
 | | UDG-16 | UDG shall support the ability to accommodate an increasing number of connectivity endpoints, reaching internet scale |
 | | SWG-3 | Spatial Web Governance shall enable multi-scale cognitive computing and shared intelligence |
 | | UDG-11 | UDG shall provide for distributed operations of the UDG including propagation of changes and consistency |
+
+## Complete Correlation Table (Sorted by IEEE Code)
+
+| IEEE Code | Use Case Title | Requirement Statement Description |
+|-----------|----------------|-----------------------------------|
+| AIS-1 | Interacting with the Domain: User Agents | AIS Rating Framework shall enable ecosystems of intelligence across the Spatial Web |
+| AIS-2 | Logging Into a Domain | AIS Rating Framework shall define procedures for real-time CREDENTIAL and certification management, based on an AGENT's attributes, capabilities, and relationships |
+| AIS-2 | Attach a Credential to an Entity | AIS Rating Framework shall define procedures for real-time CREDENTIAL and certification management |
+| AIS-3 | Logging Into a Domain | AIS Rating Framework shall facilitate the dynamic adjustment of AGENT permissions, authorizations, and access based on changes in an AGENT's attributes, operational context, and ACTIVITIES |
+| AIS-3 | Attach a Credential to an Entity | AIS Rating Framework shall facilitate the dynamic adjustment of AGENT permissions, authorizations, and access |
+| AIS-4 | Logging Into a Domain | AIS Rating Framework should support the integration of a credential and certification management framework |
+| AIS-4 | Attach a Credential to an Entity | AIS Rating Framework should support the integration of a credential and certification management framework |
+| AIS-5 | Interacting with the Domain: User Agents | AIS Rating Framework shall offer flexibility, allowing dynamic interactions among AGENTS with varied capabilities |
+| AIS-5 | Activating an Agent's Activity | AIS Rating Framework shall offer flexibility, allowing dynamic interactions among AGENTS |
+| AIS-5 | Transporting an Agent Via Another Agent | AIS Rating Framework shall offer flexibility, allowing dynamic interactions among AGENTS |
+| AIS-7 | Interacting with the Domain: User Agents | AIS Rating Framework shall enable governance of AGENT interactions |
+| DSA-1 | Setting Up a Spatial Web Node | Domain-specific architectures shall be consistent with IEEE_2413_2019, IEEE 2413 Architectural Framework for IoT |
+| DSA-4 | Setting Up a Spatial Web Node | Domain-specific architectures should define governance for their domains consistent with the Spatial Web governance |
+| DSA-5 | Setting Up a Spatial Web Node | Domain-specific architectures shall design identity management that meet the requirements of the domain and are compliant with the Spatial Web system requirements |
+| DSA-5 | Logging Into a Domain | Domain-specific architectures shall design identity management that meet the requirements of the domain |
+| DSA-6 | Creating an Entity | Domain-specific architecture specifications shall enable the creation of Domains as containers for Domains |
+| DSA-6 | Creating a New Place | Domain-specific architecture specifications shall enable the creation of Domains as containers |
+| DSA-6 | Creating an Entity Instance | Domain-specific architecture specifications shall enable the creation of Domains as containers |
+| DSA-7 | Generating and Resolving SWIDs | Domain-specific architectures shall provide a system of distributed, decentralized registries for SWIDs |
+| DSA-7 | Registering a Node on an Affiliation Registry | Domain-specific architectures shall provide a system of distributed, decentralized registries for SWIDs |
+| DSA-8 | Searching an Affiliation Registry (User Client) | Domain-specific architectures shall enable objects to be searchable within the Spatial Web Domains in which they are nested |
+| DSA-8 | Using the Node Domain Directory | Domain-specific architectures shall enable objects to be searchable within the Spatial Web Domains |
+| HSML-1 | Querying an Entity | HSML shall support deployment and management of the Spatial Web by operations within organizations |
+| HSML-1 | Rendering an Entity | HSML shall support deployment and management of the Spatial Web by operations within organizations |
+| HSML-2 | Creating an Entity | HSML shall enable virtual representation of physical entities based on the principles of spatialization |
+| HSML-3 | Querying a Specific State of an Entity | HSML shall enable digital representation of physical entities synchronized at frequencies and fidelities |
+| HSML-8 | Invalidate an Entity | HSML shall provide mechanisms for entity lifecycle management including creation, modification, and removal |
+| HSML-12 | Importing an Entity Graph | HSML shall support template management and domain instantiation |
+| HSML-12 | Creating an Entity Instance | HSML shall support template management and entity instantiation services |
+| HSML-15 | Subscribing to a State of an Entity | HSML shall support event-driven state change notifications |
+| HSML-16 | Changing Internal State of an Entity | HSML shall support hierarchical domain structures and internal state management |
+| HSML-17 | Changing Level of Detail Graphs of an Entity | HSML shall support multiple representation granularities and level-of-detail switching |
+| HSML-18 | Maintaining History | HSML shall provide audit trail capabilities for all system operations |
+| HSML-19 | Creating a New Place | HSML shall support spatial location creation and topology management |
+| HSML-20 | Rendering an Entity | HSML shall support multiple content-type representation capabilities |
+| HSTP-1 | Modifying the Specific State of an Entity | HSTP shall be interoperable with IoT systems in such a way that the entities are able to exchange information |
+| HSTP-1 | Handle Fast/Slow State Changes | HSTP shall be interoperable with IoT systems in such a way that the entities are able to exchange information |
+| HSTP-3 | Modifying the Specific State of an Entity | HSTP shall provide interoperability of robotics and other physical actuator devices |
+| HSTP-8 | Subscribing to a State of an Entity | HSTP shall support publish/subscribe communication patterns for real-time data exchange |
+| HSTP-8 | Subscribing to a Channel | HSTP shall support publish/subscribe communication patterns for real-time data exchange |
+| HSTP-11 | Subscribing to a Channel | HSTP shall provide message queuing and routing capabilities for multi-agent communication |
+| HSTP-12 | Extending an Entity Graph | HSTP shall support federated query capabilities across multiple graph sources |
+| HSTP-13 | Moving an agent from one domain to another | HSTP shall support agent mobility and state transfer between domains and nodes |
+| HSTP-13 | Transporting an Agent Via Another Agent | HSTP shall support agent mobility and state transfer between domains and nodes |
+| HSTP-14 | Refreshing a Registry | HSTP shall provide mechanisms for managing updates and changes to entity registrations over time |
+| SWG-3 | Scale to Internet Level | Spatial Web Governance shall enable multi-scale cognitive computing and shared intelligence |
+| SWG-4 | Setting Up a Spatial Web Node | Spatial Web Governance shall enable standardized protocols for cross-platform compatibility and interoperability |
+| SWG-8 | Replication and Failover | Spatial Web Governance shall provide fault tolerance and system resilience mechanisms |
+| UDG-1 | Searching an Affiliation Registry (User Client) | UDG shall enable discovery of the virtual representation of physical entities |
+| UDG-1 | Querying an Entity | UDG shall enable discovery of the virtual representation of physical entities |
+| UDG-1 | Changing Level of Detail Graphs of an Entity | UDG shall enable discovery of the virtual representation of physical entities |
+| UDG-2 | Searching an Affiliation Registry (User Client) | UDG shall enable discovery of physical and virtual entities via discovery services |
+| UDG-2 | Using the Node Domain Directory | UDG shall enable discovery of physical and virtual entities via discovery services |
+| UDG-3 | Generating and Resolving SWIDs | UDG shall validate SWIDs generated using SWID Method prior to issuance, e.g., assess uniqueness |
+| UDG-3 | Maintaining History | UDG operations shall be resilient to inconsistencies in relationships between nodes |
+| UDG-4 | Registering a Node on an Affiliation Registry | UDG shall include a Spatial Web registration service for Public and Top domains |
+| UDG-5 | Registering a Node on an Affiliation Registry | UDG shall, for audit purposes, register all SWIDs related to all public and top domains in a Spatial Web Registry |
+| UDG-6 | Registering a Node on an Affiliation Registry | UDG shall enable verification and validation services for domains prior to their registration |
+| UDG-7 | Generating and Resolving SWIDs | UDG shall support the generation of SWIDs one at a time, such as for Top Domains, or generate many at a time, such as for Public Domains |
+| UDG-8 | Generating and Resolving SWIDs | UDG shall ensure SWID uniqueness |
+| UDG-9 | Generating and Resolving SWIDs | UDG shall ensure that SWIDs are maintained in the Spatial Web Registry |
+| UDG-10 | Replication and Failover | UDG operations shall be resilient to inconsistencies in relationships between nodes and in the content of nodes |
+| UDG-11 | Extending an Entity Graph | UDG shall provide for distributed operations of the UDG including propagation of changes and consistency |
+| UDG-11 | Importing an Entity Graph | UDG shall provide for distributed operations of the UDG including propagation of changes and consistency |
+| UDG-11 | Moving an agent from one domain to another | UDG shall provide for distributed operations of the UDG including propagation of changes and consistency |
+| UDG-11 | Transporting an Agent Via Another Agent | UDG shall provide for distributed operations of the UDG |
+| UDG-11 | Scale to Internet Level | UDG shall provide for distributed operations of the UDG including propagation of changes and consistency |
+| UDG-12 | Extending an Entity Graph | UDG shall provide Spatial Web Domain interactions that are seamlessly managed and integrated |
+| UDG-12 | Moving an agent from one domain to another | UDG shall provide Spatial Web Domain interactions that are seamlessly managed and integrated |
+| UDG-13 | Registering a Node on an Affiliation Registry | UDG shall implement Spatial Web Domain registration processes |
+| UDG-14 | Interacting with the Domain: User Agents | UDG design and procedures shall enable a range of methods for accessing the UDG |
+| UDG-15 | Setting Up a Spatial Web Node | UDG shall provide mechanisms for automatic discovery of nodes, and their properties and capabilities as well as the means to access them |
+| UDG-15 | Activating an Agent's Activity | UDG shall provide the capability to register and manage ACTIVITIES that are associated with AGENTs |
+| UDG-15 | Using the Node Domain Directory | UDG shall provide mechanisms for automatic discovery of nodes, and their properties and capabilities |
+| UDG-15 | Scale to Internet Level | UDG shall provide mechanisms for automatic discovery of nodes |
+| UDG-16 | Activating an Agent's Activity | UDG shall keep a record of HSML ACTIVITIES that were executed as part of a Contract |
+| UDG-16 | Maintaining History | UDG shall keep a record of HSML ACTIVITIES that were executed as part of a Contract |
+| UDG-16 | Scale to Internet Level | UDG shall support the ability to accommodate an increasing number of connectivity endpoints, reaching internet scale |
+| UDG-17 | Handle Fast/Slow State Changes | UDG shall be designed to operate with communication network performance where bandwidth ranging from hundreds of gigabits per second to several terabits per second |
+| UDG-18 | Searching an Affiliation Registry (User Client) | UDG shall include Spatial Index Servers that make maps ranging from simple SQL indexes to graph-based databases |
+| UDG-18 | Creating a New Place | UDG shall include Spatial Index Servers that deliver spatial indexing |
+| UDG-19 | Refreshing a Registry | UDG shall manage entity replication and update with consideration of how quickly the entities are changing |
+| UDG-19 | Invalidate an Entity | UDG shall manage entity replication and update with consideration of how quickly the entities are changing |
+| UDG-19 | Replication and Failover | UDG shall manage entity replication and update with consideration of how quickly the entities are changing |
+| UDG-20 | Querying a Specific State of an Entity | UDG shall manage rapidly changing entities using a peer-to-peer methodology |
+| UDG-20 | Modifying the Specific State of an Entity | UDG shall manage rapidly changing entities using a peer-to-peer methodology |
+| UDG-20 | Subscribing to a State of an Entity | UDG shall manage rapidly changing entities using a peer-to-peer methodology |
+| UDG-20 | Changing Internal State of an Entity | UDG shall manage rapidly changing entities using a peer-to-peer methodology |
+| UDG-20 | Subscribing to a Channel | UDG shall manage rapidly changing entities using a peer-to-peer methodology |
+| UDG-21 | Querying a Specific State of an Entity | UDG shall manage slow-changing cross-ledger entities and CONTRACTs on a distributed ledger |
+| UDG-21 | Modifying the Specific State of an Entity | UDG shall manage slow-changing cross-ledger entities and CONTRACTs on a distributed ledger |
+| UDG-21 | Changing Internal State of an Entity | UDG shall manage slow-changing cross-ledger entities and CONTRACTs |
+| UDG-23 | Creating an Entity | UDG shall implement the use cases specified in the standard |
+| UDG-23 | Querying an Entity | UDG shall implement the use cases specified in the standard |
+| UDG-23 | Importing an Entity Graph | UDG shall implement the use cases specified in the standard |
+| UDG-23 | Creating an Entity Instance | UDG shall implement the use cases specified in the standard |
+| UDG-23 | Rendering an Entity | UDG shall implement the use cases specified in the standard |
 
 ### Requirements by Code Category
 
