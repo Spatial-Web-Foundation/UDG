@@ -21,7 +21,7 @@
     - [Interacting with the Domain: User Agents](#interacting-with-the-domain-user-agents)
     - [Activating an Agent's Activity](#activating-an-agents-activity)
     - [Maintaining History](#maintaining-history)
-    - [Changing Internal State of an Entity](#changing-internal-state-of-an-entity)
+    - [Changing Internal State Domain of an Entity](#changing-internal-state-domain-of-an-entity)
     - [Changing Level of Detail Graphs of an Entity](#changing-level-of-detail-graphs-of-an-entity)
     - [Subscribing to a Channel](#subscribing-to-a-channel)
     - [Moving an agent from one domain to another](#moving-an-agent-from-one-domain-to-another)
@@ -189,6 +189,7 @@ __Requirements:__ DSA-5
 1. If the document is accepted, the document is created within a named graph.
 1. For all entities within the named graph, SWIDs are created and attached to each entity.
 1. The named graph identifier is then attached to the parent entity.
+1. At the time of creation, an entity MUST be assigned an ___Internal State domain___ or ___IS Domain___ (see [Changing Internal State Domain](#changing-internal-state-domain-of-an-entity)). 
 1. At the time of creation, an entity MAY be assigned a ___level of detail domain___ or ___LoD Domain___ (see [Changing Level of Detail](#changing-level-of-detail)). 
    > _It is possible that this will need to be changed to MUST and needs further discussion_. 
 
@@ -306,7 +307,7 @@ __Requirements:__ DSA-5
 [[Back]](#use-cases)
 
 
-### Changing Internal State of an Entity
+### Changing Internal State Domain of an Entity
 
 1. A given non-domain entity (such as a place or an agent) may have as __Internal State Link__  to a different domain that represents the internal state of that entity. 
 1. Such a domain may be empty of child agents or places.
@@ -321,7 +322,7 @@ __Requirements:__ DSA-5
 ### Changing Level of Detail Graphs of an Entity
 
 1. A given non-domain entity (such as a place or an agent) may have one or more __Level of Detail Links__ (__LoDs__) to a different domain that represents a drill-down of subcomponents of that entity.
-1. Unlike an [ISL](#changing-internal-state-of-an-entity), a Level of Detail link is typically used to provide different representations or subsystems for a given entity. A country (a place) for instance, may have one LoD showing critical population centers, another showing primary traffic routes, another showing watersheds and other features.
+1. Unlike an [ISL](#changing-internal-state-domain-of-an-entity), a Level of Detail link is typically used to provide different representations or subsystems for a given entity. A country (a place) for instance, may have one LoD showing critical population centers, another showing primary traffic routes, another showing watersheds and other features.
 1. An LoD domain differs from an internal state domain primarily in that it does not communicate state changes back to the parent entity. This is important because it reduces synchronization issues.
 2. As a rule of thumb, if there is a child domain of a given non-domain entity that has multiple overlapping and interconnected systems, these would best be contained within a single ISL, while if there are mostly disconnected systems (such as the plumbing vs. electrical system in a house), this would work better as multiple LoD systems. 
 
@@ -494,7 +495,7 @@ Based on analysis of the UDG specification use cases and the IEEE P2874 requirem
 | [ **Maintaining History** ](#maintaining-history) | UDG-16 | UDG shall keep a record of HSML ACTIVITIES that were executed as part of a Contract |
 | | HSML-18 | HSML shall provide audit trail capabilities for all system operations |
 | | UDG-3 | UDG operations shall be resilient to inconsistencies in relationships between nodes |
-| [ **Changing Internal State of an Entity** ](#changing-internal-state-of-an-entity) | UDG-20 | UDG shall manage rapidly changing entities using a peer-to-peer methodology |
+| [ **Changing Internal State Domain of an Entity** ](#changing-internal-state-domain-of-an-entity) | UDG-20 | UDG shall manage rapidly changing entities using a peer-to-peer methodology |
 | | UDG-21 | UDG shall manage slow-changing cross-ledger entities and CONTRACTs |
 | | HSML-16 | HSML shall support hierarchical domain structures and internal state management |
 | [ **Changing Level of Detail Graphs of an Entity** ](#changing-level-of-detail-graphs-of-an-entity) | UDG-1 | UDG shall enable discovery of the virtual representation of physical entities |
