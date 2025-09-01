@@ -1,0 +1,33 @@
+[appendix,obligation=informative]
+
+[heading=clause]
+
+== Participants
+
+The list below includes persons who participated in the Spatial Web Foundation Working Group that developed this Specification and who consented to appear on this list.
+
+Mahault Albarracin +
+Flores Bakker +
+Scott Carroll +
+Tom De Block +
+Bastiaan den Braber +
+Geert Devos +
+Jason Fox +
+Karl Friston +
+Jacqueline Hynes +
+Alex Kiefer +
+Martin Laskowski +
+Sarah Grace Manski +
+Dan Mapes +
+George Percivall +
+Christine Perey +
+Capm Petersen +
+Reese Plews +
+Maxwell Ramstead +
+Gabriel René +
+Dan Richardson +
+Mikel Salazar +
+Philippe Sayegh +
+Prasaanth Sridharan +
+Toby St Clere Smithe +
+Alec Tschantz

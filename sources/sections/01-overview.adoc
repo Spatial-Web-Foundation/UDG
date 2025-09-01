@@ -1,0 +1,30 @@
+== Overview
+
+=== Scope
+
+TBD.
+
+=== Purpose
+
+TBD.
+
+=== Structure of document
+
+TBD.
+
+This document is structured as a reference model consistent with the approach defined in <<ISO_IEC_IEEE_42010_2022>>. This reference model provides concepts to subsequently define Spatial Web Implementation standards and to guide domain-specific Spatial Web architecture developments.
+
+This document provides three viewpoints of the Spatial Web as an abstract system:
+
+<<section-value-for-stakeholders,Value for stakeholders>> (<<section-value-for-stakeholders>>)
+
+<<section-knowledge-modeling,Knowledge modeling>> (<<section-knowledge-modeling>>)
+
+<<section-distributed-computing,Distributed computing>> (<<section-distributed-computing>>)
+
+
+Several views are provided for each viewpoint, e.g., in the Knowledge Modeling viewpoint, the <<section-hyperspace,Hyperspace>> subclause (<<section-hyperspace>>) is a view of spatial models used in the Spatial Web.
+
+=== Conventions used in this standard
+
+In this document the following Spatial Web ontology entries (ENTITY, ACTIVITY, AGENT, CONTRACT, CHANNEL, CREDENTIAL, DOMAIN, HYPERSPACE, and TIME) are represented using uppercase.

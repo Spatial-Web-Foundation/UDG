@@ -1,0 +1,122 @@
+== Definitions, acronyms and abbreviations
+
+
+=== Definitions
+
+==== ACTIVITY
+
+A partially ordered set of changes effected by an AGENT.
+
+[type=license]
+NOTE: Notes in text, tables, and figures of a standard are given for information only and do not contain requirements needed to implement this standard.
+
+NOTE: Attributes of an ACTIVITY can be represented using HYPERSPACE Entities.
+
+NOTE: An ACTIVITY can be near-instantaneous or temporally extended and exists as either planned, ongoing, failed, or completed.
+
+NOTE: ACTIVITIES are performed on, by, in, or with, DOMAINS, including other AGENTS.
+
+
+==== AGENT
+
+An ENTITY that senses, responds, and maintains a model of its environment, while performing ACTIVITIES to achieve its goals.
+
+NOTE: AGENT is a type of DOMAIN.
+
+==== artificial intelligence
+
+preferred:[AI]
+
+The capacity of computers or other machines to exhibit or simulate intelligent behavior.
+
+[.source]
+<<IEEE_7010_2020>>
+
+
+==== cloud computing
+
+Paradigm for enabling network access to a scalable and elastic-pool of shareable physical or virtual resources with self-service provisioning and administration on-demand.
+
+[type=license]
+NOTE: (C)ISO. This material is from ISO/IEC 22123-1:2023 with permission of the American National Standards Institute (ANSI) on behalf of the International Organization for Standardization. All rights reserved.
+
+[.source]
+<<ISO_IEC_22123_1_2023,clause=3.1.1>>, Notes to entry have been removed.
+
+==== commons
+The resources of a community that are or ought to be collectively held, managed, shared and made accessible to all members of that community, thus balancing individual needs with sustainability and preservation.
+
+NOTE: Commons encapsulates the concepts of collective stewardship and mutual responsibility, where the community members have both the right to benefit from the resources and the duty to maintain them.
+
+NOTE: Based on concepts from <<mcginnis_dp_for_glo_comm>>.
+
+related:seealso[global commons]
+
+==== cooperation
+The process of working or acting together for common interests and values based on agreement.
+
+NOTE: The organizations agree by contract or by other arrangements to contribute with their resources to the incident response but keep independence concerning their internal hierarchical structure.
+
+[type=license]
+NOTE: (C)ISO. This material is from ISO 22300:2021 with permission of the American National Standards Institute (ANSI) on behalf of the International Organization for Standardization. All rights reserved.
+
+[.source]
+<<ISO_22300_2021,clause=3.1.52>>
+
+==== decentralized identifier
+
+[%metadata]
+abbreviation-type:: initialism
+
+preferred:[DID]
+
+Identifier in the format of the W3C Decentralized Identifier.
+
+[type=license]
+NOTE: Information on references can be found in Clause 2.
+
+NOTE: Adapted from <<w3c_did>>.
+
+
+==== global commons
+Global level {{commons}} that are shared by humanity.
+
+[example] The atmosphere and climate system, biodiversity, critical biomes, and the Internet are examples of global commons.
+
+NOTE: Based on concepts from <<mcginnis_dp_for_glo_comm>>.
+
+related:seealso[commons]
+
+
+=== Acronyms and abbreviations
+
+AI:: artificial intelligence
+API:: application programming interface
+AR:: augmented reality
+BFO:: basic formal ontology
+CRS:: coordinate reference system
+CRUD:: create, read, update, and delete
+DGGS:: Discrete Global Grid System
+DLT:: distributed ledger technology
+FAIR:: Findable, Accessible, Interoperable, and Reusable
+glTF:: GL Transmission Format
+IIC:: Industry IoT Consortium
+IoT:: Internet of Things
+M2M:: machine to machine
+MIME:: Multipurpose Internet Mail Extensions
+OGC:: Open Geospatial Consortium
+OWL:: Web Ontology Language
+RDF:: Resource Description Framework
+SHACL:: Shapes Constraint Language
+SKOS:: Simple Knowledge Organization System
+SPARQL:: SPARQL Protocol and RDF Query Language
+SWE:: Sensor Web Enablement
+UDG:: Universal Domain Graph
+UDT:: Urban Digital Twin
+VC:: verifiable credentials
+VR:: virtual reality
+W3C:: World Wide Web Consortium
+WoT:: Web of Things
+XR:: collective reference to both AR and VR
+ZKP:: zero-knowledge proof
+

@@ -1,0 +1,4 @@
+[[section-spatial-web-standards]]
+== Spatial web standards
+
+TBD.

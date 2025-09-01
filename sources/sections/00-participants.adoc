@@ -1,0 +1,200 @@
+
+== Participants
+
+// rwp 20230607 #688 indicates there is a duplication of "Working Group"
+// somewhere on this page; if it is not coming through here, then it must be
+// in the metanorma IEEE template;  i will check the generated files and go
+// from there.
+
+=== Working group
+
+item::
+name::: Gabriel René
+role::: Chair
+item::
+name::: George Percivall
+role::: Vice Chair
+item::
+name::: Christine Perey
+role::: Secretary, Technical Editor
+item::
+name::: Prasaanth Sridharan
+role::: Technical Editor
+
+item:: Mahault Albarracin
+item:: Nicolás Andrés Hinrichs
+item:: Daniel Ari Friedman
+item:: Ismail Arribas
+item:: Flores Bakker
+item:: Bert Berkers
+item:: Christopher Buckley
+item:: Darin Bunker
+item:: John Carenbauer
+item:: Edward Chow
+item:: Axel Constant
+item:: Jessica Covington
+item:: Steve Coy
+item:: John Daly
+item:: Miguel de Prado Escudero
+item:: Bastiaan den Braber
+item:: Geert Devos
+item:: Cauê Dias Silva
+item:: Susan Dickey
+item:: Dave Douglass
+item:: Marc Duranton
+item:: Aidin Eslami
+item:: Jason Fox
+item:: Karl Friston
+item:: Stefan Fritsch
+item:: Kaiser Fung
+item:: Linda Goetze
+item:: Jay Graver
+item:: Dennis Hahn
+item:: James Hendrickson
+item:: Brian Hicks
+item:: Tony Hodgson
+item:: Denise Holt
+item:: Jacqueline Hynes
+item:: Paul Jones
+item:: Mo Kalby
+item:: Alex Kiefer
+item:: Susie Kim
+item:: Sebastian King
+item:: John Kittleson
+item:: Greg Kluthe
+item:: Andrew Knight
+item:: Martin Laskowski
+item:: Brandon Lucht
+item:: Forrist Lytehaause
+item:: Quinn Madson
+item:: Guido Magliano
+item:: Sarah Grace Manski
+item:: Dan Mapes
+item:: Joshua Martinez
+item:: Panayotis Mavromatis
+item:: Michael McCool
+item:: Don Moody
+item:: Alessandro Muzzi
+item:: Gyu Myoung Lee
+item:: Sanjeev Namjoshi
+item:: Greg Nutt
+item:: Aza O'Leary
+item:: Chris O'Neill
+item:: Capm Petersen
+item:: Richard Petty
+item:: Reese Plews
+item:: Maxwell Ramstead
+item:: Dan Richardson
+item:: Nora Rusin
+item:: Lior Saar
+item:: Kasra Sabery
+item:: Shoichi Sakane
+item:: Mikel Salazar
+item:: Tim Sandgren
+item:: Philippe Sayegh
+item:: Benjamin Schlup
+item:: Johan Schotte
+item:: David Scott Carroll
+item:: Bill Seely
+item:: Jon Seneger
+item:: Dyci Sfregola
+item:: Kirpal Singh Khalsa
+item:: Dmitri Smirnov
+item:: Steve Smyth
+item:: Cédric Sounard
+item:: Joel Spielberger
+item:: Toby St. Clere Smithe
+item:: Debi Stack
+item:: Sara Summers
+item:: Steven Swanson
+item:: Hari Thiruvengada
+item:: Alexander Tschantz
+item:: Venkatesh Venkataramanujam
+item:: Tim Verbelen
+item:: Jan-Erik Vinje
+item:: Michael Wadden
+item:: Mike Warner
+item:: Grant Wood
+item:: Ryan Zaki
+item:: Gontran Zepeda
+
+
+
+=== Balloting group
+
+item:: Hana Abdulla
+item:: Boon Chong Ang
+item:: Amir Reza Asadi
+item:: Riccardo Brama
+item:: David Carroll
+item:: Bastiaan den Braber
+item:: Susan Dickey
+item:: Marc Duranton
+item:: Karl Friston
+item:: Madhukar Gaganam
+item:: Marco Hernandez
+item:: Werner Hoelzl
+item:: Denise Holt
+item:: Jacqueline Hynes
+item:: Piotr Karocki
+item:: Siri Jodha Khalsa
+item:: Alex Kiefer
+item:: Greg Kluthe
+item:: T. Leopold
+item:: Yuzhuo Li
+item:: Daozhuang Lin
+item:: Xin Ma
+item:: Sarah Grace Manski
+item:: Dan Mapes
+item:: LaMont McAliley
+item:: Arumugam Paventhan
+item:: Capm Petersen
+item:: Reese Plews
+item:: R. K. Rannow
+item:: Philippe Sayegh
+item:: Benjamin Schlup
+item:: Reinhard Schrage
+item:: Jhony Sembiring
+item:: Toby St. Clere Smithe
+item:: Alexander Tschantz
+item:: Michael Wadden
+item:: Lisa Ward
+item:: Grant Wood
+
+=== Standards board
+
+item::
+name::: Lei Wang
+role::: Chair
+item::
+name::: Jon Walter Rosdahl
+role::: Vice Chair
+item::
+name::: David J. Law
+role::: Past Chair
+item::
+name::: Alpesh Shah
+role::: Secretary
+
+item:: Edward Au
+item:: Ted Burse
+item:: Xiaofeng (Alfred) Chen
+item:: Doug Edwards
+item:: Nehad El-Sherif
+item:: J. Travis Griffith
+item:: Deborah R. Hagar
+item:: Guido R. Hiertz
+item:: Ronald W. Hotchkiss
+item:: Tyler L. Jaynes
+item:: Thomas Koshy
+item:: Howard Li
+item:: Xiaohui Liu
+item:: Kevin W. Lu
+item:: Hiroshi Mano
+item:: Daleep C. Mohla
+item:: Annette D. Reilly
+item:: Robby Robson
+item:: Daniel Sabin
+item:: F. Keith Waters
+item:: Sha Wei
+item:: Luyang (Eric) Zhang
