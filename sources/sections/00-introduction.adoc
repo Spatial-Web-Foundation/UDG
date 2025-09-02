@@ -1,0 +1,14 @@
+== Introduction
+
+TBD.
+
+[.preface]
+== Acknowledgements
+
+Material from the Spatial Web Foundation Spatial Web Protocol, Architecture and
+Governance, Version D3.3, copyright (c) 2025 Spatial Web Foundation, was used as
+under license from the Spatial Web Foundation.
+
+The definitions from ISO are used with permission of the American National
+Standards Institute (ANSI) on behalf of the International Organization for
+Standardization. All rights reserved.

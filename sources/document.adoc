@@ -1,0 +1,66 @@
+= Universal Domain Graph (UDG) Design
+:title: IEEE Draft Standard for Universal Domain Graph (UDG) Design
+:docnumber: 9999
+:doctype: standard
+:docstage: approved
+:revdate: 2026-01-01
+:issued-date: 2026-08-15
+:ieee-sasb-approved-date: 2026-05-28
+:copyright-year: 2026
+:language: en
+:edition: 1
+:society: Computer Society
+:committee: Artificial Intelligence Standards Committee
+:working-group: Spatial Web Working Group
+:keywords: HSML, HSTP, Hyperspace Modelling Language, Hyperspace Transaction Protocol, IEEE 9999™, Spatial Web, Spatial Web identifier, SWID, UDG, Universal Domain Graph, verifiable credentials, W3C decentralized identifier (DIDs)
+:isbn-pdf: 979-8-XXXX-XXXX-X
+:stdid-pdf: STDXXXXX
+:isbn-print: 979-8-XXXX-XXXX-X
+:stdid-print: STDPDXXXXX
+:imagesdir: images
+:mn-document-class: ieee
+:mn-output-extensions: xml,html,doc,rxl,pdf
+:local-cache-only:
+:toc-figures: true
+:toc-tables: true
+:boilerplate-authority: copyright.adoc
+
+// 20250319 rwp override background colors for admonitions in the current document
+// based on ticket
+// https://github.com/Spatial-Web-Foundation/SWF-Corpus_and_IEEEP2874/issues/1822
+//
+// and fix
+// https://github.com/metanorma/metanorma-ieee/issues/464
+
+== Metanorma-Extension
+
+=== user-css
+
+[source]
+----
+.Note, .note { background-color: white}
+.Admonition { background-color: white}
+.example { background-color: white}
+----
+
+
+include::sections/00-participants.adoc[]
+
+include::sections/00-abstract.adoc[]
+
+include::sections/00-introduction.adoc[]
+
+include::sections/01-overview.adoc[]
+
+include::sections/02-normrefs.adoc[]
+
+include::sections/03-terms.adoc[]
+
+// include::sections/04-spatial_web_standards.adoc[]
+
+include::sections/05-building-blocks.adoc[]
+
+include::sections/annex-bibliography.adoc[]
+
+include::sections/annex-swf_authors_reviewers.adoc[]
+

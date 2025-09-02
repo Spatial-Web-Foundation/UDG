@@ -1,0 +1,14 @@
+== Building blocks
+
+include::05-01-entities.adoc[]
+
+include::05-02-domain-entity-types.adoc[]
+
+include::05-03-places.adoc[]
+
+include::05-04-links.adoc[]
+
+include::05-05-sensors.adoc[]
+
+include::05-06-domains.adoc[]
+

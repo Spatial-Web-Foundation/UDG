@@ -1,0 +1,155 @@
+
+[appendix,obligation=informative]
+== Bibliography
+
+[bibliography]
+=== Bibliography
+
+// Standards
+
+// ------------------------------------
+
+// IEEE documents
+
+// ------------------------------------
+
+* [[[IEEE_730_2014,IEEE Std 730-2014]]]
+
+* [[[IEEE_802.1AR_2018,IEEE Std 802.1AR-2018]]]
+
+* [[[IEEE_1589_2020,IEEE Std 1589-2020]]]
+
+* [[[IEEE_1874_2013,IEEE Std 1874-2013]]]
+
+* [[[IEEE_2660.1_2020,IEEE Std 2660.1-2020]]]
+
+* [[[IEEE_2755_2017,IEEE Std 2755-2017]]]
+
+
+// ------------------------------------
+
+// ISO/IEC documents
+
+// ------------------------------------
+
+* [[[ISO_19135_1_2015,ISO 19135-1:2015]]]
+
+* [[[ISO_22300_2021,ISO 22300:2021]]]
+
+* [[[ISO_37101_2016,ISO 37101:2016]]]
+
+* [[[ISO_IEC_12113_2022,ISO/IEC 12113:2022]]]
+
+* [[[ISO_IEC_TR_18121_2015,ISO/IEC TR 18121:2015]]]
+
+// ------------------------------------
+
+// ISO/IEC/IEEE documents
+
+// ------------------------------------
+
+* [[[ISO_IEC_IEEE_21451-1_2010,ISO/IEC/IEEE 21451-1:2010]]]
+
+* [[[ISO_IEC_IEEE_24765_2017,ISO/IEC/IEEE 24765:2017]]]
+
+
+// ------------------------------------
+
+// IEC Electropedia: The World's Online Electrotechnical Vocabulary
+
+// ------------------------------------
+
+// 20240208 iev autofetch not resolving, using manual option
+// * [[[ievterms,IEV]]]
+
+* [[[ievterms_m,1]]]
+span:organization[International Electrotechnical Commission (IEC)]
+span:title[IEC Electropedia: The World's Online Electrotechnical Vocabulary]
+span:type[website]
+span:date[2024]
+span:uri[https://www.electropedia.org/]
+
+
+// ------------------------------------
+
+// OGC documents
+
+// ------------------------------------
+
+
+* [[[ogc_citygml,OGC 20-010]]], OGC OGC City Geography Markup Language (CityGML) Part 1: Conceptual Model Standard
+
+* [[[ogc_gml,OGC 07-036]]], OpenGIS Geography Markup Language (GML) Encoding Standard
+
+// ------------------------------------
+
+// W3C documents
+
+// ------------------------------------
+
+* [[[w3c_respon_spatial,W3C responsible-use-spatial]]]
+
+* [[[w3c_rdf,W3C rdf-concepts]]]
+
+// IETF documents
+
+* [[[http3_rfc,IETF RFC 9114]]]
+
+// Groups
+
+* [[[H3_geo_functions,1]]]
+span:organization[Apache Software Foundation]
+span:title[databricks--H3 geospatial functions]
+span:type[website]
+span:date[2024]
+span:uri[https://docs.databricks.com/en/sql/language-manual/sql-ref-h3-geospatial-functions.html]
+
+* [[[didcomm,1]]],
+span:title[Decentralized Identity Foundation: DIDComm Messaging Working Group]
+span:type[website]
+span:uri[https://github.com/decentralized-identity/didcomm-messaging]
+
+* [[[mit_rules_as_code,1]]],
+span:organization[MIT Computational Law]
+span:surname[Morris], span:initials[J.]
+span:title[Blawx: Rules as Code Demonstration]
+span:type[webresource]
+span:uri[https://law.mit.edu/pub/blawxrulesascodedemonstration/release/1]
+
+* [[[nextgen_de,1]]],
+span:surname[Goodchild], span:initials[M.]
+span:surname[Guo], span:initials[H.]
+span:surname[Annoni], span:initials[A.]
+span:surname[Bian], span:initials[L.]
+span:surname[de Bie], span:initials[K.]
+span:surname[Campbell], span:initials[F.]
+span:surname[Craglia], span:initials[M.]
+span:surname[Ehlers], span:initials[M.]
+span:surname[van Genderen], span:initials[J.]
+span:surname[Jackson], span:initials[D.]
+span:surname[Lewis], span:initials[A. J.]
+span:surname[Pesaresi], span:initials[M.]
+span:surname[Remetey-Fülöpp], span:initials[G.]
+span:surname[Simpson], span:initials[R.]
+span:surname[Skidmore], span:initials[A.]
+span:surname[Wang], span:initials[C.]
+span:surname[Woodgate], span:initials[P.]
+span:title[Next-generation Digital Earth]
+span:type[inproceedings]
+In: span:in_title[Proceedings of the National Academy of Sciences of the United States of America]
+vol. span:volume[109],
+issue. span:issue[28],
+span:date[2012],
+pp. span:pages[11088-11094]
+doi: span:uri.doi[10.1073/pnas.1202383109]
+
+* [[[manual_of_de,1]]],
+span:surname[Goodchild], span:initials[M.]
+span:surname[Guo], span:initials[H.]
+span:surname[Annoni], span:initials[A.]
+span:type[book]
+span:title[Manual of Digital Earth]
+pp. span:pages[852]
+span:date[2019],
+doi: span:uri.doi[10.1007/978-981-32-9915-3]
+
