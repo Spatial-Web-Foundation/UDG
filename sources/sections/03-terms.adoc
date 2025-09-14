@@ -88,6 +88,16 @@ NOTE: Based on concepts from <<mcginnis_dp_for_glo_comm>>.
 related:seealso[commons]
 
 
+==== SW Node: a computing node 
+
+==== SW Entity
+
+==== UDG entity graph: all instances of SW entities and connections represented in hsml
+
+==== UDG node graph: all SW Nodes and connections using hstp
+
+==== UDG Node: a type of SW Node
+
 === Acronyms and abbreviations
 
 AI:: artificial intelligence

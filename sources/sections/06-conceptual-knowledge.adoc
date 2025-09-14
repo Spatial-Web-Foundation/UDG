@@ -1,4 +1,36 @@
-[[section-spatial-web-standards]]
-== Spatial web standards
+[[section-conceptual-view-knowldge-graph]]
+== Conceptual view 1: UDG as a conceptual graph for Knowledge representation and reasoning
 
-TBD.
+	1. Conceptual overview - not Kurt docs
+		1. Agents, Activities. Roles, and Contracts (The how)
+		2. The UDG Taxonomy structure
+		3. Events and Hyperspace structures and depictions of transient hyperspace events (the when and where)
+		4. Vector and graph encodings for the generalized UDG.
+		5. Group permissions and ACL control for resources within the UDG.
+		6. Reporting (The why)
+		7. Binding via channels calls within Activities to external services in order to communicate with IoT systems.
+		8. Invoking credentials and establishing credential structures.
+		9. Stuctures in the UDG. Identification and representation of patterns in the UDG. Some patterns will be created by a single Agent other patterns will emerge from the actions of multiple agents.
+		10. Enable Polycentric Governance
+			1. The architecture described above works on a polycentric governance principle. Specifically, the public domain structure assumes that there are multiple potential registries that identify a particular assertion about hyperspatial reality, and that the role of a registry is more as a search engine than it is a specific HTTP-type domain resolver. You cannot have a polycentric governance model if SWF is ultimately the final arbiter - at that point you’re back to a centralized model. At best, to maintain polycentric governance (PCG), SWF can define the core language protocols used for communication and it can provide a search system to locate domains within nodes that subscribe to the SWF registry, but it cannot dictate the ownership of a particular domain exclusively.
+		11. HSQL and HSReporting structures for query/updates and returning response structures.
+	2. UDG Graph Queries
+	3. Understanding Graph Queries
+	4. Named Queries, Mutations, and Metadata
+	5. Directory Domain and Home Places
+	6. Agents Are Not Domains, They Have Domains
+	7. Places
+	8. Links
+		- Subsystem or Holonic Links
+		- Portal Links
+		- Bag Links
+		- Agent-to-Agent Links and Channels
+		- Button or Selector Links
+		- Architecture of Links
+	9. Activities
+	10. The UDG Taxonomy
+		- The hsml:hasTopic property
+		- Places with hsml:hasTopic and hsml:hasConstraint
+		- Domains with hsml:hasTopic and hsml:hasConstraint
+		- Proxies
+	- State Descriptors

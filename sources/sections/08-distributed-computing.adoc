@@ -1,4 +1,35 @@
-[[section-spatial-web-standards]]
-== Spatial web standards
+[[section-distributed-computing]]
+== UDG Distributed Computing
 
-TBD.
+- Computing Continuum and Spatial Web Nodes  - not Kurt docs
+	- Overall architecture of the spatial web node system, which involves both communication across HSTP protocols (query/response) as well as joining nodes together to create ad-hoc super nodes (i.e., spatial web federation).
+	- Structure of the Spatial Web Node, including the primary hstp.d and hsml.d daemons, the domain graph, a credential graph, and a schema graph.
+	- Bridging HSTP and UDG scopes (handled through hstp.d and hsml.d respectively)
+	- Managing internal local hstp.d clocks (repeating internal events) to manage query and updates against live resources.
+	- Place, Person, Thing and SW Node registry for commonly referenced entities (the Spatial Web registry)
+- Domains and the Spatial Web
+- Spatial Web Addresses
+	- Home Domains
+- Spatial Web Managers
+	- HSTP Manager
+	- Domain Manager
+	- Graph Manager
+	- HSML Manager
+	- Agent Manager
+	- Activity Manager
+	- Credential Manager
+	- Client Manager.
+	- Render Manager.
+- Distributed Graphs
+- Domain Graphs
+- HSTP Node Queries
+- Combining the Two 
+	- UDG Graph Queries and HSTP Node Queries
+- Registering Dependent Graph Nodes
+		- Static Registries
+		  Domain Graphs
+		  Activity Graphs
+- Named Queries and Security Considerations
+- Repositories, Registries and Affiliation Networks
+	- Affiliation Networks
+	- Security and Credentials

@@ -1,4 +1,6 @@
-[[section-spatial-web-standards]]
-== Spatial web standards
+[[section-udg-study-overview]]
+== UDG Study Overeview
 
-TBD.
+4. UDG Study Document overview (Check the Agent spec outline)
+	1. allocation of requirements to components
+	2. New component spec: registry design spec
