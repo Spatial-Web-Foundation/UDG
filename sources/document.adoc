@@ -1,12 +1,12 @@
 = Universal Domain Graph (UDG) Design
-:title: IEEE Draft Standard for Universal Domain Graph (UDG) Design
+:title: Universal Domain Graph (UDG) Design Study
 :docnumber: 9999
-:doctype: standard
+:doctype: study
 :docstage: approved
 :revdate: 2026-01-01
-:issued-date: 2026-08-15
-:ieee-sasb-approved-date: 2026-05-28
-:copyright-year: 2026
+:issued-date: 
+:ieee-sasb-approved-date: 
+:copyright-year: 2025
 :language: en
 :edition: 1
 :society: Computer Society
@@ -56,11 +56,19 @@ include::sections/02-normrefs.adoc[]
 
 include::sections/03-terms.adoc[]
 
-// include::sections/04-spatial_web_standards.adoc[]
+include::sections/04-udg-study-approach.adoc[]
 
-include::sections/05-building-blocks.adoc[]
+include::sections/05-stakeholder-needs.adoc[]
+
+include::sections/06-conceptual-knowledge.adoc[]
+
+include::sections/07-conceptual-network.adoc[]
+
+include::sections/08-distributed-computing.adoc[]
 
 include::sections/annex-bibliography.adoc[]
+
+include::sections/annex-requirements-allocation.adoc[]
 
 include::sections/annex-swf_authors_reviewers.adoc[]
 
