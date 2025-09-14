@@ -4,8 +4,8 @@
 :doctype: study
 :docstage: approved
 :revdate: 2026-01-01
-:issued-date: 
-:ieee-sasb-approved-date: 
+:issued-date: 2026-01-01
+:ieee-sasb-approved-date: 2026-01-01
 :copyright-year: 2025
 :language: en
 :edition: 1
