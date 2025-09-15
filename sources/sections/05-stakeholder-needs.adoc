@@ -1,4 +1,4 @@
 [[section-stakeholder-needs]]
 == Stakeholder Needs and System Requirements
 
-include::05-01-application-scenario[]
+include::05-01-application-scenario.adoc[]
