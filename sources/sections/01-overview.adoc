@@ -2,15 +2,19 @@
 
 === Scope
 
-TBD.
+This report describes the preliminary approach for the Spatial Web Autonomous Intelligent Systems (AIS) Rating Framework Implementation Specification as defined in IEEE 2874-2025 Spatial Web.  (In this report the name is simplified to Spatial Web Agent Framework.)
 
 === Purpose
 
-TBD.
+The purpose of this report is to present the results of a trade study on technology and research that is relevant to a Spatial Web Agent Framework.   The report was prepared as part of the Spatial Web Foundation Preliminary Design activities.
 
 === Structure of document
 
-TBD.
+As a trade study the report addresses these themes:
+
+- Identification of requirements and fundamental design questions
+- Survey and assessment of relevant, existing technology and research
+- Draft Design for UDG System:  Foundations, Conceptual Models, Distributed Computing
 
 This document is structured as a reference model consistent with the approach defined in <<ISO_IEC_IEEE_42010_2022>>. This reference model provides concepts to subsequently define Spatial Web Implementation standards and to guide domain-specific Spatial Web architecture developments.
 
@@ -23,7 +27,14 @@ This document provides three viewpoints of the Spatial Web as an abstract system
 <<section-distributed-computing,Distributed computing>> (<<section-distributed-computing>>)
 
 
-Several views are provided for each viewpoint, e.g., in the Knowledge Modeling viewpoint, the <<section-hyperspace,Hyperspace>> subclause (<<section-hyperspace>>) is a view of spatial models used in the Spatial Web.
+The Framework is implemented by allocation of requirements to Spatial Web Components including these components:
+
+- HSML
+- HSTP
+- UDG Node
+- Registry System
+
+This study report contains material that need not be included in the final UDG System Design. The report contains background and rationale for the design approach. The final Agent Framework need only include normative content.
 
 === Conventions used in this standard
 

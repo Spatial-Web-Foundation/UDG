@@ -1,0 +1,8 @@
+[[section-conceptual-registry]]
+== Conceptual view 2: UDG as a network of registries
+
+conceptual view for registries and public domains using paper prepared for RAC
+plus a clause from Kirk about atlases, etc.
+
+
+include::sections/07-01-registries-atlas.adoc

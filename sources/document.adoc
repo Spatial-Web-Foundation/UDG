@@ -62,9 +62,11 @@ include::sections/05-stakeholder-needs.adoc[]
 
 include::sections/06-conceptual-knowledge.adoc[]
 
-include::sections/07-conceptual-network.adoc[]
+include::sections/07-conceptual-registry.adoc[]
 
-include::sections/08-distributed-computing.adoc[]
+include::sections/08-conceptual-network.adoc[]
+
+include::sections/09-distributed-computing.adoc[]
 
 include::sections/annex-bibliography.adoc[]
 

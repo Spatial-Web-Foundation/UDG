@@ -57,6 +57,4 @@
 - Application scenarios and use cases
 
 
-include::05-06-domains.adoc[]
-
-- Use Cases.md
+include::sections/05-01-application-scenario
