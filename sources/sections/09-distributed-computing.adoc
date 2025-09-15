@@ -35,10 +35,10 @@
 	- Security and Credentials
 	
 
-include::sections/09-01-node-registries.adoc
+include::09-01-node-registries.adoc
 
-include::sections/09-01-udg-and-hstp.adoc
+include::09-01-udg-and-hstp.adoc
 
-include::sections/09-01-design-spatial-web-node.adoc
+include::09-01-design-spatial-web-node.adoc
 
-include::sections/09-03-use-cases.adoc
+include::09-03-use-cases.adoc

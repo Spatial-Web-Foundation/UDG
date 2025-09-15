@@ -1,9 +1,10 @@
 [[section-conceptual-view-knowldge-graph]]
 == Conceptual view 1: UDG as a conceptual graph for Knowledge representation and reasoning
 
-	1. Conceptual overview - not Kurt docs
-		1. Agents, Activities. Roles, and Contracts (The how)
-		2. The UDG Taxonomy structure
+Conceptual overview - not Kurt docs
+
+* Agents, Activities. Roles, and Contracts (The how)
+* The UDG Taxonomy structure
 		3. Events and Hyperspace structures and depictions of transient hyperspace events (the when and where)
 		4. Vector and graph encodings for the generalized UDG.
 		5. Group permissions and ACL control for resources within the UDG.
@@ -14,7 +15,8 @@
 		10. Enable Polycentric Governance
 			1. The architecture described above works on a polycentric governance principle. Specifically, the public domain structure assumes that there are multiple potential registries that identify a particular assertion about hyperspatial reality, and that the role of a registry is more as a search engine than it is a specific HTTP-type domain resolver. You cannot have a polycentric governance model if SWF is ultimately the final arbiter - at that point you’re back to a centralized model. At best, to maintain polycentric governance (PCG), SWF can define the core language protocols used for communication and it can provide a search system to locate domains within nodes that subscribe to the SWF registry, but it cannot dictate the ownership of a particular domain exclusively.
 		11. HSQL and HSReporting structures for query/updates and returning response structures.
-	2. UDG Graph Queries
+
+2. UDG Graph Queries
 	3. Understanding Graph Queries
 	4. Named Queries, Mutations, and Metadata
 	5. Directory Domain and Home Places
@@ -35,16 +37,18 @@
 		- Proxies
 	- State Descriptors
 	
-	include::sections/06-01-entities.adoc
 
-	include::sections/06-02-domain-entity-types.adoc
+	
+		include::sections/06-01-entities.adoc
 
-	include::sections/06-03-places.adoc
+	include::06-02-domain-entity-types.adoc
 
-	include::sections/06-04-links.adoc
+	include::06-03-places.adoc
 
-	include::sections/06-05-sensors
+	include::06-04-links.adoc
 
-	include::sections/06-06-domains.adoc
+	include::06-05-sensors.adoc
 
-	include::sections/06-07-udg-swids.adoc
+	include::06-06-domains.adoc
+
+	include::06-07-udg-swids.adoc
