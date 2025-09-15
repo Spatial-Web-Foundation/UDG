@@ -72,6 +72,8 @@ include::sections/annex-bibliography.adoc[]
 
 include::sections/annex-requirements-allocation.adoc[]
 
+include::sections/annex-application-scenario.adoc[]
+
 include::sections/annex-swf_authors_reviewers.adoc[]
 
 

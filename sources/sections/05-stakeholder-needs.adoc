@@ -11,4 +11,4 @@ UDG as a graph of entities vs. UDG as a ditsributed computing nodes
 
 The UDG Conceptual structure is distributed across SW computing nodes. There is a non-isomorphic relationship between the Conceptual domain hierarchies and the SW Nodes. Presence of a Domain in a a specific SW node may be dynamic and transient. SW Registries are hosted by UDG nodes.
 
-include::05-01-application-scenario.adoc[]
+
