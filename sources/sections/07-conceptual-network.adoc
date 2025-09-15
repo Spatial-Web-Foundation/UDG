@@ -25,3 +25,7 @@
 	9. Social signaling
 
 exploration outside the group; engagement within the group
+
+altenate designs
+- udg computing node shall promote exploration and engagement
+- udg agent entities shall promote exploration and engagement
