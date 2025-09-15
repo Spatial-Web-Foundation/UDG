@@ -1,4 +1,4 @@
-[[section-conceputal-view-social-network]]
+8th[[section-conceputal-view-social-network]]
 
 == Conceptual view 2: UDG as a social network of agents for collective inlelligence
 
@@ -23,3 +23,11 @@
 		1. UDG Nodes shall conduct sociometric data on agent interactions 
 	8. Group sizes: situation, cluster, society 
 	9. Social signaling
+
+exploration outside the group; engagement within the group
+
+altenate designs
+- udg computing node shall promote exploration and engagement
+- udg agent entities shall promote exploration and engagement
+
+polycentric governance shall promote exploration and engagement
