@@ -57,4 +57,4 @@
 - Application scenarios and use cases
 
 
-include::05-01-application-scenario[leveloffset=+2]
+include::05-01-application-scenario[]
