@@ -5,4 +5,4 @@ conceptual view for registries and public domains using paper prepared for RAC
 plus a clause from Kirk about atlases, etc.
 
 
-include::07-01-registries-atlas.adoc[leveloffset=+2]
+// include::07-01-registries-atlas.adoc[leveloffset=+2]
