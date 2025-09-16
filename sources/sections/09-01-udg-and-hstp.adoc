@@ -1,4 +1,4 @@
-== UDG and HSTP
+= UDG and HSTP
 
 A typical Spatial Web UDG Node consists of a number of key components.
 

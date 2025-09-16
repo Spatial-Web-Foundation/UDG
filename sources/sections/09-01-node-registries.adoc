@@ -1,10 +1,10 @@
-== SW Node Registries
+= SW Node Registries
 
-=== SW Nodes
+== SW Nodes
 
 > __Definition.__ A __Spatial Web Node__ (or __SW Node__) is a daemon on a computer server that host a spatial web node instance. It is roughly analogous to an http.d daemon that hosts a web server, and typically hosts a *__domain graph__* that maintains the state of multiple *__entities__*, *__domains__*, *__credentials__*, *__contracts__* and related content. Every spatial web node typically has a SWID that references a document indicating its underlying hosting environment (if it isn't native HSTP) and that provides ancillary metadata links that identify the characteristics of the node.
 
-=== ## SW Node Networks
+== ## SW Node Networks
 
 A SW Node communicates with other SW Nodes via HSTP. SW Nodes connect in one of two ways: 
 
@@ -19,7 +19,7 @@ In addition to that, when a Spatial Web Node first registers with a registry, it
 
 Nodelinks typically have a time-to-live attribute (TTL) that indicates how long a link can remain active before it needs to be refreshed. If a nodelink cannot be resolved, then a secondary TTL is activated that indicates how long an interval should be taken before the link is considered dead, and consequently should be purged.
 
-=== Discovery
+== Discovery
 
 When a nodelink is activated, it follows a specific discovery process:
 
@@ -30,7 +30,7 @@ When a nodelink is activated, it follows a specific discovery process:
 
 Once a connection is made, the corresponding certificate is cached so that this process of discovery doesn't need to take place again until the next TTL.
 
-=== Augmented Node Graphs
+== Augmented Node Graphs
 
 In some cases, it is possible to attach the graph of one node to another in order to create a larger federated graph. This bypasses the normal HSTP protocol system. This is used primarily for those cases where a single domain may in fact be distributed across multiple servers, or where common resources such as schemas are shared across multiple chained nodes. The chained nodes are called __Augmenting Node Graphs__ and the chaining graph is called the __Augmented Node Graph__. More information will be forthcoming regarding such graphs.  
 
