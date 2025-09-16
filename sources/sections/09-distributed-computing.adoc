@@ -20,19 +20,7 @@
 	- Credential Manager
 	- Client Manager.
 	- Render Manager.
-- Distributed Graphs
-- Domain Graphs
-- HSTP Node Queries
-- Combining the Two 
-	- UDG Graph Queries and HSTP Node Queries
-- Registering Dependent Graph Nodes
-		- Static Registries
-		  Domain Graphs
-		  Activity Graphs
-- Named Queries and Security Considerations
-- Repositories, Registries and Affiliation Networks
-	- Affiliation Networks
-	- Security and Credentials
+
 	
 
 include::09-01-node-registries.adoc[leveloffset=+2]
