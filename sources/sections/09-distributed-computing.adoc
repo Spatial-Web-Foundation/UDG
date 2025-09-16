@@ -35,9 +35,9 @@
 	- Security and Credentials
 	
 
-// include::09-01-node-registries.adoc[leveloffset=+2]
+include::09-01-node-registries.adoc[leveloffset=+2]
 
-// include::09-01-udg-and-hstp.adoc[leveloffset=+2]
+include::09-01-udg-and-hstp.adoc[leveloffset=+2]
 
 // include::09-01-design-spatial-web-node.adoc[leveloffset=+2]
 
