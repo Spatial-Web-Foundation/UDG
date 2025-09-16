@@ -651,46 +651,52 @@ The UDG Taxonomy can be thought of as the thesaurus for the Spatial Web. Each te
 
 Each of these terms are used primarily as mechanisms for classification, and are considered as __categories__, with each particular enumeration in turn considered a __topic__. The `hsml:hasTopic`, `Place:hasTopic` and `hsml:hasTopic` properties in HSML takes zero or more topics as arguments.
 
-```mermaid
----
-config:
-    layout: elk
----
-graph LR
-    car1[<b>Agent</b><br>Car 1]:::agent
-    car2[<b>Agent</b><br>Car 2]:::agent
-    automobile[<b>Topic</b><br>Automobile]:::topic
-    sedan[<b>Topic</b><br>SUV]:::topic
-    toyota[<b>Topic</b><br>Toyota]:::topic
-    camry[<b>Topic</b><br>Camry]:::topic
-    corolla[<b>Topic</b><br>Corolla]:::topic
-    XE[<b>Topic</b><br>XE]:::topic
-    AE[<b>Topic</b><br>AE]:::topic
-    car1 -->|hsml:hasTopic| automobile & sedan & toyota & camry
-    car2 -->|hsml:hasTopic| automobile & sedan & toyota & corolla & AE
-    carriage[<b>Category</b><br>Carriage]:::category
-    make[<b>Category</b><br>Make]:::category
-    model[<b>Category</b><br>Model]:::category
-    trim[<b>Category</b><br>Trim]:::category
-    domainType[<b>Category</b><br>Domain Type]:::category
-    carriage --->|hsml:hasTopic| sedan
-    make --->|hsml:hasTopic| toyota
-    model --->|hsml:hasTopic| camry
-    model --->|hsml:hasTopic| corolla
-    trim --->|hsml:hasTopic| XE
-    trim --->|hsml:hasTopic| AE
-    domainType --->|hsml:hasTopic| automobile
-%%%    camry -->|hsml:hasConstraint| toyota
-%%%    corolla -->|hsml:hasConstraint| toyota
-%%%    XE -->|hsml:hasConstraint| camry
-%%%    AE -->|hsml:hasConstraint| corolla
+[[fig-udg-taxonomy]]
+.UDG Taxonomy
+image::UDG_Taxonomy.png[UDG Taxonomy]
 
-style car1 stroke-width:4
-classDef node stroke:black
-classDef agent fill:lightBlue
-classDef topic fill:yellow
-classDef category fill:orange
-```
+
+// https://www.mermaidchart.com/app/projects/ecd8eb1d-8b86-4074-9e57-f89503604e51/diagrams/b05c04f2-bce9-4ae8-9cd2-aa91cc1dfd3b/version/v0.1/edit
+// ```mermaid
+// ---
+// config:
+//     layout: elk
+// ---
+// graph LR
+//     car1[<b>Agent</b><br>Car 1]:::agent
+//     car2[<b>Agent</b><br>Car 2]:::agent
+//     automobile[<b>Topic</b><br>Automobile]:::topic
+//     sedan[<b>Topic</b><br>SUV]:::topic
+//     toyota[<b>Topic</b><br>Toyota]:::topic
+//     camry[<b>Topic</b><br>Camry]:::topic
+//     corolla[<b>Topic</b><br>Corolla]:::topic
+//     XE[<b>Topic</b><br>XE]:::topic
+//     AE[<b>Topic</b><br>AE]:::topic
+//     car1 -->|hsml:hasTopic| automobile & sedan & toyota & camry
+//     car2 -->|hsml:hasTopic| automobile & sedan & toyota & corolla & AE
+//     carriage[<b>Category</b><br>Carriage]:::category
+//     make[<b>Category</b><br>Make]:::category
+//     model[<b>Category</b><br>Model]:::category
+//     trim[<b>Category</b><br>Trim]:::category
+//     domainType[<b>Category</b><br>Domain Type]:::category
+//     carriage --->|hsml:hasTopic| sedan
+//     make --->|hsml:hasTopic| toyota
+//     model --->|hsml:hasTopic| camry
+//     model --->|hsml:hasTopic| corolla
+//     trim --->|hsml:hasTopic| XE
+//     trim --->|hsml:hasTopic| AE
+//     domainType --->|hsml:hasTopic| automobile
+// %%%    camry -->|hsml:hasConstraint| toyota
+// %%%    corolla -->|hsml:hasConstraint| toyota
+// %%%    XE -->|hsml:hasConstraint| camry
+// %%%    AE -->|hsml:hasConstraint| corolla
+// 
+// style car1 stroke-width:4
+// classDef node stroke:black
+// classDef agent fill:lightBlue
+// classDef topic fill:yellow
+// classDef category fill:orange
+// ```
 
 The power of the UDG taxonomy is in its ability to cluster agents by topic, mediated by category. For instance, car 1 and car 2 are both of the same make (Toyota) but of different models (Camry vs. Corolla) and trims. They are also of the same "domain Type" of automobile. Note that domain type here is not privileged, it is simply one more category that agents can be in, though a fairly broad category.
 
