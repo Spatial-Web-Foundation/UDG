@@ -39,7 +39,7 @@ Conceptual overview - not Kurt docs
 	
 
 	
-// include::06-01-entities.adoc[leveloffset=+2]
+include::06-01-entities.adoc[leveloffset=+2]
 
 // include::06-02-domain-entity-types.adoc[leveloffset=+2]
 
