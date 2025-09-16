@@ -9,6 +9,10 @@ The node is controlled by a specific daemon (or persistant process) called the S
 
 The role of the node daemon is to orchestrate the node's various activities, as shown in the following listing:
 
+[[fig-udg-node-design]]
+.UDG Computing Node Design
+image::UDG_Node_Design.png[UDG Computing Node Design]
+
 ```mermaid
 ---
 config:
