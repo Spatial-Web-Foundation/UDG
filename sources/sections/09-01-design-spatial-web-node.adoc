@@ -13,24 +13,25 @@ The role of the node daemon is to orchestrate the node's various activities, as 
 .UDG Computing Node Design
 image::UDG_Node_Design.png[UDG Computing Node Design]
 
-```mermaid
----
-config:
-    layout: elk
----
-graph LR
-nm["Node Manager (swnode.d)"]
-hstp["HSTP Manager (hstp.d)"]
-gm["Graph Manager (graph.d)"]
-dm["Domain Manager (domain.d)"]
-agent["Agent Manager (agent.d)"]
-hsml["HSML Manager (hsml.d)"]
-cred["Credential Manager (cred.d)"]
-client["Client Manager (swclient.d)"]
-nm <--> hstp & dm & cred & client
-hstp <--> dm & gm
-dm <--> gm & agent & hsml
-```
+// https://www.mermaidchart.com/app/projects/ecd8eb1d-8b86-4074-9e57-f89503604e51/diagrams/9ccae171-dddf-45ca-a5a5-7a6ea984fb6c/version/v0.1/edit
+// ```mermaid
+// ---
+// config:
+//     layout: elk
+// ---
+// graph LR
+// nm["Node Manager (swnode.d)"]
+// hstp["HSTP Manager (hstp.d)"]
+// gm["Graph Manager (graph.d)"]
+// dm["Domain Manager (domain.d)"]
+// agent["Agent Manager (agent.d)"]
+// hsml["HSML Manager (hsml.d)"]
+// cred["Credential Manager (cred.d)"]
+// client["Client Manager (swclient.d)"]
+// nm <--> hstp & dm & cred & client
+// hstp <--> dm & gm
+// dm <--> gm & agent & hsml
+//```
 
 === Spatial Web Managers
 
