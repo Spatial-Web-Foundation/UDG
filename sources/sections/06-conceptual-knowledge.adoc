@@ -4,6 +4,7 @@
 Conceptual overview - not Kurt docs
 
 * Agents, Activities. Roles, and Contracts (The how)
+* facts and beliefs
 * The UDG Taxonomy structure
 		3. Events and Hyperspace structures and depictions of transient hyperspace events (the when and where)
 		4. Vector and graph encodings for the generalized UDG.
