@@ -1,28 +1,26 @@
 [[section-conceputal-view-social-network]]
-
 == Conceptual view 3: UDG as a social network of agents for collective inlelligence
 
 
-	1. Agent-based social simulation - Wikipedia
-		1. 
-	2. Network of social agents
-		1. DARPA SocialSim Challenge | Proceedings 2019
-		- a framework for massive-scale simulations in which agents embodying very different ideas about decision making and data use can be directly compared. 
-	3. Social physics: engagement and belief propagation 
-		1. Social intelligence seperate from individual intelligence 
-		2. Pentland_Modeling_dynamical, 2012
-	4. Network epistemology Network Epistemology MEM
-		1. Network epistemology: how social network structure affects beliefs and knowledge
-		2. Some epistemic problems are caused by social structure, not by individually bad behavior. 
-			- Group pathologies, like pluralistic ignorance, herding, and polarization,  
-		- Agents have an incentive to gain more information either by learning too fast or by adopting best-learning even when it would be good for the group that the’refrain from doing so.’
-		1. Independence Thesis: norms of social epistemology are independent of norms of individual epistemology. 
-	5. Physics and Metaphysics of Social Power, Albarracin, 2025
-	6. Network stucture
-	7. Social agents: agent based networks
-		1. UDG Nodes shall conduct sociometric data on agent interactions 
-	8. Group sizes: situation, cluster, society 
-	9. Social signaling
+- Agent-based social simulation - Wikipedia 
+- Network of social agents
+- DARPA SocialSim Challenge | Proceedings 2019
+-- a framework for massive-scale simulations in which agents embodying very different ideas about decision making and data use can be directly compared. 
+- Social physics: engagement and belief propagation 
+-- Social intelligence seperate from individual intelligence 
+-- Pentland_Modeling_dynamical, 2012
+- Network epistemology Network Epistemology MEM
+-- Network epistemology: how social network structure affects beliefs and knowledge
+-- Some epistemic problems are caused by social structure, not by individually bad behavior. 
+--- Group pathologies, like pluralistic ignorance, herding, and polarization,  
+-- Agents have an incentive to gain more information either by learning too fast or by adopting best-learning even when it would be good for the group that the’refrain from doing so.’
+-- Independence Thesis: norms of social epistemology are independent of norms of individual epistemology. 
+- Physics and Metaphysics of Social Power, Albarracin, 2025
+- Network stucture
+- Social agents: agent based networks
+-- UDG Nodes shall conduct sociometric data on agent interactions 
+- Group sizes: situation, cluster, society 
+- Social signaling
 
 exploration outside the group; engagement within the group
 
