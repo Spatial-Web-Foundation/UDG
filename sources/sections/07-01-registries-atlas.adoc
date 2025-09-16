@@ -1,22 +1,22 @@
-# Entity and Domain Registration
+== Entity and Domain Registration
 
-## Definition
+=== Definition
 
 > __Definition__. A __registry__ in the Spatial Web is a specific spatial web node that provides a number of services related to discovery, definition, search, DiD and alias resolution of resources. Most Spatial Web nodes provide registry services specifically for the resource within their respective graphs, though there are dedicated (public) nodes that exclusively handle these resources for public networks.
 
 > __Editor's Note__. This document focuses solely on entity and domain registries. For more information about node registers, cf. [Node Registries](node-registries.md).
 
-## Purpose
+=== Purpose
 
 There are a number of key reasons for establishing an entity registry:
 
-### Atlas
+==== Atlas
 
 Creating unique identifiers (Spatial Web IDs, or SWIDs) that can identify a given resource for use across multiple Spatial Web Nodes. For instance, many places (such as the Planet Earth) will be used commonly by many domains that have global operations. The Places Registry could then be used to enumerate these places, in the same way that would be the case with a gazeteer or Atlas.
 
 In general, every spatial web node can create a reference to a publicly registered entity internally, such as the government of The United Provinces of North America (a fictional entity) creating a reference to Planet:Earth called Planet:Earth:UPNA that can then be used by any specific subnetwork under the UPNA umbrella. Planet:Earth may contain some specific metadata (how large the planet is, for instance), but this metadata will be fairly limited. Each Node administrator would then create local definitions relevant to the node in question. This makes it possible to query for specific public entities across nodes while decentralizing definition.
 
-### Discovery and Search
+==== Discovery and Search
 
 A node authority can also register this gazeteer definition with the registry so that it can be made publicly available and aligned with the current public registry authority (in this case the __Spatial Web Registration Authority__, which is the managing entity for the public registry).
 
@@ -28,7 +28,7 @@ Inversely, if a local synonym is known on a given node, this can be used to dete
 
 _The goal of the registry is not to act as a legal arbiter, but rather to allow member nodes in the spatial web to make assertions that can then be accepted or rejected by the querant individually_. 
 
-### Aliases
+==== Aliases
 
 Internally, all resources within the Spatial Web are identied by SWIDs. However, such SWIDs exist primarily to identify identity and assertion credentials, and are usually not "human readable". In this regard, the SWID is somewhat analogous to an IPV6 address in that it identifies a specific enitity or domain in the network exclusively.
 
@@ -57,7 +57,7 @@ http://sw.upna.gov/Place/Earth
 
 This would map to the credential endpoint for the registry, which would then retrieve the credential to the relevant entity as a document. If this was called from a Spatial Web web client, then the retrieval of this credential can be used to determine additional actions, from retrieval of metadata to linking to that place within a given spatial web node. The specific actions are still to be determined.
 
-## Domain Registries
+=== Domain Registries
 
 A domain provides a system context where things happen. They are analogous to "web pages" in HTTP, in that they describe a given scenario, game, or simulation for agent interactions (see [Domains](domains.md)).
 
