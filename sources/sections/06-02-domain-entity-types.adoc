@@ -1,4 +1,4 @@
-=== Domain Entity Types
+= Domain Entity Types
 
 A __domain entity type__ is a specialization of an entity that incorporates additional capabilities. Within the Spatial Web, these extensions are defined using the Shape Constraint Language (SHACL), as a generalized schema language, with the mechanism for such extension covered in the section [Domain Entity Type Extensions](domain-entity-types.md), with link TBD.
 

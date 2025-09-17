@@ -54,9 +54,12 @@
 	- Security and Credentials
 	
 
-include::06-06-domains.adoc[leveloffset=+2]
 
 include::06-01-entities.adoc[leveloffset=+2]
+
+include::06-07-udg-swids.adoc[leveloffset=+2]
+
+include::06-06-domains.adoc[leveloffset=+2]
 
 include::06-02-domain-entity-types.adoc[leveloffset=+2]
 
@@ -66,7 +69,6 @@ include::06-04-links.adoc[leveloffset=+2]
 
 include::06-05-sensors.adoc[leveloffset=+2]d
 
-include::06-07-udg-swids.adoc[leveloffset=+2]
 
 
 === Distributed Graphs

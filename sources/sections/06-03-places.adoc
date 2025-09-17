@@ -1,6 +1,6 @@
-=== Places
+= Places
 
-==== General
+== General
 
 In the Spatial Web, places, not surprisingly have the position of prominance. It is defined as follows:
 
@@ -165,18 +165,62 @@ For instance, a physical description of the body can be rendered in one of three
 
 This has one other consequence. One of the central challenges in building a domain is identifying boundaries. Fully contained boundaries can often be modeled as distinct domains, but even there, the shape of a given space is best identified by providing either a list of relevant tokens or a perimeter that can be used to identify containment.
 
-==== Landing Places
+== Landing Places
 
 A landing place is a place within a domain that is used to indicate where a given agent is placed (lands) when entering a domain without an explicit link to a place. This can be thought of as the "home" of the domain, and is indicated as a property of the domain. This corresponds roughly with the #top of an HTML page when it is rendered. Cf [Domains](domains.md) for more details.
 
-==== Entities As Places
+== Entities As Places
 
 Typically links will take you from a place to another place, but it is possible to link to other entities. Such links will take you to the location of that entity. For instance, if you wanted to join a party (an [aggregation](aggregations.md)), then you could use the SWID of that aggregation to take you to where that party is located, even if that party moves around. See [links](links.md) for more details.
 
 
-==== Summary
+== Summary
 
 Places are a fundamental component of domains, but the two should not be confused. A domain is a context, a way of organizing information, and because this is the spatial web, a domain is frequently (but not always) associated with a place.
 
 ONe of the most important principles of working with places is in the recognition that topological relationships will likely be more important than direct geospatial relationships. The exact mechanism to determine how best to balance these two concerns is still TBD.
 
+= Neighborhoods
+
+The __neighborhood__ of a place is the set of all places that can be reached via links from that place. Note that they do not need to be contiguous (or even in the same domain), but they do have to be reachable via links. For instance, an elevator can be thought of as a place that connects multiple rooms, each on different floors.
+
+```mermaid
+graph LR
+    elevator
+    lobby
+    mezzanine
+    floor1Hallway
+    floor2Hallway
+    floor3Hallway
+    elevator <--> lobby & mezzanine & floor1Hallway & floor2Hallway & floor3Hallway
+```
+
+Here, the lobby, mezzanine, each floor's hallways are all part of the neighborhood for the elevator.
+
+The specific mechanism for choosing from a set of links is dependent upon the affordances offered by the reference place (or any entity located at that reference place). To facilitate this, each link has an optional order property that is used to indicate the order in which that link is presented.
+
+```
+Place:Elevator a Class:Place ;
+    Place:hasLink [
+        Link:hasPlace Place:Lobby ;
+        Link:order 1 ;
+    ],
+    Place:hasLink [
+        Link:hasPlace Place:Mezzanine ;
+        Link:order 2 ;
+    ],
+    Place:hasLink [
+        Link:hasPlace Place:Floor1Hallway ;
+        Link:order 3 ;
+    ],
+    Place:hasLink [
+        Link:hasPlace Place:Floor2Hallway ;
+        Link:order 4 ;
+    ],
+    Place:hasLink [
+        Link:hasPlace Place:Floor3Hallway ;
+        Link:order 5 ;
+    ].
+```
+
+Again, it is worth emphasizing here that this is a topologically, rather than physical, view of a particular space. Each of these places may be in their own separate closed domains, or they can be part of the same domain, but the effect is the same - it causes the agent to move through the topological graph of the places within that domain.
