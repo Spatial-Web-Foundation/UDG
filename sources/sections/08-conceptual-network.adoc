@@ -3,9 +3,9 @@
 
 The UDG is a social network of ENTITIES in the Spatial Web.  In particular AGENTS will interact with other ENTITIES including other AGENTS to determine the state of the environment, to determine knowledge about other ENTITES, to coordinate ACTIVITIES.  The structure of links in the UDG Social viewpoint are in many cases more important than the knowledge content of ENTITES in the UDG KG.
 
-[[spatial_web_ontology]]
-.Spatial Web ontology 
-image::spatial_web_ontology.png[ontology showing Spatial Web entities and their relations]
+[[udg_social]]
+.Social clusters in the UDG 
+image::udg_notional.png[UDG as a social network showing varying network relations]
 
 
 
