@@ -13,7 +13,6 @@ The role of the node daemon is to orchestrate the node's various activities, as 
 .UDG Computing Node Design
 image::UDG_Node_Design.png[UDG Computing Node Design]
 
-// https://www.mermaidchart.com/app/projects/ecd8eb1d-8b86-4074-9e57-f89503604e51/diagrams/9ccae171-dddf-45ca-a5a5-7a6ea984fb6c/version/v0.1/edit
 // ```mermaid
 // ---
 // config:

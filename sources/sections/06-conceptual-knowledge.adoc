@@ -1,7 +1,7 @@
 [[section-conceptual-view-knowldge-graph]]
 == Conceptual view 1: UDG as a conceptual graph for Knowledge representation and reasoning
 
-Conceptual overview - not Kurt docs
+=== Overview 
 
 * Agents, Activities. Roles, and Contracts (The how)
 * facts and beliefs
@@ -53,6 +53,9 @@ Conceptual overview - not Kurt docs
 	- Affiliation Networks
 	- Security and Credentials
 	
+
+include::06-06-domains.adoc[leveloffset=+2]
+
 include::06-01-entities.adoc[leveloffset=+2]
 
 include::06-02-domain-entity-types.adoc[leveloffset=+2]
@@ -61,9 +64,7 @@ include::06-03-places.adoc[leveloffset=+2]
 
 include::06-04-links.adoc[leveloffset=+2]
 
-include::06-05-sensors.adoc[leveloffset=+2]
-
-include::06-06-domains.adoc[leveloffset=+2]
+include::06-05-sensors.adoc[leveloffset=+2]d
 
 include::06-07-udg-swids.adoc[leveloffset=+2]
 
@@ -656,7 +657,6 @@ Each of these terms are used primarily as mechanisms for classification, and are
 image::UDG_Taxonomy.png[UDG Taxonomy]
 
 
-// https://www.mermaidchart.com/app/projects/ecd8eb1d-8b86-4074-9e57-f89503604e51/diagrams/b05c04f2-bce9-4ae8-9cd2-aa91cc1dfd3b/version/v0.1/edit
 // ```mermaid
 // ---
 // config:
@@ -759,47 +759,51 @@ Places can be defined in a similar manner. For instance, a place may be a countr
 
 For instance, Vancouver, British Columbia, Canada, and North America are all places, they are connected as follows:
 
-```mermaid
----
-config:
-    layout: elk
----
-graph TD
-    vancouver[<b>Place</b><br>Vancouver]:::place
-    bc[<b>Place</b><br>British Columbia]:::place
-    can[<b>Place</b><br>Canada]:::place
-    nam[<b>Place</b><br>North America]:::place
-    earth[<b>Place</b><br>Earth]:::place
-    un[<b>Agent</b><br>United Nations]:::agent
-    city[<b>Topic</b><br>City]:::topic
-    province[<b>Topic</b><br>Province]:::topic
-    country[<b>Topic</b><br>Country]:::topic
-    continent[<b>Topic</b><br>Continent]:::topic
-    planet[<b>Topic</b><br>Planet]:::topic
-    geoFeature[<b>Category</b><br>Geo-Feature]:::category
-    org[<b>Category</b><br>Organization]:::category
-    ngo[<b>Topic</b><br>Non-Governmental Organization]:::topic
-    geoFeature -->|hsml:hasTopic| city & province & country & continent & planet
-    vancouver --->|hsml:hasConstraint| bc
-    bc --->|hsml:hasConstraint| can
-    can -->|hsml:hasConstraint| nam
-    nam -->|hsml:hasConstraint| earth
-    can -->|hsml:hasConstraint| un 
-    vancouver --->|hsml:hasTopic| city
-    bc --->|hsml:hasTopic| province
-    can --->|hsml:hasTopic| country
-    nam --->|hsml:hasTopic| continent
-    earth --->|hsml:hasTopic| planet
-    un ---> |hsml:hasTopic| ngo
-    org ---> |hsml:hasTopic| ngo
+[[fig-udg-taxonomy-geofeature]]
+.UDG Taxonomy example with a GeoFeature
+image::UDG_Taxonomy_GeoFeature.png[UDG Taxonomy example with a GeoFeature]
 
+// ```mermaid
+// ---
+// config:
+//     layout: elk
+// ---
+// graph TD
+//     vancouver[<b>Place</b><br>Vancouver]:::place
+//     bc[<b>Place</b><br>British Columbia]:::place
+//     can[<b>Place</b><br>Canada]:::place
+//     nam[<b>Place</b><br>North America]:::place
+//     earth[<b>Place</b><br>Earth]:::place
+//     un[<b>Agent</b><br>United Nations]:::agent
+//     city[<b>Topic</b><br>City]:::topic
+//     province[<b>Topic</b><br>Province]:::topic
+//     country[<b>Topic</b><br>Country]:::topic
+//     continent[<b>Topic</b><br>Continent]:::topic
+//     planet[<b>Topic</b><br>Planet]:::topic
+//     geoFeature[<b>Category</b><br>Geo-Feature]:::category
+//     org[<b>Category</b><br>Organization]:::category
+//     ngo[<b>Topic</b><br>Non-Governmental Organization]:::topic
+//     geoFeature -->|hsml:hasTopic| city & province & country & continent & planet
+//     vancouver --->|hsml:hasConstraint| bc
+//     bc --->|hsml:hasConstraint| can
+//     can -->|hsml:hasConstraint| nam
+//     nam -->|hsml:hasConstraint| earth
+//     can -->|hsml:hasConstraint| un 
+//     vancouver --->|hsml:hasTopic| city
+//     bc --->|hsml:hasTopic| province
+//     can --->|hsml:hasTopic| country
+//     nam --->|hsml:hasTopic| continent
+//     earth --->|hsml:hasTopic| planet
+//     un ---> |hsml:hasTopic| ngo
+//     org ---> |hsml:hasTopic| ngo
+// 
+// classDef node stroke:black
+// classDef place fill:lightGreen
+// classDef agent fill:lightBlue
+// classDef topic fill:yellow
+// classDef category fill:orange
+// ```
 
-classDef node stroke:black
-classDef place fill:lightGreen
-classDef agent fill:lightBlue
-classDef topic fill:yellow
-classDef category fill:orange
-```
 In this case, while these are all geoFeatures, Vancouver is a city while Canada is a country. Significantly, the implicit structuring (Vancouver is a part of Canada) becomes simply a constraint relationship here, albeit one that can be exploited for reasoning purposes. Furthermore, Canada might also be in another constraint relationships with an organization of countries (such as NAFTA or the United Nations), so the hierarchy here is a hierarchy of topics, and is actually more mereological than strictly hierarchical.
 
 ==== Domains with `hsml:hasTopic` and `hsml:hasConstraint`
