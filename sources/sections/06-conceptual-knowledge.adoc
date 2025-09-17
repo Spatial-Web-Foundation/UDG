@@ -647,7 +647,7 @@ The __UDG Taxonomy__ is a taxonomy designed to augment discovery within the spat
 
 The UDG Taxonomy can be thought of as the thesaurus for the Spatial Web. Each term in that thesaurus provides an adjective or noun that identifies some characteristic of a given agent.
 
- For instance, an agent that is intended to be a proxy for a car in a smart city scenario may be identified by a number of such characteristics: the vehicle's _make_, _model_, and _trim_, its _carriage designation_ (a sedan, sports car, SUV, light truck), its _primary and secondary external and internal colors_, its _engine type_ (internal combustion engine, diesel, electric, hybrid, hydrogen-powered) and so forth. A building may be classified by _purpose_, _construction method_, _zone classification_, etc. A robot may be given by its _purpose_, _ambulatory status_, _activation level_, etc.
+For instance, an agent that is intended to be a proxy for a car in a smart city scenario may be identified by a number of such characteristics: the vehicle's _make_, _model_, and _trim_, its _carriage designation_ (a sedan, sports car, SUV, light truck), its _primary and secondary external and internal colors_, its _engine type_ (internal combustion engine, diesel, electric, hybrid, hydrogen-powered) and so forth. A building may be classified by _purpose_, _construction method_, _zone classification_, etc. A robot may be given by its _purpose_, _ambulatory status_, _activation level_, etc.
 
 Each of these terms are used primarily as mechanisms for classification, and are considered as __categories__, with each particular enumeration in turn considered a __topic__. The `hsml:hasTopic`, `Place:hasTopic` and `hsml:hasTopic` properties in HSML takes zero or more topics as arguments.
 
@@ -706,46 +706,52 @@ Some times there are interdependencies between topics. For instance, the Corolla
 
 These relationships are called __constraints_, which is a relationship indicating that one topic is dependent upon another. This changes the diagram somewhat:
 
-```mermaid
----
-config:
-    layout: elk
----
-graph LR
-    car1[<b>Agent</b><br>Car 1]:::agent
-    car2[<b>Agent</b><br>Car 2]:::agent
-    automobile[<b>Topic</b><br>Automobile]:::topic
-    sedan[<b>Topic</b><br>SUV]:::topic
-    toyota[<b>Topic</b><br>Toyota]:::topic
-    camry[<b>Topic</b><br>Camry]:::topic
-    corolla[<b>Topic</b><br>Corolla]:::topic
-    XE[<b>Topic</b><br>XE]:::topic
-    AE[<b>Topic</b><br>AE]:::topic
-    car1 -->|hsml:hasTopic| automobile & sedan & toyota & camry
-    car2 -->|hsml:hasTopic| automobile & sedan & toyota & corolla & AE
-    carriage[<b>Category</b><br>Carriage]:::category
-    make[<b>Category</b><br>Make]:::category
-    model[<b>Category</b><br>Model]:::category
-    trim[<b>Category</b><br>Trim]:::category
-    domainType[<b>Category</b><br>Domain Type]:::category
-    carriage --->|hsml:hasTopic| sedan
-    make --->|hsml:hasTopic| toyota
-    model --->|hsml:hasTopic| camry
-    model --->|hsml:hasTopic| corolla
-    trim --->|hsml:hasTopic| XE
-    trim --->|hsml:hasTopic| AE
-    domainType --->|hsml:hasTopic| automobile
-    camry --->|hsml:hasConstraint| toyota
-    corolla --->|hsml:hasConstraint| toyota
-    XE -->|hsml:hasConstraint| camry
-    AE -->|hsml:hasConstraint| corolla
+[[fig-udg-taxonomy-constraints-example]]
+.An example of the UDG Taxonomy with constraints
+image::UDG_taxonomy_example_with_constraints.png[an example of the UDG Taxonomy with constraints]
 
-style car1 stroke-width:4
-classDef node stroke:black
-classDef agent fill:lightBlue
-classDef topic fill:yellow
-classDef category fill:orange
-```
+// https://www.mermaidchart.com/app/projects/ecd8eb1d-8b86-4074-9e57-f89503604e51/diagrams/463b3340-401b-4c6f-a24b-48310639b1db/version/v0.1/edit
+// ```mermaid
+// ---
+// config:
+//     layout: elk
+// ---
+// graph LR
+//     car1[<b>Agent</b><br>Car 1]:::agent
+//     car2[<b>Agent</b><br>Car 2]:::agent
+//     automobile[<b>Topic</b><br>Automobile]:::topic
+//     sedan[<b>Topic</b><br>SUV]:::topic
+//     toyota[<b>Topic</b><br>Toyota]:::topic
+//     camry[<b>Topic</b><br>Camry]:::topic
+//     corolla[<b>Topic</b><br>Corolla]:::topic
+//     XE[<b>Topic</b><br>XE]:::topic
+//     AE[<b>Topic</b><br>AE]:::topic
+//     car1 -->|hsml:hasTopic| automobile & sedan & toyota & camry
+//     car2 -->|hsml:hasTopic| automobile & sedan & toyota & corolla & AE
+//     carriage[<b>Category</b><br>Carriage]:::category
+//     make[<b>Category</b><br>Make]:::category
+//     model[<b>Category</b><br>Model]:::category
+//     trim[<b>Category</b><br>Trim]:::category
+//     domainType[<b>Category</b><br>Domain Type]:::category
+//     carriage --->|hsml:hasTopic| sedan
+//     make --->|hsml:hasTopic| toyota
+//     model --->|hsml:hasTopic| camry
+//     model --->|hsml:hasTopic| corolla
+//     trim --->|hsml:hasTopic| XE
+//     trim --->|hsml:hasTopic| AE
+//     domainType --->|hsml:hasTopic| automobile
+//     camry --->|hsml:hasConstraint| toyota
+//     corolla --->|hsml:hasConstraint| toyota
+//     XE -->|hsml:hasConstraint| camry
+//     AE -->|hsml:hasConstraint| corolla
+// 
+// style car1 stroke-width:4
+// classDef node stroke:black
+// classDef agent fill:lightBlue
+// classDef topic fill:yellow
+// classDef category fill:orange
+// ```
+
 
 ==== Places with `hsml:hasTopic` and `hsml:hasConstraint`
 
