@@ -2,11 +2,11 @@
 
 === Scope
 
-This report describes the preliminary approach for the Spatial Web Autonomous Intelligent Systems (AIS) Rating Framework Implementation Specification as defined in IEEE 2874-2025 Spatial Web.  (In this report the name is simplified to Spatial Web Agent Framework.)
+This report describes the preliminary approach for the Spatial Web UDG System Design Specification.  (In IEEE 2874-2025 this document was titled the UDG Implmentation Specification.)
 
 === Purpose
 
-The purpose of this report is to present the results of a trade study on technology and research that is relevant to a Spatial Web Agent Framework.   The report was prepared as part of the Spatial Web Foundation Preliminary Design activities.
+The purpose of this report is to present the results of a trade study on technology and research that is relevant to a Spatial Web UDG Design.   The report was prepared as part of the Spatial Web Foundation Preliminary Design activities.
 
 === Structure of document
 
@@ -18,23 +18,14 @@ As a trade study the report addresses these themes:
 
 This document is structured as a reference model consistent with the approach defined in <<ISO_IEC_IEEE_42010_2022>>. This reference model provides concepts to subsequently define Spatial Web Implementation standards and to guide domain-specific Spatial Web architecture developments.
 
-This document provides three viewpoints of the Spatial Web as an abstract system:
+This document provides five viewpoints of the UDG.  These five viewpoints comprise the UDG System Design
 
-<<section-value-for-stakeholders,Value for stakeholders>> (<<section-value-for-stakeholders>>)
+<<section-enterprise-viewpoint>> 
+<<section-conceptual-view-knowldge-graph>>
+<<section-conceputal-view-social-network>>
+<<section-conceptual-registry>>
+<<section-distributed-computing>>
 
-<<section-knowledge-modeling,Knowledge modeling>> (<<section-knowledge-modeling>>)
-
-<<section-distributed-computing,Distributed computing>> (<<section-distributed-computing>>)
-
-
-The Framework is implemented by allocation of requirements to Spatial Web Components including these components:
-
-- HSML
-- HSTP
-- UDG Node
-- Registry System
-
-This study report contains material that need not be included in the final UDG System Design. The report contains background and rationale for the design approach. The final Agent Framework need only include normative content.
 
 === Conventions used in this standard
 

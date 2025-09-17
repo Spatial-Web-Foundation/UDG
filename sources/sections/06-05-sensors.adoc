@@ -1,6 +1,7 @@
 = Sensors
 
 == Overview
+
 The challenge that is faced with the Spatial Web is that what you see is not always what you get. In general, the way that a given domain is perceived will vary depending upon the observer - some observers will be capable of seeing a great deal, others, not much at all. In order to manage this, one particularly useful entity is the *__sensor__*.
 
 > A __sensor__ is a mechanism to get a particular point of view on a domain from the perspective of either a place, agent, assemblage or thing.

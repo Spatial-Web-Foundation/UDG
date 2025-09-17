@@ -10,6 +10,10 @@ Bridging HSTP and UDG scopes (handled through hstp.d and hsml.d respectively)
 Managing internal local hstp.d clocks (repeating internal events) to manage query and updates against live resources.
 Place, Person, Thing and SW Node registry for commonly referenced entities (the Spatial Web registry)
 	
+[[computing_continuum]]
+.Distributed computing continuum
+image::computing_continuum.png[Distributed computing continuum]
+
 
 include::09-01-design-spatial-web-node.adoc[leveloffset=+2]
 

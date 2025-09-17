@@ -1,6 +1,13 @@
 [[section-conceputal-view-social-network]]
 == Conceptual view 3: UDG as a social network of agents for collective inlelligence
 
+The UDG is a social network of ENTITIES in the Spatial Web.  In particular AGENTS will interact with other ENTITIES including other AGENTS to determine the state of the environment, to determine knowledge about other ENTITES, to coordinate ACTIVITIES.  The structure of links in the UDG Social viewpoint are in many cases more important than the knowledge content of ENTITES in the UDG KG.
+
+[[spatial_web_ontology]]
+.Spatial Web ontology 
+image::spatial_web_ontology.png[ontology showing Spatial Web entities and their relations]
+
+
 
 - Agent-based social simulation - Wikipedia 
 - Network of social agents
@@ -22,6 +29,10 @@
 - Group sizes: situation, cluster, society 
 - Social signaling
 
+
+UDG maintanenance
+UDG librarian agent 
+
 exploration outside the group; engagement within the group
 
 altenate designs
@@ -29,3 +40,6 @@ altenate designs
 - udg agent entities shall promote exploration and engagement
 
 polycentric governance shall promote exploration and engagement
+
+
+UDG_Node_Design.png

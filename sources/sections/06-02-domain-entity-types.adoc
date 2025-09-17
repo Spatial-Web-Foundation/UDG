@@ -1,8 +1,8 @@
-= Domain Entity Types
+= Domain Types
 
-A __domain entity type__ is a specialization of an entity that incorporates additional capabilities. Within the Spatial Web, these extensions are defined using the Shape Constraint Language (SHACL), as a generalized schema language, with the mechanism for such extension covered in the section [Domain Entity Type Extensions](domain-entity-types.md), with link TBD.
+A DOMAIN type is a specialization of an entity that incorporates additional capabilities. Within the Spatial Web, these extensions are defined using the Shape Constraint Language (SHACL), as a generalized schema language, with the mechanism for such extension covered in the section [Domain Entity Type Extensions](domain-entity-types.md), with link TBD.
 
-Currently several core extensions are defined: Place, Link, Domain, Sensor, Thing, Agent, and Assemblages, with others derivable from these. These are differentiated as follows:
+Currently several DOMAIN types are defined: Place, Link, Domain, Sensor, Thing, Agent, and Assemblages, with others derivable from these. These are differentiated as follows:
 
 * A __place__ is defined roughly as a specific addressable location within a domain. Places define where an entity can be, and where they can't. Cf [Places](places.md) for more information.
 
@@ -17,5 +17,3 @@ Currently several core extensions are defined: Place, Link, Domain, Sensor, Thin
 * An __agent__ is defined as an entity that is directable by an outside (out of system) actor. Agents generally act as the eyes, ears, hands, and feet of the actor. It corresponds roughly to a character in a novel, play, or game, but in a more generalized fashion. Cf. [Agents](#agents) for more details.
 
 * An __assemblage__ is an aggregate structure of things, places, and agents. It is intended to model corporations, institutions, governments, and so forth, but it can also model physical or other composite structures.  Cf. [Assemblages](#assemblages) for more information.
-
-[[Previous]](entities.md) [[Next]](places.md)

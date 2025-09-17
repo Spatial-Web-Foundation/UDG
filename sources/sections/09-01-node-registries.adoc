@@ -2,9 +2,9 @@
 
 == SW Nodes
 
-> __Definition.__ A __Spatial Web Node__ (or __SW Node__) is a daemon on a computer server that host a spatial web node instance. It is roughly analogous to an http.d daemon that hosts a web server, and typically hosts a *__domain graph__* that maintains the state of multiple *__entities__*, *__domains__*, *__credentials__*, *__contracts__* and related content. Every spatial web node typically has a SWID that references a document indicating its underlying hosting environment (if it isn't native HSTP) and that provides ancillary metadata links that identify the characteristics of the node.
+A Spatial Web Node (or SW Node) is a daemon on a computer server that host Spatial Web KG entities. It is roughly analogous to an http.d daemon that hosts a web contnet, and typically hosts a *__domain graph__* that maintains the state of multiple ENTITIES, DOMAINS, CREDENTIALS, CONTRACTS and related content.
 
-== ## SW Node Networks
+== SW Node Networks
 
 A SW Node communicates with other SW Nodes via HSTP. SW Nodes connect in one of two ways: 
 
