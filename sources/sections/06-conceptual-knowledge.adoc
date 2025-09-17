@@ -11,6 +11,7 @@ This viewpoint considers the UDG as a knowledge graph (KG).  The knowledge may b
 image::spatial_web_ontology.png[ontology showing Spatial Web entities and their relations]
 
 The clauses in this viewpoint
+
 * ENTITIES as the basic type for all knowledge in the UDG
 * DOMAINS as the primary ENTITY in the UDG
   * Discussion of UDG specific types of DOMAINS in the UDG
@@ -26,7 +27,7 @@ The clauses in this viewpoint
 
 include::06-01-domain.adoc[leveloffset=+2]
 
-include::06-06-domains.adoc[leveloffset=+2]
+include::06-06-domain-use-case.adoc[leveloffset=+2]
 
 include::06-07-udg-swids.adoc[leveloffset=+2]
 
@@ -40,9 +41,9 @@ include::06-05-sensors.adoc[leveloffset=+2]
 
 
 
-=== Distributed Graphs
+=== Domain Graph Queries
 
-There are two distinct methods that can be used for querying the state of a domain within a spatial web node: [___HSTP Node Queries___](#hstp-node-queries) and [___UDG Graph Query___](#udg-graph-queries). Both of these work on the [___Domain Graphs___](#domain-graphs) for a given node, but do so in very different ways.
+There are two distinct methods that can be used for querying the state of a domain within a spatial web node: HSTP Node Queries and UDG Graph Queryies. Both of these work on the Domain Graphs for a given node, but do so in very different ways.
 
 ==== Domain Graphs
 
@@ -129,22 +130,23 @@ In the above illustration Node 2 is a shared node between node 1 and node 4.
 
 Dependent nodes are also called content nodes, in that they are able to store content that may not necessarily be HSML specific. _Note that while a spatial web node can also expose a graph endpoint interface, content nodes that do not also have a node manager are not considered spatial web nodes per se._
 
-====  Registering Dependent Graph Nodes
+===  Registering Dependent Graph Nodes
 
 Graph and Content Nodes can be registered in one of three ways. 
 
-===== Static Registries
+==== Static Registries
+
 The first is a static registry, where links to the nodes (typically as html links) are stored in the active graph for the node itself. These are "permanent" graph nodes, in that they are automatically linked when the spatial web node boots up or reboots. These are typically shared nodes, graph registries, taxonomies, code modules or similar content. 
 
-===== Domain Graphs
+==== Domain Graphs
 
 A domain can similarly attach an additional graph when it first starts up through the domain manager. Such graphs are only accessible within the scope of the domain, and when the domain is disinstantiated, the connection to the graph is lost. Domain graphs are especially useful when you have a lot of domain specific content in a graph, such as taxonomy information, narrative lore, and so forth. As with static registries, the connections are endpoints, meaning that he specific internal implementations are unimportant, meaning that such domain graphs could be knowledge graphs, databases, LLMS and so forth. Note that, as with static registries, write access to these resources will be system dependent.
 
-===== Activity Graphs
+==== Activity Graphs
 
 An activity graph is a graph endpoint that is invoked dynamically based upon a specific algorithm, and is usually used to pass data from external processes to internal processes (though if the graph is read/write it can also be used to update external content). Activity graphs are parametrically invoked and are transient.
 
-====  Named Queries and Security Considerations
+===  Named Queries and Security Considerations
 
 Graph extensions are, by their very nature, insecure, primarily because they exist outside of the scope of the credentialling system utilized by hstp. As a consequence, most hstp queries will likely be invoked via a particular name, with parameters passed as a dictionary to the graph manager. This will likely be passed in a manner similar to MCP or the OpenAPI format. 
 
@@ -155,7 +157,7 @@ At no time should HSTP directly call the system graph query language; it should 
 
 Named queries and mutations are defined within activities at various scopes. Any query on a domain, for instance, would in turn invoke a graph query that is specific to that domain, and may be customed to refer to a particular agent (or agent(s)) or place(s) in the system. It's worth noting that the domain itself has access to all aspects of the graph, including the agents and places within the domain.
 
-==== Understanding Graph Queries
+=== Understanding Graph Queries
 
 Graph queries are somewhat different from traditional data structures. In a normal query, you typically pass an identifier (or some descriptive metadata), and return a document or a list of identifiers (with metadata) to documents.
 
@@ -254,7 +256,7 @@ The same query, however, could also take as an argument the `?person` variable w
 
 This is an important point, because it means that the results of a query will be dependent upon a linear dictionary of named variables and values passed to the query. This flexibility makes SPARQL queries much more powerful than their SQL counterparts, especially when you can also use inferencing to determine the relationships between structures. This dictionary is called a ___Query Context___.
 
-==== Named Queries, Mutations, and Metadata
+=== Named Queries, Mutations, and Metadata
 
 A SPARQL query is a script that can be stored, assigned a given name (IRI), retrieved, and evaluated wih a given context. Because the query has an IRI, it can also store metadata, including descriptions about what kind of query context it takes, taxonomy classification for identifying the utility of that query, and determination about the fitness of this query compared to others. Additionally, the script in question can be _mutational_ - it can change the state of the graph, not just for one particular entity, but all entities that satisfy the query context.
 
@@ -266,47 +268,12 @@ The association of metadata with a given named query or update is significant, b
 
 The specific mechanism for adding metadata to an entity is still under discussion, but likely will be of the form Entity:hasTopic.
 
-==== Directory Domain and Home Places
+=== Directory Domain and Home Places
 
 A spatial web node can identify a particular domain that serves as it's directory domain. If no domain is specified by an hstp request, this will be the default domain. This domain is designed to provide a directory or catalog of the domains that are accessible to a given external agent based upon their credential profile, and also provides mechanisms to "sign in" if this is required to change the domains that they see.
 
 Similarly, within every domain, there is the option of specifying a home place. This is where agents are positioned when they first "enter" a given domain, if no domain is otherwise specified. In simple scenarios (such as the smart room scenario), there may be only one place in the domain, but in more complex scenarios (especially those representing tours or rpgs), this home place typically also serves the role of establishing context and backstory for the agent, providing instructions for interacting with the domain, and identifying pertinent "destinations". 
 
-==== Agents Are Not Domains, They Have Domains
-
-One of the long-standing debates within the spatial web working group has been the distinction between a domain and an agent, what is frequently referred to as the holonic paradox. A smart city, for instance, is both a domain (a context in which agents interoperate) and an agent (a thing that has changeable state but can be treated as a distinct entity). 
-
-Ultimately, this distinction can be thought of as a distinction between __external state__ - the state of an entity as perceived by the environment - vs. __internal state__, which is the state of the components that make up that thing relative to one another.
-
-_For purposes of modeling_, all entities have external (extrinsic or percieved) state, however, not all entities necessarily have internal (or intrinsic) state, _within the model_. 
-
-> The physical world does not, of course, have such a natural division; the viscera of a person, for instance, is still in the same "reality" as the outer form of that person, and that reality extends from the largest scales of the universe to the smallest quarks. However, the virtual world does not have that same constraint, and as such it is usually preferable to create holistically contained models that handle relevant aspects of the system in question.
-
-What this means in practice is simple. All domains are effectively bound to agents as the "inside" of some thing is still connected to that thing. If you were to create an internal model of yourself, that domain's interactions would likely have some reflection in your external state. The boundary between external state and internal state is an interface. If you have a stomach ache, your expression (one aspect of that interface) will be sour and pained.
-
-By this same reasoning, in the spatial web, the distinction between the domain where an entity is an agent and the domain representing the internal state of that entity is a form of link. If I have a special scanner that shows your insides, what you are seeing is a ___map___ of the "insides" domain through that link. 
-
-> Note again that this is different from reality. An MRI uses a magnetic field sensor coupled with strong magnets to generate and interpret the internals of a person, but an endoscopy actually creates an agent (the camera end of a fiber optic cable) that invades that domain. In the virtual world, on the other hand, the camera becomes a part of the internal domain but acts as an interface to create a map or view of the internal domain to display within the context of the external domain.
-
-This relationship can be seen as follows:
-
-```mermaid
-graph LR
-
-    baseAgent[<b>Agent</b><br>Base Agent]
-    subgraph agentDomain[<b>Domain:</b>Agent Domain]
-       proxyDomain[<b>Domain</b><br>Proxy Domain]
-       childAgent[<b>Agent</b><br>Child Agent]
-       proxyDomain -->|has Agent| childAgent
-    end
-    baseAgent -->|has Domain| agentDomain
-```
-
-In this case, the agent has a property called `hsml:hasDomain`. This points to a named graph, with the name being the IRI for the agent's domain. Within the named graph, there exists a proxy domain (probably a blank node), that acts as the representative of the base agent within the subordinated domain graph.
-
-The named graph represents a ___Markov Boundary___. 
-
-One final point before digging into links. In theory, an agent can have multiple domains that represent different aspects or systems for that agent. So long as the domains are completely independent, this is an effective strategy, but if two domains are descriptive of the same system, then either these domains need to be linked together in some way or the internal domain needs to model all of these potentially interrelated subsystems.
 
 ==== Spatial Web Addresses
 
@@ -392,103 +359,6 @@ One other key point - the spatial web does not recognize URL parameters being pa
 There is a chicken and egg situation with regard to whether a given Spatial Web Node can be considered an agent or a domain. To get around this, there is a specific exception to the idea that all agents exist on places within domains. There is assumed to be on a given spatial web node a designated Home Domain that is explicitly stated to be associated with the node itself. It's "agency" in this particular case is the action of the node daemons, with specific capabilities. When a spatial web node is first set up, this home domain/agent holds the configuration metadata for the node itself, as well as any credentials that are specific to the node.
 
 Put another way, ___from the standpoint of the UDG, the Spatial Web Node is a domain, with an implicit super agent___. The mechanics of this are still to be determined.
-
-==== Links
-
-Links are fundamental to the World Wide Web. The behavior of a link in that context is simple - it indicates a new URL (a place) that the user agent goes to in a specific domain, whereupon it retrieves the document associated with that address.
-
-In the Spatial Web, links are more powerful and varied. At its core, a link associates a SWURL for a resource with an activity. For instance, one of the most common kinds of links is a ___portal link___ that is applied to a given link (styled as a door or other kind of portal), that causes the activating agent (such as a player character in a game) to move to a different, specified place:
-
-```mermaid
-graph LR
-    portal1-1[fa:fa-door-open<br><b>Agent</b><br>Portal]:::agent
-    pc1-1[fa:fa-chess-pawn<br><b>Agent</b><br>Player Character]:::agent
-    room1-1[fa:fa-map-marker-alt<br><b>Place</b><br>Room 1]:::place
-    room2-1[fa:fa-map-marker-alt<br><b>Place</b><br>Room 2]:::place
-    activity1-1[fa:fa-bolt <br><b>Activity</b><br>Transfer Agent]:::activity
-    credential1-1[fa:fa-wallet <br><b>Credential</b><br>Traversal Document]:::credential
-    link1-1[fa:fa-link<br><b>Link</b><br>Link]:::swlink
-    link1-1 -->|initiating agent| pc1-1
-    link1-1 -->|targeted agent| pc1-1
-    link1-1 -->|from| room1-1
-    link1-1 -->|to| room2-1
-    link1-1 -->|has activity| activity1-1
-    link1-1 -->|requires credential| credential1-1
-    portal1-1 -->|has link| link1-1
-    pc1-1 -->|has credential| credential1-1
-    
-    classDef swlink fill:orange
-    classDef agent fill:lightBlue
-    classDef place fill:lightGreen
-    classDef activity fill:yellow
-    classDef credential fill:ivory
-```
-
-In this particular case, 
-
-This behavior is not all that different with the spatial web, but such links are more complex as they are more contextual, and as such can be broken down into different types of behaviours. Some of these are given as follows: 
-
-===== Subsystem or Holonic Links
-
-An internal state link describes the connection between an agent and its subsystem domains. Such links are usually indicated in the interface by some form of common icon or identifier, with a corresponding icon when within the subsystem indicating a link to the super-domain for that agent. As with all links, traversing the link will take you to the subdomain in question, while traversing the inverse link will take you back to the superdomain.
-
-A ___place___ in this case is treated as an agent. That is to say, if an agent is located on a given place, and that place has a subdomain that provides a higher level of detail or a portion of the overall hyperspace of the domain, then clicking on the holonic link will take you to sub-place domain.
-
-For instance, a given planet domain may have multiple places that represent the countries of that planet. Clicking on the country icon will change the active domain for that user to the country in question, which may then display different place markers indicating active cities or regions, and will also indicate a super-icon that will take the agent back to the relevant country. Note that the icons in question may reflect some relevant information about the country in its visualization, and the `about` display for that country can also provide summary metadata - another form of map.
-
-This points to the fact that most links have two distinct modes - a selection mode that is used to indicate the resource is of interest (bringing up metadata), and an activate mode that causes the shift of the agent from the source to the target link. In a GUI, this may be represented as a single click vs. a double click, but these are implementation specific.
-
-===== Portal Links
-
-Places are agents that represent specific locations rather than people, characters, bots, etc. They are all part of the same domain and generally just handle movement within the domain. A good example of a place to place movement is in the Street View mode of Google maps, where, depending upon your orientation, you will see several icons indicating movement is possible to a different place in the same scope.
-
-Places, consequently, can be thought of as a necessary kludge - they allow for changing perspective while still being part of the same security and activities context, and they play a significant role in tours, wizards, educational systems and other use cases.
-
-A place link is essentially a __portal__ that will take an agent from one place to another within the domain. Such links are topological rather than topographical, in that such links are not necessarily dependent upon contiguity or geometry. 
-
-Portals may be one, two or multi-sided, and, as with all links, access may be constrained by the requirement that the initiating agent has access to a cryptographic key in order to activate the link. Such keys may be associated with dedicated agents in a Bag relationship.
-
-Portals can exist between places in different domains, even if those domains aren't nested. For instance, in a conquest game there are natural boundaries and fords that exist between different domains within distinct but affiliated spatial web nodes. In general, each domain will require that the agent have an affiliate key in order to enter into that domain, and the domain manager will be responsible for managing the replication (and disabling) of agents moving from one system to another across SW Node boundaries.
-
-===== Bag Links
-
-One common use case in the spatial web occurs when one agent (say a truck) acts as a transport for another agent (such as a package). The container in this case places the contents onto a Bag Place - part of the container's domain that can be thought of as the "Bag of Holding" for that container. The carrying capacity for that bag can be determined individually for that particular place (it may be by weight, by volume, by insurability, or by some even more exotic measure)
-
-Each carried agent in turn has a specific credential key that can serve as a key to a portal (or other linked agent). These are connected to the carrier agent through a bag link. In effect the carrier can "borrow" the key of the carried item.
-
-A carryable agent in that case can be "picked up" by the carrier agent and thus removed from the place within the active domain into the bag place in the carrier's domain. Even if the carrier moves to a new domain, the carried object stays associated with the carrier's internal domain "bag". The carried agent can be used by the carrier to activate a portal or similar Thing agent.
-
-> It is worth noting here that activation of a bag item _may_ also cause the item to expire, in essence, being removed from the bag upon use. Additionally, a carried item may be transferred to another agent or "dropped" into the current place. That has obvious implications for both supply chain scenarios and e-commerce scenarios, where a specific virtual item is "sold" to another agent, and its use in role playing games should be self-evident.
-
-===== Agent-to-Agent Links and Channels
-
-A link can also connect two or more agents. Again in its simplest form, such a link can allow for "teleportation" of one agent to the location of the other, but outside of specialized games, this is likely an edge case. However, a much more critical use case is connecting one agent that is in effect a camera (a sensor array) with another agent that is a display or monitor. This will usually be accomplished via a channel (it is arguably whether a link and a channel are related, though there is some overlap). 
-
-One particular mechanism that may be worth thinking about in agent-to-agent communication is the use of a filter acting on a channel to limit it to a small subset of properties on an entity's state vector. For instance, one such channel may be a message property that could be periodically polled. As this message property changes, this would be reflected across the channel to all subscribers to that channel (this may be analogous to Scott's LENS concept)
-
-This could also be used to monitor the value of a given set of properties such as position, temperature, funds, or emotional state. Since in many cases, these values may be computed rather than intrinsic, this provides a light-weight mechanism for determining relevant state without needing to know the internal mechanisms for that agent.
-
-===== Button or Selector Links
-
-If no Activation handler is specified for the link, then the activity will be dependent upon the type of agent doing (and receiving the invocation). However, if an activation handler is available as part of the activations for that link, then the presented handler will be invoked first, and the option to propagate the event to its default afterwards can be controlled by the handler. These are called button or selector links, and in essence they represent a significant component in the form interface for the given entity.
-
-==== Architecture of Links
-
-A link transmits the following information to the domain manager:
-
-* initiator of the link
-* recipient of the link
-* target of the link
-* type of link (if known)
-* time and place of the link
-* periodicity
-* duration
-
-Once this is received by the domain manager, it uses the context determined by these parameters to determine other necessary metadata. These are then passed to the link's activation handler (or the defaults relevant by type) to perform the associated link action.
-
-Links can be set up by the domain designer via the periodicity property as one of singleton (the link is only activated once) or periodic (the link is invoked across a given channel periodically until either the link is terminated or the channel's time-to-live (TTL) is exceeded). Once the link completes, it will either be reset (the default) or it will be expired (for links that expire upon use).
-
-This operation is handled by the domain manager. Note that in fully autonomous operations, open links simply cause the agent to reset to the new place (and domain, if this changes, without UX involvement. However, key activation still requires the relevant credentials.
 
 
 
