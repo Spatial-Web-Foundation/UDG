@@ -1,5 +1,5 @@
 [[section-conceptual-registry]]
-== Conceptual view 2: UDG as a network of registries
+== UDG as a network of registries
 
 conceptual view for registries and public domains using paper prepared for RAC
 plus a clause from Kirk about atlases, etc.
@@ -276,4 +276,4 @@ As an Index, it organizes and makes baseball-related information searchable.
 
 
 
-include::07-01-registries-atlas.adoc[leveloffset=+2]
+include::08-01-registries-atlas.adoc[leveloffset=+2]

@@ -1,23 +1,30 @@
 [[section-conceptual-view-knowldge-graph]]
-== Conceptual view 1: UDG as a conceptual graph for Knowledge representation and reasoning
+== UDG as a conceptual graph for Knowledge representation and reasoning
 
-=== Overview 
+=== Knowledge Graphs 
 
 This viewpoint considers the UDG as a knowledge graph (KG).  The knowledge may be both facts and beliefs.  The primary structure for the concepts in this viewpoint is the Spatial Web Ontology and the corresponding HSML.
+UDG as a conceptual graph for Knowledge representation and reasoning
 
 
 [[spatial_web_ontology]]
 .Spatial Web ontology 
 image::spatial_web_ontology.png[ontology showing Spatial Web entities and their relations]
 
-The clauses in this viewpoint
+The subsequent clauses in this viewpoint
 
-* ENTITIES as the basic type for all knowledge in the UDG
 * DOMAINS as the primary ENTITY in the UDG
+  * ENTITIES as the basic type for all knowledge in the UDG
   * Discussion of UDG specific types of DOMAINS in the UDG
-* SWIDS as the identifier used in ENTITIES and how SWIDS are used in the UDG KG
-* Links between ENTITIES as used in the UDG KG
-* Conceptual aspects of Queries of the UDG KG
+  * SWIDS as the identifier used in ENTITIES and how SWIDS are used in the UDG KG
+* Graph created using Links and membership
+  * Domains membership
+  * Links between ENTITIES as used in the UDG KG
+  * Dynamic aspects of Graph 
+* Querying the Graph
+  * Conceptual aspects of Queries of the UDG KG
+
+
 * UDG Taxonomy based on hsml:hasTopic property
 * State of ENTITIES in the UDG
 * Relation between UDG KG and UDG Social 

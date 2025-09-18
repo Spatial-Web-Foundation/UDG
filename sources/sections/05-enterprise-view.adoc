@@ -1,6 +1,9 @@
 [[section-enterprise-viewpoint]]
 == Enterprise view of the UDG
 
+The UDG is the infrastrcutre for the Spatial Web
+
+
 UDG in IEEE 2874
 
 Universal Domain Graph (UDG) is the distributed hypergraph which contains all relationships between all known SWIDs in the Spatial Web. Syn: UDG. The universal domain graph is the complete Spatial Web hypergraph.
