@@ -26,8 +26,8 @@ This clause inclues elements of a roposal to the IEEE Registration Advisory Comm
 
 
 
-== Spatial Web Domains and the Universal Domain Graph
-=== Hyperspatial Domains
+=== Spatial Web Domains and the Universal Domain Graph
+==== Hyperspatial Domains
 
 In the inhabitable world, a domain refers to the geopolitical territory governed by a single entity or government or a geophysical region characterized by a specific feature, type of growth or wildlife, etc. E.g. The domain of the US, the State, or your home.
 
@@ -42,7 +42,10 @@ Domains can be linked to single instances. Cat vs Tim’s Cat.
 
 
 Figure. Mereological relationships in domain hypergraphs
-=== Public, Private and Top Domains
+
+
+==== Public, Private and Top Domains
+
 Public Domains have no owner and are for the public good like a wiki commons.  SWF acts as the steward for all public domains. Examples: knowledge concepts like baseball, traffic laws, lidar, weather, applied physics.
 
 Private Domains are domains registered by individuals, organizations and their agents.
@@ -52,29 +55,29 @@ Top Domains are the highest Private domain of a domain hierarchy and managed by 
 Domain Authority: Domain Authority: Spatial Web entity that manages membership in the domain and defines norms for the domain.
 
 
-=== Public, Top Domains & UDG
+==== Public, Top Domains & UDG
 
 A top domain registers just one domain (topdomain.spatialweb) but can be linked to all relevant Public Domains in the UDG.
 This ensures discoverability, governance inheritance, and interoperability without the need for multiple SWIDs.
 
 
-=== Domain Authority Multi-faceted Role
+==== Domain Authority Multi-faceted Role
 
 The Domain Authority plays five roles simultaneously in the Spatial Web:
 
-
-As a Domain Authority (DA), it governs related subdomains, controls its Domain Governance, and may issue and govern SWIDs.
-As Registrant, it registers its Domain
-As a Registry, it maintains all subdomains under its Domain,
-As a Registrar, it issues SWIDs for products, operations, personnel, agents, geolocations, etc.
-As an Index, it organizes and makes domain-related information discoverable in the UDG.
-
+* As a Domain Authority (DA), it governs related subdomains, controls its Domain Governance, and may issue and govern SWIDs.
+* As Registrant, it registers its Domain
+* As a Registry, it maintains all subdomains under its Domain,
+* As a Registrar, it issues SWIDs for products, operations, personnel, agents, geolocations, etc.
+* As an Index, it organizes and makes domain-related information discoverable in the UDG.
 
 
 
-== SWF and IEEE RA’s Roles
 
-=== Overview
+=== SWF and IEEE RA’s Roles
+
+==== Overview
+
 SWF will support one or more Spatial Web ID (SWID) methods based on the W3C DID specification, specifically designed to support the functionality required for Public and Top Domains. For audit purposes, SWF proposes the IEEE RA be responsible for maintaining a registry of all SWIDs related to public and top domain registered by SWF.
 SWF will develop and support one SWID Method that meets the System Specification (IEEE P2874) requirements
 SWF will enable a registration service for public and top domains, 
@@ -87,7 +90,7 @@ Below is a diagram showing the IEEE RA’s role in the Spatial Web ecosystem:
 
 
 
-=== Spatial Web Identifiers (SWIDs)
+==== Spatial Web Identifiers (SWIDs)
 
 Each domain is registered using a SWID by the SWF’s SWID method (SWID:SWF).  SWIDs are an evolution of the Uniform Resource Identifier (URI) based upon the W3C specification for Decentralized Identifiers (DID) that includes implicit referenceability to SWID Documents via registered “methods,” which specify how to both resolve and revoke SWIDs and how to write SWID Documents themselves.   
 
@@ -114,7 +117,7 @@ SWF SWID service sends SWID to the SWF Public and Top Domain registry
 SWF Public and Top Domain registry sends SWID to registrant
 Note: SWF Public and Top Domain registry would be responsible for any verification service required before continuing the registration process.  
 
-=== SWID Structure
+==== SWID Structure
 
 
 Domain names are represented by IDs:
@@ -134,7 +137,7 @@ Private SWID:
 SWID:swf.com:domain:mlb:subdomain:national_league
 
 
-== Registry of Registries
+=== Registry of Registries
 
 A UDG Registry includes domains, of which each of those domains may have an assoicated registry, thereby creating a hierarchical set of registries.
 
@@ -143,9 +146,9 @@ A UDG Registry includes domains, of which each of those domains may have an asso
 image::registry_hierarchy.png[hierarchy of registries]
 
 
-== Example: Major League Baseball
+=== Example: Major League Baseball
 
-=== MLB example
+==== MLB example
 
 Major League Baseball is an American sport that has 30 professional teams organized in several sub and regional leagues.  The domain of baseball has many public domains such as bat, pitcher, uniform, strike out, base hit, umpire, baseball diamond, baseball stadium, etc.  These public domains can be linked to and used by any top-level domain baseball organization anywhere in the world, who can then use the domain model as the base structure domain model, modifying any of the rules or attributes for their local domain.  For example, in the public domain there are several kinds of baseball bats (aluminum, wood, composite) that can be used to play the game or as a weapon.  However, in MLB, there are very specific attributes that can be used for a baseball bat.        
 Below is an example of some of the relationships between the Public Domain of baseball, the MLB Top Domain and its various Sub Domains.  MLB registers one top domain (mlb.spatialweb) linking it to all relevant Public Domains in the UDG.  This ensures discoverability, governance inheritance, and interoperability without needing multiple SWIDs.
@@ -202,7 +205,7 @@ St. Louis Cardinals
 San Francisco Giants
 
 
-=== MLB's Multi-Role Responsibilities in the UDG
+==== MLB's Multi-Role Responsibilities in the UDG
 
 Role
 Definition
@@ -224,7 +227,8 @@ A searchable index  of a domains and their subdomains within the  UDG.
 MLB maintains an index (or assigns the right to its subdomains) of its subdomains i.e. all teams, players, stadiums, and equipment, making them searchable.
 
 
-=== How It Works: MLB’s Registration & Linking Process
+==== How It Works: MLB’s Registration & Linking Process
+
 MLB registers its SWID mlb.spatialweb.
 A single SWID is assigned SWID:web:swf.com:domain:mlb
 MLB becomes a registrant of mlb.spatialweb.
@@ -246,7 +250,7 @@ Governance Inheritance & Discovery
 MLB inherits governance and rules constraints from each linked Public Domain.
 Search engines & AI agents can traverse the UDG graph to find MLB and its Sub Domain through any relevant path.
 
-=== Example: How UDG Queries Would Work
+==== Example: How UDG Queries Would Work
 
 Because MLB registers one top domain (mlb.spatialweb) and links it to all relevant Public Domains in the UDG, MLB can be discovered by searching adjacent public domains.  
 
@@ -257,7 +261,7 @@ Searches in: baseball-organizations.spatialweb → Finds MLB (via smart link)
 Query 3: "Show all baseball businesses”
 Searches in: sports_business.spatialweb → Finds MLB  (via smart link)
 
-=== Key Takeaways
+==== Key Takeaways
 
 MLB is a Registrant, Domain Authority, Registry, Registrar, and Index—all at once. It controls its ecosystem, issues SWID, credentials for Subdomains and enables structured search within its domain, while remaining connected to the broader UDG. 
 One registration (one SWID), many discoverable contexts
