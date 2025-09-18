@@ -1,6 +1,16 @@
 [[section-conceptual-registry]]
 == UDG as a network of registries
 
+=== Registries, Membership and Identity
+
+Registries are used in the Spatial Web to recognize membership in a DOMAIN.  
+
+Because DOMAINS may be members of multiple upper domains, and DOMAINS may move between upper domains; DOMAIN identity may proceed registration.
+
+Registration of a DOMAIN in an upper domain results in the membership being recorded in the Registry and a credential being isssued to the registered ENTITY.
+
+
+
 conceptual view for registries and public domains using paper prepared for RAC
 plus a clause from Kirk about atlases, etc.
 

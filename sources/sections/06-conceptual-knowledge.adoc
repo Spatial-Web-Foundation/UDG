@@ -1,7 +1,8 @@
 [[section-conceptual-view-knowldge-graph]]
-== UDG as a conceptual graph for Knowledge representation and reasoning
+== UDG as a knowledge graph
 
 === Knowledge Graphs 
+
 
 This viewpoint considers the UDG as a knowledge graph (KG).  The knowledge may be both facts and beliefs.  The primary structure for the concepts in this viewpoint is the Spatial Web Ontology and the corresponding HSML.
 UDG as a conceptual graph for Knowledge representation and reasoning
