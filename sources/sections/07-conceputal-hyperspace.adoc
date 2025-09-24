@@ -1,0 +1,103 @@
+[[section-conceptual-view-hyperspace]]
+== UDG and hyperspace
+
+=== Spatial Web Hyperspace 
+
+The concept of hyperspace is fundamental for the Spatial Web and an organizing method for entities in the UDG. To support this fundamental role, clause 6.2 of IEEE P2874 provides a formal definition of hyperspace, as any set whose elements are related by a formal notion of _path_.  The basic classes of hyperspace include: Graphs including Cellular spaces and Vector spaces with coordinate systems. 
+
+[[basic-classes-of-hyperspace]]
+.Basic classes of hyperspace
+image::hyperspace_basic_classes.png[Basic classes of hyperspace and their relationships]
+
+Geographic space can be modelled as a particular kind of cellular space, called a _Discrete Global Grid System_ (DGGS), which typically models both three-dimensional physical space plus one time dimension. DGGSs therefore provide the Spatial Web with an approach for embedding geographic space into cellular or graphy hyperspace. The figure below illustrates a framework for the coordination of geographic DGGS and CRS with Spatial Web hyperspace.
+
+.Embedding geographic space in hyperspace
+image::embedding_geo.jpeg[Embedding Geospatial in Hyperspace]
+
+Use of DGGS allows geographic Domains to be embedded as graphs in the Spatial Web UDG which is also a graph space.
+
+=== Spatial embedding of Spatial Web entities
+
+The Spatial Web defines space as hyperspace in order to represent many entity properties using a spatial embedding approach.   Spatial embedding: mathematical methods for representing data in a continuous, multi-dimensional vector space.  Spatial embedding was a key technology to the recent advances in LLM AI, see for example, Distributed Representations of Words and Phrases and their Compositionality, Mikolov, et.al. NIPS-2013
+
+LLMs use spatial embedding for linguistic concepts, encoding words as vectors, also called  Word2Vec.  The Spatial Web uses spatial embedding for the Spatial Web ENTITIES.  One inspiration for this approach is World2Vec.   World2Vec was an internal name for a project led by Yann LeCunn [https://x.com/ylecun/status/1523018860731023361]
+
+Recent research has shown that features in LLM spatial embeddings may have universal applicability.  
+
+"Representing Features in Hyperspace Geography; Extracting Interpretable Features" is a a study by Anthropic [https://transformer-circuits.pub/2024/scaling-monosemanticity/].  They found a diversity of highly abstract features in Claude 3.  Examples of features they found include features for famous people, features for countries and cities. Many features are multilingual (responding to the same concept across languages) and multimodal (responding to the same concept in both text and images),  as well as encompassing both abstract and concrete instantiations of the same idea 
+
+"The Platonic Representation Hypothesis, Huh, et.al. 2024 [https://arxiv.org/pdf/2405.07987], observes that representations in AI models, particularly deep networks, are converging.  Different neural networks representations are becoming more aligned.  Convergence is occurring across modalities: vision models and language.  This convergence is driving toward a shared statistical model of reality, akin to Plato’s concept of an ideal reality. 
+
+=== Indexing Spatial Web graph entities using hyperspace embedding
+
+The UDG KG contains a graph of Spatial Web Entities.  Spatial embedding of the world, e.g., World2Vec, results in generalized features in hypespace.  
+
+Development is needed along the lines of linking UDG KG entities with features in Coordinate Hyperspace.
+
+This ability to go between graph and coordinate domains may provide a basis for semantic interoperabilty.
+
+=== Hyperspace Entity Locators (HELs)
+
+Vector emdedding occurs in a vector space.  Vector spaces are indexed using coordinate systems.  The coordinates are the index. Here a vector may have up to 1024 dimensions.
+
+Geogrpahic space is indexed by Coordinate Reference Systems.  A CRS includes both a Coordinate System (CS) and a Datum.  The CS provides the dimensions and units.  The Datum anchors the abstract CS to the physical world.  Typically a Datum includes a benchmark plate at a specific location to which coordinates are assigned.  The assigned coordinates for that location allow for transformation to a CRS with a different datum.  (See ISO 19111, Referencing by coordinates)
+
+A coordinate set such as latitude and longitude is ambigous unless a datum is specified.  The GPS positioning system led to the most widely used family of datums known as WGS-84.  
+
+By analogy, investigation is needed to determine if Hyperspace Reference System (HRSs) can be defined for hyperspace coordinates systems using for Spatial Web embedding.  CS systems for spatial embedding already exist.  Datums for Spatial Web hyperspace HRSs are needed. The datums most likely will be based on real-world semantics.  Real-world semantic datums may allow for transformation between HRSs based on differing semantic datums.
+
+With HRSs based on semantic datums defined, Hyperspace Entity Locators (HELs) can be defined. Much like URLs locate based on hypertext, HELs would location an ENTITY ased on an HRS.  HELs would locate ENTITIES in hyperspace.
+
+With HRS and HEL defined, the ability to go from the UDG KG to Hyperspace can be done.  ENTITIES in UDG KG would include an HEL to located it in hyperspace.  Thereby providing every KG ENTITY a locating in an HRS; and the locations could be converted between HRSs.
+
+It would be important to define HRS that are useful across many DOMAINS.
+
+=== UDG size estimate
+
+==== Summary Estimate
+How big is the UDG?  Estimates of the UDG size are given below.  Here is a summary:
+
+* UDG is a hypergraph which contains all relationships between all known SWIDs in the Spatial Web.
+* How many SWIDs might there be in the Spatial Web: ~1014
+  * Current large knowledge graphs (Microsoft): is on the order of 10**12 entities
+  * Wikipedia is 6*10**7
+  * Embedding H3 DGGS into UDG that would be 10**14 hexagons
+* Query performance 
+  * H3 grid/hash queries by Databricks
+  * Geographic query bigger than a set of buildings in the US is too big. 2.5*10**8
+
+==== Existing large knowledge graphs	
+
+The UDG is similar to existing, proprietary knowledge graphs.  
+
+<Industry-Scale Knowledge Graphs in ACM Communications 2019>[https://cacm.acm.org/practice/industry-scale-knowledge-graphs/]provides a summary of large existing knowledge graphs.  These knowledge graphs may have grown a handful of orders of magnitude since 2019 when the size of each was:
+
+* Microsoft’s knowledge graph:  ~2 billion primary entities,  2*10**9 entities as of 2019.
+* 2023 estimate of large knowledge graphs 10**12 entities
+
+
+As of September 2025, the contents of <Wikipedia>[https://en.wikipedia.org/wiki/Wikipedia:Size_of_Wikipedia] were:
+
+* English articles 7,063,252 (roughly 7*10**7)
+* Total wiki pages: 64,128,394
+
+
+
+==== Geographic H3 index	
+
+The H3 geospatial indexing system is a discrete global grid system (see Sahr et al., 2003) consisting of a multi-precision hexagonal tiling of the sphere with hierarchical indexes.   H3 was developed to address the challenges of Uber's data science needs. H3 is now open source under the Apache 2 license.
+
+H3 is a hierarchical geospatial index. Hexagonal cells at level 12 have an area of 90 dm2 and there are 5.7*10**14 hexagons
+
+
+==== VERSES estimate of the Spatial Web
+
+* 2.4 trillion objects on the Earth.  2.4*10**12
+* 9.9 sextillion connections on the internet 9.9*10**21
+* 2.9 septillion connections on the spatial web 2.9*10**24
+* Square root of a septillion = ~10**12
+
+
+[[udg_size_estimate]]
+.Estimate of the number of entities in the Spatial Web UDG 
+image::udg_size_estimate.png[Estimate of number of entities in the Spatial Web UDG]

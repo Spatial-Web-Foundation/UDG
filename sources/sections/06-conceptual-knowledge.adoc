@@ -3,14 +3,13 @@
 
 === Knowledge Graphs 
 
+The viewpoint in this clause considers the UDG as a knowledge graph (KG). A KG is a representation of information that uses a graph-structured data model to represent and operate on data. KGs are used for interlinked descriptions of entities, e.g., linked data. 
 
-This viewpoint considers the UDG as a knowledge graph (KG).  The knowledge may be both facts and beliefs.  The primary structure for the concepts in this viewpoint is the Spatial Web Ontology and the corresponding HSML.
-UDG as a conceptual graph for Knowledge representation and reasoning
+The truth of knowledge in the Spatial Web refects the reality of truth in other mediums.  Contradictory statements will exist across the KG.  Knowledge in the Spatial Web will be both statement of fact and probablistic beliefs.  Knowledge will change through a dialectic process of social agents as defined in <<section-conceputal-view-social-network>>.
 
+The Spatial Web Universal Domain Graph (UDG) KG is a graph where the nodes are Spatial Web ENTITIES.  The interlinking for ENTTIES in the UDG is created by: 1. links between ENTITIES or 2. ENTITIES being members of a DOMAIN entity.
 
-[[spatial_web_ontology]]
-.Spatial Web ontology 
-image::spatial_web_ontology.png[ontology showing Spatial Web entities and their relations]
+For data exchange, the Spatial Web HSML standard uses the W3C Resource Description Framework (RDF) suite of standards.  RDF graphs are sets of subject-predicate-object triples, where the elements may be IRIs, blank nodes, datatyped literals, or triple terms. 
 
 The subsequent clauses in this viewpoint
 
@@ -18,12 +17,14 @@ The subsequent clauses in this viewpoint
   * ENTITIES as the basic type for all knowledge in the UDG
   * Discussion of UDG specific types of DOMAINS in the UDG
   * SWIDS as the identifier used in ENTITIES and how SWIDS are used in the UDG KG
+  * Domain Use Case: The Light Bulb Room
 * Graph created using Links and membership
   * Domains membership
   * Links between ENTITIES as used in the UDG KG
   * Dynamic aspects of Graph 
-* Querying the Graph
+* Querying the UDG
   * Conceptual aspects of Queries of the UDG KG
+
 
 
 * UDG Taxonomy based on hsml:hasTopic property
@@ -31,15 +32,7 @@ The subsequent clauses in this viewpoint
 * Relation between UDG KG and UDG Social 
 * Relation between UDG KG and UDG Registries
 
-
-
 include::06-01-domain.adoc[leveloffset=+2]
-
-include::06-06-domain-use-case.adoc[leveloffset=+2]
-
-include::06-07-udg-swids.adoc[leveloffset=+2]
-
-include::06-02-domain-entity-types.adoc[leveloffset=+2]
 
 include::06-03-places.adoc[leveloffset=+2]
 

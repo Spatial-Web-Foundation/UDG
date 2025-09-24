@@ -1,6 +1,22 @@
-= Links
+= UDG created using links and domain membership
 
-== Overview
+
+* Links between ENTITIES 
+* Membership in a DOMAIN
+* Dynamic aspects of Graph 
+
+
+== Links between ENTITIES 
+
+Links in the UDG represent a relationship between ENTITIES.  
+
+Using RDF, a links is a subject-predicate-object triple, where the elements may be IRIs, blank nodes, datatyped literals, or triple terms. 
+
+
+
+
+
+== Links for moving between DOMAINS 
 
 A link is a mechanism for moving both between places or other entities within a domain (local links) and to places or other entities within an external domain (external links).
 
@@ -53,7 +69,7 @@ image::links-game-example.png[example of link between entities]
 
 
 
-== Link Challenges and Keys
+=== Link Challenges and Keys
 
 A link may be associated with a challenge query. This query must be satisfied before the link is activated. Think of this as a lock on the link. The agent must have and apply an associated key for that lock before the agent can traverse the link. This metaphor is so persistent that it is easy to think of the entity containing the relevant link as a portal or door of some sort, though in general it is the link that powers this door.
 
@@ -75,7 +91,7 @@ graph LR
     place2 -->|link to room1| place1
 ```
 
-== Links as Movement
+=== Links as Movement
 
 This topological perspect presents some challenges that help to differentiate a Spatial Web domain from a web page document. The first is that there is no intrinsic "direction" within the Spatial Web, as compared to a document, which has a specific "reading order". To go from one place to another, your agent has to traverse a link.
 
@@ -112,14 +128,15 @@ graph LR
 ```
 The agent's position across the hyperspace of places indicates what state the agent is in, where the agent can be seen as a marker for the current state.
 
-== Specialized Link Properties
+=== Specialized Link Properties
 
 A link can be set to be *__inactive__* and/or *__hidden__*. It's also possible to have *__nested links__*.
 
-=== Inactive Links
+==== Inactive Links
+
 An inactive link is visible, but can't be activated. Inactive links may serve the purpose of being descriptive (in a way similar to an inactive option in a select control in HTML works) or may be a divider.
 
-=== Hidden Links
+==== Hidden Links
 
 __Hidden Links__ are links that cause their containing entity to be invisible until a specific condition is met in the environment (such as the agent finding a magic scroll or having a certain power level).
 
@@ -127,7 +144,7 @@ __Hidden Links__ are links that cause their containing entity to be invisible un
 
 __Nested Links__ are links that point to other links. These are frequently used in menus, but they can also be used for things like double key authentication.
 
-== Programmatic Links
+==== Programmatic Links
 
 Ordinarily a link changes the location of the activating agent to a target SWID. Howevever, if a link does not have a target but does have an activity, then the activity is initiated once the initiating conditions are met, with the agent being passed as an argument.
 
@@ -135,27 +152,7 @@ This is a mechanism by which activation of a link may introduce a change in the 
 
 Such a programmatic link also passes the linking entity. This can, for instance, inactivate the link once the potion is consumed, or make it hidden and inactive (which means that it can be removed from the domain).
 
-== Links and Spatial Web Nodes
-
-Links are one of the few actions that can cross spacial web node boundaries. A SWID is a pointer to both a given entity or domain and its hosting corresponing SW Node. Activating the link initiates a sequence of steps:
-
-* Negotiate a challenge that checks to make sure that the agent can be moved.
-* Identify if the agent has a corresponding swid on the new system. If not, create one.
-* Copy the metadata for that agent in the graph of the new server.
-* Attach the agent to the indicated place within the new domain.
-* Notify the current server that the agent has been successfully replaced.
-* Deactivate the agent on the current node (not remove, just deactivate) if the transfer was successful, otherwise send a note to the actor of the current agent that the link failed.
-
-This is more complex than moving within a given node because the latter simply requires changing pointers.
-
-== Links
-
-
-In this particular case, 
-
-This behavior is not all that different with the spatial web, but such links are more complex as they are more contextual, and as such can be broken down into different types of behaviours. Some of these are given as follows: 
-
-===== Subsystem or Holonic Links
+==== Subsystem or Holonic Links
 
 An internal state link describes the connection between an agent and its subsystem domains. Such links are usually indicated in the interface by some form of common icon or identifier, with a corresponding icon when within the subsystem indicating a link to the super-domain for that agent. As with all links, traversing the link will take you to the subdomain in question, while traversing the inverse link will take you back to the superdomain.
 
@@ -165,7 +162,7 @@ For instance, a given planet domain may have multiple places that represent the 
 
 This points to the fact that most links have two distinct modes - a selection mode that is used to indicate the resource is of interest (bringing up metadata), and an activate mode that causes the shift of the agent from the source to the target link. In a GUI, this may be represented as a single click vs. a double click, but these are implementation specific.
 
-===== Portal Links
+==== Portal Links
 
 Places are agents that represent specific locations rather than people, characters, bots, etc. They are all part of the same domain and generally just handle movement within the domain. A good example of a place to place movement is in the Street View mode of Google maps, where, depending upon your orientation, you will see several icons indicating movement is possible to a different place in the same scope.
 
@@ -177,7 +174,7 @@ Portals may be one, two or multi-sided, and, as with all links, access may be co
 
 Portals can exist between places in different domains, even if those domains aren't nested. For instance, in a conquest game there are natural boundaries and fords that exist between different domains within distinct but affiliated spatial web nodes. In general, each domain will require that the agent have an affiliate key in order to enter into that domain, and the domain manager will be responsible for managing the replication (and disabling) of agents moving from one system to another across SW Node boundaries.
 
-===== Bag Links
+==== Bag Links
 
 One common use case in the spatial web occurs when one agent (say a truck) acts as a transport for another agent (such as a package). The container in this case places the contents onto a Bag Place - part of the container's domain that can be thought of as the "Bag of Holding" for that container. The carrying capacity for that bag can be determined individually for that particular place (it may be by weight, by volume, by insurability, or by some even more exotic measure)
 
@@ -187,7 +184,7 @@ A carryable agent in that case can be "picked up" by the carrier agent and thus 
 
 > It is worth noting here that activation of a bag item _may_ also cause the item to expire, in essence, being removed from the bag upon use. Additionally, a carried item may be transferred to another agent or "dropped" into the current place. That has obvious implications for both supply chain scenarios and e-commerce scenarios, where a specific virtual item is "sold" to another agent, and its use in role playing games should be self-evident.
 
-===== Agent-to-Agent Links and Channels
+==== Agent-to-Agent Links and Channels
 
 A link can also connect two or more agents. Again in its simplest form, such a link can allow for "teleportation" of one agent to the location of the other, but outside of specialized games, this is likely an edge case. However, a much more critical use case is connecting one agent that is in effect a camera (a sensor array) with another agent that is a display or monitor. This will usually be accomplished via a channel (it is arguably whether a link and a channel are related, though there is some overlap). 
 
@@ -195,7 +192,7 @@ One particular mechanism that may be worth thinking about in agent-to-agent comm
 
 This could also be used to monitor the value of a given set of properties such as position, temperature, funds, or emotional state. Since in many cases, these values may be computed rather than intrinsic, this provides a light-weight mechanism for determining relevant state without needing to know the internal mechanisms for that agent.
 
-===== Button or Selector Links
+==== Button or Selector Links
 
 If no Activation handler is specified for the link, then the activity will be dependent upon the type of agent doing (and receiving the invocation). However, if an activation handler is available as part of the activations for that link, then the presented handler will be invoked first, and the option to propagate the event to its default afterwards can be controlled by the handler. These are called button or selector links, and in essence they represent a significant component in the form interface for the given entity.
 

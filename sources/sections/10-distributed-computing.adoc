@@ -1,0 +1,38 @@
+[[section-distributed-computing]]
+== UDG Distributed Computing
+
+=== Overview
+
+Computing Continuum and Spatial Web Nodes. 
+Overall architecture of the spatial web node system, which involves both communication across HSTP protocols (query/response) as well as joining nodes together to create ad-hoc super nodes (i.e., spatial web federation).
+Structure of the Spatial Web Node, including the primary hstp.d and hsml.d daemons, the domain graph, a credential graph, and a schema graph.
+Bridging HSTP and UDG scopes (handled through hstp.d and hsml.d respectively)
+Managing internal local hstp.d clocks (repeating internal events) to manage query and updates against live resources.
+Place, Person, Thing and SW Node registry for commonly referenced entities (the Spatial Web registry)
+	
+[[computing_continuum]]
+.Distributed computing continuum
+image::computing_continuum.png[Distributed computing continuum]
+
+
+=== Moving a DOMAIN between UDG Nodes
+
+Links are one of the few actions that can cross spacial web node boundaries.  Activating the link initiates a sequence of steps:
+
+* Negotiate a challenge that checks to make sure that the agent can be moved.
+* Identify if the agent has a corresponding swid on the new system. If not, create one.
+* Copy the metadata for that agent in the graph of the new server.
+* Attach the agent to the indicated place within the new domain.
+* Notify the current server that the agent has been successfully replaced.
+* Deactivate the agent on the current node (not remove, just deactivate) if the transfer was successful, otherwise send a note to the actor of the current agent that the link failed.
+
+This is more complex than moving within a given node because the latter simply requires changing pointers.
+
+
+include::10-01-design-spatial-web-node.adoc[leveloffset=+2]
+
+include::10-02-node-registries.adoc[leveloffset=+2]
+
+include::10-03-udg-and-hstp.adoc[leveloffset=+2]
+
+include::10-04-use-cases.adoc[leveloffset=+2]

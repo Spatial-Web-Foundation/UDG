@@ -1,5 +1,8 @@
 = Places
 
+> __Editor's Note__: This clause on Places is being reviewed and may be deleted
+
+
 == General
 
 In the Spatial Web, places, not surprisingly have the position of prominance. It is defined as follows:
@@ -48,48 +51,54 @@ A place can also be defined in terms of an array of such tiling indices. These c
 
 In this particular map, the specific boundaries or definitions as geometries are less important than the underlying topology of the map (shown here specifically for North America)
 
-```mermaid
-graph TD
 
-    subgraph North America
-        Alaska(Alaska)
-        NWTerritory(NW Territory)
-        Greenland(Greenland)
-        Alberta(Alberta)
-        Ontario(Ontario)
-        Quebec(Quebec)
-        WesternUS(Western US)
-        EasternUS(Eastern US)
-        CentralAmerica(Central America)
 
-        Alaska --- NWTerritory
-        Alaska --- Alberta
-        Alaska --- Kamchatka_Asia
+[[map_north_america]]
+.Map of North America as a graph
+image::north-america.png[Map of North America as a graph]
 
-        NWTerritory --- Greenland
-        NWTerritory --- Alberta
-        NWTerritory --- Ontario
-
-        Greenland --- Ontario
-        Greenland --- Quebec
-        Greenland --- Iceland_Europe
-
-        Alberta --- Ontario
-        Alberta --- WesternUS
-
-        Ontario --- Quebec
-        Ontario --- EasternUS
-        Ontario --- WesternUS
-
-        WesternUS --- EasternUS
-        WesternUS --- CentralAmerica
-
-        EasternUS --- CentralAmerica
-
-        CentralAmerica --- Venezuela_SA
-    end
-
-```
+// ```mermaid
+// graph TD
+// 
+//     subgraph North America
+//         Alaska(Alaska)
+//         NWTerritory(NW Territory)
+//         Greenland(Greenland)
+//         Alberta(Alberta)
+//         Ontario(Ontario)
+//         Quebec(Quebec)
+//         WesternUS(Western US)
+//         EasternUS(Eastern US)
+//         CentralAmerica(Central America)
+// 
+//         Alaska --- NWTerritory
+//         Alaska --- Alberta
+//         Alaska --- Kamchatka_Asia
+// 
+//         NWTerritory --- Greenland
+//         NWTerritory --- Alberta
+//         NWTerritory --- Ontario
+// 
+//         Greenland --- Ontario
+//         Greenland --- Quebec
+//         Greenland --- Iceland_Europe
+// 
+//         Alberta --- Ontario
+//         Alberta --- WesternUS
+// 
+//         Ontario --- Quebec
+//         Ontario --- EasternUS
+//         Ontario --- WesternUS
+// 
+//         WesternUS --- EasternUS
+//         WesternUS --- CentralAmerica
+// 
+//         EasternUS --- CentralAmerica
+// 
+//         CentralAmerica --- Venezuela_SA
+//     end
+// 
+// ```
 
 This notion of identifying the places within a domain is useful in a number of ways because it forces thinking in terms of topology, rather than geography. There are ways of specifying the extents of particular place entities from a rendering standpoint (typically as sheets of polygons) but in most domains, dealing with the conceptual representation of a place is often far more important than dealing with a precise geographical distribution.
 

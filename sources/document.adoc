@@ -62,11 +62,13 @@ include::sections/05-enterprise-view.adoc[]
 
 include::sections/06-conceptual-knowledge.adoc[]
 
-include::sections/07-conceptual-social.adoc[]
+include::sections/07-conceputal-hyperspace.adoc[]
 
 include::sections/08-conceptual-registry.adoc[]
 
-include::sections/09-distributed-computing.adoc[]
+include::sections/09-conceptual-social.adoc[]
+
+include::sections/10-distributed-computing.adoc[]
 
 include::sections/annex-bibliography.adoc[]
 

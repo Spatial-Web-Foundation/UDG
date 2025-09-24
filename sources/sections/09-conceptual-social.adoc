@@ -44,4 +44,8 @@ altenate designs
 polycentric governance shall promote exploration and engagement
 
 
-UDG_Node_Design.png
+=== Social idea change
+
+[[exploration-engagement-networks]]
+.Variation of network structure for exploration vs engagement (Source: Pentland)
+image::exploration-engagement-networks.png[Variation of network structure for exploration vs engagement]
