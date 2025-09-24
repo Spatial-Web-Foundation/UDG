@@ -36,7 +36,7 @@ include::06-01-domain.adoc[leveloffset=+2]
 
 include::06-03-places.adoc[leveloffset=+2]
 
-include::06-04-links.adoc[leveloffset=+2]
+include::06-04-links-membership.adoc[leveloffset=+2]
 
 include::06-05-sensors.adoc[leveloffset=+2]
 
