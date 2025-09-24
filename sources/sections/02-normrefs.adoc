@@ -2,16 +2,7 @@
 [bibliography]
 == Normative references
 
-* [[[IEC_SRD_63188_2022,IEC SRD 63188]]]
-* [[[IEEE_2413_2019,IEEE Std 2413]]]
-* [[[IEEE_7007_2021,IEEE Std 7007-2021]]]
-* [[[ISO_19125-1_2004,ISO 19125-1]]]
-* [[[ISO_IEC_20802_1_2016,(ISO/IEC 20802-1 footnote:[ISO publications are available from the International Organization for Standardization (https://www.iso.org/) and the American National Standards Institute (https://www.ansi.org/).] footnote:[IEC publications are available from the International Electrotechnical Commission (https://www.iec.ch) and the American National Standards Institute (https://www.ansi.org/).])ISO/IEC 20802-1]]]
-* [[[ISO_IEC_20802_2_2016,ISO/IEC 20802-2]]]
-* [[[http2_rfc,IETF RFC 9113]]]
-* [[[mqtt_v5, (OASIS mqtt-v5.0 footnote:[OASIS publications are available from the Organization for the Organization for the Advancement of Structured Information Standards (http://www.oasis-open.org).])mqtt-v5.0]]]
-* [[[ogc_geopose,OGC 21-056r11]]], OGC GeoPose 1.0 Data Exchange Standard
-* [[[w3c_json_ld,W3C json-ld11]]], A JSON-based Serialization for Linked Data
+* [[[IEEE_2874_2025,IEEE Std 2874]]]
 
 * [[[h3geo,1]]],
 span:organization[Uber Technologies, Inc.]

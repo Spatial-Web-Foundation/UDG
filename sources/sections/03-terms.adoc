@@ -3,100 +3,139 @@
 
 === Definitions
 
-==== ACTIVITY
+==== distributed computing
 
-A partially ordered set of changes effected by an AGENT.
-
-[type=license]
-NOTE: Notes in text, tables, and figures of a standard are given for information only and do not contain requirements needed to implement this standard.
-
-NOTE: Attributes of an ACTIVITY can be represented using HYPERSPACE Entities.
-
-NOTE: An ACTIVITY can be near-instantaneous or temporally extended and exists as either planned, ongoing, failed, or completed.
-
-NOTE: ACTIVITIES are performed on, by, in, or with, DOMAINS, including other AGENTS.
-
-
-==== AGENT
-
-An ENTITY that senses, responds, and maintains a model of its environment, while performing ACTIVITIES to achieve its goals.
-
-NOTE: AGENT is a type of DOMAIN.
-
-==== artificial intelligence
-
-preferred:[AI]
-
-The capacity of computers or other machines to exhibit or simulate intelligent behavior.
+Model of computing in which a set of nodes coordinates its activities by means of digital messages passed between the nodes.
 
 [.source]
-<<IEEE_7010_2020>>
+<<ISO_IEC_23188_2020,clause=3.1.1>>
 
 
-==== cloud computing
+==== DOMAIN
 
-Paradigm for enabling network access to a scalable and elastic-pool of shareable physical or virtual resources with self-service provisioning and administration on-demand.
+Sphere of knowledge, influence, or ACTIVITY.
 
-[type=license]
-NOTE: (C)ISO. This material is from ISO/IEC 22123-1:2023 with permission of the American National Standards Institute (ANSI) on behalf of the International Organization for Standardization. All rights reserved.
+related:seealso[ENTITY]
+
+==== domain authority
+
+An ENTITY that is CREDENTIALED to have the ability to define within a DOMAIN the norms and terms under which CONTRACTS are created governing: AGENTS, ACTIVITIES and CREDENTIALS within that DOMAIN.
+
+
+==== HYPERSPACE
+
+preferred:[SPACE]
+
+A set of 'points' such that, for every ordered pair of points, there is a possibly empty set of 'paths' from the first point to the second, and such that there is an 'identity' path from every point to itself.
+
+
+==== representation
+
+Model that can be used to describe some aspect of a world.
+
+NOTE: Representations can be passive or active. A passive representation reflects a possible state of affairs, typically the state of some spatiotemporally local slice of an AGENT'S environment, while an active representation changes the state of a system to conform to the representation.
+
+NOTE: Representation can be probabilistic (e.g., a conditional probability distribution or Bayesian belief) and pertain to either states of the world generating data or content, at a particular moment in time, or contingencies and dynamics that could depend upon the actions of a user.
+
+
+==== Spatial Web Domain Server
+
+Networked server that provides location-based identification of HYPERSPACE assets and ownership information to Spatial Web Domains.
+
+/NOTE: A Spatial Web Domain Server handles spatial content retrieval and spatial transaction validation, whereby the rules for particular areas can be described as spatial permissions in their associated assets.
+
+==== ENTITY
+
+that which is perceived, known, or inferred to exist, has existed, or is anticipated to exist.
+
+[example]
+An event, idea, object, person, process, etc.
+
+NOTE: An ENTITY can exist whether data about it are available or not.
+
+NOTE: ENTITY is the base item in the Spatial Web Ontology. <<section-hsml-conceptual-model>>
+
+
+==== geographic coordinate reference system
+Coordinate reference system that has a geodetic reference frame and an ellipsoidal coordinate system. 
 
 [.source]
-<<ISO_IEC_22123_1_2023,clause=3.1.1>>, Notes to entry have been removed.
+<<ISO_19111_2019,clause=3.1.35>>
 
-==== commons
-The resources of a community that are or ought to be collectively held, managed, shared and made accessible to all members of that community, thus balancing individual needs with sustainability and preservation.
 
-NOTE: Commons encapsulates the concepts of collective stewardship and mutual responsibility, where the community members have both the right to benefit from the resources and the duty to maintain them.
+==== graph space
 
-NOTE: Based on concepts from <<mcginnis_dp_for_glo_comm>>.
+A set of nodes and edges such that every edge has both a source node and a target node.
 
-related:seealso[global commons]
+NOTE: Graph space is a type of HYPERSPACE.
 
-==== cooperation
-The process of working or acting together for common interests and values based on agreement.
+==== HYPERSPACE
 
-NOTE: The organizations agree by contract or by other arrangements to contribute with their resources to the incident response but keep independence concerning their internal hierarchical structure.
+preferred:[SPACE]
 
-[type=license]
-NOTE: (C)ISO. This material is from ISO 22300:2021 with permission of the American National Standards Institute (ANSI) on behalf of the International Organization for Standardization. All rights reserved.
+A set of 'points' such that, for every ordered pair of points, there is a possibly empty set of 'paths' from the first point to the second, and such that there is an 'identity' path from every point to itself.
 
-[.source]
-<<ISO_22300_2021,clause=3.1.52>>
-
-==== decentralized identifier
+==== Hyperspace Modelling Language
 
 [%metadata]
 abbreviation-type:: initialism
 
-preferred:[DID]
+preferred:[HSML]
 
-Identifier in the format of the W3C Decentralized Identifier.
+A human- and machine-readable modeling language and semantic data ontology schema that describes objects, relations, actions, activities and their permissions.
 
-[type=license]
-NOTE: Information on references can be found in Clause 2.
+NOTE: Uses of HSML include the expression and automated execution of legal, financial, and physical activities.
 
-NOTE: Adapted from <<w3c_did>>.
+==== Hyperspace Transaction Protocol
 
+[%metadata]
+abbreviation-type:: initialism
 
-==== global commons
-Global level {{commons}} that are shared by humanity.
+preferred:[HSTP]
 
-[example] The atmosphere and climate system, biodiversity, critical biomes, and the Internet are examples of global commons.
+Generic protocol designed to underwrite automated contracting transactions that are required for building a coherent, decentralized, secure, and privacy-respecting {{Spatial Web}}.
 
-NOTE: Based on concepts from <<mcginnis_dp_for_glo_comm>>.
+==== register
+Set of files containing identifiers assigned to items with descriptions of the associated items
 
-related:seealso[commons]
+[.source]
+<<ISO_19135_1_2015,clause=4.1.9>>
 
+==== universal domain graph
+preferred:[UDG]
 
-==== SW Node: a computing node 
+A distributed hypergraph which contains all relationships between all known {{SWID,SWIDs}} in the Spatial Web. 
 
-==== SW Entity
+NOTE:  The universal domain graph is the complete {{Spatial Web,Spatial Web}} hypergraph.
 
-==== UDG entity graph: all instances of SW entities and connections represented in hsml
+==== distributed universal domain graph system
+preferred:[distributed UDG system]
 
-==== UDG node graph: all SW Nodes and connections using hstp
+The set of coordinated Spatial Web Nodes that provide services on the distributed UDG.
 
-==== UDG Node: a type of SW Node
+==== UDG entity graph 
+
+all instances of SW entities and connections represented in HSML
+
+==== UDG node graph: 
+
+all distributed computing SW Nodes and connections using HSTP
+
+==== UDG Node 
+
+a type of distributed computing Spatial Web Node that performs UDG functions
+
+Compare with Spatial Web Domain Server
+
+==== Spatial Web Node
+
+Computing machine connected to the internet, capable of exchanging HSTP messages. 
+
+==== vector space
+Type of space composed of {{dimension,dimensions}} where each {{dimension}} is the set of real numbers.
+
+NOTE: Vector space is a type of {{HYPERSPACE}}, and {{Euclidean space}} is a type of vector space.
+
 
 === Acronyms and abbreviations
 
