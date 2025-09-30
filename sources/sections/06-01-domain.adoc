@@ -1,67 +1,131 @@
+[[domains]]
 = DOMAINS as the primary ENTITY in the UDG
 
-  * ENTITIES as the basic type for all knowledge in the UDG
-  * Discussion of UDG specific types of DOMAINS in the UDG
-  * SWIDS as the identifier used in ENTITIES and how SWIDS are used in the UDG KG
-  * Domain Use Case: The Light Bulb Room
+* ENTITIES as the basic type for all knowledge in the UDG
+* Discussion of UDG specific types of DOMAINS in the UDG
+* SWIDS as the identifier used in ENTITIES and how SWIDS are used in the UDG KG
+* Domain Use Case: The Light Bulb Room
 
 == ENTITIES as the basic type for all knowledge in the UDG
-  
 
-The primary structure for the concepts in this viewpoint is the Spatial Web Ontology and the corresponding HSML.
+The primary structure for the concepts in this viewpoint is the Spatial Web
+Ontology and the corresponding HSML.
+
 UDG as a conceptual graph for Knowledge representation and reasoning
 
 
 [[spatial_web_ontology]]
-.Spatial Web ontology 
+.Spatial Web ontology
 image::spatial_web_ontology.png[ontology showing Spatial Web entities and their relations]
 
 == Definition of a DOMAIN
 
-A DOMAIN is the fundamental class within the UDG for describing the various things, agents, and places that make up the Spatial Web. Every structure, building, planet, character (agent), animal, mystical alien pyramid or similar construct, is ultimately a DOMAIN, and is addressable within the context of the spatial web.
+A DOMAIN is the fundamental class within the UDG for describing the various
+things, agents, and places that make up the Spatial Web. Every structure,
+building, planet, character (agent), animal, mystical alien pyramid or similar
+construct, is ultimately a DOMAIN, and is addressable within the context of the
+spatial web.
 
-A DOMAIN  can be thought of as an area of concern in which things happen. While this may (and most likely will) be a physical construct, it doesn't necessarily have to be.
+A DOMAIN  can be thought of as an area of concern in which things happen. While
+this may (and most likely will) be a physical construct, it doesn't necessarily
+have to be.
 
-A DOMAIN is an ENTITY that may identify the context for an ACTIVITY for or by an AGENT at a specific place acting upon various things within that DOMAIN. Everything that happens within the UDG happens within a DOMAIN.
+A DOMAIN is an ENTITY that may identify the context for an ACTIVITY for or by an
+AGENT at a specific place acting upon various things within that DOMAIN.
+Everything that happens within the UDG happens within a DOMAIN.
 
-A DOMAIN can be a Spatial Web representation of a thing. Internally this DOMAIN is represented as a graph of information that describes its identifier, changing in response to changes in its environment (the domain graph in which it resides, which is composed of the graphs of other entities in that system).
+A DOMAIN can be a Spatial Web representation of a thing. Internally this DOMAIN
+is represented as a graph of information that describes its identifier, changing
+in response to changes in its environment (the domain graph in which it resides,
+which is composed of the graphs of other entities in that system).
 
-There are a specific set of attributes which are required for the DOMAIN. Specifically, a DOMAIN must have:
+There are a specific set of attributes which are required for the DOMAIN.
+Specifically, a DOMAIN must have:
 
-* a Spatial Web Identifier or SWID, a form of decentralized identifier that can be used to identify the domain uniquely within the Spatial Web.
-* A DOMAON Type, which indicates the particular role that the domain plays. This identifies how the domain is classified within the Spatial Web. Note that a DOMAIN can be defined by multiple different ontologies, but it _must_ have the domain type.
+* a Spatial Web Identifier or SWID, a form of decentralized identifier that can
+be used to identify the domain uniquely within the Spatial Web.
+
+* A DOMAIN Type, which indicates the particular role that the domain plays. This
+identifies how the domain is classified within the Spatial Web. Note that a
+DOMAIN can be defined by multiple different ontologies, but it _must_ have the
+domain type.
 
 A DOMAIN may have other other attributes, but these are not required:
 
-* A __location__, which identifies the entity's position in a state space (or __hyperspace__), relative to either the containing domain, or to an externally defined domain. If a domain exists solely as a vehicle for containment, then location is not specifically required, though it often contains additional state information that is not strictly speaking positional.
-* Zero or more __activities__, which provides the operational instructions for the entity in question. The structure of the activity is language independent and declarative.
-* Zero or more __style__ resources, which provides a mechanism for rendering the entity with different content types. _Please note, this has not been formally proposed yet, and may be removed_.
-* Zero or one __link__ references to an external domain. Some entities provide a link that can be activated through certain interfaces or affordances. This is a simple link, meaning it changes the context (domain) of the agent initiating the link without specific constraints, which is analogous to an HTTP standard hyperlink. More information about links will be covered in the subsection [Links](#links).
+* A __location__, which identifies the entity's position in a state space (or
+__hyperspace__), relative to either the containing domain, or to an externally
+defined domain. If a domain exists solely as a vehicle for containment, then
+location is not specifically required, though it often contains additional state
+information that is not strictly speaking positional.
+
+* Zero or more __activities__, which provides the operational instructions for
+the entity in question. The structure of the activity is language independent
+and declarative.
+
+* Zero or more __style__ resources, which provides a mechanism for rendering the
+entity with different content types. _Please note, this has not been formally
+proposed yet, and may be removed_.
+
+* Zero or one __link__ references to an external domain. Some entities provide a
+link that can be activated through certain interfaces or affordances. This is a
+simple link, meaning it changes the context (domain) of the agent initiating the
+link without specific constraints, which is analogous to an HTTP standard
+hyperlink. More information about links will be covered in the subsection
+<<links,Links>>.
 
 
-= DOMAIN Types
+== DOMAIN types
 
-A DOMAIN type is a specialization of an entity that incorporates additional capabilities. Within the Spatial Web, these extensions are defined using the Shape Constraint Language (SHACL), as a generalized schema language, with the mechanism for such extension covered in the section [Domain Entity Type Extensions](domain-entity-types.md), with link TBD.
+A DOMAIN type is a specialization of an entity that incorporates additional
+capabilities. Within the Spatial Web, these extensions are defined using the
+Shape Constraint Language (SHACL), as a generalized schema language, with the
+mechanism for such extension covered in <<domain-entity-type>>.
 
-Currently several DOMAIN types are defined: Place, Link, Domain, Sensor, Thing, Agent, and Assemblages, with others derivable from these. These are differentiated as follows:
+Currently several DOMAIN types are defined: Place, Link, Domain, Sensor, Thing,
+Agent, and Assemblages, with others derivable from these.
 
-* A __place__ is defined roughly as a specific addressable location within a domain. Places define where an entity can be, and where they can't. Cf [Places](places.md) for more information.
+These are differentiated as follows:
 
-* A __link__ is a mechanism for navigating between both places (internal links) and domains (external links). It is the analog of a hypertext link in the HTTP world.Cf. [Links](links.md) for more information.
+* A __place__ is defined roughly as a specific addressable location within a
+domain. Places define where an entity can be, and where they can't. Cf
+<<places,Places>> for more information.
 
-* A __domain__ is a system of concern, and is effectively the partition of a given universe into a navigable area. Domains are where things happen. Cf [Domains](domains.md).
+* A __link__ is a mechanism for navigating between both places (internal links)
+and domains (external links). It is the analog of a hypertext link in the HTTP
+world.Cf. <<links,Links>> for more information.
 
-* A __sensor__ is an abstraction of a camera, recording device, eyeball, etc. Its purpose is to provide a reference point of view for an entity within a domain (or of the domain itself).  Cf. [Sensors](sensors.md) for more information.
+* A __domain__ is a system of concern, and is effectively the partition of a
+given universe into a navigable area. Domains are where things happen. Cf
+<<domains,Domains>>.
 
-* A __thing__ is defined as an entity that is directed by the system (the local spatial web daemon). Not that directed here means simply that it provides the motivating influence on the thing, not that it determines a things exact behaviors. In effect, both things and agents are "semi-autonomous" in that they have some (perhaps minimal) self-control, but they respond to outside influences. Things can be considered non-player characters, but they can also be structures, vehicles, animals, portals, and so forth. Cf. [Things](#things) for more details.
+* A __sensor__ is an abstraction of a camera, recording device, eyeball, etc.
+Its purpose is to provide a reference point of view for an entity within a
+domain (or of the domain itself).  Cf. <<sensors,Sensors>> for more
+information.
 
-* An __agent__ is defined as an entity that is directable by an outside (out of system) actor. Agents generally act as the eyes, ears, hands, and feet of the actor. It corresponds roughly to a character in a novel, play, or game, but in a more generalized fashion. Cf. [Agents](#agents) for more details.
+* A __thing__ is defined as an entity that is directed by the system (the local
+spatial web daemon). Not that directed here means simply that it provides the
+motivating influence on the thing, not that it determines a things exact
+behaviors. In effect, both things and agents are "semi-autonomous" in that they
+have some (perhaps minimal) self-control, but they respond to outside
+influences. Things can be considered non-player characters, but they can also be
+structures, vehicles, animals, portals, and so forth. Cf. link:#things[Things]
+for more details.
 
-* An __assemblage__ is an aggregate structure of things, places, and agents. It is intended to model corporations, institutions, governments, and so forth, but it can also model physical or other composite structures.  Cf. [Assemblages](#assemblages) for more information.
+* An __agent__ is defined as an entity that is directable by an outside (out of
+system) actor. Agents generally act as the eyes, ears, hands, and feet of the
+actor. It corresponds roughly to a character in a novel, play, or game, but in a
+more generalized fashion. Cf. <<agents,Agents>> for more details.
+
+* An __assemblage__ is an aggregate structure of things, places, and agents. It
+is intended to model corporations, institutions, governments, and so forth, but
+it can also model physical or other composite structures.  Cf.
+link:#assemblages[Assemblages] for more information.
 
 == DOMAIN modeling checklist
 
-A DOMAIN is a system. The DOMAIN provides the answers to a number of key questions about the system in question.
+A DOMAIN is a system. The DOMAIN provides the answers to a number of key
+questions about the system in question.
 
 * __Where?__. Where (what place) does the action within the system take place?
 * __How Is Space Defined?__ What are the relevant places of relevance within the system (it's hyperspace).
@@ -75,54 +139,112 @@ A DOMAIN is a system. The DOMAIN provides the answers to a number of key questio
 * __Why?__. What are the goals or purposes of the domain, and what happens when those goals are achieved?
 
 
-DOMAONS exist within hyperspace including time. DOMAONS usually have a specific start time (or other condition) and end time (or other condition).
+DOMAINS exist within hyperspace including time. DOMAINS usually have a specific
+start time (or other condition) and end time (or other condition).
 
-In general, a domain has a schematic representation that can be extended from a core domain type. This identifies the relevant state variables and properties for the domains beyond the properties of the Domain base class. Domains are entities in that they have swids, but they are in effect system (or holonic) entities.
+In general, a domain has a schematic representation that can be extended from a
+core domain type. This identifies the relevant state variables and properties
+for the domains beyond the properties of the Domain base class. Domains are
+entities in that they have swids, but they are in effect system (or holonic)
+entities.
 
 
 == Domain as a map
 
-A DOMAON is a model. It provides context for the things within the model, and also describes a purpose for that model. It is, in a very real sense, a __map__, albeit one that is self-aware and changes dynamically over time, though the question about what a domain is a map ___of___ is something that is dependent upon the author or model maker.
+A DOMAIN is a model. It provides context for the things within the model, and
+also describes a purpose for that model. It is, in a very real sense, a __map__,
+albeit one that is self-aware and changes dynamically over time, though the
+question about what a domain is a map ___of___ is something that is dependent
+upon the author or model maker.
 
-Something that is central to the spatial web is that it is __not__ necessarily a reflection of reality. As with any map, a domain is an abstraction of a (typically physical) space and the entities that evolve within that space over time. For instance, one can create a domain showing the London subway system:
+Something that is central to the spatial web is that it is __not__ necessarily a
+reflection of reality. As with any map, a domain is an abstraction of a
+(typically physical) space and the entities that evolve within that space over
+time. For instance, one can create a domain showing the London subway system:
 
-![London Subway System 2025](images/_116112246_064832377.jpg.webp)
+image::_116112246_064832377.jpg[London Subway System 2025]
 
-The domain can even be seen as a representation showing where the individual trains are  within that subway system (to a close approximation). Note that such a map is not necessarily spatially correct - it shows routes and stations, but these are not positionally correct. In this case, what you are looking at is a topological construct, simplified to show what is relevant, not necessarily what is a detailed reflection of the subway on (or in this case under) the ground.
+The domain can even be seen as a representation showing where the individual
+trains are within that subway system (to a close approximation). Note that such
+a map is not necessarily spatially correct - it shows routes and stations, but
+these are not positionally correct. In this case, what you are looking at is a
+topological construct, simplified to show what is relevant, not necessarily what
+is a detailed reflection of the subway on (or in this case under) the ground.
 
-To that end, designing a domain typically comes down to answering a number of questions:
+To that end, designing a domain typically comes down to answering a number of
+questions:
 
-* __What is this a map of?__ Most maps show things of significance within a given context. Why is the map being created? what is it's purpose? Just as a document exists in the world wide web to inform, entertain, record, and persuade, a domain exists in the spatial web for much the same thing. 
+* __What is this a map of?__ Most maps show things of significance within a given context. Why is the map being created? what is it's purpose? Just as a document exists in the world wide web to inform, entertain, record, and persuade, a domain exists in the spatial web for much the same thing.
 * __Does the map change over time?__ Until recently, all maps were effectively just snapshots in time, and it has only been comparatively recently that we could create maps that capture evolution of a system over time.
 * __Does the map reflect changes in the real world?__ This is a more subtle question, but an important one. Is there some form of feedback between a physical array of sensors and cameras that drive the evolution of the model, or is the driving factor in the map some form of algorithm or AI (a simulation).
 * __Can changes to the map cause changes in the real world?__ Put another way, if a user of the map indicates a change be made to some entity within that map, will that change be reflected in the real world system that the map is a reflection of? Is it interactive?
 * __Is the map participatory?__ Are there other agents that can change the state of the map (whether it reflects physical reality or not) and how do they interact with that map? How are changes in the map expressed back to the user.
 * __Is the map linked to other maps?__ Does the map describe a comprehensive system, or is it possible to change to a different map based upon linking, tiling or similar system?
 * __Does the map have multiple levels of detail (LOD)?__ Can you zoom in on an area to get more detail? Do you need to provide metadata (text and image content)? Is it dynamic?
-* __Does the map have persistance?__ When an agent enters the map, will that map reflect changes made to it by others (an environment), or are changes lost between sessions (typical of tours)? 
-* __Who or what is the intended audience of the map?__ Is this used primarily by humans or by automated systems? 
+* __Does the map have persistance?__ When an agent enters the map, will that map reflect changes made to it by others (an environment), or are changes lost between sessions (typical of tours)?
+* __Who or what is the intended audience of the map?__ Is this used primarily by humans or by automated systems?
 
-The role of the Spatial Web system is to deliver these different kinds of maps, to make them integrated and useful across a wide variety of applications. Just as the world wide web exploded the concept of a library - a collection of documents - into a world-wide phenomenon, so too does the creation of domains enable the same thing for maps as a way of perceiving and understanding the worlds, both real and imagined, around us.
+The role of the Spatial Web system is to deliver these different kinds of maps,
+to make them integrated and useful across a wide variety of applications. Just
+as the world wide web exploded the concept of a library - a collection of
+documents - into a world-wide phenomenon, so too does the creation of domains
+enable the same thing for maps as a way of perceiving and understanding the
+worlds, both real and imagined, around us.
 
+[[agents]]
 == Agents Are Not Domains, They Have Domains
 
-One of the long-standing debates within the spatial web working group has been the distinction between a domain and an agent, what is frequently referred to as the holonic paradox. A smart city, for instance, is both a domain (a context in which agents interoperate) and an agent (a thing that has changeable state but can be treated as a distinct entity). 
+One of the long-standing debates within the spatial web working group has been
+the distinction between a domain and an agent, what is frequently referred to as
+the holonic paradox. A smart city, for instance, is both a domain (a context in
+which agents interoperate) and an agent (a thing that has changeable state but
+can be treated as a distinct entity).
 
-Ultimately, this distinction can be thought of as a distinction between __external state__ - the state of an entity as perceived by the environment - vs. __internal state__, which is the state of the components that make up that thing relative to one another.
+Ultimately, this distinction can be thought of as a distinction between
+__external state__ - the state of an entity as perceived by the environment -
+vs. __internal state__, which is the state of the components that make up that
+thing relative to one another.
 
-_For purposes of modeling_, all entities have external (extrinsic or percieved) state, however, not all entities necessarily have internal (or intrinsic) state, _within the model_. 
+_For purposes of modeling_, all entities have external (extrinsic or perceived) state, however, not all entities necessarily have internal (or intrinsic) state, _within the model_.
 
-> The physical world does not, of course, have such a natural division; the viscera of a person, for instance, is still in the same "reality" as the outer form of that person, and that reality extends from the largest scales of the universe to the smallest quarks. However, the virtual world does not have that same constraint, and as such it is usually preferable to create holistically contained models that handle relevant aspects of the system in question.
+[quote]
+____
+The physical world does not, of course, have such a natural division; the
+viscera of a person, for instance, is still in the same "reality" as the outer
+form of that person, and that reality extends from the largest scales of the
+universe to the smallest quarks. However, the virtual world does not have that
+same constraint, and as such it is usually preferable to create holistically
+contained models that handle relevant aspects of the system in question.
+____
 
-What this means in practice is simple. All domains are effectively bound to agents as the "inside" of some thing is still connected to that thing. If you were to create an internal model of yourself, that domain's interactions would likely have some reflection in your external state. The boundary between external state and internal state is an interface. If you have a stomach ache, your expression (one aspect of that interface) will be sour and pained.
+What this means in practice is simple. All domains are effectively bound to
+agents as the "inside" of some thing is still connected to that thing. If you
+were to create an internal model of yourself, that domain's interactions would
+likely have some reflection in your external state. The boundary between
+external state and internal state is an interface. If you have a stomach ache,
+your expression (one aspect of that interface) will be sour and pained.
 
-By this same reasoning, in the spatial web, the distinction between the domain where an entity is an agent and the domain representing the internal state of that entity is a form of link. If I have a special scanner that shows your insides, what you are seeing is a ___map___ of the "insides" domain through that link. 
+By this same reasoning, in the spatial web, the distinction between the domain
+where an entity is an agent and the domain representing the internal state of
+that entity is a form of link. If I have a special scanner that shows your
+insides, what you are seeing is a ___map___ of the "insides" domain through that
+link.
 
-> Note again that this is different from reality. An MRI uses a magnetic field sensor coupled with strong magnets to generate and interpret the internals of a person, but an endoscopy actually creates an agent (the camera end of a fiber optic cable) that invades that domain. In the virtual world, on the other hand, the camera becomes a part of the internal domain but acts as an interface to create a map or view of the internal domain to display within the context of the external domain.
+[quote]
+____
+Note again that this is different from reality. An MRI uses a magnetic field
+sensor coupled with strong magnets to generate and interpret the internals of a
+person, but an endoscopy actually creates an agent (the camera end of a fiber
+optic cable) that invades that domain. In the virtual world, on the other hand,
+the camera becomes a part of the internal domain but acts as an interface to
+create a map or view of the internal domain to display within the context of the
+external domain.
+____
 
 This relationship can be seen as follows:
 
-```mermaid
+[source,mermaid]
+----
 graph LR
 
     baseAgent[<b>Agent</b><br>Base Agent]
@@ -132,32 +254,68 @@ graph LR
        proxyDomain -->|has Agent| childAgent
     end
     baseAgent -->|has Domain| agentDomain
-```
+----
 
-In this case, the agent has a property called `hsml:hasDomain`. This points to a named graph, with the name being the IRI for the agent's domain. Within the named graph, there exists a proxy domain (probably a blank node), that acts as the representative of the base agent within the subordinated domain graph.
+In this case, the agent has a property called `hsml:hasDomain`. This points to a
+named graph, with the name being the IRI for the agent's domain. Within the
+named graph, there exists a proxy domain (probably a blank node), that acts as
+the representative of the base agent within the subordinated domain graph.
 
-The named graph represents a ___Markov Boundary___. 
+The named graph represents a ___Markov Boundary___.
 
-One final point before digging into links. In theory, an agent can have multiple domains that represent different aspects or systems for that agent. So long as the domains are completely independent, this is an effective strategy, but if two domains are descriptive of the same system, then either these domains need to be linked together in some way or the internal domain needs to model all of these potentially interrelated subsystems.
+One final point before digging into links. In theory, an agent can have multiple
+domains that represent different aspects or systems for that agent. So long as
+the domains are completely independent, this is an effective strategy, but if
+two domains are descriptive of the same system, then either these domains need
+to be linked together in some way or the internal domain needs to model all of
+these potentially interrelated subsystems.
 
 
-= Domains, Links and Hyperspaces
+== Domains, Links and Hyperspaces
 
-Places have an obvious containment relationship - Earth is made up of continents, which are made up of ountries, which are made up of cities, which are made up of even smaller divisions.
+Places have an obvious containment relationship - Earth is made up of
+continents, which are made up of ountries, which are made up of cities, which
+are made up of even smaller divisions.
 
-Domains are not places, though they might appear to be at first glance. A domain has a place property that can in fact refer to multiple places. For instance, one can make up a domain of Red States, a domain of Blue States, and possible a domain of Purple States in the United States. It also has a Home place property that acts as a default when the domain is referenced as the target of a link - this can be thought of as the equivalent of a landing page (or index.html in HTTP terms).
+Domains are not places, though they might appear to be at first glance. A domain
+has a place property that can in fact refer to multiple places. For instance,
+one can make up a domain of Red States, a domain of Blue States, and possible a
+domain of Purple States in the United States. It also has a Home place property
+that acts as a default when the domain is referenced as the target of a link -
+this can be thought of as the equivalent of a landing page (or index.html in
+HTTP terms).
 
-This creates an interesting phenomenon. The most common form of link within the UDG is a link from one place to another place typically within the same domain. The links exist primarily for agents, but an agent may also have the ability to carry certain things from one place to another within a given domain.
+This creates an interesting phenomenon. The most common form of link within the
+UDG is a link from one place to another place typically within the same domain.
+The links exist primarily for agents, but an agent may also have the ability to
+carry certain things from one place to another within a given domain.
 
-This is different behavior from the way that a link works in HTTP. There, activating a link sends the browser (the user agent) to a new address. With HSTP, activating a link will typically move the agent to a new Place within the domain. In a game environment such as Monopoly, this basically moves the agent's token to the new place (say from Pennsylvania Ave to Boardwalk). In a game like chess, each player in effect controls sixteen agents, one for each chess piece on their side, though they can only control one such agent at any given turn.
+This is different behavior from the way that a link works in HTTP. There,
+activating a link sends the browser (the user agent) to a new address. With
+HSTP, activating a link will typically move the agent to a new Place within the
+domain. In a game environment such as Monopoly, this basically moves the agent's
+token to the new place (say from Pennsylvania Ave to Boardwalk). In a game like
+chess, each player in effect controls sixteen agents, one for each chess piece
+on their side, though they can only control one such agent at any given turn.
 
-This also raises an interesting quandry. Links can be contextual, and are also not necessarily contiguous. The valid links for a knight agent, for instance, is L shaped, and it can jump over adjacent squares, but can't jump outside of the boundaries of the board. The bishop can only move across diagonals, and only until it encounters a piece of the opposite's side (a capture) or a piece of the active side (a block). This indicates that the hyperspace of a domain is topological.
+This also raises an interesting quandry. Links can be contextual, and are also
+not necessarily contiguous. The valid links for a knight agent, for instance, is
+L shaped, and it can jump over adjacent squares, but can't jump outside of the
+boundaries of the board. The bishop can only move across diagonals, and only
+until it encounters a piece of the opposite's side (a capture) or a piece of the
+active side (a block). This indicates that the hyperspace of a domain is
+topological.
 
 == The Topological Hyperspace
 
-A topological space is one in which direct physical constraints are minimized in favor of conceptual ones. In effect, a domain consists of a set of places, each of which is a conceptual node connected by links. The set of all places that are traversable within the graph makeup the hyperspace for that domain, with the links in turn controlling access from one place to another within the domain.
+A topological space is one in which direct physical constraints are minimized in
+favor of conceptual ones. In effect, a domain consists of a set of places, each
+of which is a conceptual node connected by links. The set of all places that are
+traversable within the graph makeup the hyperspace for that domain, with the
+links in turn controlling access from one place to another within the domain.
 
-```mermaid
+[source,mermaid]
+----
 ---
 config:
     layout: elk
@@ -176,183 +334,389 @@ graph LR
     r2 -->|=9758;| r3
     r4 -->|=9719;| r5
     r4 -->|=9758;| r6
-```
-In this case, the hyperspace for the domain consists of six "rooms", each connected by links of various types:
-* Pointers (&=9758;) represent open links - an agent can move from one room to the next freely.
-* Keys (&=9919;) represent locked links - the agent needs some form of key to open the link and move to the next room.
-* Finally, clocks (&=9719;) represents conditional locks - an external condition (such as a store being closed for the night) must be met before traversal can happen.
+----
 
-This is an example of a topological domain. It consists of six Places, but each Place does not necessarily have to represent a physical location in the real world. Instead, the place is simply a scope for containment. It could represent stations in an assembly line, steps in a process, a detailed internal representation of a given subsystem, and so forth.
+In this case, the hyperspace for the domain consists of six "rooms", each
+connected by links of various types:
 
-The notion of linked places can be used to create an alternative for managing holonic viewpoints. For instance, if you have a place that represents a car, there is a link (perhaps the button that releases the latch that holds the hood closed), which will then take you to an entry place ("room") that contains the engine compartment, and that lets you in turn dig deeper into the engine, the battery, the alternator and so forth.
+* Pointers (&=9758;) represent open links - an agent can move from one room to
+the next freely.
 
-This approach has a number of key advantages - first - you can control access to various subsystems because they are topological just places within the overall domain that are constrained by the links that connect them. Because links are contextual, you can only access certain subsystem if either you (or your agent) have the relevant key or some external condition is in force.
+* Keys (&=9919;) represent locked links - the agent needs some form of key to
+open the link and move to the next room.
 
-This also relieves the Spatial Web of having to do heavy extensive physical mapping. This can be added back in, either by increasing the number of places to better represent a tighter partitioning of the space, or by providing more subtle links to create more neighborhoods (these are essentially equivlent actions).
+* Finally, clocks (&=9719;) represents conditional locks - an external condition
+(such as a store being closed for the night) must be met before traversal can
+happen.
 
-The hyperspace of the domain then becomes the set of all places within that domain. This solves another problem that a more physical realization introduces - determining whether you are at the edge of, or out of the boundaries of, a physical space. In a topological model, if the place is not in the domain, then it is not accessible by ANY agent.
+This is an example of a topological domain. It consists of six Places, but each
+Place does not necessarily have to represent a physical location in the real
+world. Instead, the place is simply a scope for containment. It could represent
+stations in an assembly line, steps in a process, a detailed internal
+representation of a given subsystem, and so forth.
+
+The notion of linked places can be used to create an alternative for managing
+holonic viewpoints. For instance, if you have a place that represents a car,
+there is a link (perhaps the button that releases the latch that holds the hood
+closed), which will then take you to an entry place ("room") that contains the
+engine compartment, and that lets you in turn dig deeper into the engine, the
+battery, the alternator and so forth.
+
+This approach has a number of key advantages - first - you can control access to
+various subsystems because they are topological just places within the overall
+domain that are constrained by the links that connect them. Because links are
+contextual, you can only access certain subsystem if either you (or your agent)
+have the relevant key or some external condition is in force.
+
+This also relieves the Spatial Web of having to do heavy extensive physical
+mapping. This can be added back in, either by increasing the number of places to
+better represent a tighter partitioning of the space, or by providing more
+subtle links to create more neighborhoods (these are essentially equivlent
+actions).
+
+The hyperspace of the domain then becomes the set of all places within that
+domain. This solves another problem that a more physical realization introduces
+- determining whether you are at the edge of, or out of the boundaries of, a
+physical space. In a topological model, if the place is not in the domain, then
+it is not accessible by ANY agent.
 
 == Topological vs Continuous Hyperspace
 
-The topological view is one where a domain consists of a finite number of discrete places, each with its own SWID.
+The topological view is one where a domain consists of a finite number of
+discrete places, each with its own SWID.
 
 
+== Domain Use Case: The Light Bulb Room
 
+This is a simple example of a DOMAIN. The Light Bulb room is a room with a
+single switch. The switch can be on or off. When the switch is on, the light is
+on. When the switch is off, the light is off.
 
+=== Where
 
-= Domain Use Case: The Light Bulb Room
+The domain is in a __Place__ that we can call `Light Bulb Room =1`.
 
-This is a simple example of a DOMAIN. The Light Bulb room is a room with a single switch. The switch can be on or off. When the switch is on, the light is on. When the switch is off, the light is off.
+Note that for the Domain, there was a template (or base class) called `<Light
+Bulb Room>`, specified via a schema language (for the moment, SHACL), that can
+both be used to create multiple instances, and to limit the number of instances
+so created.
 
-== Where
- The domain is in a __Place__ that we can call `Light Bulb Room =1`. Note that for the Domain, there was a template (or base class) called `<Light Bulb Room>`, specified via a schema language (for the moment, SHACL), that can both be used to create multiple instances, and to limit the number of instances so created.
+This handles the particular situation in which a given instance is tied to a
+digital twin as well as the situation where a single long-running domain may
+exist. For the light bulb room class (LBR), if the instance was tied to a
+physical room, then LBR=1 would need to persist between sessions, which would
+mean that the SWID for the room would be persistent for all agents that had
+permissions to access the domain.
 
-This handles the particular situation in which a given instance is tied to a digital twin as well as the situation where a single long-running domain may exist. For the light bulb room class (LBR), if the instance was tied to a physical room, then LBR=1 would need to persist between sessions, which would mean that the SWID for the room would be persistent for all agents that had permissions to access the domain.
+Note that Place in this case need only be a single value - the Room itself. The
+domain is the conceptual room, and there is no real reason to subdivide it into
+component places in this very simple model.
 
-Note that Place in this case need only be a single value - the Room itself. The domain is the conceptual room, and there is no real reason to subdivide it into component places in this very simple model.
+=== How Is Space Defined
 
-== How Is Space Defined
+The operational definition of a hyperspace is the set of all valid places within
+a domain. The spatial web (as currently defined) is a discrete spatial system.
+What this means in practice is that things are located in specific discrete
+Places, and within a domain, an agent moves from one such discrete Place to
+another through a link. A Place can describe the specific extent in other terms
+(H3, Geometric Tiles, ESRI geometries andso forth) but the domain determines
+which of those places are considered valid. This in turn reduces a potentially
+intractable geometric description into a graph-oriented topological description.
 
-The operational definition of a hyperspace is the set of all valid places within a domain. The spatial web (as currently defined) is a discrete spatial system. What this means in practice is that things are located in specific discrete Places, and within a domain, an agent moves from one such discrete Place to another through a link. A Place can describe the specific extent in other terms (H3, Geometric Tiles, ESRI geometries andso forth) but the domain determines which of those places are considered valid. This in turn reduces a potentially intractable geometric description into a graph-oriented topological description.
+=== How Is Space Connected
 
-== How Is Space Connected
+In a __domain__, two or more __places__ are connected by __links__. A link is
+analogous to a hypertext link in HTTP. In each domain, there is typically at
+least one link from a source place to the __home place__ of the domain. When you
+"go to" a domain, you're agent is actually moving to the home place for that
+domain, unless another place is explicitly stated.
 
-In a __domain__, two or more __places__ are connected by __links__. A link is analogous to a hypertext link in HTTP. In each domain, there is typically at least one link from a source place to the __home place__ of the domain. When you "go to" a domain, you're agent is actually moving to the home place for that domain, unless another place is explicitly stated.
+In the Light Bulb Room, there is only one place defined for that domain, so if
+you are coming from the directory domain for the SW Node, then the directory
+will contain a link to the LBR=1 place. Unless there is a conditional lock on
+the link (you have to satisfy a test condition), you (or more specifically your
+agent) can generatlly backtrack across links through the client
 
-In the Light Bulb Room, there is only one place defined for that domain, so if you are coming from the directory domain for the SW Node, then the directory will contain a link to the LBR=1 place. Unless there is a conditional lock on the link (you have to satisfy a test condition), you (or more specifically your agent) can generatlly backtrack across links through the client
+=== What
 
-== What
+This indicates the things that are bound to the room that are controllable from
+within the domain. In this case, there are two distinct things - a light switch
+and a lamp. By activating the light switch, you enable the lamp. By deactivating
+the light switch, you disable the lamp. In an analog system, of course, what the
+light switch does is turn power off to an electrical outlet, but this is an
+operational detail that is unimportant to the model.
 
-This indicates the things that are bound to the room that are controllable from within the domain. In this case, there are two distinct things - a light switch and a lamp. By activating the light switch, you enable the lamp. By deactivating the light switch, you disable the lamp. In an analog system, of course, what the light switch does is turn power off to an electrical outlet, but this is an operational detail that is unimportant to the model.
+Note that there are a number of low level Things that will be generally
+subclassed. For instance, a lamp is a Meter that can take a value from a range
+of values (here [0,1]) A Toggle is a Thing that can take a Boolean value, and
+switch from one value to the other when activated. In short, many of these have
+a direct correspondance to HTML form components. These are detailed as part of
+the Activity specification, which is out of scope for this specification.
 
-Note that there are a number of low level Things that will be generally subclassed. For instance, a lamp is a Meter that can take a value from a range of values (here [0,1]) A Toggle is a Thing that can take a Boolean value, and switch from one value to the other when activated. In short, many of these have a direct correspondance to HTML form components. These are detailed as part of the Activity specification, which is out of scope for this specification.
+=== What Kind
 
-== What Kind
+A domain can be classified based upon a conceptual facet value tied to a
+specific classication facet (known as the Domain taxonomy). The specific facet
+can be given as a subproperty of this depending on the definition given within
+the associated shape.
 
-A domain can be classified based upon a conceptual facet value tied to a specific classication facet (known as the Domain taxonomy). The specific facet can be given as a subproperty of this depending on the definition given within the associated shape.
+Everything is shape based rather than class based. This means that you can use
+combinations of facets to determine which property shapes apply to a given
+entity, which in turn means that you are not as dependent upon RDFS based
+supclass/subproperty inheritance.
 
-Everything is shape based rather than class based. This means that you can use combinations of facets to determine which property shapes apply to a given entity, which in turn means that you are not as dependent upon RDFS based supclass/subproperty inheritance.
+In the case of the Light Room =1,onw such classification might be IoTDevice,
+while another may be Purpose:Illumination or something similar.
 
-In the case of the Light Room =1,onw such classification might be IoTDevice, while another may be Purpose:Illumination or something similar.
+=== Who
 
-== Who
+This indicates the agent(s) that are currently within the context of the room.
+There may be zero or more agents in the room at any given point, though the
+domain model could be set up to limit the number of agents that can occupy a
+given place at a certain time. This creates a crude physics.
 
-This indicates the agent(s) that are currently within the context of the room. There may be zero or more agents in the room at any given point, though the domain model could be set up to limit the number of agents that can occupy a given place at a certain time. This creates a crude physics.
+Note that in this model as well, there is no indication about the agents are, or
+what priorities they have. In general, if one agent turns the light on and the
+other turns it off, then the system will reflect the current state from the last
+activity that occurred.
 
-Note that in this model as well, there is no indication about the agents are, or what priorities they have. In general, if one agent turns the light on and the other turns it off, then the system will reflect the current state from the last activity that occurred.
+Agents can move from one place to another (see <<places,Places>> for more information).
 
-Agents can move from one place to another (see [Places](places.md) for more information).
+=== When
 
-== When
+Each domain has a clock. Typically, such clocks can be defined in terms of a
+Spatial Web Node chronometer that is specific to the host (to the extent that in
+many cases, the domain can refer to a specific "System Clock", which is the
+default chronometer when not otherwise supplied). Note that this is used
+primarily to control timing and action within system on the part of autonomous
+entities, and in general is NOT synched from one node to the next. A chronometer
+is of type Entity:Thing.
 
-Each domain has a clock. Typically, such clocks can be defined in terms of a Spatial Web Node chronometer that is specific to the host (to the extent that in many cases, the domain can refer to a specific "System Clock", which is the default chronometer when not otherwise supplied). Note that this is used primarily to control timing and action within system on the part of autonomous entities, and in general is NOT synched from one node to the next. A chronometer is of type Entity:Thing.
+Also please note that the chronometer is not technically part of hyperspace. If,
+for instance, you had a relativity simulation, then the time component of such a
+transformation would be treated as a coordinate in the hyperspace system (if you
+are doing Lorenz Transformations, for instance), but this is only peripherally
+related to the domain chronometer. The chronometer is, however, a key part of
+maintaining a domain history (see link:=whatHappened[What Happened?].
 
-Also please note that the chronometer is not technically part of hyperspace. If, for instance, you had a relativity simulation, then the time component of such a transformation would be treated as a coordinate in the hyperspace system (if you are doing Lorenz Transformations, for instance), but this is only peripherally related to the domain chronometer. The chronometer is, however, a key part of maintaining a domain history (see [What Happened?](=whatHappened).
+=== What Happened
 
-== What Happened
+Each domain manages its own queue indicating relevant state change reports that
+are updated as part of the activity. This becomes the history of the domain. In
+this case, every time that the switch is flipped, the context of the domain for
+those things maintaining a history get written to the queue, indicating who
+initiated the action and what the state of the light (the meter) was at the
+time. This effectively creates a recording of the session, and in theory should
+be transformable to reproduce the state transitions of the system.
 
-Each domain manages its own queue indicating relevant state change reports that are updated as part of the activity. This becomes the history of the domain. In this case, every time that the switch is flipped, the context of the domain for those things maintaining a history get written to the queue, indicating who initiated the action and what the state of the light (the meter) was at the time. This effectively creates a recording of the session, and in theory should be transformable to reproduce the state transitions of the system.
+EDITOR: The depth of the queue will obviously be dependent upon system
+resources, and may be in a condensed serialized format. The exact mechanism for
+how this works is still TBD.
 
-> __Editor's Note__. The depth of the queue will obviously be dependent upon system resources, and may be in a condensed serialized format. The exact mechanism for how this works is still TBD.
+=== How
 
-== How
+One of the roles of the chronometer is to indicate when a given domain should
+check to see if an expressed contextual configuration is in place (typically by
+querying the graph) and if it is, to then cause some activity within the domain.
+These are domain specific, such as expressing representations of the domain to
+an external channel.
 
-One of the roles of the chronometer is to indicate when a given domain should check to see if an expressed contextual configuration is in place (typically by querying the graph) and if it is, to then cause some activity within the domain. These are domain specific, such as expressing representations of the domain to an external channel.
+EDITOR: The details of Activity are still being worked out, and will be updated
+accordingly here.
 
-> __Editor's Note__: The details of Activity are still being worked out, and will be updated accordingly here.
+=== Why
 
-== Why
+Most domains have objectives and goals. A remote drone domain, for instance,
+exists to get the drone to a target, perform a function, and hopefully return
+safely. These objectives typically will put the domain into a different state
+(Reset, Archive, Delete, etc.) In a game, these are the conditions that end the
+game and determine the winner. In a story, this is The End. In a device
+controller, this the termination of the updates to the devices in question. When
+the domain is instantiated, the why is set up as an end condition and is
+evaluated as part of the processing cycle for the domain.
 
-Most domains have objectives and goals. A remote drone domain, for instance, exists to get the drone to a target, perform a function, and hopefully return safely. These objectives typically will put the domain into a different state (Reset, Archive, Delete, etc.) In a game, these are the conditions that end the game and determine the winner. In a story, this is The End. In a device controller, this the termination of the updates to the devices in question. When the domain is instantiated, the why is set up as an end condition and is evaluated as part of the processing cycle for the domain.
+== UDG SWIDs and Aliases
 
-= UDG SWIDs and Aliases
+=== UDG and SWIDs
 
-== UDG and SWIDs
-
-All resources within th Universal Domain Graph have some form of a __Spatial Web Identifier__ also known as a __SWID__. The SWID serves a number of purposes:
+All resources within th Universal Domain Graph have some form of a __Spatial Web
+Identifier__ also known as a __SWID__. The SWID serves a number of purposes:
 
 * A SWID is a __W3C Decentralized Identifier__ (__DiD__), and is used as a mechanism to make claims (assertions) about specific facts with a form of verification backing up those claims. This is known as a __Verifiable Credential__ or (__VC__).
 * The SWID identifies the resource uniquely within the spatial web network. In this regard, the SWID acts as an (indirect) IRI.
 * SWIDs are also used to establish links between resources. Because the VC for the SWID can hold multiple potential values, such links typically are used to combine SW Node information with Domain and Entity resolution.
-* SWIDs are also used to resolve __nodelink__ connections between different nodes in the SW Node Graph, making it possible to bind together nodes in networks. In this case, the __nodelink document__ identifies both authentication and address information for different nodes within the spatial web. 
+* SWIDs are also used to resolve __nodelink__ connections between different nodes in the SW Node Graph, making it possible to bind together nodes in networks. In this case, the __nodelink document__ identifies both authentication and address information for different nodes within the spatial web.
 
-== Aliases
+=== Aliases
 
-It should be noted that such SWIDs are not directly Uniform Resource Locators (URLs) in the WWW sense. In the Spatial Web, one or more *__aliases__* can be assigned to a SWID that is intended to locate a resource, but the actual "physical" address for the resource is contained within the SWID certificate. In effect, the alias is analogous to a HTTP domain name mapping to an IPV6 address, but in this case the "domain name" alias maps to a SWID, which then maps to the corresponding IPV6.
-```mermaid
+It should be noted that such SWIDs are not directly Uniform Resource Locators
+(URLs) in the WWW sense. In the Spatial Web, one or more *__aliases__* can be
+assigned to a SWID that is intended to locate a resource, but the actual
+"physical" address for the resource is contained within the SWID certificate. In
+effect, the alias is analogous to a HTTP domain name mapping to an IPV6 address,
+but in this case the "domain name" alias maps to a SWID, which then maps to the
+corresponding IPV6.
+
+[source,mermaid]
+----
 flowchart LR
 Alias --> SWID1 --> doc["Verifiable<br>Credential"]
 doc --> SWNode[Spatial Web Node]
 doc --> Domain[Reference Domain]
-```
+----
 
-One key difference between HTTP and HSTP is that there is no GET parameterization on SWIDs. An alias could have such a paremeterization of course, but it becomes the role of the alias resolver to convert this into a corresponding HSML message, which then gets passed as an HSTP post message.
+One key difference between HTTP and HSTP is that there is no GET
+parameterization on SWIDs. An alias could have such a paremeterization of
+course, but it becomes the role of the alias resolver to convert this into a
+corresponding HSML message, which then gets passed as an HSTP post message.
 
 The specific form of aliases is still to be determined.
 
-= Domain Use Case: The Light Bulb Room
+== Domain Use Case: The Light Bulb Room
 
-This is a simple example of a DOMAIN. The Light Bulb room is a room with a single switch. The switch can be on or off. When the switch is on, the light is on. When the switch is off, the light is off.
+This is a simple example of a DOMAIN. The Light Bulb room is a room with a
+single switch. The switch can be on or off. When the switch is on, the light is
+on. When the switch is off, the light is off.
 
-== Where
- The domain is in a __Place__ that we can call `Light Bulb Room =1`. Note that for the Domain, there was a template (or base class) called `<Light Bulb Room>`, specified via a schema language (for the moment, SHACL), that can both be used to create multiple instances, and to limit the number of instances so created.
+=== Where
 
-This handles the particular situation in which a given instance is tied to a digital twin as well as the situation where a single long-running domain may exist. For the light bulb room class (LBR), if the instance was tied to a physical room, then LBR=1 would need to persist between sessions, which would mean that the SWID for the room would be persistent for all agents that had permissions to access the domain.
+The domain is in a __Place__ that we can call `Light Bulb Room =1`. Note that
+for the Domain, there was a template (or base class) called `<Light Bulb Room>`,
+specified via a schema language (for the moment, SHACL), that can both be used
+to create multiple instances, and to limit the number of instances so created.
 
-Note that Place in this case need only be a single value - the Room itself. The domain is the conceptual room, and there is no real reason to subdivide it into component places in this very simple model.
+This handles the particular situation in which a given instance is tied to a
+digital twin as well as the situation where a single long-running domain may
+exist. For the light bulb room class (LBR), if the instance was tied to a
+physical room, then LBR=1 would need to persist between sessions, which would
+mean that the SWID for the room would be persistent for all agents that had
+permissions to access the domain.
 
-== How Is Space Defined
+Note that Place in this case need only be a single value - the Room itself. The
+domain is the conceptual room, and there is no real reason to subdivide it into
+component places in this very simple model.
 
-The operational definition of a hyperspace is the set of all valid places within a domain. The spatial web (as currently defined) is a discrete spatial system. What this means in practice is that things are located in specific discrete Places, and within a domain, an agent moves from one such discrete Place to another through a link. A Place can describe the specific extent in other terms (H3, Geometric Tiles, ESRI geometries andso forth) but the domain determines which of those places are considered valid. This in turn reduces a potentially intractable geometric description into a graph-oriented topological description.
+=== How Is Space Defined
 
-== How Is Space Connected
+The operational definition of a hyperspace is the set of all valid places within
+a domain. The spatial web (as currently defined) is a discrete spatial system.
+What this means in practice is that things are located in specific discrete
+Places, and within a domain, an agent moves from one such discrete Place to
+another through a link. A Place can describe the specific extent in other terms
+(H3, Geometric Tiles, ESRI geometries andso forth) but the domain determines
+which of those places are considered valid. This in turn reduces a potentially
+intractable geometric description into a graph-oriented topological description.
 
-In a __domain__, two or more __places__ are connected by __links__. A link is analogous to a hypertext link in HTTP. In each domain, there is typically at least one link from a source place to the __home place__ of the domain. When you "go to" a domain, you're agent is actually moving to the home place for that domain, unless another place is explicitly stated.
+=== How Is Space Connected
 
-In the Light Bulb Room, there is only one place defined for that domain, so if you are coming from the directory domain for the SW Node, then the directory will contain a link to the LBR=1 place. Unless there is a conditional lock on the link (you have to satisfy a test condition), you (or more specifically your agent) can generatlly backtrack across links through the client
+In a __domain__, two or more __places__ are connected by __links__. A link is
+analogous to a hypertext link in HTTP. In each domain, there is typically at
+least one link from a source place to the __home place__ of the domain. When you
+"go to" a domain, you're agent is actually moving to the home place for that
+domain, unless another place is explicitly stated.
 
-== What
+In the Light Bulb Room, there is only one place defined for that domain, so if
+you are coming from the directory domain for the SW Node, then the directory
+will contain a link to the LBR=1 place. Unless there is a conditional lock on
+the link (you have to satisfy a test condition), you (or more specifically your
+agent) can generatlly backtrack across links through the client
 
-This indicates the things that are bound to the room that are controllable from within the domain. In this case, there are two distinct things - a light switch and a lamp. By activating the light switch, you enable the lamp. By deactivating the light switch, you disable the lamp. In an analog system, of course, what the light switch does is turn power off to an electrical outlet, but this is an operational detail that is unimportant to the model.
+=== What
 
-Note that there are a number of low level Things that will be generally subclassed. For instance, a lamp is a Meter that can take a value from a range of values (here [0,1]) A Toggle is a Thing that can take a Boolean value, and switch from one value to the other when activated. In short, many of these have a direct correspondance to HTML form components. These are detailed as part of the Activity specification, which is out of scope for this specification.
+This indicates the things that are bound to the room that are controllable from
+within the domain. In this case, there are two distinct things - a light switch
+and a lamp. By activating the light switch, you enable the lamp. By deactivating
+the light switch, you disable the lamp. In an analog system, of course, what the
+light switch does is turn power off to an electrical outlet, but this is an
+operational detail that is unimportant to the model.
 
-== What Kind
+Note that there are a number of low level Things that will be generally
+subclassed. For instance, a lamp is a Meter that can take a value from a range
+of values (here [0,1]) A Toggle is a Thing that can take a Boolean value, and
+switch from one value to the other when activated. In short, many of these have
+a direct correspondance to HTML form components. These are detailed as part of
+the Activity specification, which is out of scope for this specification.
 
-A domain can be classified based upon a conceptual facet value tied to a specific classication facet (known as the Domain taxonomy). The specific facet can be given as a subproperty of this depending on the definition given within the associated shape.
+=== What Kind
 
-Everything is shape based rather than class based. This means that you can use combinations of facets to determine which property shapes apply to a given entity, which in turn means that you are not as dependent upon RDFS based supclass/subproperty inheritance.
+A domain can be classified based upon a conceptual facet value tied to a
+specific classication facet (known as the Domain taxonomy). The specific facet
+can be given as a subproperty of this depending on the definition given within
+the associated shape.
 
-In the case of the Light Room =1,onw such classification might be IoTDevice, while another may be Purpose:Illumination or something similar.
+Everything is shape based rather than class based. This means that you can use
+combinations of facets to determine which property shapes apply to a given
+entity, which in turn means that you are not as dependent upon RDFS based
+supclass/subproperty inheritance.
 
-== Who
+In the case of the Light Room =1,onw such classification might be IoTDevice,
+while another may be Purpose:Illumination or something similar.
 
-This indicates the agent(s) that are currently within the context of the room. There may be zero or more agents in the room at any given point, though the domain model could be set up to limit the number of agents that can occupy a given place at a certain time. This creates a crude physics.
+=== Who
 
-Note that in this model as well, there is no indication about the agents are, or what priorities they have. In general, if one agent turns the light on and the other turns it off, then the system will reflect the current state from the last activity that occurred.
+This indicates the agent(s) that are currently within the context of the room.
+There may be zero or more agents in the room at any given point, though the
+domain model could be set up to limit the number of agents that can occupy a
+given place at a certain time. This creates a crude physics.
 
-Agents can move from one place to another (see [Places](places.md) for more information).
+Note that in this model as well, there is no indication about the agents are, or
+what priorities they have. In general, if one agent turns the light on and the
+other turns it off, then the system will reflect the current state from the last
+activity that occurred.
 
-== When
+Agents can move from one place to another (see <<places,Places>> for more information).
 
-Each domain has a clock. Typically, such clocks can be defined in terms of a Spatial Web Node chronometer that is specific to the host (to the extent that in many cases, the domain can refer to a specific "System Clock", which is the default chronometer when not otherwise supplied). Note that this is used primarily to control timing and action within system on the part of autonomous entities, and in general is NOT synched from one node to the next. A chronometer is of type Entity:Thing.
+=== When
 
-Also please note that the chronometer is not technically part of hyperspace. If, for instance, you had a relativity simulation, then the time component of such a transformation would be treated as a coordinate in the hyperspace system (if you are doing Lorenz Transformations, for instance), but this is only peripherally related to the domain chronometer. The chronometer is, however, a key part of maintaining a domain history (see [What Happened?](=whatHappened).
+Each domain has a clock. Typically, such clocks can be defined in terms of a
+Spatial Web Node chronometer that is specific to the host (to the extent that in
+many cases, the domain can refer to a specific "System Clock", which is the
+default chronometer when not otherwise supplied). Note that this is used
+primarily to control timing and action within system on the part of autonomous
+entities, and in general is NOT synched from one node to the next. A chronometer
+is of type Entity:Thing.
 
-== What Happened
+Also please note that the chronometer is not technically part of hyperspace. If,
+for instance, you had a relativity simulation, then the time component of such a
+transformation would be treated as a coordinate in the hyperspace system (if you
+are doing Lorenz Transformations, for instance), but this is only peripherally
+related to the domain chronometer. The chronometer is, however, a key part of
+maintaining a domain history (see link:=whatHappened[What Happened?].
 
-Each domain manages its own queue indicating relevant state change reports that are updated as part of the activity. This becomes the history of the domain. In this case, every time that the switch is flipped, the context of the domain for those things maintaining a history get written to the queue, indicating who initiated the action and what the state of the light (the meter) was at the time. This effectively creates a recording of the session, and in theory should be transformable to reproduce the state transitions of the system.
+=== What Happened
 
-> __Editor's Note__. The depth of the queue will obviously be dependent upon system resources, and may be in a condensed serialized format. The exact mechanism for how this works is still TBD.
+Each domain manages its own queue indicating relevant state change reports that
+are updated as part of the activity. This becomes the history of the domain. In
+this case, every time that the switch is flipped, the context of the domain for
+those things maintaining a history get written to the queue, indicating who
+initiated the action and what the state of the light (the meter) was at the
+time. This effectively creates a recording of the session, and in theory should
+be transformable to reproduce the state transitions of the system.
 
-== How
+EDITOR: The depth of the queue will obviously be dependent upon system
+resources, and may be in a condensed serialized format. The exact mechanism for
+how this works is still TBD.
 
-One of the roles of the chronometer is to indicate when a given domain should check to see if an expressed contextual configuration is in place (typically by querying the graph) and if it is, to then cause some activity within the domain. These are domain specific, such as expressing representations of the domain to an external channel.
+=== How
 
-> __Editor's Note__: The details of Activity are still being worked out, and will be updated accordingly here.
+One of the roles of the chronometer is to indicate when a given domain should
+check to see if an expressed contextual configuration is in place (typically by
+querying the graph) and if it is, to then cause some activity within the domain.
+These are domain specific, such as expressing representations of the domain to
+an external channel.
 
-== Why
+EDITOR: The details of Activity are still being worked out, and will be updated
+accordingly here.
 
-Most domains have objectives and goals. A remote drone domain, for instance, exists to get the drone to a target, perform a function, and hopefully return safely. These objectives typically will put the domain into a different state (Reset, Archive, Delete, etc.) In a game, these are the conditions that end the game and determine the winner. In a story, this is The End. In a device controller, this the termination of the updates to the devices in question. When the domain is instantiated, the why is set up as an end condition and is evaluated as part of the processing cycle for the domain.
+=== Why
+
+Most domains have objectives and goals. A remote drone domain, for instance,
+exists to get the drone to a target, perform a function, and hopefully return
+safely. These objectives typically will put the domain into a different state
+(Reset, Archive, Delete, etc.) In a game, these are the conditions that end the
+game and determine the winner. In a story, this is The End. In a device
+controller, this the termination of the updates to the devices in question. When
+the domain is instantiated, the why is set up as an end condition and is
+evaluated as part of the processing cycle for the domain.
 
 

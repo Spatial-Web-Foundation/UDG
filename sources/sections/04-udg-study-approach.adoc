@@ -2,19 +2,23 @@
 == UDG Study Overview
 
 UDG Study Document overview (Check the Agent spec outline)
-	1. allocation of requirements to components
-	2. New component spec: registry design spec
+
+. allocation of requirements to components
+. New component spec: registry design spec
+
+The Framework is implemented by allocation of requirements to Spatial Web
+Components including these components:
+
+* HSML
+* HSTP
+* UDG Node
+* Registry System
+
+This study report contains material that need not be included in the final UDG
+System Design. The report contains background and rationale for the design
+approach. The final Agent Framework need only include normative content.
 
 
-
-The Framework is implemented by allocation of requirements to Spatial Web Components including these components:
-
-- HSML
-- HSTP
-- UDG Node
-- Registry System
-
-This study report contains material that need not be included in the final UDG System Design. The report contains background and rationale for the design approach. The final Agent Framework need only include normative content.
-
-
-Several views are provided for each viewpoint, e.g., in the Knowledge Modeling viewpoint, the <<section-hyperspace,Hyperspace>> subclause (<<section-hyperspace>>) is a view of spatial models used in the Spatial Web.
+Several views are provided for each viewpoint, e.g., in the Knowledge Modeling
+viewpoint, the <<section-hyperspace,Hyperspace>> subclause
+(<<section-hyperspace>>) is a view of spatial models used in the Spatial Web.

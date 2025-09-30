@@ -39,25 +39,25 @@ This indicates the agent(s) that are currently within the context of the room. T
 
 Note that in this model as well, there is no indication about the agents are, or what priorities they have. In general, if one agent turns the light on and the other turns it off, then the system will reflect the current state from the last activity that occurred.
 
-Agents can move from one place to another (see [Places](places.md) for more information).
+Agents can move from one place to another (see <<places,Places>> for more information).
 
 == When
 
 Each domain has a clock. Typically, such clocks can be defined in terms of a Spatial Web Node chronometer that is specific to the host (to the extent that in many cases, the domain can refer to a specific "System Clock", which is the default chronometer when not otherwise supplied). Note that this is used primarily to control timing and action within system on the part of autonomous entities, and in general is NOT synched from one node to the next. A chronometer is of type Entity:Thing.
 
-Also please note that the chronometer is not technically part of hyperspace. If, for instance, you had a relativity simulation, then the time component of such a transformation would be treated as a coordinate in the hyperspace system (if you are doing Lorenz Transformations, for instance), but this is only peripherally related to the domain chronometer. The chronometer is, however, a key part of maintaining a domain history (see [What Happened?](=whatHappened).
+Also please note that the chronometer is not technically part of hyperspace. If, for instance, you had a relativity simulation, then the time component of such a transformation would be treated as a coordinate in the hyperspace system (if you are doing Lorenz Transformations, for instance), but this is only peripherally related to the domain chronometer. The chronometer is, however, a key part of maintaining a domain history (see link:=whatHappened[What Happened?].
 
 == What Happened
 
 Each domain manages its own queue indicating relevant state change reports that are updated as part of the activity. This becomes the history of the domain. In this case, every time that the switch is flipped, the context of the domain for those things maintaining a history get written to the queue, indicating who initiated the action and what the state of the light (the meter) was at the time. This effectively creates a recording of the session, and in theory should be transformable to reproduce the state transitions of the system.
 
-> __Editor's Note__. The depth of the queue will obviously be dependent upon system resources, and may be in a condensed serialized format. The exact mechanism for how this works is still TBD.
+EDITOR: The depth of the queue will obviously be dependent upon system resources, and may be in a condensed serialized format. The exact mechanism for how this works is still TBD.
 
 == How
 
 One of the roles of the chronometer is to indicate when a given domain should check to see if an expressed contextual configuration is in place (typically by querying the graph) and if it is, to then cause some activity within the domain. These are domain specific, such as expressing representations of the domain to an external channel.
 
-> __Editor's Note__: The details of Activity are still being worked out, and will be updated accordingly here.
+EDITOR: The details of Activity are still being worked out, and will be updated accordingly here.
 
 == Why
 

@@ -2,9 +2,17 @@
 
 === Definition
 
-> __Definition__. A __registry__ in the Spatial Web is a specific spatial web node that provides a number of services related to discovery, definition, search, DiD and alias resolution of resources. Most Spatial Web nodes provide registry services specifically for the resource within their respective graphs, though there are dedicated (public) nodes that exclusively handle these resources for public networks.
+[quote]
+____
+__Definition__. A __registry__ in the Spatial Web is a specific spatial web node
+that provides a number of services related to discovery, definition, search, DiD
+and alias resolution of resources. Most Spatial Web nodes provide registry
+services specifically for the resource within their respective graphs, though
+there are dedicated (public) nodes that exclusively handle these resources for
+public networks.
+____
 
-> __Editor's Note__. This document focuses solely on entity and domain registries. For more information about node registers, cf. [Node Registries](node-registries.md).
+EDITOR: This document focuses solely on entity and domain registries. For more information about node registers, cf. link:node-registries.md[Node Registries].
 
 === Purpose
 
@@ -22,11 +30,11 @@ A node authority can also register this gazeteer definition with the registry so
 
 If an entity already exists for this resource, then the registrants could "attach" their entity to the existing canonical one so that when searches are made over a range of nodes by querants, the synonym searches can identify which nodes have some version of Planet:Earth.
 
-Inversely, if a local synonym is known on a given node, this can be used to determine what the canonical entity SWID is for that node. 
+Inversely, if a local synonym is known on a given node, this can be used to determine what the canonical entity SWID is for that node.
 
-> __Editorial Note.__ This serves two purposes. The first is, as mentioned, discovery; finding a way to find a particular resource then extracting the relevant metadata from multiple nodes that each have that resource. The second is more political - toponyms and extents of places in particular tend to be contentious. This system makes it possible to provide the minimal definition identifying a resource, but then to allow different SW Node claimants to make their own claims about that resource that can then be used to establish provenance. 
+EDITOR: This serves two purposes. The first is, as mentioned, discovery; finding a way to find a particular resource then extracting the relevant metadata from multiple nodes that each have that resource. The second is more political - toponyms and extents of places in particular tend to be contentious. This system makes it possible to provide the minimal definition identifying a resource, but then to allow different SW Node claimants to make their own claims about that resource that can then be used to establish provenance.
 
-_The goal of the registry is not to act as a legal arbiter, but rather to allow member nodes in the spatial web to make assertions that can then be accepted or rejected by the querant individually_. 
+_The goal of the registry is not to act as a legal arbiter, but rather to allow member nodes in the spatial web to make assertions that can then be accepted or rejected by the querant individually_.
 
 ==== Aliases
 
@@ -44,33 +52,67 @@ did:swid:c124151stqwf98cjjklm
 
 Another organization (such as the aforemention UPNA) may then create an association through their own alias to the SWRA alias:
 
-```
-hstp:gov:upna:Place:Earth 
+----
+hstp:gov:upna:Place:Earth
     Place:isAnalogOf hstp:org:swra:Place:Earth
-```
+----
 
 Aliases can also be applied from different protocols. For instance, UPNA might use an HTTP-based URL as an allias:
 
-```
+----
 http://sw.upna.gov/Place/Earth
-```
+----
 
-This would map to the credential endpoint for the registry, which would then retrieve the credential to the relevant entity as a document. If this was called from a Spatial Web web client, then the retrieval of this credential can be used to determine additional actions, from retrieval of metadata to linking to that place within a given spatial web node. The specific actions are still to be determined.
+This would map to the credential endpoint for the registry, which would then
+retrieve the credential to the relevant entity as a document. If this was called
+from a Spatial Web web client, then the retrieval of this credential can be used
+to determine additional actions, from retrieval of metadata to linking to that
+place within a given spatial web node. The specific actions are still to be
+determined.
 
 === Domain Registries
 
-A domain provides a system context where things happen. They are analogous to "web pages" in HTTP, in that they describe a given scenario, game, or simulation for agent interactions (see [Domains](domains.md)).
+A domain provides a system context where things happen. They are analogous to
+"web pages" in HTTP, in that they describe a given scenario, game, or simulation
+for agent interactions (see <<domains,Domains>>).
 
-Typically, when you make a request on a given entity, what you're looking for is information. When you make a request on a domain, on the other hand, what you are typically doing is logging into a session through an agent. In some cases what you can do that domain is very open ended (and may persist for a long period o time) in other cases a domain may be initiated interacted with, resolved, and retired within a single session.
+Typically, when you make a request on a given entity, what you're looking for is
+information. When you make a request on a domain, on the other hand, what you
+are typically doing is logging into a session through an agent. In some cases
+what you can do that domain is very open ended (and may persist for a long
+period o time) in other cases a domain may be initiated interacted with,
+resolved, and retired within a single session.
 
-As such, domains by themselves are usually not registered directly as public interfaces. Instead, what gets registered are domain templates. A domain template is a structure and script that when executed, creates a gived domain of the template type.
+As such, domains by themselves are usually not registered directly as public
+interfaces. Instead, what gets registered are domain templates. A domain
+template is a structure and script that when executed, creates a gived domain of
+the template type.
 
-For instance, suppose that you have a domain template that represents the game Risk. This template can be registered as a public domain. When an actor wishes to play the role of an agent (a player character) within the game, they would check the public domain registry server to find what SW Nodes have Risk domain templates.
+For instance, suppose that you have a domain template that represents the game
+Risk. This template can be registered as a public domain. When an actor wishes
+to play the role of an agent (a player character) within the game, they would
+check the public domain registry server to find what SW Nodes have Risk domain
+templates.
 
-Once a given node with the relevant templates are found, active domains that implement the templates are passed to the client. If a given actor's agent is already engaged in domains, the active domains are then passed to the user, along with domains seeking players (domains may have a lower and upper limit on the number of agents that can be active within that domain at any given time).
+Once a given node with the relevant templates are found, active domains that
+implement the templates are passed to the client. If a given actor's agent is
+already engaged in domains, the active domains are then passed to the user,
+along with domains seeking players (domains may have a lower and upper limit on
+the number of agents that can be active within that domain at any given time).
 
 This principle is important:
 
-Important__. A public domain registry __does not__ store active domain references. Instead, it stores the addresses of SW Nodes capable of instantiating a domain template to create a game, simulation, tour, interactive lesson or similar construct.
+IMPORTANT: A public domain registry __does not__ store active domain references.
+Instead, it stores the addresses of SW Nodes capable of instantiating a domain
+template to create a game, simulation, tour, interactive lesson or similar
+construct.
 
-Editor's Note__. This architecture differs a little from the initial recommendations in 3.3.1, but is key in understanding that domains are in essence a form of program - they are instantiated, they transition through states via the actions of agents with the things in the system, they reach an end-condition, and they end (or more accurately, they cease allowing for interactions). This architecture is also necessary to support multi-agent interactions. In cases where the domain is intended to control an IoT system, the system still instantiates a domain from the domain template, but while that domain is active, no other templates can be created. Otherwise, the two scenarios are the same.
+EDITOR: This architecture differs a little from the initial recommendations in
+3.3.1, but is key in understanding that domains are in essence a form of program
+- they are instantiated, they transition through states via the actions of
+agents with the things in the system, they reach an end-condition, and they end
+(or more accurately, they cease allowing for interactions). This architecture is
+also necessary to support multi-agent interactions. In cases where the domain is
+intended to control an IoT system, the system still instantiates a domain from
+the domain template, but while that domain is active, no other templates can be
+created. Otherwise, the two scenarios are the same.

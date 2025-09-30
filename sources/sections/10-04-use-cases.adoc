@@ -1,264 +1,266 @@
 ﻿= Use Cases
 
-The following use cases identify operations that are considered part of the UDG. Because these tend to be interrelated, they are provided primarily in terms of creation and navigational progress. 
+The following use cases identify operations that are considered part of the UDG. Because these tend to be interrelated, they are provided primarily in terms of creation and navigational progress.
 
 == Setting Up a Spatial Web Node
 
 
-1. Go to Spatial Web Foundation site and download the spatial web foundation application.
-1. At this time, the authority for the site submits a form that will allow you to specify the domain information, authorization, and categorization for the spatial web node itself.
-1. At this time, the authority may choose zero or more affiliated networks that the spatial web node may participate in.
-1. The default network is the Spatial Web Registry Authority, but this doesn't have to be the one selected. Networks are defined thematically (by topic and language) and as such can be searched and ranked (rated).
-1. Each network is managed by an affiliate manager (a node registry) that maintains a cache of links in its primary domain. These node registries 
-1. Once an ensemble of networks are selected, a request link is sent to each affiliate manager in turn that adds the link to the new node (and it's primary domain) to that of the network in question. If the link is approved then the newly created node is added to the network (see [Registering a Node on Affiliation Registry](#registering-a-node-on-an-affiliation-registry)).
-1. Once registered, other domains and other entities can be added to the spatial web node (see [Creating an Entity](#creating-an-entity)).
+. Go to Spatial Web Foundation site and download the spatial web foundation application.
+. At this time, the authority for the site submits a form that will allow you to specify the domain information, authorization, and categorization for the spatial web node itself.
+. At this time, the authority may choose zero or more affiliated networks that the spatial web node may participate in.
+. The default network is the Spatial Web Registry Authority, but this doesn't have to be the one selected. Networks are defined thematically (by topic and language) and as such can be searched and ranked (rated).
+. Each network is managed by an affiliate manager (a node registry) that maintains a cache of links in its primary domain. These node registries
+. Once an ensemble of networks are selected, a request link is sent to each affiliate manager in turn that adds the link to the new node (and it's primary domain) to that of the network in question. If the link is approved then the newly created node is added to the network (see link:#registering-a-node-on-an-affiliation-registry[Registering a Node on Affiliation Registry]).
+. Once registered, other domains and other entities can be added to the spatial web node (see link:#creating-an-entity[Creating an Entity]).
 
 
 == Generating and Resolving SWIDs
 
-1. Because of the centrality of SWIDS in the Spatial Web architecture, a Spatial Web Node incorporates a SWID generator/resolver as part of the architecture.
-1. When an entity is created by the system, a SWID and corresponding documents are created, with the documents (likely public and private keys, or PPKs) stored as graph entities in a cryptographically secured named graph as part of the domain graph.
-1. This method exists primarily for convenience and performance as in general the ability to retrieve, parse, and reference external blockchains or similar mechanisms will be a major performance hit unless that ability is accessible from (and contained in) the graph.
-1. This becomes especially important if there is specific surety information within the SWID that is particular to the did.swid method, as will likely be the case.
-1. The Credential API handles SWID generation and resolution and acts as a wrapper for abstracting multiple different approaches for SWID management. 
+. Because of the centrality of SWIDS in the Spatial Web architecture, a Spatial Web Node incorporates a SWID generator/resolver as part of the architecture.
+. When an entity is created by the system, a SWID and corresponding documents are created, with the documents (likely public and private keys, or PPKs) stored as graph entities in a cryptographically secured named graph as part of the domain graph.
+. This method exists primarily for convenience and performance as in general the ability to retrieve, parse, and reference external blockchains or similar mechanisms will be a major performance hit unless that ability is accessible from (and contained in) the graph.
+. This becomes especially important if there is specific surety information within the SWID that is particular to the did.swid method, as will likely be the case.
+. The Credential API handles SWID generation and resolution and acts as a wrapper for abstracting multiple different approaches for SWID management.
 
 == Registering a Node on an Affiliation Registry
 
-1. Registering an entity on a spatial web node makes that node available for search according to a specific affiliation credential on that entity. What you are actually registering is a link to the entity in question. 
-1. That link may contain additional metadata (such as topical or annotative information) that makes it easier to search for similar entities.
-1. An affiliate spatial web registry is a spatial web node with a single primary domain that mainly contains links to other entities on other affiliated nodes.
-1. To register on such an affiliated registry, a domain authority submits a request containing the link and associated metadata to the registry node, and if the request is accepted, a contract is formed by the registry (containing a new SWID) that contains the relevant links and metadata, and a credential containing this contract is then sent back to the requesting node, where it is stored in the relevant domain (typically the home domain of the node).
-1. Note, the registry does not contain the indicated entity, only a reference to that entity in the form of a link on a contract.
+. Registering an entity on a spatial web node makes that node available for search according to a specific affiliation credential on that entity. What you are actually registering is a link to the entity in question.
+. That link may contain additional metadata (such as topical or annotative information) that makes it easier to search for similar entities.
+. An affiliate spatial web registry is a spatial web node with a single primary domain that mainly contains links to other entities on other affiliated nodes.
+. To register on such an affiliated registry, a domain authority submits a request containing the link and associated metadata to the registry node, and if the request is accepted, a contract is formed by the registry (containing a new SWID) that contains the relevant links and metadata, and a credential containing this contract is then sent back to the requesting node, where it is stored in the relevant domain (typically the home domain of the node).
+. Note, the registry does not contain the indicated entity, only a reference to that entity in the form of a link on a contract.
 
 == Searching an Affiliation Registry (User Client)
 
-1. When a user client is downloaded, the user is directed to a web page that lets the user select one or more affiliation networks (including the Spatial Web Registry Authority).
-1. Alternatively, the user can download affiliation packages that contain links to common affiliation servers in a bundle.
-1. Affiliation servers periodically read each of spatial web node within their affiliation and extract links and metadata of those  entities that have been given an affiliation credential (typically domains, but they could be other resources).
-1. The client sends a request that can be decomposed as taxonomic metadata (or by indexing descripions and labels via vector search or AI), which can then be used to retrieve the links that best match the search.
-1. It should be noted that the affiliation registries will generally not be completely current (they will typically iterate through their affiliated nodes on a daily basis, but probably not much faster than that), and this will only pick up the domains and other entities that have received an affiliation credential.
-1. It is also possible (albeit probably not advisable) to retrieve a list of affiliates directly and query each node independently. It would require the user client, however, having the relevant credentials for each domain on each node 
+. When a user client is downloaded, the user is directed to a web page that lets the user select one or more affiliation networks (including the Spatial Web Registry Authority).
+. Alternatively, the user can download affiliation packages that contain links to common affiliation servers in a bundle.
+. Affiliation servers periodically read each of spatial web node within their affiliation and extract links and metadata of those  entities that have been given an affiliation credential (typically domains, but they could be other resources).
+. The client sends a request that can be decomposed as taxonomic metadata (or by indexing descripions and labels via vector search or AI), which can then be used to retrieve the links that best match the search.
+. It should be noted that the affiliation registries will generally not be completely current (they will typically iterate through their affiliated nodes on a daily basis, but probably not much faster than that), and this will only pick up the domains and other entities that have received an affiliation credential.
+. It is also possible (albeit probably not advisable) to retrieve a list of affiliates directly and query each node independently. It would require the user client, however, having the relevant credentials for each domain on each node
 
 == Refreshing a Registry
 
-1. Periodically, a registry will iterate through its contracts and request updated metadata from an affiliated node for entities that have the relevant affiliated credentials.
-1. Not all (not even most) entities on a given node will have these credentials, only those that need to be identified by the affiliation registry.
-1. Similarly, a node may be self-affiliated, with the home domain containing contracted links for entities that are considered important enough to be visible for search on that domain. This can be considered the directory for that node. A registry is a directory for domains (formally entities) that are external to that node.
+. Periodically, a registry will iterate through its contracts and request updated metadata from an affiliated node for entities that have the relevant affiliated credentials.
+. Not all (not even most) entities on a given node will have these credentials, only those that need to be identified by the affiliation registry.
+. Similarly, a node may be self-affiliated, with the home domain containing contracted links for entities that are considered important enough to be visible for search on that domain. This can be considered the directory for that node. A registry is a directory for domains (formally entities) that are external to that node.
 
 == Logging Into a Domain
 
 __Requirements:__ DSA-5
 
-1. An external agent (such as a user agent) will have a link to a domain, presented as a SWID or SWURL, and will send this (with any appropriate metadata) to the resolved spatial web node. 
-1. The SWNode (the node manager) receives a request to initiate a connection, determines whether the relevant domain exists, and determines whether the external agent already has a proxy agent on the system representing that external agent.
-1. If the agent exists and the credential to access that agent is cached for (perhaps within, TBD) the relevant domain, then a channel is established between the external agent and the proxy agent, with a message then sent back to the external agent providing confirmation.
-1. If no credential exists (either this is a new user agent or the credential has expired), the SWNode sends a message back to the external agent requesting credentials. In the case of expiry, this is just a revalidation, new credentials are set up and the connection is made.
-1. If no agent exists for that domain, then a new agent is registered, typically at the home place for that domain, once credentials have been created and confirmed. This is the proxy agent for that user agent on that domain.
+. An external agent (such as a user agent) will have a link to a domain, presented as a SWID or SWURL, and will send this (with any appropriate metadata) to the resolved spatial web node.
+. The SWNode (the node manager) receives a request to initiate a connection, determines whether the relevant domain exists, and determines whether the external agent already has a proxy agent on the system representing that external agent.
+. If the agent exists and the credential to access that agent is cached for (perhaps within, TBD) the relevant domain, then a channel is established between the external agent and the proxy agent, with a message then sent back to the external agent providing confirmation.
+. If no credential exists (either this is a new user agent or the credential has expired), the SWNode sends a message back to the external agent requesting credentials. In the case of expiry, this is just a revalidation, new credentials are set up and the connection is made.
+. If no agent exists for that domain, then a new agent is registered, typically at the home place for that domain, once credentials have been created and confirmed. This is the proxy agent for that user agent on that domain.
 
-==  Creating an Entity []
+== Creating an Entity []
 
-1. Request a credential to create a particular entity (domain, agent, place, etc.).
-1. If the credential is valid, this returns a SWID for the parent entity.  
-1. Submit an HSML document that describes the entity, using an HSML posted message that includes the containing SWID (this may be accomplished via some form of an editor)
-1. The HSML document is checked for validity, and is rejected if it fails a validity check.
-1. If the document is accepted, the document is created within a named graph.
-1. For all entities within the named graph, SWIDs are created and attached to each entity.
-1. The named graph identifier is then attached to the parent entity.
-1. At the time of creation, an entity MUST be assigned an ___Internal State domain___ or ___IS Domain___ (see [Changing Internal State Domain](#changing-internal-state-domain-of-an-entity)). 
-1. At the time of creation, an entity MAY be assigned a ___level of detail domain___ or ___LoD Domain___ (see [Changing Level of Detail](#changing-level-of-detail)). 
-   > _It is possible that this will need to be changed to MUST and needs further discussion_. 
+. Request a credential to create a particular entity (domain, agent, place, etc.).
+. If the credential is valid, this returns a SWID for the parent entity.
+. Submit an HSML document that describes the entity, using an HSML posted message that includes the containing SWID (this may be accomplished via some form of an editor)
+. The HSML document is checked for validity, and is rejected if it fails a validity check.
+. If the document is accepted, the document is created within a named graph.
+. For all entities within the named graph, SWIDs are created and attached to each entity.
+. The named graph identifier is then attached to the parent entity.
+. At the time of creation, an entity MUST be assigned an ___Internal State domain___ or ___IS Domain___ (see link:#changing-internal-state-domain-of-an-entity[Changing Internal State Domain]).
+. At the time of creation, an entity MAY be assigned a ___level of detail domain___ or ___LoD Domain___ (see link:#changing-level-of-detail[Changing Level of Detail]).
++
+NOTE: _It is possible that this will need to be changed to MUST and needs further discussion_.
 
-==  Attach a Credential to an Entity
+== Attach a Credential to an Entity
 
-1. If an agent has a relevant mutation credential on a given entity (meaning that they can edit that node), the agent can attach a credential referencing the SWID of that entity through HSTP.
-1. If the credential is an affiliation credential, then the entity becomes visible through queries against that node if the querant has the corresponding affiliation key.
-1. A public entity is one that has a Public Affiliation Key, meaning that it is visible to anyone on the spatial web if they reference the spatial web node. This will generally apply to domains.
-1. All immediate entities within a domain will share the credentials within that domain. If a subdomain exists on an entity, the entity needs to extend the credential to that domain explicitly.
+. If an agent has a relevant mutation credential on a given entity (meaning that they can edit that node), the agent can attach a credential referencing the SWID of that entity through HSTP.
+. If the credential is an affiliation credential, then the entity becomes visible through queries against that node if the querant has the corresponding affiliation key.
+. A public entity is one that has a Public Affiliation Key, meaning that it is visible to anyone on the spatial web if they reference the spatial web node. This will generally apply to domains.
+. All immediate entities within a domain will share the credentials within that domain. If a subdomain exists on an entity, the entity needs to extend the credential to that domain explicitly.
 
 == Invalidate an Entity
 
-1. An entity is made invalid by setting the :isInactive flag (typically through a sparql update). 
-1. An inactive entity remains in the system but is no longer visible to queries (all queries check the inactive flag for that entity). 
-1. When an entity is made inactive, the datetime is noted, and after a system settable time, the entity will be purged. Note that if an entity has a subordinate or linked domain, that domain will NOT be made inactive (there may be other references to the subdomain).
-1. All queries against an entity must specifically check to see if the entity is valid before returning it as part of a search result.
+. An entity is made invalid by setting the :isInactive flag (typically through a sparql update).
+. An inactive entity remains in the system but is no longer visible to queries (all queries check the inactive flag for that entity).
+. When an entity is made inactive, the datetime is noted, and after a system settable time, the entity will be purged. Note that if an entity has a subordinate or linked domain, that domain will NOT be made inactive (there may be other references to the subdomain).
+. All queries against an entity must specifically check to see if the entity is valid before returning it as part of a search result.
 
-==  Querying an Entity
+== Querying an Entity
 
-1. All entities have a default Query Activity that will retrieve a JSON-LD representation of that entity (this may not be a faithful copy of the internal state of the entity).
-2. The editor of that entity may incorporate one or more override activities that provides different representations based upon parameters sent within the HSTP request message.
-3. The querant may request that the query be made subscribable, which means that a new message is passed every time a change is made to the state of the entity in question.
+. All entities have a default Query Activity that will retrieve a JSON-LD representation of that entity (this may not be a faithful copy of the internal state of the entity).
+. The editor of that entity may incorporate one or more override activities that provides different representations based upon parameters sent within the HSTP request message.
+. The querant may request that the query be made subscribable, which means that a new message is passed every time a change is made to the state of the entity in question.
 
-==  Querying a Specific State of an Entity
+== Querying a Specific State of an Entity
 
-1. The querant can request a specific state variable for a given entity. This will retrieve a JSON structure containing the variable and it's associated value.
-1. As with querying an entity, querying the state of an entity can be done asynchronously using a pub/sub protocol. This will return information about the state periodically as it changes.
-1. A query can also be made to retrieve the entity state array, either once or upon state changes.
-1. Any asynchronous query will return an identifier for that query, and the calling agent may cancel the query by passing back that identifier.
+. The querant can request a specific state variable for a given entity. This will retrieve a JSON structure containing the variable and it's associated value.
+. As with querying an entity, querying the state of an entity can be done asynchronously using a pub/sub protocol. This will return information about the state periodically as it changes.
+. A query can also be made to retrieve the entity state array, either once or upon state changes.
+. Any asynchronous query will return an identifier for that query, and the calling agent may cancel the query by passing back that identifier.
 
-==  Modifying the Specific State of an Entity
+== Modifying the Specific State of an Entity
 
-1. If a particular state of an entity is  modifiable, then this will cause a mutation event to occur that will instruct the entity to initiate a mutation activity to occur. 
-1. In the simplest (default) case, this just updates the value of the state in the graph.
-1. If the agent is autonomous, this will cause the agent manager to attempt to align the agent to the requested condition.
-1. If the agent is also bound to a physical twin, the agent manager will make the attempt to change the state of the physical twin before updating. If this fails, an error will be raised, and any changes will be rolled back.
+. If a particular state of an entity is  modifiable, then this will cause a mutation event to occur that will instruct the entity to initiate a mutation activity to occur.
+. In the simplest (default) case, this just updates the value of the state in the graph.
+. If the agent is autonomous, this will cause the agent manager to attempt to align the agent to the requested condition.
+. If the agent is also bound to a physical twin, the agent manager will make the attempt to change the state of the physical twin before updating. If this fails, an error will be raised, and any changes will be rolled back.
 
-==  Subscribing to a State of an Entity
+== Subscribing to a State of an Entity
 
-1. Subscribing to the state of an entity is the same as querying the state of an entity asynchronously.
-1. When a state changes in the subscribed entity, the subscribing entity will receive a notification (via domain.d) that can be caught with a subscribed state update event activity (the default is to do nothing).
-2. If the publishing entity is located on a different node, the message will be routed through hstp.d first, and then to the relevant entity.
-3. The first message returned from the publisher will be the current state, even if that state has not changed.
-4. The exact contents of various entity state descriptors are TBD, but will likely be a stream of contained entity messages (filtered by specific state if this is requested).
-5. Typically, such messages will be managed over channels, possibly as a part of a message queue.
+. Subscribing to the state of an entity is the same as querying the state of an entity asynchronously.
+. When a state changes in the subscribed entity, the subscribing entity will receive a notification (via domain.d) that can be caught with a subscribed state update event activity (the default is to do nothing).
+. If the publishing entity is located on a different node, the message will be routed through hstp.d first, and then to the relevant entity.
+. The first message returned from the publisher will be the current state, even if that state has not changed.
+. The exact contents of various entity state descriptors are TBD, but will likely be a stream of contained entity messages (filtered by specific state if this is requested).
+. Typically, such messages will be managed over channels, possibly as a part of a message queue.
 
-==  Extending an Entity Graph
+== Extending an Entity Graph
 
-1. The graph for a given entity (primarily domains) may be extended by use of the hsml:include property. 
-1. This provides a (generally) read-only ability to query an exterior graph, either from a different domain on the current machine, a different domain from an external domain, or a non-spatial web graph resource.
-1. This is frequently used to access domains containing collections of commonly defined entities (such as places, activities, agents, contracts and so forth).
-1. Such extensions typically require having the relevant credentials to access the external servers, and more than likely will be associated with affiliated nodes. 
+. The graph for a given entity (primarily domains) may be extended by use of the hsml:include property.
+. This provides a (generally) read-only ability to query an exterior graph, either from a different domain on the current machine, a different domain from an external domain, or a non-spatial web graph resource.
+. This is frequently used to access domains containing collections of commonly defined entities (such as places, activities, agents, contracts and so forth).
+. Such extensions typically require having the relevant credentials to access the external servers, and more than likely will be associated with affiliated nodes.
 
-==  Importing an Entity Graph
-1. An imported graph is one that is copied from an entity outside the existing domaing graph. Unlike extended graphs, imports effectively copy the contents of the given external entity but assign new SWIDs. SWURLs are typically fragments, so take on a new identifier (via it's HTTP domain).
-1. Importing a domain is the same as creating a domain, including assigning new SWIDs as needed. 
-1. Importing a domain creates a copy of that domain. This will typically be use when a domain acts as the "template" that is then filled out parametrically, such as that used by games or simulations.
-1. Importing a domain is considered an HTTP operation, while extending (including) a domain is part of UDG.
+== Importing an Entity Graph
+. An imported graph is one that is copied from an entity outside the existing domaing graph. Unlike extended graphs, imports effectively copy the contents of the given external entity but assign new SWIDs. SWURLs are typically fragments, so take on a new identifier (via it's HTTP domain).
+. Importing a domain is the same as creating a domain, including assigning new SWIDs as needed.
+. Importing a domain creates a copy of that domain. This will typically be use when a domain acts as the "template" that is then filled out parametrically, such as that used by games or simulations.
+. Importing a domain is considered an HTTP operation, while extending (including) a domain is part of UDG.
 
-==  Interacting with the Domain: User Agents
+== Interacting with the Domain: User Agents
 
-1. A __user agent__ is an agent that represents the interest and focus of an external agent within the domain. It is typically the _thing_ or _person_ that navigates the domain on behalf of that external agent.
-1. When an external agent "logs in" to a domain, the domain manager establishes a user agent representing that external agent, adding the user agent's credential to the domain credential store.
-1. If no user agent exists within that domain for that external agent, the domain manager creates that user agent and adds them to the ___home place___ for that domain. This can be thought of as the landing place for new agents.
-1. If a user agent already exists for the external agent, they will already be sited within the domain at a specific place. This establishes the context for that user agent within the domain.
-1. A user agent can interact with other agents within a given place, or with agents within an linked neighborhood (agents on a place that is directly connected to the current place). This is called the __interactive neighborhood__.
-1. Within the interactive neighborhood, the ___state matrix___ and ___activity matrix___ of all other agents in that neighborhood become visible. The activity matrix indicates all ___activities___ that a given agent can perform, relative to the user agent, while the state matrix identifies the state that is exposed to the user agent based upon the same mechanisms (typically a credential).
-1. It should be noted that such interactions are reciprocal - the user agent also exposes their state and activity matrices to other agents in the same way.
-1. The interactive neighborhood exists for two reasons - it more closely reflects the reality in which people have personal spaces that determine how they specifically interact, and it serves to reduce the overall complexity of any given domain. Note that if a communication link exists between two agents, this is considered part of the interactive neighborhood for each of those agents.
+. A __user agent__ is an agent that represents the interest and focus of an external agent within the domain. It is typically the _thing_ or _person_ that navigates the domain on behalf of that external agent.
+. When an external agent "logs in" to a domain, the domain manager establishes a user agent representing that external agent, adding the user agent's credential to the domain credential store.
+. If no user agent exists within that domain for that external agent, the domain manager creates that user agent and adds them to the ___home place___ for that domain. This can be thought of as the landing place for new agents.
+. If a user agent already exists for the external agent, they will already be sited within the domain at a specific place. This establishes the context for that user agent within the domain.
+. A user agent can interact with other agents within a given place, or with agents within an linked neighborhood (agents on a place that is directly connected to the current place). This is called the __interactive neighborhood__.
+. Within the interactive neighborhood, the ___state matrix___ and ___activity matrix___ of all other agents in that neighborhood become visible. The activity matrix indicates all ___activities___ that a given agent can perform, relative to the user agent, while the state matrix identifies the state that is exposed to the user agent based upon the same mechanisms (typically a credential).
+. It should be noted that such interactions are reciprocal - the user agent also exposes their state and activity matrices to other agents in the same way.
+. The interactive neighborhood exists for two reasons - it more closely reflects the reality in which people have personal spaces that determine how they specifically interact, and it serves to reduce the overall complexity of any given domain. Note that if a communication link exists between two agents, this is considered part of the interactive neighborhood for each of those agents.
 
-==  Activating an Agent's Activity
+== Activating an Agent's Activity
 
-1. In the case of a user-agent, the external agent is presented an activity matrix that indicates what specific activities the user-agent can perform. One of these activities as `selecting_an_activity`. This allows the agent to choose one from a set of activities that may be available of another agent, and make it the focus for subsequent actions (this may be set up on the agent as the hsml:targetEntity)
-1. Once an activity is selected, the user agent may then `activate_an_activity`. This is a signal to the targeted agent that the targeting agent is requesting that an activity be accomplished.
-1. The targeted agent that evaluates the request and, if it is within its capability and goals, will return a contract to the targeting agent with its conditions. If the conditions are acceptable to the targeting agent (for instance, if a fee is involved and paid, establishing a credential) then the activity will be initiated.
-1. Note that a contract can be extended to cover all activities that are visible to the targeting agent, and can remain in force until explicily terminated. This can reduce the negotiation process for subsequent calls to invoke other activities of a given agent.
-1. The targeted agent will then asynchronously perform the activity until the activity is completed, whereupon it notifies the targeting agent that the activity has been completed.
-1. If the targeted agent is unable to complete the activity, then it performs a forfeit activity (such as reimbursing the targeting agent) according to the terms of the contract.
-1. The activating agent can also perform an action to terminate the contract, but only once the contract has been either satisfied or forfeited. Most simple contracts are self-terminating. 
+. In the case of a user-agent, the external agent is presented an activity matrix that indicates what specific activities the user-agent can perform. One of these activities as `selecting_an_activity`. This allows the agent to choose one from a set of activities that may be available of another agent, and make it the focus for subsequent actions (this may be set up on the agent as the hsml:targetEntity)
+. Once an activity is selected, the user agent may then `activate_an_activity`. This is a signal to the targeted agent that the targeting agent is requesting that an activity be accomplished.
+. The targeted agent that evaluates the request and, if it is within its capability and goals, will return a contract to the targeting agent with its conditions. If the conditions are acceptable to the targeting agent (for instance, if a fee is involved and paid, establishing a credential) then the activity will be initiated.
+. Note that a contract can be extended to cover all activities that are visible to the targeting agent, and can remain in force until explicily terminated. This can reduce the negotiation process for subsequent calls to invoke other activities of a given agent.
+. The targeted agent will then asynchronously perform the activity until the activity is completed, whereupon it notifies the targeting agent that the activity has been completed.
+. If the targeted agent is unable to complete the activity, then it performs a forfeit activity (such as reimbursing the targeting agent) according to the terms of the contract.
+. The activating agent can also perform an action to terminate the contract, but only once the contract has been either satisfied or forfeited. Most simple contracts are self-terminating.
 
-==  Maintaining History
+== Maintaining History
 
-1. Maintaining history is handled in one of two ways - reifications and sampling, with four total options:
-   * __Reification__ involves the creation of assertions concerning the changes in the state of the various entities within a given domain. Reification can provide an exact replay of changes over time, but at the cost of performance and additional space.
-   * __Sampling__ involves the periodic sampling of the state matrix of one or more of the entities in a given domain, persisting them to an external channel. Sampling is more efficient, but it loses resolution.
-   *  __Neither.__ An entity simply does not maintain a history because it doesn't need to.
-   * __Both.__ Persistence tracking via reification allows for the replay of a given domain while external reporting can be done on the entity. This is the most comprehensive, but it is also the most processor intensive.
-1.  Reification is part of the graph services and is managed via graph.d. Sampling is part of the domain services and ties in more closely with HSTP and its associated daemon.
+. Maintaining history is handled in one of two ways - reifications and sampling, with four total options:
+** __Reification__ involves the creation of assertions concerning the changes in the state of the various entities within a given domain. Reification can provide an exact replay of changes over time, but at the cost of performance and additional space.
+** __Sampling__ involves the periodic sampling of the state matrix of one or more of the entities in a given domain, persisting them to an external channel. Sampling is more efficient, but it loses resolution.
+**  __Neither.__ An entity simply does not maintain a history because it doesn't need to.
+** __Both.__ Persistence tracking via reification allows for the replay of a given domain while external reporting can be done on the entity. This is the most comprehensive, but it is also the most processor intensive.
+.  Reification is part of the graph services and is managed via graph.d. Sampling is part of the domain services and ties in more closely with HSTP and its associated daemon.
 
-==  Changing Internal State Domain of an Entity
+== Changing Internal State Domain of an Entity
 
-1. A given non-domain entity (such as a place or an agent) may have as __Internal State Link__  to a different domain that represents the internal state of that entity. 
-1. Such a domain may be empty of child agents or places.
-1. The current implementation of such an ISL domain is a named graph, but this may change based upon system representation of data structures.
-1. The ISL graph is used primarily to represent the internal state of that entity, though it can also (especially in the case of Places) represent a zoomed in view of the entity (such as a country place showing a detail of the various roads, cities, etc. within that country).
-1. ISL domains may have a state matrix that is similar to that of an non-domain entity, which is used primarily to store measurements and intermediate values from the interaction of the components within the subdomain.
-1. In general, access to the ISL is limited to administrators, and on user agents (spatial web browsers) will have a specialized entry point because of this.
+. A given non-domain entity (such as a place or an agent) may have as __Internal State Link__  to a different domain that represents the internal state of that entity.
+. Such a domain may be empty of child agents or places.
+. The current implementation of such an ISL domain is a named graph, but this may change based upon system representation of data structures.
+. The ISL graph is used primarily to represent the internal state of that entity, though it can also (especially in the case of Places) represent a zoomed in view of the entity (such as a country place showing a detail of the various roads, cities, etc. within that country).
+. ISL domains may have a state matrix that is similar to that of an non-domain entity, which is used primarily to store measurements and intermediate values from the interaction of the components within the subdomain.
+. In general, access to the ISL is limited to administrators, and on user agents (spatial web browsers) will have a specialized entry point because of this.
 
-==  Changing Level of Detail Graphs of an Entity
+== Changing Level of Detail Graphs of an Entity
 
-1. A given non-domain entity (such as a place or an agent) may have one or more __Level of Detail Links__ (__LoDs__) to a different domain that represents a drill-down of subcomponents of that entity.
-1. Unlike an [ISL](#changing-internal-state-domain-of-an-entity), a Level of Detail link is typically used to provide different representations or subsystems for a given entity. A country (a place) for instance, may have one LoD showing critical population centers, another showing primary traffic routes, another showing watersheds and other features.
-1. An LoD domain differs from an internal state domain primarily in that it does not communicate state changes back to the parent entity. This is important because it reduces synchronization issues.
-2. As a rule of thumb, if there is a child domain of a given non-domain entity that has multiple overlapping and interconnected systems, these would best be contained within a single ISL, while if there are mostly disconnected systems (such as the plumbing vs. electrical system in a house), this would work better as multiple LoD systems. 
+. A given non-domain entity (such as a place or an agent) may have one or more __Level of Detail Links__ (__LoDs__) to a different domain that represents a drill-down of subcomponents of that entity.
+. Unlike an link:#changing-internal-state-domain-of-an-entity[ISL], a Level of Detail link is typically used to provide different representations or subsystems for a given entity. A country (a place) for instance, may have one LoD showing critical population centers, another showing primary traffic routes, another showing watersheds and other features.
+. An LoD domain differs from an internal state domain primarily in that it does not communicate state changes back to the parent entity. This is important because it reduces synchronization issues.
+. As a rule of thumb, if there is a child domain of a given non-domain entity that has multiple overlapping and interconnected systems, these would best be contained within a single ISL, while if there are mostly disconnected systems (such as the plumbing vs. electrical system in a house), this would work better as multiple LoD systems.
 
 == Subscribing to a Channel
 
-1. A channel is an entity, and utilizes the same mechanism that any entity does when receiving changes in state. 
-1. In this particular case, an inbound channel has a queue that receives messages. When a message comes in, any entity that has subscribed to this channel will received a notification that new messages are in the queue that are specifically addressed to that entity.
-1. A domain or entity within that domain may also publish to a channel through an activity. This is what is used for multiagent communication. 
+. A channel is an entity, and utilizes the same mechanism that any entity does when receiving changes in state.
+. In this particular case, an inbound channel has a queue that receives messages. When a message comes in, any entity that has subscribed to this channel will received a notification that new messages are in the queue that are specifically addressed to that entity.
+. A domain or entity within that domain may also publish to a channel through an activity. This is what is used for multiagent communication.
 
 == Moving an agent from one domain to another
 
-1. Agents, especially proxy agents, are typically mobile. When a proxy agent initiates a link connecting two places, a link between the old place and the agent will be augmented to indicate that the link is no longer active (likely through reification, but this is an implementation detail).
-1. If a link has an active credential requirement, then the credential must be presented or satisfied before the transfer can be initiated.
-1. Once the credentials have been satisfied, the connection between the place and the agent will be set as deprecated (likely through a reification), and a new connection is established between the target place and the agent. 
-1. If the new place is not located on the same node, then a check is made whether there exists an agent representing the same user agent on the target node. If there is, then the agent is "revived" and any relevant history data is transferred to the new node, then a new connection is established between the target place on the new node and the proxy agent on _that_ machine. (This is primarily for performance purposes).
-1. The deprecated connection will also include a forwarding address to the new agent. This way, if an agent is known but it has moved "off-node", then the movement through different nodes can be traced. 
+. Agents, especially proxy agents, are typically mobile. When a proxy agent initiates a link connecting two places, a link between the old place and the agent will be augmented to indicate that the link is no longer active (likely through reification, but this is an implementation detail).
+. If a link has an active credential requirement, then the credential must be presented or satisfied before the transfer can be initiated.
+. Once the credentials have been satisfied, the connection between the place and the agent will be set as deprecated (likely through a reification), and a new connection is established between the target place and the agent.
+. If the new place is not located on the same node, then a check is made whether there exists an agent representing the same user agent on the target node. If there is, then the agent is "revived" and any relevant history data is transferred to the new node, then a new connection is established between the target place on the new node and the proxy agent on _that_ machine. (This is primarily for performance purposes).
+. The deprecated connection will also include a forwarding address to the new agent. This way, if an agent is known but it has moved "off-node", then the movement through different nodes can be traced.
 
 == Transporting an Agent Via Another Agent
 
-1. An agent with an associated subdomain can "transport" another agent within that subdomain. This may be the case when an agent is acting as a container or carrier.
-1. Moving a given agent into another agent's subdomain is the same as moving an agent from one domain to another. From the standpoint of the initial domain, the "carried" agent is effectively no longer in scope of the carrier's superdomain.
-1. When an agent moves, the link to the subdomain for that agent remains the same - even if the agent moves from one node to another.
-1. The carrier agent can release the carried agent in a new place, at which point this is treated as a transfer of the carried agent from one domain to another.  
+. An agent with an associated subdomain can "transport" another agent within that subdomain. This may be the case when an agent is acting as a container or carrier.
+. Moving a given agent into another agent's subdomain is the same as moving an agent from one domain to another. From the standpoint of the initial domain, the "carried" agent is effectively no longer in scope of the carrier's superdomain.
+. When an agent moves, the link to the subdomain for that agent remains the same - even if the agent moves from one node to another.
+. The carrier agent can release the carried agent in a new place, at which point this is treated as a transfer of the carried agent from one domain to another.
 
 == Creating a New Place
 
-1. Create an HSML Place definition and instantiate it (see [Creating an Entity](#creating-an-entity)), appending it to the relevant domain through the `hsml:hasPlace` predicate.
-2. If the place is intended to be a proxy for an established place, create the relevant proxied link (e.g., Place:Earth).
-3. If the new place needs links to existing places, create link children (either directly on the link or indirectly through an object) on both the current place and on relevant backlinks (if the link is not bidirectional).
-4. Once links are created, a domain function can be identified called resolve_links, which creates backlinks if a link is bi-directional.
-5. Note that links are sensitive to the types of agents involved. For instance, in a chess game simulator there may be links of type rank, file, diagonal, and knight (the L shaped link) between different squares, and the movements that are possible will consequently be composed of the set of all paths that can be made to a given square from the starting square based upon the piece. The set of all possible paths that a given piece (agent) can take is known as an ensemble, and this represents the local hyperspace of that piece relative to the agent type.
-6. As with other entities, places can be deprecated, typically by reification.
+. Create an HSML Place definition and instantiate it (see link:#creating-an-entity[Creating an Entity]), appending it to the relevant domain through the `hsml:hasPlace` predicate.
+. If the place is intended to be a proxy for an established place, create the relevant proxied link (e.g., Place:Earth).
+. If the new place needs links to existing places, create link children (either directly on the link or indirectly through an object) on both the current place and on relevant backlinks (if the link is not bidirectional).
+. Once links are created, a domain function can be identified called resolve_links, which creates backlinks if a link is bi-directional.
+. Note that links are sensitive to the types of agents involved. For instance, in a chess game simulator there may be links of type rank, file, diagonal, and knight (the L shaped link) between different squares, and the movements that are possible will consequently be composed of the set of all paths that can be made to a given square from the starting square based upon the piece. The set of all possible paths that a given piece (agent) can take is known as an ensemble, and this represents the local hyperspace of that piece relative to the agent type.
+. As with other entities, places can be deprecated, typically by reification.
 
 == Creating an Entity Instance
 
-1. An __Entity Instance__ is a copy of an existing entity that is used as a template. It is frequently used in those situations where you have multiple different instances of a given environment, such as a game or simulation.
-1. An entity instance can only be created if the entity or some subcomponent of that entity is not a shadow for an IoT device or similar physical system that can be mutated (such as turning on a light in a smart room).
-1. The domain.d API includes a call to create an entity instance, which will take the current entity definition passed as a SWID and then instantiate a new instance that generates independent SWIDs and relevant identifiers.
-2. Entity instances do not necessarily copy affiliation credentials (this is a flag), meaning that while the original entity may be visible to an affiliation search, the instances do not necessarily need to be, though domain nodes will still appear in the landing page of the node directory, if this has been set up.
+. An __Entity Instance__ is a copy of an existing entity that is used as a template. It is frequently used in those situations where you have multiple different instances of a given environment, such as a game or simulation.
+. An entity instance can only be created if the entity or some subcomponent of that entity is not a shadow for an IoT device or similar physical system that can be mutated (such as turning on a light in a smart room).
+. The domain.d API includes a call to create an entity instance, which will take the current entity definition passed as a SWID and then instantiate a new instance that generates independent SWIDs and relevant identifiers.
+. Entity instances do not necessarily copy affiliation credentials (this is a flag), meaning that while the original entity may be visible to an affiliation search, the instances do not necessarily need to be, though domain nodes will still appear in the landing page of the node directory, if this has been set up.
 
-==  Using the Node Domain Directory
+== Using the Node Domain Directory
 
-1. A user can query the spatial web node for all of the domains for which the user agent has credentials. Typically this will be supported in the node domain, which has a specific agent that allows for generating and searching these domains (a __domain directory__).
-1. The domain directory is a kiosk control that can also be used to view and filter the domains by their relevant topics, and provide relevant summaries and metadata for each domain. 
-1. When invoked as JSON-LD (say via discovery applications), the domain directory generates either an HSML, Atom or RSS feed that contains this same metadata. 
+. A user can query the spatial web node for all of the domains for which the user agent has credentials. Typically this will be supported in the node domain, which has a specific agent that allows for generating and searching these domains (a __domain directory__).
+. The domain directory is a kiosk control that can also be used to view and filter the domains by their relevant topics, and provide relevant summaries and metadata for each domain.
+. When invoked as JSON-LD (say via discovery applications), the domain directory generates either an HSML, Atom or RSS feed that contains this same metadata.
 
-==  Rendering an Entity 
+== Rendering an Entity
 
-1. When a query is made on domains or other entities, the request may incorporate a content-type parameter.
-1. If a content-type is provided, The results of the query along with the content-type are then passed to the render.d manager.
-1. The manager checks to see if there is a rendered plugin that matches the content type. If there is, the HSML is passed to the plugin to generate an appropriate output; if not, then the content continues as HSML.
-1. The output is then attached to the HSTP response message as an attachment, then sent to the requisite user-client. 
+. When a query is made on domains or other entities, the request may incorporate a content-type parameter.
+. If a content-type is provided, The results of the query along with the content-type are then passed to the render.d manager.
+. The manager checks to see if there is a rendered plugin that matches the content type. If there is, the HSML is passed to the plugin to generate an appropriate output; if not, then the content continues as HSML.
+. The output is then attached to the HSTP response message as an attachment, then sent to the requisite user-client.
 
-==  Handle Fast/Slow State Changes
+== Handle Fast/Slow State Changes
 
-1. Each domain has a heartbeat that determines how frequently up updates are made (and how frequently external systems are polled). When creating the domain, the heartbeat can be established as a property on the domain, and can be increased or decreased as need be.
-1. For those situations where the domain does not incorporate IoT devices, this heartbeat can usually be fairly fast, as the mechanisms for transmitting information exist primarily in the same process.
-1. For those domains where external services or IoT device connections exist, the heartbeat can generally be slowed dow (or sped up) to handle polling or publication/subscription (pub/sub) type architectures.
-1. Please note that the spatial web is primarily intended to be a predictive systems, involving a large amount of contextual data, rather than a close monitoring system.
-1. It is possible (though the exact mechanism is still TBD) for a service to spawn a direct connection to an Iot device or similar fast moving system, one that bypasses the normal domain calles. In such cases, simple filters may be placed on incoming messages that allow for specific signals to be detected which then prompts an update back into the domain manager. 
+. Each domain has a heartbeat that determines how frequently up updates are made (and how frequently external systems are polled). When creating the domain, the heartbeat can be established as a property on the domain, and can be increased or decreased as need be.
+. For those situations where the domain does not incorporate IoT devices, this heartbeat can usually be fairly fast, as the mechanisms for transmitting information exist primarily in the same process.
+. For those domains where external services or IoT device connections exist, the heartbeat can generally be slowed dow (or sped up) to handle polling or publication/subscription (pub/sub) type architectures.
+. Please note that the spatial web is primarily intended to be a predictive systems, involving a large amount of contextual data, rather than a close monitoring system.
+. It is possible (though the exact mechanism is still TBD) for a service to spawn a direct connection to an Iot device or similar fast moving system, one that bypasses the normal domain calles. In such cases, simple filters may be placed on incoming messages that allow for specific signals to be detected which then prompts an update back into the domain manager.
 
-==  Replication and Failover
+== Replication and Failover
 
-1. The specific implementation of replication is dependent upon the particular knowledge graph store in question. The assumption here is that whatever KG store will likely have some native replication for multiple servers supporting failover by periodically streaming triples that are active as part of revisions to the graph. This will likely be expressed in more detail as prototypes reach a sufficient level of  maturity. 
+. The specific implementation of replication is dependent upon the particular knowledge graph store in question. The assumption here is that whatever KG store will likely have some native replication for multiple servers supporting failover by periodically streaming triples that are active as part of revisions to the graph. This will likely be expressed in more detail as prototypes reach a sufficient level of  maturity.
 
 == Scale to Internet Level
 
-1. There are multiple tiers to the proposed spatial web structure
-   * **Places and Agents** - These represent the fundamental layer on which the spatial web is built
-   * **Domains** - Domains are in effect contextual, dynamic, interactive maps. They house places, agents, and supporting structures. Domains may be linked together across multiple nodes, though a single domain can only be on one node.
-   * **Extended Domain Graphs** - this extends the scope of a given domain by incorporating external graphs into the systems at the query level. This makes using common codebases and templates feasible
-   * **Spatial Web Nodes** - Spatial web nodes are the physical backbone of the spatial web, and are primarily the servers that host the various managers of resources.
-   * **Affiliation Networks** - Each node (and many domains within the nodes) belong to one or more affiliation networks. Some of these may be huge, with potentially millions of nodes, others may be the equivalent of local intranets. Moreover, affiliations can themselves be affiliated, creating a superstructure that can scale up to:
-   * **The Spatial Web** - This is the aggregate of all affiliation networks. 
- 
- 1. It is worth noting that not all (perhaps not even most) domains will be in publicly available affiliates. Many of these domains will be private networks intended for access only by  those with need to know (or to modify), especially those with IoT interconnections.
-1. The affiliate design is also a specific requirement for a decentralized architecture. A true peer-to-peer system likely will not scale to the same level (there are few Internet scale peer-to-peer systems after more than 35 years). This would especially be the case given the requirements to ensure private control over domains, along with the sensitivity of much of the internal data.
+. There are multiple tiers to the proposed spatial web structure
+
+** **Places and Agents** - These represent the fundamental layer on which the spatial web is built
+** **Domains** - Domains are in effect contextual, dynamic, interactive maps. They house places, agents, and supporting structures. Domains may be linked together across multiple nodes, though a single domain can only be on one node.
+** **Extended Domain Graphs** - this extends the scope of a given domain by incorporating external graphs into the systems at the query level. This makes using common codebases and templates feasible
+** **Spatial Web Nodes** - Spatial web nodes are the physical backbone of the spatial web, and are primarily the servers that host the various managers of resources.
+** **Affiliation Networks** - Each node (and many domains within the nodes) belong to one or more affiliation networks. Some of these may be huge, with potentially millions of nodes, others may be the equivalent of local intranets. Moreover, affiliations can themselves be affiliated, creating a superstructure that can scale up to:
+** **The Spatial Web** - This is the aggregate of all affiliation networks.
+
+. It is worth noting that not all (perhaps not even most) domains will be in publicly available affiliates. Many of these domains will be private networks intended for access only by  those with need to know (or to modify), especially those with IoT interconnections.
+. The affiliate design is also a specific requirement for a decentralized architecture. A true peer-to-peer system likely will not scale to the same level (there are few Internet scale peer-to-peer systems after more than 35 years). This would especially be the case given the requirements to ensure private control over domains, along with the sensitivity of much of the internal data.
 
 
-=  UDG Use Cases to IEEE P2874 Requirements Correlation
+= UDG Use Cases to IEEE P2874 Requirements Correlation
 
 Based on analysis of the UDG specification use cases and the IEEE P2874 requirements database containing 209 valid requirements.
 
-==  Complete Correlation Table
+== Complete Correlation Table
 
 .Complete Correlation Table
 [%autowidth]
 |===
-|TUse Case Title |IEEE Code |Requirement Statement Description
+|Use Case Title |IEEE Code |Requirement Statement Description
 
 |Geographic
-|Implicitly or explicitly associated with a location 
+|Implicitly or explicitly associated with a location
 |Concept
 |Intangible concepts and abstract ideas shared by a community of users
 |Organization
@@ -271,216 +273,543 @@ Based on analysis of the UDG specification use cases and the IEEE P2874 requirem
 |Bounded items without agency
 |===
 
-| Use Case Title | IEEE Code | Requirement Statement Description |
-|----------------|-----------|-----------------------------------|
-| [ __Setting Up a Spatial Web Node__ ](#setting-up-a-spatial-web-node) | DSA-1 | Domain-specific architectures shall be consistent with IEEE_2413_2019, IEEE 2413 Architectural Framework for IoT |
-| | DSA-4 | Domain-specific architectures should define governance for their domains consistent with the Spatial Web governance |
-| | DSA-5 | Domain-specific architectures shall design identity management that meet the requirements of the domain and are compliant with the Spatial Web system requirements |
-| | SWG-4 | Spatial Web Governance shall enable standardized protocols for cross-platform compatibility and interoperability |
-| | UDG-15 | UDG shall provide mechanisms for automatic discovery of nodes, and their properties and capabilities as well as the means to access them |
-| [ **Generating and Resolving SWIDs** ](#generating-and-resolving-swids) | DSA-7 | Domain-specific architectures shall provide a system of distributed, decentralized registries for SWIDs |
-| | UDG-8 | UDG shall ensure SWID uniqueness |
-| | UDG-3 | UDG shall validate SWIDs generated using SWID Method prior to issuance, e.g., assess uniqueness |
-| | UDG-7 | UDG shall support the generation of SWIDs one at a time, such as for Top Domains, or generate many at a time, such as for Public Domains |
-| | UDG-9 | UDG shall ensure that SWIDs are maintained in the Spatial Web Registry |
-| [ **Registering a Node on an Affiliation Registry** ](#registering-a-node-on-an-affiliation-registry) | UDG-4 | UDG shall include a Spatial Web registration service for Public and Top domains |
-| | UDG-5 | UDG shall, for audit purposes, register all SWIDs related to all public and top domains in a Spatial Web Registry |
-| | UDG-6 | UDG shall enable verification and validation services for domains prior to their registration |
-| | DSA-7 | Domain-specific architectures shall provide a system of distributed, decentralized registries for SWIDs |
-| | UDG-13 | UDG shall implement Spatial Web Domain registration processes |
-| [ **Searching an Affiliation Registry (User Client)** ](#searching-an-affiliation-registry-user-client) | UDG-2 | UDG shall enable discovery of physical and virtual entities via discovery services |
-| | UDG-1 | UDG shall enable discovery of the virtual representation of physical entities |
-| | DSA-8 | Domain-specific architectures shall enable objects to be searchable within the Spatial Web Domains in which they are nested |
-| | UDG-18 | UDG shall include Spatial Index Servers that make maps ranging from simple SQL indexes to graph-based databases |
-| [ **Refreshing a Registry** ](#refreshing-a-registry) | UDG-19 | UDG shall manage entity replication and update with consideration of how quickly the entities are changing |
-| | HSTP-14 | HSTP shall provide mechanisms for managing updates and changes to entity registrations over time |
-| [ **Logging Into a Domain** ](#logging-into-a-domain) | AIS-2 | AIS Rating Framework shall define procedures for real-time CREDENTIAL and certification management, based on an AGENT's attributes, capabilities, and relationships |
-| | AIS-3 | AIS Rating Framework shall facilitate the dynamic adjustment of AGENT permissions, authorizations, and access based on changes in an AGENT's attributes, operational context, and ACTIVITIES |
-| | AIS-4 | AIS Rating Framework should support the integration of a credential and certification management framework |
-| | DSA-5 | Domain-specific architectures shall design identity management that meet the requirements of the domain |
-| [ **Creating an Entity** ](#creating-an-entity-) | HSML-2 | HSML shall enable virtual representation of physical entities based on the principles of spatialization |
-| | UDG-23 | UDG shall implement the use cases specified in the standard |
-| | DSA-6 | Domain-specific architecture specifications shall enable the creation of Domains as containers for Domains |
-| [ **Attach a Credential to an Entity** ](#attach-a-credential-to-an-entity) | AIS-2 | AIS Rating Framework shall define procedures for real-time CREDENTIAL and certification management |
-| | AIS-3 | AIS Rating Framework shall facilitate the dynamic adjustment of AGENT permissions, authorizations, and access |
-| | AIS-4 | AIS Rating Framework should support the integration of a credential and certification management framework |
-| [ **Invalidate an Entity** ](#invalidate-an-entity) | UDG-19 | UDG shall manage entity replication and update with consideration of how quickly the entities are changing |
-| | HSML-8 | HSML shall provide mechanisms for entity lifecycle management including creation, modification, and removal |
-| [ **Querying an Entity** ](#querying-an-entity) | UDG-1 | UDG shall enable discovery of the virtual representation of physical entities |
-| | HSML-1 | HSML shall support deployment and management of the Spatial Web by operations within organizations |
-| | UDG-23 | UDG shall implement the use cases specified in the standard |
-| [ **Querying a Specific State of an Entity** ](#querying-a-specific-state-of-an-entity) | HSML-3 | HSML shall enable digital representation of physical entities synchronized at frequencies and fidelities |
-| | UDG-20 | UDG shall manage rapidly changing entities using a peer-to-peer methodology |
-| | UDG-21 | UDG shall manage slow-changing cross-ledger entities and CONTRACTs on a distributed ledger |
-| [ **Modifying the Specific State of an Entity** ](#modifying-the-specific-state-of-an-entity) | UDG-20 | UDG shall manage rapidly changing entities using a peer-to-peer methodology |
-| | UDG-21 | UDG shall manage slow-changing cross-ledger entities and CONTRACTs on a distributed ledger |
-| | HSTP-1 | HSTP shall be interoperable with IoT systems in such a way that the entities are able to exchange information |
-| | HSTP-3 | HSTP shall provide interoperability of robotics and other physical actuator devices |
-| [ **Subscribing to a State of an Entity** ](#subscribing-to-a-state-of-an-entity) | UDG-20 | UDG shall manage rapidly changing entities using a peer-to-peer methodology |
-| | HSTP-8 | HSTP shall support publish/subscribe communication patterns for real-time data exchange |
-| | HSML-15 | HSML shall support event-driven state change notifications |
-| [ **Extending an Entity Graph** ](#extending-an-entity-graph) | UDG-11 | UDG shall provide for distributed operations of the UDG including propagation of changes and consistency |
-| | UDG-12 | UDG shall provide Spatial Web Domain interactions that are seamlessly managed and integrated |
-| | HSTP-12 | HSTP shall support federated query capabilities across multiple graph sources |
-| [ **Importing an Entity Graph** ](#importing-an-entity-graph) | UDG-11 | UDG shall provide for distributed operations of the UDG including propagation of changes and consistency |
-| | HSML-12 | HSML shall support template management and domain instantiation |
-| | UDG-23 | UDG shall implement the use cases specified in the standard |
-| [ **Interacting with the Domain: User Agents** ](#interacting-with-the-domain-user-agents) | AIS-1 | AIS Rating Framework shall enable ecosystems of intelligence across the Spatial Web |
-| | AIS-5 | AIS Rating Framework shall offer flexibility, allowing dynamic interactions among AGENTS with varied capabilities |
-| | AIS-7 | AIS Rating Framework shall enable governance of AGENT interactions |
-| | UDG-14 | UDG design and procedures shall enable a range of methods for accessing the UDG |
-| [ **Activating an Agent's Activity** ](#activating-an-agents-activity) | UDG-15 | UDG shall provide the capability to register and manage ACTIVITIES that are associated with AGENTs |
-| | UDG-16 | UDG shall keep a record of HSML ACTIVITIES that were executed as part of a Contract |
-| | AIS-5 | AIS Rating Framework shall offer flexibility, allowing dynamic interactions among AGENTS |
-| [ **Maintaining History** ](#maintaining-history) | UDG-16 | UDG shall keep a record of HSML ACTIVITIES that were executed as part of a Contract |
-| | HSML-18 | HSML shall provide audit trail capabilities for all system operations |
-| | UDG-3 | UDG operations shall be resilient to inconsistencies in relationships between nodes |
-| [ **Changing Internal State Domain of an Entity** ](#changing-internal-state-domain-of-an-entity) | UDG-20 | UDG shall manage rapidly changing entities using a peer-to-peer methodology |
-| | UDG-21 | UDG shall manage slow-changing cross-ledger entities and CONTRACTs |
-| | HSML-16 | HSML shall support hierarchical domain structures and internal state management |
-| [ **Changing Level of Detail Graphs of an Entity** ](#changing-level-of-detail-graphs-of-an-entity) | UDG-1 | UDG shall enable discovery of the virtual representation of physical entities |
-| | HSML-17 | HSML shall support multiple representation granularities and level-of-detail switching |
-| [ **Subscribing to a Channel** ](#subscribing-to-a-channel) | HSTP-8 | HSTP shall support publish/subscribe communication patterns for real-time data exchange |
-| | HSTP-11 | HSTP shall provide message queuing and routing capabilities for multi-agent communication |
-| | UDG-20 | UDG shall manage rapidly changing entities using a peer-to-peer methodology |
-| [ **Moving an agent from one domain to another** ](#moving-an-agent-from-one-domain-to-another) | UDG-11 | UDG shall provide for distributed operations of the UDG including propagation of changes and consistency |
-| | UDG-12 | UDG shall provide Spatial Web Domain interactions that are seamlessly managed and integrated |
-| | HSTP-13 | HSTP shall support agent mobility and state transfer between domains and nodes |
-| [ **Transporting an Agent Via Another Agent** ](#transporting-an-agent-via-another-agent) | UDG-11 | UDG shall provide for distributed operations of the UDG |
-| | AIS-5 | AIS Rating Framework shall offer flexibility, allowing dynamic interactions among AGENTS |
-| | HSTP-13 | HSTP shall support agent mobility and state transfer between domains and nodes |
-| [ **Creating a New Place** ](#creating-a-new-place) | UDG-18 | UDG shall include Spatial Index Servers that deliver spatial indexing |
-| | HSML-19 | HSML shall support spatial location creation and topology management |
-| | DSA-6 | Domain-specific architecture specifications shall enable the creation of Domains as containers |
-| [ **Creating an Entity Instance** ](#creating-an-entity-instance) | UDG-23 | UDG shall implement the use cases specified in the standard |
-| | HSML-12 | HSML shall support template management and entity instantiation services |
-| | DSA-6 | Domain-specific architecture specifications shall enable the creation of Domains as containers |
-| [ **Using the Node Domain Directory** ](#using-the-node-domain-directory) | UDG-15 | UDG shall provide mechanisms for automatic discovery of nodes, and their properties and capabilities |
-| | UDG-2 | UDG shall enable discovery of physical and virtual entities via discovery services |
-| | DSA-8 | Domain-specific architectures shall enable objects to be searchable within the Spatial Web Domains |
-| [ **Rendering an Entity** ](#rendering-an-entity) | HSML-1 | HSML shall support deployment and management of the Spatial Web by operations within organizations |
-| | HSML-20 | HSML shall support multiple content-type representation capabilities |
-| | UDG-23 | UDG shall implement the use cases specified in the standard |
-| [ **Handle Fast/Slow State Changes**](#handle-fastslow-state-changes) | UDG-17 | UDG shall be designed to operate with communication network performance where bandwidth ranging from hundreds of gigabits per second to several terabits per second |
-| | UDG-20 | UDG shall manage rapidly changing entities using a peer-to-peer methodology |
-| | UDG-21 | UDG shall manage slow-changing cross-ledger entities and CONTRACTs on a distributed ledger |
-| | HSTP-1 | HSTP shall be interoperable with IoT systems in such a way that the entities are able to exchange information |
-| [ **Replication and Failover** ](#replication-and-failover) | UDG-10 | UDG operations shall be resilient to inconsistencies in relationships between nodes and in the content of nodes |
-| | UDG-19 | UDG shall manage entity replication and update with consideration of how quickly the entities are changing |
-| | SWG-8 | Spatial Web Governance shall provide fault tolerance and system resilience mechanisms |
-| [ **Scale to Internet Level** ](#scale-to-internet-level) | UDG-15 | UDG shall provide mechanisms for automatic discovery of nodes |
-| | UDG-16 | UDG shall support the ability to accommodate an increasing number of connectivity endpoints, reaching internet scale |
-| | SWG-3 | Spatial Web Governance shall enable multi-scale cognitive computing and shared intelligence |
-| | UDG-11 | UDG shall provide for distributed operations of the UDG including propagation of changes and consistency |
+.Complete Correlation Table
+[cols="3a,a,4a"]
+|===
+|Use Case Title |IEEE Code |Requirement Statement Description
 
-==  Complete Correlation Table (Sorted by IEEE Code)
+| <<setting-up-a-spatial-web-node,Setting Up a Spatial Web Node>> | DSA-1 | Domain-specific architectures shall be consistent with IEEE_2413_2019, IEEE 2413 Architectural Framework for IoT
+| | DSA-4 | Domain-specific architectures should define governance for their domains consistent with the Spatial Web governance
+| | DSA-5 | Domain-specific architectures shall design identity management that meet the requirements of the domain and are compliant with the Spatial Web system requirements
+| | SWG-4 | Spatial Web Governance shall enable standardized protocols for cross-platform compatibility and interoperability
+| | UDG-15 | UDG shall provide mechanisms for automatic discovery of nodes, and their properties and capabilities as well as the means to access them
 
-| IEEE Code | Use Case Title | Requirement Statement Description |
-|-----------|----------------|-----------------------------------|
-| AIS-1 | Interacting with the Domain: User Agents | AIS Rating Framework shall enable ecosystems of intelligence across the Spatial Web |
-| AIS-2 | Logging Into a Domain | AIS Rating Framework shall define procedures for real-time CREDENTIAL and certification management, based on an AGENT's attributes, capabilities, and relationships |
-| AIS-2 | Attach a Credential to an Entity | AIS Rating Framework shall define procedures for real-time CREDENTIAL and certification management |
-| AIS-3 | Logging Into a Domain | AIS Rating Framework shall facilitate the dynamic adjustment of AGENT permissions, authorizations, and access based on changes in an AGENT's attributes, operational context, and ACTIVITIES |
-| AIS-3 | Attach a Credential to an Entity | AIS Rating Framework shall facilitate the dynamic adjustment of AGENT permissions, authorizations, and access |
-| AIS-4 | Logging Into a Domain | AIS Rating Framework should support the integration of a credential and certification management framework |
-| AIS-4 | Attach a Credential to an Entity | AIS Rating Framework should support the integration of a credential and certification management framework |
-| AIS-5 | Interacting with the Domain: User Agents | AIS Rating Framework shall offer flexibility, allowing dynamic interactions among AGENTS with varied capabilities |
-| AIS-5 | Activating an Agent's Activity | AIS Rating Framework shall offer flexibility, allowing dynamic interactions among AGENTS |
-| AIS-5 | Transporting an Agent Via Another Agent | AIS Rating Framework shall offer flexibility, allowing dynamic interactions among AGENTS |
-| AIS-7 | Interacting with the Domain: User Agents | AIS Rating Framework shall enable governance of AGENT interactions |
-| DSA-1 | Setting Up a Spatial Web Node | Domain-specific architectures shall be consistent with IEEE_2413_2019, IEEE 2413 Architectural Framework for IoT |
-| DSA-4 | Setting Up a Spatial Web Node | Domain-specific architectures should define governance for their domains consistent with the Spatial Web governance |
-| DSA-5 | Setting Up a Spatial Web Node | Domain-specific architectures shall design identity management that meet the requirements of the domain and are compliant with the Spatial Web system requirements |
-| DSA-5 | Logging Into a Domain | Domain-specific architectures shall design identity management that meet the requirements of the domain |
-| DSA-6 | Creating an Entity | Domain-specific architecture specifications shall enable the creation of Domains as containers for Domains |
-| DSA-6 | Creating a New Place | Domain-specific architecture specifications shall enable the creation of Domains as containers |
-| DSA-6 | Creating an Entity Instance | Domain-specific architecture specifications shall enable the creation of Domains as containers |
-| DSA-7 | Generating and Resolving SWIDs | Domain-specific architectures shall provide a system of distributed, decentralized registries for SWIDs |
-| DSA-7 | Registering a Node on an Affiliation Registry | Domain-specific architectures shall provide a system of distributed, decentralized registries for SWIDs |
-| DSA-8 | Searching an Affiliation Registry (User Client) | Domain-specific architectures shall enable objects to be searchable within the Spatial Web Domains in which they are nested |
-| DSA-8 | Using the Node Domain Directory | Domain-specific architectures shall enable objects to be searchable within the Spatial Web Domains |
-| HSML-1 | Querying an Entity | HSML shall support deployment and management of the Spatial Web by operations within organizations |
-| HSML-1 | Rendering an Entity | HSML shall support deployment and management of the Spatial Web by operations within organizations |
-| HSML-2 | Creating an Entity | HSML shall enable virtual representation of physical entities based on the principles of spatialization |
-| HSML-3 | Querying a Specific State of an Entity | HSML shall enable digital representation of physical entities synchronized at frequencies and fidelities |
-| HSML-8 | Invalidate an Entity | HSML shall provide mechanisms for entity lifecycle management including creation, modification, and removal |
-| HSML-12 | Importing an Entity Graph | HSML shall support template management and domain instantiation |
-| HSML-12 | Creating an Entity Instance | HSML shall support template management and entity instantiation services |
-| HSML-15 | Subscribing to a State of an Entity | HSML shall support event-driven state change notifications |
-| HSML-16 | Changing Internal State of an Entity | HSML shall support hierarchical domain structures and internal state management |
-| HSML-17 | Changing Level of Detail Graphs of an Entity | HSML shall support multiple representation granularities and level-of-detail switching |
-| HSML-18 | Maintaining History | HSML shall provide audit trail capabilities for all system operations |
-| HSML-19 | Creating a New Place | HSML shall support spatial location creation and topology management |
-| HSML-20 | Rendering an Entity | HSML shall support multiple content-type representation capabilities |
-| HSTP-1 | Modifying the Specific State of an Entity | HSTP shall be interoperable with IoT systems in such a way that the entities are able to exchange information |
-| HSTP-1 | Handle Fast/Slow State Changes | HSTP shall be interoperable with IoT systems in such a way that the entities are able to exchange information |
-| HSTP-3 | Modifying the Specific State of an Entity | HSTP shall provide interoperability of robotics and other physical actuator devices |
-| HSTP-8 | Subscribing to a State of an Entity | HSTP shall support publish/subscribe communication patterns for real-time data exchange |
-| HSTP-8 | Subscribing to a Channel | HSTP shall support publish/subscribe communication patterns for real-time data exchange |
-| HSTP-11 | Subscribing to a Channel | HSTP shall provide message queuing and routing capabilities for multi-agent communication |
-| HSTP-12 | Extending an Entity Graph | HSTP shall support federated query capabilities across multiple graph sources |
-| HSTP-13 | Moving an agent from one domain to another | HSTP shall support agent mobility and state transfer between domains and nodes |
-| HSTP-13 | Transporting an Agent Via Another Agent | HSTP shall support agent mobility and state transfer between domains and nodes |
-| HSTP-14 | Refreshing a Registry | HSTP shall provide mechanisms for managing updates and changes to entity registrations over time |
-| SWG-3 | Scale to Internet Level | Spatial Web Governance shall enable multi-scale cognitive computing and shared intelligence |
-| SWG-4 | Setting Up a Spatial Web Node | Spatial Web Governance shall enable standardized protocols for cross-platform compatibility and interoperability |
-| SWG-8 | Replication and Failover | Spatial Web Governance shall provide fault tolerance and system resilience mechanisms |
-| UDG-1 | Searching an Affiliation Registry (User Client) | UDG shall enable discovery of the virtual representation of physical entities |
-| UDG-1 | Querying an Entity | UDG shall enable discovery of the virtual representation of physical entities |
-| UDG-1 | Changing Level of Detail Graphs of an Entity | UDG shall enable discovery of the virtual representation of physical entities |
-| UDG-2 | Searching an Affiliation Registry (User Client) | UDG shall enable discovery of physical and virtual entities via discovery services |
-| UDG-2 | Using the Node Domain Directory | UDG shall enable discovery of physical and virtual entities via discovery services |
-| UDG-3 | Generating and Resolving SWIDs | UDG shall validate SWIDs generated using SWID Method prior to issuance, e.g., assess uniqueness |
-| UDG-3 | Maintaining History | UDG operations shall be resilient to inconsistencies in relationships between nodes |
-| UDG-4 | Registering a Node on an Affiliation Registry | UDG shall include a Spatial Web registration service for Public and Top domains |
-| UDG-5 | Registering a Node on an Affiliation Registry | UDG shall, for audit purposes, register all SWIDs related to all public and top domains in a Spatial Web Registry |
-| UDG-6 | Registering a Node on an Affiliation Registry | UDG shall enable verification and validation services for domains prior to their registration |
-| UDG-7 | Generating and Resolving SWIDs | UDG shall support the generation of SWIDs one at a time, such as for Top Domains, or generate many at a time, such as for Public Domains |
-| UDG-8 | Generating and Resolving SWIDs | UDG shall ensure SWID uniqueness |
-| UDG-9 | Generating and Resolving SWIDs | UDG shall ensure that SWIDs are maintained in the Spatial Web Registry |
-| UDG-10 | Replication and Failover | UDG operations shall be resilient to inconsistencies in relationships between nodes and in the content of nodes |
-| UDG-11 | Extending an Entity Graph | UDG shall provide for distributed operations of the UDG including propagation of changes and consistency |
-| UDG-11 | Importing an Entity Graph | UDG shall provide for distributed operations of the UDG including propagation of changes and consistency |
-| UDG-11 | Moving an agent from one domain to another | UDG shall provide for distributed operations of the UDG including propagation of changes and consistency |
-| UDG-11 | Transporting an Agent Via Another Agent | UDG shall provide for distributed operations of the UDG |
-| UDG-11 | Scale to Internet Level | UDG shall provide for distributed operations of the UDG including propagation of changes and consistency |
-| UDG-12 | Extending an Entity Graph | UDG shall provide Spatial Web Domain interactions that are seamlessly managed and integrated |
-| UDG-12 | Moving an agent from one domain to another | UDG shall provide Spatial Web Domain interactions that are seamlessly managed and integrated |
-| UDG-13 | Registering a Node on an Affiliation Registry | UDG shall implement Spatial Web Domain registration processes |
-| UDG-14 | Interacting with the Domain: User Agents | UDG design and procedures shall enable a range of methods for accessing the UDG |
-| UDG-15 | Setting Up a Spatial Web Node | UDG shall provide mechanisms for automatic discovery of nodes, and their properties and capabilities as well as the means to access them |
-| UDG-15 | Activating an Agent's Activity | UDG shall provide the capability to register and manage ACTIVITIES that are associated with AGENTs |
-| UDG-15 | Using the Node Domain Directory | UDG shall provide mechanisms for automatic discovery of nodes, and their properties and capabilities |
-| UDG-15 | Scale to Internet Level | UDG shall provide mechanisms for automatic discovery of nodes |
-| UDG-16 | Activating an Agent's Activity | UDG shall keep a record of HSML ACTIVITIES that were executed as part of a Contract |
-| UDG-16 | Maintaining History | UDG shall keep a record of HSML ACTIVITIES that were executed as part of a Contract |
-| UDG-16 | Scale to Internet Level | UDG shall support the ability to accommodate an increasing number of connectivity endpoints, reaching internet scale |
-| UDG-17 | Handle Fast/Slow State Changes | UDG shall be designed to operate with communication network performance where bandwidth ranging from hundreds of gigabits per second to several terabits per second |
-| UDG-18 | Searching an Affiliation Registry (User Client) | UDG shall include Spatial Index Servers that make maps ranging from simple SQL indexes to graph-based databases |
-| UDG-18 | Creating a New Place | UDG shall include Spatial Index Servers that deliver spatial indexing |
-| UDG-19 | Refreshing a Registry | UDG shall manage entity replication and update with consideration of how quickly the entities are changing |
-| UDG-19 | Invalidate an Entity | UDG shall manage entity replication and update with consideration of how quickly the entities are changing |
-| UDG-19 | Replication and Failover | UDG shall manage entity replication and update with consideration of how quickly the entities are changing |
-| UDG-20 | Querying a Specific State of an Entity | UDG shall manage rapidly changing entities using a peer-to-peer methodology |
-| UDG-20 | Modifying the Specific State of an Entity | UDG shall manage rapidly changing entities using a peer-to-peer methodology |
-| UDG-20 | Subscribing to a State of an Entity | UDG shall manage rapidly changing entities using a peer-to-peer methodology |
-| UDG-20 | Changing Internal State of an Entity | UDG shall manage rapidly changing entities using a peer-to-peer methodology |
-| UDG-20 | Subscribing to a Channel | UDG shall manage rapidly changing entities using a peer-to-peer methodology |
-| UDG-21 | Querying a Specific State of an Entity | UDG shall manage slow-changing cross-ledger entities and CONTRACTs on a distributed ledger |
-| UDG-21 | Modifying the Specific State of an Entity | UDG shall manage slow-changing cross-ledger entities and CONTRACTs on a distributed ledger |
-| UDG-21 | Changing Internal State of an Entity | UDG shall manage slow-changing cross-ledger entities and CONTRACTs |
-| UDG-23 | Creating an Entity | UDG shall implement the use cases specified in the standard |
-| UDG-23 | Querying an Entity | UDG shall implement the use cases specified in the standard |
-| UDG-23 | Importing an Entity Graph | UDG shall implement the use cases specified in the standard |
-| UDG-23 | Creating an Entity Instance | UDG shall implement the use cases specified in the standard |
-| UDG-23 | Rendering an Entity | UDG shall implement the use cases specified in the standard |
+| <<generating-and-resolving-swids,Generating and Resolving SWIDs>> | DSA-7 | Domain-specific architectures shall provide a system of distributed, decentralized registries for SWIDs
+| | UDG-3 | UDG shall validate SWIDs generated using SWID Method prior to issuance, e.g., assess uniqueness
+| | UDG-7 | UDG shall support the generation of SWIDs one at a time, such as for Top Domains, or generate many at a time, such as for Public Domains
+| | UDG-8 | UDG shall ensure SWID uniqueness
+| | UDG-9 | UDG shall ensure that SWIDs are maintained in the Spatial Web Registry
+
+| <<registering-a-node-on-an-affiliation-registry,Registering a Node on an Affiliation Registry>> | DSA-7 | Domain-specific architectures shall provide a system of distributed, decentralized registries for SWIDs
+| | UDG-4 | UDG shall include a Spatial Web registration service for Public and Top domains
+| | UDG-5 | UDG shall, for audit purposes, register all SWIDs related to all public and top domains in a Spatial Web Registry
+| | UDG-6 | UDG shall enable verification and validation services for domains prior to their registration
+| | UDG-13 | UDG shall implement Spatial Web Domain registration processes
+
+| <<searching-an-affiliation-registry-user-client,Searching an Affiliation Registry (User Client)>> | DSA-8 | Domain-specific architectures shall enable objects to be searchable within the Spatial Web Domains in which they are nested
+| | UDG-1 | UDG shall enable discovery of the virtual representation of physical entities
+| | UDG-2 | UDG shall enable discovery of physical and virtual entities via discovery services
+| | UDG-18 | UDG shall include Spatial Index Servers that make maps ranging from simple SQL indexes to graph-based databases
+
+| <<refreshing-a-registry,Refreshing a Registry>> | HSTP-14 | HSTP shall provide mechanisms for managing updates and changes to entity registrations over time
+| | UDG-19 | UDG shall manage entity replication and update with consideration of how quickly the entities are changing
+
+| <<logging-into-a-domain,Logging Into a Domain>> | AIS-2 | AIS Rating Framework shall define procedures for real-time CREDENTIAL and certification management, based on an AGENT's attributes, capabilities, and relationships
+| | AIS-3 | AIS Rating Framework shall facilitate the dynamic adjustment of AGENT permissions, authorizations, and access based on changes in an AGENT's attributes, operational context, and ACTIVITIES
+| | AIS-4 | AIS Rating Framework should support the integration of a credential and certification management framework
+| | DSA-5 | Domain-specific architectures shall design identity management that meet the requirements of the domain
+
+| <<creating-an-entity,Creating an Entity>> | DSA-6 | Domain-specific architecture specifications shall enable the creation of Domains as containers for Domains
+| | HSML-2 | HSML shall enable virtual representation of physical entities based on the principles of spatialization
+| | UDG-23 | UDG shall implement the use cases specified in the standard
+
+| <<attach-a-credential-to-an-entity,Attach a Credential to an Entity>> | AIS-2 | AIS Rating Framework shall define procedures for real-time CREDENTIAL and certification management
+| | AIS-3 | AIS Rating Framework shall facilitate the dynamic adjustment of AGENT permissions, authorizations, and access
+| | AIS-4 | AIS Rating Framework should support the integration of a credential and certification management framework
+
+| <<invalidate-an-entity,Invalidate an Entity>> | HSML-8 | HSML shall provide mechanisms for entity lifecycle management including creation, modification, and removal
+| | UDG-19 | UDG shall manage entity replication and update with consideration of how quickly the entities are changing
+
+| <<querying-an-entity,Querying an Entity>> | HSML-1 | HSML shall support deployment and management of the Spatial Web by operations within organizations
+| | UDG-1 | UDG shall enable discovery of the virtual representation of physical entities
+| | UDG-23 | UDG shall implement the use cases specified in the standard
+
+| <<querying-a-specific-state-of-an-entity,Querying a Specific State of an Entity>> | HSML-3 | HSML shall enable digital representation of physical entities synchronized at frequencies and fidelities
+| | UDG-20 | UDG shall manage rapidly changing entities using a peer-to-peer methodology
+| | UDG-21 | UDG shall manage slow-changing cross-ledger entities and CONTRACTs on a distributed ledger
+
+| <<modifying-the-specific-state-of-an-entity,Modifying the Specific State of an Entity>> | HSTP-1 | HSTP shall be interoperable with IoT systems in such a way that the entities are able to exchange information
+| | HSTP-3 | HSTP shall provide interoperability of robotics and other physical actuator devices
+| | UDG-20 | UDG shall manage rapidly changing entities using a peer-to-peer methodology
+| | UDG-21 | UDG shall manage slow-changing cross-ledger entities and CONTRACTs on a distributed ledger
+
+| <<subscribing-to-a-state-of-an-entity,Subscribing to a State of an Entity>> | HSML-15 | HSML shall support event-driven state change notifications
+| | HSTP-8 | HSTP shall support publish/subscribe communication patterns for real-time data exchange
+| | UDG-20 | UDG shall manage rapidly changing entities using a peer-to-peer methodology
+
+| <<extending-an-entity-graph,Extending an Entity Graph>> | HSTP-12 | HSTP shall support federated query capabilities across multiple graph sources
+| | UDG-11 | UDG shall provide for distributed operations of the UDG including propagation of changes and consistency
+| | UDG-12 | UDG shall provide Spatial Web Domain interactions that are seamlessly managed and integrated
+
+| <<importing-an-entity-graph,Importing an Entity Graph>> | HSML-12 | HSML shall support template management and domain instantiation
+| | UDG-11 | UDG shall provide for distributed operations of the UDG including propagation of changes and consistency
+| | UDG-23 | UDG shall implement the use cases specified in the standard
+
+| <<interacting-with-the-domain-user-agents,Interacting with the Domain: User Agents>> | AIS-1 | AIS Rating Framework shall enable ecosystems of intelligence across the Spatial Web
+| | AIS-5 | AIS Rating Framework shall offer flexibility, allowing dynamic interactions among AGENTS with varied capabilities
+| | AIS-7 | AIS Rating Framework shall enable governance of AGENT interactions
+| | UDG-14 | UDG design and procedures shall enable a range of methods for accessing the UDG
+
+| <<activating-an-agents-activity,Activating an Agent's Activity>> | AIS-5 | AIS Rating Framework shall offer flexibility, allowing dynamic interactions among AGENTS
+| | UDG-15 | UDG shall provide the capability to register and manage ACTIVITIES that are associated with AGENTs
+| | UDG-16 | UDG shall keep a record of HSML ACTIVITIES that were executed as part of a Contract
+
+| <<maintaining-history,Maintaining History>> | HSML-18 | HSML shall provide audit trail capabilities for all system operations
+| | UDG-3 | UDG operations shall be resilient to inconsistencies in relationships between nodes
+| | UDG-16 | UDG shall keep a record of HSML ACTIVITIES that were executed as part of a Contract
+
+| <<changing-internal-state-domain-of-an-entity,Changing Internal State Domain of an Entity>> | HSML-16 | HSML shall support hierarchical domain structures and internal state management
+| | UDG-20 | UDG shall manage rapidly changing entities using a peer-to-peer methodology
+| | UDG-21 | UDG shall manage slow-changing cross-ledger entities and CONTRACTs
+
+| <<changing-level-of-detail-graphs-of-an-entity,Changing Level of Detail Graphs of an Entity>> | HSML-17 | HSML shall support multiple representation granularities and level-of-detail switching
+| | UDG-1 | UDG shall enable discovery of the virtual representation of physical entities
+
+| <<subscribing-to-a-channel,Subscribing to a Channel>> | HSTP-8 | HSTP shall support publish/subscribe communication patterns for real-time data exchange
+| | HSTP-11 | HSTP shall provide message queuing and routing capabilities for multi-agent communication
+| | UDG-20 | UDG shall manage rapidly changing entities using a peer-to-peer methodology
+
+| <<moving-an-agent-from-one-domain-to-another,Moving an agent from one domain to another>> | HSTP-13 | HSTP shall support agent mobility and state transfer between domains and nodes
+| | UDG-11 | UDG shall provide for distributed operations of the UDG including propagation of changes and consistency
+| | UDG-12 | UDG shall provide Spatial Web Domain interactions that are seamlessly managed and integrated
+
+| <<transporting-an-agent-via-another-agent,Transporting an Agent Via Another Agent>> | AIS-5 | AIS Rating Framework shall offer flexibility, allowing dynamic interactions among AGENTS
+| | HSTP-13 | HSTP shall support agent mobility and state transfer between domains and nodes
+| | UDG-11 | UDG shall provide for distributed operations of the UDG
+
+| <<creating-a-new-place,Creating a New Place>> | DSA-6 | Domain-specific architecture specifications shall enable the creation of Domains as containers
+| | HSML-19 | HSML shall support spatial location creation and topology management
+| | UDG-18 | UDG shall include Spatial Index Servers that deliver spatial indexing
+
+| <<creating-an-entity-instance,Creating an Entity Instance>> | DSA-6 | Domain-specific architecture specifications shall enable the creation of Domains as containers
+| | HSML-12 | HSML shall support template management and entity instantiation services
+| | UDG-23 | UDG shall implement the use cases specified in the standard
+
+| <<using-the-node-domain-directory,Using the Node Domain Directory>> | DSA-8 | Domain-specific architectures shall enable objects to be searchable within the Spatial Web Domains
+| | UDG-2 | UDG shall enable discovery of physical and virtual entities via discovery services
+| | UDG-15 | UDG shall provide mechanisms for automatic discovery of nodes, and their properties and capabilities
+
+| <<rendering-an-entity,Rendering an Entity>> | HSML-1 | HSML shall support deployment and management of the Spatial Web by operations within organizations
+| | HSML-20 | HSML shall support multiple content-type representation capabilities
+| | UDG-23 | UDG shall implement the use cases specified in the standard
+
+| <<handle-fastslow-state-changes,Handle Fast/Slow State Changes>> | HSTP-1 | HSTP shall be interoperable with IoT systems in such a way that the entities are able to exchange information
+| | UDG-17 | UDG shall be designed to operate with communication network performance where bandwidth ranging from hundreds of gigabits per second to several terabits per second
+| | UDG-20 | UDG shall manage rapidly changing entities using a peer-to-peer methodology
+| | UDG-21 | UDG shall manage slow-changing cross-ledger entities and CONTRACTs on a distributed ledger
+
+| <<replication-and-failover,Replication and Failover>> | SWG-8 | Spatial Web Governance shall provide fault tolerance and system resilience mechanisms
+| | UDG-10 | UDG operations shall be resilient to inconsistencies in relationships between nodes and in the content of nodes
+| | UDG-19 | UDG shall manage entity replication and update with consideration of how quickly the entities are changing
+
+| <<scale-to-internet-level,Scale to Internet Level>> | SWG-3 | Spatial Web Governance shall enable multi-scale cognitive computing and shared intelligence
+| | UDG-11 | UDG shall provide for distributed operations of the UDG including propagation of changes and consistency
+| | UDG-15 | UDG shall provide mechanisms for automatic discovery of nodes
+| | UDG-16 | UDG shall support the ability to accommodate an increasing number of connectivity endpoints, reaching internet scale
+|===
+
+== Complete Correlation Table (Sorted by IEEE Code)
+
+.Complete Correlation Table (Sorted by IEEE Code)
+[cols="3a,a,4a"]
+|===
+|IEEE Code |Use Case Title |Requirement Statement Description
+
+|AIS-1
+|Interacting with the Domain: User Agents
+|AIS Rating Framework shall enable ecosystems of intelligence across the Spatial Web
+
+|AIS-2
+|Logging Into a Domain
+|AIS Rating Framework shall define procedures for real-time CREDENTIAL and certification management, based on an AGENT's attributes, capabilities, and relationships
+
+|AIS-2
+|Attach a Credential to an Entity
+|AIS Rating Framework shall define procedures for real-time CREDENTIAL and certification management
+
+|AIS-3
+|Logging Into a Domain
+|AIS Rating Framework shall facilitate the dynamic adjustment of AGENT permissions, authorizations, and access based on changes in an AGENT's attributes, operational context, and ACTIVITIES
+
+|AIS-3
+|Attach a Credential to an Entity
+|AIS Rating Framework shall facilitate the dynamic adjustment of AGENT permissions, authorizations, and access
+
+|AIS-4
+|Logging Into a Domain
+|AIS Rating Framework should support the integration of a credential and certification management framework
+
+|AIS-4
+|Attach a Credential to an Entity
+|AIS Rating Framework should support the integration of a credential and certification management framework
+
+|AIS-5
+|Interacting with the Domain: User Agents
+|AIS Rating Framework shall offer flexibility, allowing dynamic interactions among AGENTS with varied capabilities
+
+|AIS-5
+|Activating an Agent's Activity
+|AIS Rating Framework shall offer flexibility, allowing dynamic interactions among AGENTS
+
+|AIS-5
+|Transporting an Agent Via Another Agent
+|AIS Rating Framework shall offer flexibility, allowing dynamic interactions among AGENTS
+
+|AIS-7
+|Interacting with the Domain: User Agents
+|AIS Rating Framework shall enable governance of AGENT interactions
+
+|DSA-1
+|Setting Up a Spatial Web Node
+|Domain-specific architectures shall be consistent with IEEE_2413_2019, IEEE 2413 Architectural Framework for IoT
+
+|DSA-4
+|Setting Up a Spatial Web Node
+|Domain-specific architectures should define governance for their domains consistent with the Spatial Web governance
+
+|DSA-5
+|Setting Up a Spatial Web Node
+|Domain-specific architectures shall design identity management that meet the requirements of the domain and are compliant with the Spatial Web system requirements
+
+|DSA-5
+|Logging Into a Domain
+|Domain-specific architectures shall design identity management that meet the requirements of the domain
+
+|DSA-6
+|Creating an Entity
+|Domain-specific architecture specifications shall enable the creation of Domains as containers for Domains
+
+|DSA-6
+|Creating a New Place
+|Domain-specific architecture specifications shall enable the creation of Domains as containers
+
+|DSA-6
+|Creating an Entity Instance
+|Domain-specific architecture specifications shall enable the creation of Domains as containers
+
+|DSA-7
+|Generating and Resolving SWIDs
+|Domain-specific architectures shall provide a system of distributed, decentralized registries for SWIDs
+
+|DSA-7
+|Registering a Node on an Affiliation Registry
+|Domain-specific architectures shall provide a system of distributed, decentralized registries for SWIDs
+
+|DSA-8
+|Searching an Affiliation Registry (User Client)
+|Domain-specific architectures shall enable objects to be searchable within the Spatial Web Domains in which they are nested
+
+|DSA-8
+|Using the Node Domain Directory
+|Domain-specific architectures shall enable objects to be searchable within the Spatial Web Domains
+
+|HSML-1
+|Querying an Entity
+|HSML shall support deployment and management of the Spatial Web by operations within organizations
+
+|HSML-1
+|Rendering an Entity
+|HSML shall support deployment and management of the Spatial Web by operations within organizations
+
+|HSML-2
+|Creating an Entity
+|HSML shall enable virtual representation of physical entities based on the principles of spatialization
+
+|HSML-3
+|Querying a Specific State of an Entity
+|HSML shall enable digital representation of physical entities synchronized at frequencies and fidelities
+
+|HSML-8
+|Invalidate an Entity
+|HSML shall provide mechanisms for entity lifecycle management including creation, modification, and removal
+
+|HSML-12
+|Importing an Entity Graph
+|HSML shall support template management and domain instantiation
+
+|HSML-12
+|Creating an Entity Instance
+|HSML shall support template management and entity instantiation services
+
+|HSML-15
+|Subscribing to a State of an Entity
+|HSML shall support event-driven state change notifications
+
+|HSML-16
+|Changing Internal State of an Entity
+|HSML shall support hierarchical domain structures and internal state management
+
+|HSML-17
+|Changing Level of Detail Graphs of an Entity
+|HSML shall support multiple representation granularities and level-of-detail switching
+
+|HSML-18
+|Maintaining History
+|HSML shall provide audit trail capabilities for all system operations
+
+|HSML-19
+|Creating a New Place
+|HSML shall support spatial location creation and topology management
+
+|HSML-20
+|Rendering an Entity
+|HSML shall support multiple content-type representation capabilities
+
+|HSTP-1
+|Modifying the Specific State of an Entity
+|HSTP shall be interoperable with IoT systems in such a way that the entities are able to exchange information
+
+|HSTP-1
+|Handle Fast/Slow State Changes
+|HSTP shall be interoperable with IoT systems in such a way that the entities are able to exchange information
+
+|HSTP-3
+|Modifying the Specific State of an Entity
+|HSTP shall provide interoperability of robotics and other physical actuator devices
+
+|HSTP-8
+|Subscribing to a State of an Entity
+|HSTP shall support publish/subscribe communication patterns for real-time data exchange
+
+|HSTP-8
+|Subscribing to a Channel
+|HSTP shall support publish/subscribe communication patterns for real-time data exchange
+
+|HSTP-11
+|Subscribing to a Channel
+|HSTP shall provide message queuing and routing capabilities for multi-agent communication
+
+|HSTP-12
+|Extending an Entity Graph
+|HSTP shall support federated query capabilities across multiple graph sources
+
+|HSTP-13
+|Moving an agent from one domain to another
+|HSTP shall support agent mobility and state transfer between domains and nodes
+
+|HSTP-13
+|Transporting an Agent Via Another Agent
+|HSTP shall support agent mobility and state transfer between domains and nodes
+
+|HSTP-14
+|Refreshing a Registry
+|HSTP shall provide mechanisms for managing updates and changes to entity registrations over time
+
+|SWG-3
+|Scale to Internet Level
+|Spatial Web Governance shall enable multi-scale cognitive computing and shared intelligence
+
+|SWG-4
+|Setting Up a Spatial Web Node
+|Spatial Web Governance shall enable standardized protocols for cross-platform compatibility and interoperability
+
+|SWG-8
+|Replication and Failover
+|Spatial Web Governance shall provide fault tolerance and system resilience mechanisms
+
+|UDG-1
+|Searching an Affiliation Registry (User Client)
+|UDG shall enable discovery of the virtual representation of physical entities
+
+|UDG-1
+|Querying an Entity
+|UDG shall enable discovery of the virtual representation of physical entities
+
+|UDG-1
+|Changing Level of Detail Graphs of an Entity
+|UDG shall enable discovery of the virtual representation of physical entities
+
+|UDG-2
+|Searching an Affiliation Registry (User Client)
+|UDG shall enable discovery of physical and virtual entities via discovery services
+
+|UDG-2
+|Using the Node Domain Directory
+|UDG shall enable discovery of physical and virtual entities via discovery services
+
+|UDG-3
+|Generating and Resolving SWIDs
+|UDG shall validate SWIDs generated using SWID Method prior to issuance, e.g., assess uniqueness
+
+|UDG-3
+|Maintaining History
+|UDG operations shall be resilient to inconsistencies in relationships between nodes
+
+|UDG-4
+|Registering a Node on an Affiliation Registry
+|UDG shall include a Spatial Web registration service for Public and Top domains
+
+|UDG-5
+|Registering a Node on an Affiliation Registry
+|UDG shall, for audit purposes, register all SWIDs related to all public and top domains in a Spatial Web Registry
+
+|UDG-6
+|Registering a Node on an Affiliation Registry
+|UDG shall enable verification and validation services for domains prior to their registration
+
+|UDG-7
+|Generating and Resolving SWIDs
+|UDG shall support the generation of SWIDs one at a time, such as for Top Domains, or generate many at a time, such as for Public Domains
+
+|UDG-8
+|Generating and Resolving SWIDs
+|UDG shall ensure SWID uniqueness
+
+|UDG-9
+|Generating and Resolving SWIDs
+|UDG shall ensure that SWIDs are maintained in the Spatial Web Registry
+
+|UDG-10
+|Replication and Failover
+|UDG operations shall be resilient to inconsistencies in relationships between nodes and in the content of nodes
+
+|UDG-11
+|Extending an Entity Graph
+|UDG shall provide for distributed operations of the UDG including propagation of changes and consistency
+
+|UDG-11
+|Importing an Entity Graph
+|UDG shall provide for distributed operations of the UDG including propagation of changes and consistency
+
+|UDG-11
+|Moving an agent from one domain to another
+|UDG shall provide for distributed operations of the UDG including propagation of changes and consistency
+
+|UDG-11
+|Transporting an Agent Via Another Agent
+|UDG shall provide for distributed operations of the UDG
+
+|UDG-11
+|Scale to Internet Level
+|UDG shall provide for distributed operations of the UDG including propagation of changes and consistency
+
+|UDG-12
+|Extending an Entity Graph
+|UDG shall provide Spatial Web Domain interactions that are seamlessly managed and integrated
+
+|UDG-12
+|Moving an agent from one domain to another
+|UDG shall provide Spatial Web Domain interactions that are seamlessly managed and integrated
+
+|UDG-13
+|Registering a Node on an Affiliation Registry
+|UDG shall implement Spatial Web Domain registration processes
+
+|UDG-14
+|Interacting with the Domain: User Agents
+|UDG design and procedures shall enable a range of methods for accessing the UDG
+
+|UDG-15
+|Setting Up a Spatial Web Node
+|UDG shall provide mechanisms for automatic discovery of nodes, and their properties and capabilities as well as the means to access them
+
+|UDG-15
+|Activating an Agent's Activity
+|UDG shall provide the capability to register and manage ACTIVITIES that are associated with AGENTs
+
+|UDG-15
+|Using the Node Domain Directory
+|UDG shall provide mechanisms for automatic discovery of nodes, and their properties and capabilities
+
+|UDG-15
+|Scale to Internet Level
+|UDG shall provide mechanisms for automatic discovery of nodes
+
+|UDG-16
+|Activating an Agent's Activity
+|UDG shall keep a record of HSML ACTIVITIES that were executed as part of a Contract
+
+|UDG-16
+|Maintaining History
+|UDG shall keep a record of HSML ACTIVITIES that were executed as part of a Contract
+
+|UDG-16
+|Scale to Internet Level
+|UDG shall support the ability to accommodate an increasing number of connectivity endpoints, reaching internet scale
+
+|UDG-17
+|Handle Fast/Slow State Changes
+|UDG shall be designed to operate with communication network performance where bandwidth ranging from hundreds of gigabits per second to several terabits per second
+
+|UDG-18
+|Searching an Affiliation Registry (User Client)
+|UDG shall include Spatial Index Servers that make maps ranging from simple SQL indexes to graph-based databases
+
+|UDG-18
+|Creating a New Place
+|UDG shall include Spatial Index Servers that deliver spatial indexing
+
+|UDG-19
+|Refreshing a Registry
+|UDG shall manage entity replication and update with consideration of how quickly the entities are changing
+
+|UDG-19
+|Invalidate an Entity
+|UDG shall manage entity replication and update with consideration of how quickly the entities are changing
+
+|UDG-19
+|Replication and Failover
+|UDG shall manage entity replication and update with consideration of how quickly the entities are changing
+
+|UDG-20
+|Querying a Specific State of an Entity
+|UDG shall manage rapidly changing entities using a peer-to-peer methodology
+
+|UDG-20
+|Modifying the Specific State of an Entity
+|UDG shall manage rapidly changing entities using a peer-to-peer methodology
+
+|UDG-20
+|Subscribing to a State of an Entity
+|UDG shall manage rapidly changing entities using a peer-to-peer methodology
+
+|UDG-20
+|Changing Internal State of an Entity
+|UDG shall manage rapidly changing entities using a peer-to-peer methodology
+
+|UDG-20
+|Subscribing to a Channel
+|UDG shall manage rapidly changing entities using a peer-to-peer methodology
+
+|UDG-21
+|Querying a Specific State of an Entity
+|UDG shall manage slow-changing cross-ledger entities and CONTRACTs on a distributed ledger
+
+|UDG-21
+|Modifying the Specific State of an Entity
+|UDG shall manage slow-changing cross-ledger entities and CONTRACTs on a distributed ledger
+
+|UDG-21
+|Changing Internal State of an Entity
+|UDG shall manage slow-changing cross-ledger entities and CONTRACTs
+
+|UDG-23
+|Creating an Entity
+|UDG shall implement the use cases specified in the standard
+
+|UDG-23
+|Querying an Entity
+|UDG shall implement the use cases specified in the standard
+
+|UDG-23
+|Importing an Entity Graph
+|UDG shall implement the use cases specified in the standard
+
+|UDG-23
+|Creating an Entity Instance
+|UDG shall implement the use cases specified in the standard
+
+|UDG-23
+|Rendering an Entity
+|UDG shall implement the use cases specified in the standard
+|===
 
 == Requirements by Code Category
 
 === AIS (AI Systems) - 7 requirements
 Focus on agent intelligence, credential management, and dynamic interactions across the Spatial Web.
 
-=== DSA (Domain-Specific Architectures) - 8 requirements  
+=== DSA (Domain-Specific Architectures) - 8 requirements
 Focus on architectural frameworks, IoT integration, domain governance, and identity management.
 
 === HSML (Hyperspace Modeling Language) - 20+ requirements
@@ -497,32 +826,24 @@ Focus on core UDG functionality including discovery, registration, scaling, enti
 
 = Analysis Summary
 
-- **Total Use Cases**: 30
-- **Total Requirements Mapped**: 209 IEEE P2874 requirements analyzed
-- **Primary Coverage Areas**: 
-  - Entity and domain management (UDG, DSA, HSML)
-  - Agent intelligence and interaction (AIS) 
-  - Communication and protocols (HSTP)
-  - System governance and scaling (SWG)
+* **Total Use*: 30
+* **Total Requirements Mapped**: 209 IEEE P2874 requirements analyzed
+* **Primary Coverage Areas**:
+** Entity and domain management (UDG, DSA, HSML)
+** Agent intelligence and interaction (AIS)
+** Communication and protocols (HSTP)
+** System governance and scaling (SWG)
 
 == Key Observations
 
-1. **Most comprehensive coverage** is in core UDG operations like entity querying, state management, and distributed operations
-2. **Agent-related use cases** map well to AIS requirements focusing on intelligent agent behaviors
-3. **Infrastructure use cases** (setup, scaling, failover) align with DSA and SWG requirements
-4. **Communication use cases** (channels, state subscription) correspond to HSTP protocol requirements
-5. **Some use cases have multiple requirement matches**, indicating complex functionality that spans multiple system areas
+. **Most comprehensive coverage** is in core UDG operations like entity querying, state management, and distributed operations
+. **Agent-related use cases** map well to AIS requirements focusing on intelligent agent behaviors
+. **Infrastructure use cases** (setup, scaling, failover) align with DSA and SWG requirements
+. **Communication use cases** (channels, state subscription) correspond to HSTP protocol requirements
+. **Some use cases have multiple requirement matches**, indicating complex functionality that spans multiple system areas
 
-Note: This correlation is based on functional analysis of requirement descriptions and use case content. Some requirements may support multiple use cases, and some use cases may require coordination across multiple requirement areas.
-
----
-
-
-
-
-
-
-
-
-
+NOTE: This correlation is based on functional analysis of requirement
+descriptions and use case content. Some requirements may support multiple use
+cases, and some use cases may require coordination across multiple requirement
+areas.
 
