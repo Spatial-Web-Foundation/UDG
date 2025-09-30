@@ -2,17 +2,30 @@
 
 ==== 5.3.5. Cultural Location Tourism
 
-There are a number of different potential scenarios with the UDG for the D3.3.1 specification 5.3.5, which focuses on cultural location tourism.
+There are a number of different potential scenarios with the UDG for the D3.3.1
+specification 5.3.5, which focuses on cultural location tourism.
 
 ===== 5.3.5.1. A Virtual Tour
 
 ====== Scenario
 
-Jane is interested in getting a virtual tour of the Smithsonian Institute's Natural History Museum (SI-NHM) through her laptop, in preparation for physically touring the museum. She goes to the SI-NHM's Tour Domain, looks at the map showing an exploded view of the museum, then clicks on the first exhibit she wants to see (the Gem Room), which then takes her to this room, where she can go from station to station (place to place). 
+Jane is interested in getting a virtual tour of the Smithsonian Institute's
+Natural History Museum (SI-NHM) through her laptop, in preparation for
+physically touring the museum. She goes to the SI-NHM's Tour Domain, looks at
+the map showing an exploded view of the museum, then clicks on the first exhibit
+she wants to see (the Gem Room), which then takes her to this room, where she
+can go from station to station (place to place).
 
-At each exhibit, she can see photographs, 3D renderings or movies showing the content, along with a detailed synopsis (card) of the exhibit's history. She can continue "walking" through the exhibits, walk to the next room, or can search to find exhibits on topics that she's interested in (which she can also bookmark). She can continue in this manner until she leaves. Once she's done, she can ask the spatial web server to calculate the best tour that she can take to hit the exhibits of most interest to her. As Jane moves through the museum, she can add comments (annotations) on each place that she's in. 
+At each exhibit, she can see photographs, 3D renderings or movies showing the
+content, along with a detailed synopsis (card) of the exhibit's history. She can
+continue "walking" through the exhibits, walk to the next room, or can search to
+find exhibits on topics that she's interested in (which she can also bookmark).
+She can continue in this manner until she leaves. Once she's done, she can ask
+the spatial web server to calculate the best tour that she can take to hit the
+exhibits of most interest to her. As Jane moves through the museum, she can add
+comments (annotations) on each place that she's in.
 
-#### What Does This Test?
+====== What Does This Test?
 
 * Placement of agent within a domain
 * Generation of a map
@@ -26,38 +39,54 @@ At each exhibit, she can see photographs, 3D renderings or movies showing the co
 ====== Requirements
 
 * Each gallery within the museum can be modeled as a place.
-* Each station within a gallery can also be modeled as a place within a holonic link to the associated gallery. 
-* Each station in a gallery has a thing (a kiosk) which displays information about the station's topic. The information can either be stored within a <hsml:Content> node or can be referenced via an external API (same element, but with an external href). Syntax TBD.
+* Each station within a gallery can also be modeled as a place within a holonic link to the associated gallery.
+* Each station in a gallery has a thing (a kiosk) which displays information about the station's topic. The information can either be stored within a `<hsml:Content>` node or can be referenced via an external API (same element, but with an external href). Syntax TBD.
 * Each place has a link to each of its neighbors. These links are contextual (the agent's permissions may determine whether a link is visible or active, for instance).
 * Motion is tracked via historical Events that get persisted when a particular place is visited or activity is undertaken.
 * The Agent in this case represents the actor (Jane) within the context of the domain.
 * Annotations can be bound to either the historical log or the place.
 * The museum domain has a home place that would correspond to the entryway into the museum, and each gallery would have a home place that would indicate the first kiosk "seen" by the agent when entering the agent.
-* The default map function on the museum domain would show each gallery, while the default map function on each gallery domain would show the kiosks within that gallery. 
+* The default map function on the museum domain would show each gallery, while the default map function on each gallery domain would show the kiosks within that gallery.
 * A map function can also pass a level of detail (LOD) parameter that would indication how many levels deep the map response whould discover. Thus, an LOD of 2 would show each gallery and each station in the gallery, along with all agents within the relevant domain at that level, depending upon agent access privileges.
 * The data feeds for the kiosks are language sensitive. This means that the agent can set the language for output (or at least select from a list of available languages).
 
 ====== Observations
 
-* The tour is one of the most prevalent paradigms of the spatial web. Almost every scenario involves either requesting a map, moving through that map via links, or interacting with a thing within that domain as part of that tour. 
-* In this respect, you can think of one of the roles of an agent is to act as the focus of intent within a given domain. 
+* The tour is one of the most prevalent paradigms of the spatial web. Almost every scenario involves either requesting a map, moving through that map via links, or interacting with a thing within that domain as part of that tour.
+* In this respect, you can think of one of the roles of an agent is to act as the focus of intent within a given domain.
 * This museum is a single agent instance of a SI-NHM museum domain template. It will stay active until either an end condition is met (even if that is simply terminating the instance). As such domains are kind of like virtual machines - they can be paused to retain their state, or they can be deleted when no longer needed.
 
 ===== 5.3.5.2. An XR Experience
 
 This is a similar scenario to 5.3.5.1, with the following differences:
 
-======  Scenario
+====== Scenario
 
-Jane goes to the museum, with her trusty VR glasses perched on her nose, synched to the museum's instance. As she enters the front entrance, the spatial web sensors correlate the position (via GPS or other positional sensor tech) to a given place, as defined by its H3 tile(s). If she is within the relevant tile, the spatial web glasses indicate that there is additional relevant metadata in the place, which can be activated to show the relevant media (videos, perhaps).
+Jane goes to the museum, with her trusty VR glasses perched on her nose, synched
+to the museum's instance. As she enters the front entrance, the spatial web
+sensors correlate the position (via GPS or other positional sensor tech) to a
+given place, as defined by its H3 tile(s). If she is within the relevant tile,
+the spatial web glasses indicate that there is additional relevant metadata in
+the place, which can be activated to show the relevant media (videos, perhaps).
 
-Jane summons up a map to see what is available, and starts to move, and as she leaves a given region and moves into another, the old billboard goes away to be replaced by a new map or billboard icon (possibly both) that can then be expanded.
+Jane summons up a map to see what is available, and starts to move, and as she
+leaves a given region and moves into another, the old billboard goes away to be
+replaced by a new map or billboard icon (possibly both) that can then be
+expanded.
 
-At some point, she gets hungry, and wants to know how to get to the cafeteria. She asks for the cafeteria and either an arrow will pop up in front of her indicating the direction to follow or a map will appear with a path to that area. 
+At some point, she gets hungry, and wants to know how to get to the cafeteria.
+She asks for the cafeteria and either an arrow will pop up in front of her
+indicating the direction to follow or a map will appear with a path to that
+area.
 
-As she eats, Jane decides that she wants to go from a visual to a light visual + audio display. From then on, instead of billboards, a running commentary comes through her earbuds, with directions, recommendations, and warnings being spoken rather than displayed as imagery or text video.
+As she eats, Jane decides that she wants to go from a visual to a light visual +
+audio display. From then on, instead of billboards, a running commentary comes
+through her earbuds, with directions, recommendations, and warnings being spoken
+rather than displayed as imagery or text video.
 
-At the end of her tour, she can ask for an itinerary and transcription, which reproduces critical information that can then be transmitted as compressed HSML and saved for later review.
+At the end of her tour, she can ask for an itinerary and transcription, which
+reproduces critical information that can then be transmitted as compressed HSML
+and saved for later review.
 
 ====== What Does This Test?
 
@@ -76,19 +105,21 @@ At the end of her tour, she can ask for an itinerary and transcription, which re
 * History of Events
 
 ====== Observations
-* Sensors within the client device can provide mapping to a spatial position, which can then be transformed into a tile position, correlating with a given place within the model. Note that if somehow the actor ends up outside of defined tiles, then an algorithm can be used to determine the closest place within the domain, which can be correlated to suggest directions. 
+
+* Sensors within the client device can provide mapping to a spatial position, which can then be transformed into a tile position, correlating with a given place within the model. Note that if somehow the actor ends up outside of defined tiles, then an algorithm can be used to determine the closest place within the domain, which can be correlated to suggest directions.
 * Search is a query against places, things and agents respectively that will suggest candidates that most closely match the query parameters. This will generally be displayed as a list, and can be filtered by type. Search is sensitive to agent permissions.
-* Modality may be a function of the client or the node, but will typically work by transforming a map in RDF into some other form (an image, a diagram, audio, a movie, 3d environment, etc.) that can be consequently rendered by the client. The exact mechanism for performing this is TBD. 
-* As an agent moves through a domain, that agent creates a history correlated to the agent and the domain that can be persisted, then transformed into various forms, such as a transcript or summary. The exact mechanism for creating a history of events is still TBD. 
+* Modality may be a function of the client or the node, but will typically work by transforming a map in RDF into some other form (an image, a diagram, audio, a movie, 3d environment, etc.) that can be consequently rendered by the client. The exact mechanism for performing this is TBD.
+* As an agent moves through a domain, that agent creates a history correlated to the agent and the domain that can be persisted, then transformed into various forms, such as a transcript or summary. The exact mechanism for creating a history of events is still TBD.
 * Note here the symmetry between actor (Jane) and her agent (Jane_Agent). Jane moves through the physical world, with sensors indicating a geospatial position. Jane_Agent moves through an abstract conceptual world from Place to Place, correlating with the physical to a certain degree. In effect, Jane_Agent is the digital twin of Jane within the domain of the museum.
 * The terms ___billboard___, ___screen___, and ___kiosk___ are used to describe Things in the virtual world. A __billboard__ can be thought of as a read-only interface or display, and is usually fully visible when an agent moves within the Place where a billboard is resident. It can have any representation (it is not limited to being a billboard in the physical sense) but generally provides external information in various formats that the user has no immediate control over.
 * A __screen__ is a ___billboard___ that specifically displays a dynamic ___map___ of another domain, where a __map__ is a representation (an image, 3d rendering, video, text description, RDF, etc.) of a domain. It could be visualized as a screen showing the projection taken by a camera of another area, a glass plane showing what's in the next gallery,an aural representation where the voices from somewhere else can be heard as if through a mic, a structured HSML representation of the domain, and so forth. The ___map___ is the representation of a domain, the ___screen___ is the presentation (or medium) of that representation in the current domain of the agent.
 * Note also that a ___map___ is in effect the view as seen by a separate agent within a remote domain. The remote agent here is acting in the role of a camera. A __kiosk__ is a Thing that combines a ___screen___ with a control mechanism for that remote agent. For instance, an agent (a drone operator, for instance), uses another agent (the drone) in a different domain to "see" that remote domain from the perspective of the drone. The drone operator agent interacts with the remote drone agent via a virtual ___kiosk___.
 * These agent chains are very common in most video games, particularly when dealing with IoT devices (especially cameras). A camera is a specialized form of ___sensor___, a device that creates a representation (___map___) from the perspective of a given agent or thing. Screens are ___linked___ to agents, and a screen can consequently target different agents to see different perspectives of the domain.
 
-<caption><b>Maps and Screens</b></caption>
+====== Maps and Screens
 
-```mermaid
+[source,mermaid]
+----
 ---
 config:
    layout: elk
@@ -98,36 +129,37 @@ flowchart TD
     localAgent --> |uses| screen -->|to display| map
     screen -->|linked to| remoteAgent
     remoteDomain --> |as seen by| remoteAgent
-```
+----
 
 ===== 5.3.5.3. Multi-Agent XR
 
 This builds on 5.3.5.2, with the following differences:
 
-======  Scenario
+====== Scenario
 
-Jane joins a tour group of other actors (with no distinction about whether those actors are human or AI based). They are led by a spatial web mediated tour guide, and each agent can ask questions of other agents or the tour guide.  
+Jane joins a tour group of other actors (with no distinction about whether those actors are human or AI based). They are led by a spatial web mediated tour guide, and each agent can ask questions of other agents or the tour guide.
 
 The tour guide will periodically ask questions of the various tour members. If they answer the question correctly, they get a special token which they can accumulate. At the end of the tour, each agent can exchange tokens as discounts on the price of items in the gift shop.
 
 This scenario is like 5.3.5.1 in that it is mediated over the spatial web client, rather than in person, but could be supported IRL as well.
 
-====== #### What Does This Test?
+====== What Does This Test?
 * Registering Agents and forming Teams
 * Direct Communication between agents
 * Granting or Exchanging Certs
 * Agent/Actor Interactions
 * E-Commerce Fundamentals
 
-======  Observations
+====== Observations
 
 * When a domain is created from a domain template, the domain goes through a provisioning phase.In this phase, one or more autonomous agents wait until a minimum condition is met (here, both a minimum number of people and a set period of time). This set of agents becomes known as a __Team__. Teams can be thought of as neighborhoods of agents. A given agent may also be part of more than one team.
 * From a design standpoint, it is often preferable to talk about a team with only one member, also known as a singleton team.  For instance, in Chess, you effectively have two singleton teams - a white piece team and a black piece team.
-* This notion of teams is an important one, because team members often have a much higher need to communicate with one another, and benefit far more from that interaction. Moreover, teams have identities (and histories) that individual agents don't, and frequently have needs for permissions (credentials) that two random people don't. 
+* This notion of teams is an important one, because team members often have a much higher need to communicate with one another, and benefit far more from that interaction. Moreover, teams have identities (and histories) that individual agents don't, and frequently have needs for permissions (credentials) that two random people don't.
 * In this use case, the tour group is a team. Each team member registers with the team (here, they would pay the price for the guided tour), and they share in a communication channel that is consequently privileged. The exact nature of that chennel (point-to-point, broadcast, narrowcast, etc.) would be spelled out in the ___contract___ that the actors agree to through their agent proxies when they register with the team. This also suggests that __registration__ is the process of an actor (through the agent) accepting a ___contract___ issued by the domain that encapsulates these ___policies___.
 * Please note that registration is a domain scope activity. When the registration is complete, the ___agent___ then belongs to a ___team___ within the domain.
 
-```mermaid
+[source,mermaid]
+----
 ---
 config:
     layout: elk
@@ -136,27 +168,29 @@ graph TD
     actor -->|uses| agent -->|to agree to| contract -->|with| team -->|within| domain
     agent -->|becomes member of| team
     agent -->|is within| domain
-```
+----
+
 * Channel communication: A __communication channnel__ is a ___channel___ specifically for text communication between ___agents___ and/or ___teams___. It passes an HSML message (structure TBD) from the sender to the recipient using the following workflow:
 
-```mermaid
+[source,mermaid]
+----
 ---
 config:
     layout: elk
 ---
-graph 
+graph
     actor1 -->|writes message to| agent1
     agent1 -->|sends message to| domain
     domain -->|"caches message in"| messageCache
     messageCache -->|"sends message to"| agent2
     agent2 -->|"writes message to"| actor2
 
-```
+----
 
 * The __MessageCache__ is a stack within the UDG.d for passing messages between entities. It works at the domain level rather than direct point-to-point primarily because messages will still need to be logged as part of the history stream and because any form of broadcast ultimately will need to be transmitted to some or all of the participants in a domain, which can best be done through a centralization mechanism.
 * There is a question concerning whether internal communication and messaging channels are part of the external hstp __channels__ architecture or are different. Certainly, _actor1_ and _actor2_ communication with their respective agents are handled via the former. This is one of those areas that still requires a certain amount of discussion.
 * __E-Commerce, Contracts, and Tokens__. The assumption being made in the architecture is that an ___e-commerce layer___ will likely be a later module that lays on top of the UDG, and more than likely will be mediated via a services layer with external financial networks, in much the same way that e-commerce systems in the modern web are generally not considered a core part of HTML/HTTP. The one caveat on this is that, because of the use of SWIDs to manage credentialling, verification, validation, and authentication, the ecommerce architecture will likely utilize DID-based encryption vs. the HTTPS secure architecture used for the web.
-* One additional caveat is that in general, assets (specializations of THINGs) will be represented as encrypted key entities that can consequently be transferred to the wallet of the client controlling the respective agent of a given actor. For instance, in the gift shop example given in this use case, Jane can be awarded a magic shell (a ___token___) from the tour guide for answering a question correctly. The exact representation of the token will obvious vary from domain to domain (as will it's value), but it clearly represents an asset that can be assessed within some e-commerce system. 
+* One additional caveat is that in general, assets (specializations of THINGs) will be represented as encrypted key entities that can consequently be transferred to the wallet of the client controlling the respective agent of a given actor. For instance, in the gift shop example given in this use case, Jane can be awarded a magic shell (a ___token___) from the tour guide for answering a question correctly. The exact representation of the token will obvious vary from domain to domain (as will it's value), but it clearly represents an asset that can be assessed within some e-commerce system.
 A __token__ in this case can be thought of as a specific store of value within the spatial web. The ___actor___ authorizes the ___agent___ to spend tokens within the ___domain___ in order to fulfill the terms of a ___contract___, and correspondingly retrieves tokens when the conditions for fulfilling a clause of the contract have happened. _It is still TBD whether or not tokens issues within one domain are fungible within other domains._
 
 ===== 5.3.5.4. Tracking Movement
@@ -175,8 +209,8 @@ Jane wants to be able to see where the other members of the tour (including her 
 
 ====== Observations
 
-* The dominant paradigm within the World Wide Web since its inception was based on the principle of publishing, and can best be articulated as: _"How do I find and access published content?_ This in turn was related to _"How do I publish content?"_ 
-* The dominant paradigm for the Spatial Web, however, is different. It can be expressed as: "_Where are the things in the world that I interact with?_" with the correlative question, "_How do things in my world publish where things are and what they do_?" While similar in scope, this is different in terms of the overall mission of this technology. 
+* The dominant paradigm within the World Wide Web since its inception was based on the principle of publishing, and can best be articulated as: _"How do I find and access published content?_ This in turn was related to _"How do I publish content?"_
+* The dominant paradigm for the Spatial Web, however, is different. It can be expressed as: "_Where are the things in the world that I interact with?_" with the correlative question, "_How do things in my world publish where things are and what they do_?" While similar in scope, this is different in terms of the overall mission of this technology.
 * The Spatial Web does not replace the World Wide Web. Rather, it provides another layer to the __noosphere__ or knowledge sphere, providing not only the context of philosophical thought but also of epistemological thought.
 * The spatial web has three different layers that ask the question "Where?":
     * ___Domain___ or application layer.
@@ -184,30 +218,30 @@ Jane wants to be able to see where the other members of the tour (including her 
     * ___Location___, or positional space layer.
 * The __domain layer__ is an existential context layer. By itself, a domain does not necessarily specify where things are, but instead, it indicates what process or system things are apart of. This systemic view is purely abstract, though it may have implicit hierarchies that arise because such hierarchies make it easier to compress process nested subroutines.
 * The __place layer__ is a conceptual space layer, and generally identifies a partition of a "hyperspace" into discrete, interconnected nodes within a lattice of links. A hyperspace can be thought of as the set of all relevant places within the broader domain, and will vary from domain to domain in terms of breakdown and structure. Places by themselves have relationships, but do not necessarily have the notion of a metric.
-* The __location layer__ contains specific metrics and the notion of distance. The specific mechanisms for describing that distance will vary from place to place. For instance, one _place_ might be a particular gallery within a museum, but within that gallery, there may be an ability to indicate location relative to the defined layer (possibly using some kind of a global coordinate system, or at a minimum level a local coordinate system that is common to that place). If you wanted to specify, for instance, that you are in a hexagon within a set of hexagons that identify the extent of that place as an index, then the location would be a single index value. 
-* A place will always have, at a minimum, one location - in the case where there are no effective degrees of freedom, this becomes the implicit location. As you increase the number of degrees of freedom within that place, you can better specify location if it is necessary. 
+* The __location layer__ contains specific metrics and the notion of distance. The specific mechanisms for describing that distance will vary from place to place. For instance, one _place_ might be a particular gallery within a museum, but within that gallery, there may be an ability to indicate location relative to the defined layer (possibly using some kind of a global coordinate system, or at a minimum level a local coordinate system that is common to that place). If you wanted to specify, for instance, that you are in a hexagon within a set of hexagons that identify the extent of that place as an index, then the location would be a single index value.
+* A place will always have, at a minimum, one location - in the case where there are no effective degrees of freedom, this becomes the implicit location. As you increase the number of degrees of freedom within that place, you can better specify location if it is necessary.
 * A place does have a location for mapping purposes, but it is defined as a bounding box within a unit hypercube (something called an __object coordinate system__), with the assumption that the domain represents the the maximal extent of this cube. This hypercube is then passed through a defined __projection filter__ (typically, but not always, a tensor) to create a visual representation of the domain in the target mapping dimensions. In most cases, this will be a two dimensional planar representation, even if the hypercube itself is of higher dimension and curved.
 * It is important to recognize that the hyperspace envelope of places does not usually completely tile (cover) the object coordinate system. The set of places is contextual and topological (a graph) and is internally connected by links, __holes__ (areas that are in the map but not actually within the model) are inevitable. Another way of putting this is that the map shows the relevant areas of the models, but anything that is not relevant (negative space) is simply an undefined region in the map. This is another way of stating the famous dictum "_The map is not the territory._".
 * An __avatar__ is a representation of an ___entity___ on a ___map___ within a given ___medium___ (or ___content-type___). It is typically represented in object coordinates, depending on the place's positional system and the medium in question. An entity, including an agent, may have multiple different avatars, with the best one for the mapping context being chosen prior to rendering. More on Avatars TBD.
-* Movement itself is managed by the udg.d daemon, which refreshes the state of the system at regular, frequent intervals, then renders this movement via hstp.d requests to the mapping service. 
+* Movement itself is managed by the udg.d daemon, which refreshes the state of the system at regular, frequent intervals, then renders this movement via hstp.d requests to the mapping service.
 * The __UDG.d daemon__ also manages communication between the UDG and the HSTP layers. For instance, if a domain template has been previously defined (which will be covered in the next phase), then the HSTP will pass messages to the udg.d daemon to initiate a domain instantiation. The UDG.d itself is responsible for the creation of that instance, but it also communicates with HSTP when it has successfully completed the instantiation. Most of the operational logic that is initiated by the ___hstp.d___ is actually performed by the ___udg.d___, then transmitted back to other nodes via the hstp.d messaging system.
 
-=====  5.3.5.5. Museum Discovery
+===== 5.3.5.5. Museum Discovery
 
 This supports other 5.3.5.x use cases.
 
-======  Scenario
+====== Scenario
 
 Jane wants to find other museums in the Smithsonian Institute complex to virtually visit, utilizing the same agent avatar that she had previously, including retaining knowledge and assets.
 
-======  What Does This Test?
+====== What Does This Test?
 
 * Cross Domain Discovery and Linking
 * Directories
 * Spatial Web Domain Registries
 * Agent Persistence
 
-======  Observations
+====== Observations
 * __Cross Domain Linking__. There are multiple layers of linking that exist within the spatial web. One of these is __cross-domain linking__. Such a link moves an agent from one domain to another, rather than simply from one place to another. This is roughly analogous to an external link in HTML that takes you outside of the document, albeit one that has more complexity.
 * __Intranode Domain Agent Linking__. Unlike HTML links, cross domain links are stateful - you are in essence transferring an agent from one graph to another, potentially outside of the Spatial Web Node itself. If the __originating domain__ (which has the link to the agent) is within the same node, this becomes a fairly simple matter of delinking the agent from one node and relinking it to the __destination domain__.
 * __Internode Domain Agent Linking__. If the destination domain, on the other hand, is outside of the spatial web node, then the agent on on the originating domain must in effect be _frozen_ or deactivated, while the agent's information and assets are transferred to the __destination spatial web node__. Additionally, a forwarding address is added to the frozen agent on the initial node to the active agenton the destination nnode. This makes it possible to search the evolution of agents across nodes. If an agent returns to the originating node, it's associated asset metadata is _appended to_ the previous agent, allowing the agent to learn information over time.
@@ -215,16 +249,16 @@ Jane wants to find other museums in the Smithsonian Institute complex to virtual
 * __Directories and Landing Domains__. Each Spatial Web Node has a specific landing domain for that node. This identifies the domain templates that are supported on that node, and for each template, the active and completed domains for those templates. This landing Place is generated dynamically, and can be thought of as being analogous to a train station that allows agents to go to a particular domain. This is not a registry per se, but more akin to a directory.
 * __Domain Registries__. A __Domain Registry__ is a way for organizations to register the ___domain templates__ that are publicly available. Domains themselve may be very effervescent (though they can also be long lived), but domain templates are generally stable. In the museum scenario, for instance, there may be any number of active SI-NHM domains active at any given moment, with individual agents or teams of agents interacting with a given domain, but the SI-NHM domain template that informs these domains will remain fixed as a stable point of reference.
 * The domain registry, consequently, can tell you which spatial web nodes contain the relevant domain templates, allowing you to search these nodes to see if the domains (the games, simulations, IoT environments, and scenarios) are of interest. This domain registry is managed by (or delegated from) the ___Spatial Web Registration Authority___. The mechanics of registration are being worked out.
-* __Associated Metadata__. There is a core taxonomy being worked out for helping search and discovery for the domain registry. This is associated with both a __Place__ registry for registering places (distinct from domain, though interrelated) and for conceptual registries for identifying __Topics__, where a topic in general is used primarily for descriptive metadata (find me all domains that focus on global warming, for instance). There will similarly be a such registries for __Personages__ and __Organizations__. 
+* __Associated Metadata__. There is a core taxonomy being worked out for helping search and discovery for the domain registry. This is associated with both a __Place__ registry for registering places (distinct from domain, though interrelated) and for conceptual registries for identifying __Topics__, where a topic in general is used primarily for descriptive metadata (find me all domains that focus on global warming, for instance). There will similarly be a such registries for __Personages__ and __Organizations__.
 
 ===== Design Considerations on 5.3.5
 
-* The model presented here within the UDG looks at the environment of a Spatial Web Node as being a collection of applications built around domains, supported by secondary components, with this particular application being an example of what the author would consider an ___Exploration___ pattern. 
+* The model presented here within the UDG looks at the environment of a Spatial Web Node as being a collection of applications built around domains, supported by secondary components, with this particular application being an example of what the author would consider an ___Exploration___ pattern.
 * __Exploration Pattern.__ This pattern works on the assumption that one or more agents, acting as proxies for various external actors, are navigating a space (geophysical, conceptual, organizational, etc.), retrieving information, interacting with other agents and things within the system, and gaining respective keys (tokens) that can be used both for "unlocking" specific places within the system and for exchanging as stores of value inside and outside the system.
 * __Maps and Properties.__ What is most significant here is that the spatial web uses a knowledge graph as its store (and for now is assumed to query and update through a KG layer) but that it's not really a graph in the traditional sense. When you want to ___query___ the property of a given thing or agent in the system, what you are doing is retrieving a map of the thing within one or more domains, expressed in RDF (as JSON-LD, most likely), that will retrieve a representation of the object containing just _that_ property, more than likely as a time-series unless you specify a temporal constraint. For instance, you can get a map of the museum domain showing each of the exhibits, or only those exhibits focused on animals, or the exhibits within a gallery, and so forth.
-* __Maps as Data Structures.__ Maps are data structures first - they can be rendered into other forms, but every map is at its core a query against the UDG graph to retrieve representations of entities within the context of a given domain. It should also be noted that a map can be tabularized (this is what the SELECT statement in both SQL and SPARQL do) to provide a slice of this information in tabular form, but even so, the underlying query will be retrieving the subgraph containing relevant entities before applying this transformation to a table. 
+* __Maps as Data Structures.__ Maps are data structures first - they can be rendered into other forms, but every map is at its core a query against the UDG graph to retrieve representations of entities within the context of a given domain. It should also be noted that a map can be tabularized (this is what the SELECT statement in both SQL and SPARQL do) to provide a slice of this information in tabular form, but even so, the underlying query will be retrieving the subgraph containing relevant entities before applying this transformation to a table.
 
-=====  Suggested Use Cases
+===== Suggested Use Cases
 
 * Adding a new exhibit
 * Adding a new gallery

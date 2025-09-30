@@ -1,7 +1,6 @@
-== Definitions, acronyms and abbreviations
+== Terms, definitions and abbreviated terms
 
-
-=== Definitions
+=== Terms and definitions
 
 ==== distributed computing
 
@@ -9,6 +8,11 @@ Model of computing in which a set of nodes coordinates its activities by means o
 
 [.source]
 <<ISO_IEC_23188_2020,clause=3.1.1>>
+
+
+==== dimension
+
+A measurable extent of some kind, such as length, breadth, depth, or height.
 
 
 ==== DOMAIN
@@ -55,9 +59,14 @@ NOTE: An ENTITY can exist whether data about it are available or not.
 
 NOTE: ENTITY is the base item in the Spatial Web Ontology. <<section-hsml-conceptual-model>>
 
+==== Euclidean space
+
+A type of vector space in which the notions of distance and angle are defined.
+
 
 ==== geographic coordinate reference system
-Coordinate reference system that has a geodetic reference frame and an ellipsoidal coordinate system. 
+
+Coordinate reference system that has a geodetic reference frame and an ellipsoidal coordinate system.
 
 [.source]
 <<ISO_19111_2019,clause=3.1.35>>
@@ -87,15 +96,25 @@ A human- and machine-readable modeling language and semantic data ontology schem
 NOTE: Uses of HSML include the expression and automated execution of legal, financial, and physical activities.
 
 ==== Hyperspace Transaction Protocol
+preferred:[HSTP]
 
 [%metadata]
 abbreviation-type:: initialism
 
-preferred:[HSTP]
 
 Generic protocol designed to underwrite automated contracting transactions that are required for building a coherent, decentralized, secure, and privacy-respecting {{Spatial Web}}.
 
+==== Spatial Web
+
+A decentralized, open, and interoperable network of networks.
+
+==== spatial web identifier
+preferred:[SWID]
+
+A decentralized identifier used to uniquely identify an ENTITY, DOMAIN, or other item within the {{Spatial Web}}.
+
 ==== register
+
 Set of files containing identifiers assigned to items with descriptions of the associated items
 
 [.source]
@@ -104,7 +123,7 @@ Set of files containing identifiers assigned to items with descriptions of the a
 ==== universal domain graph
 preferred:[UDG]
 
-A distributed hypergraph which contains all relationships between all known {{SWID,SWIDs}} in the Spatial Web. 
+A distributed hypergraph which contains all relationships between all known {{SWID,SWIDs}} in the Spatial Web.
 
 NOTE:  The universal domain graph is the complete {{Spatial Web,Spatial Web}} hypergraph.
 
@@ -113,15 +132,15 @@ preferred:[distributed UDG system]
 
 The set of coordinated Spatial Web Nodes that provide services on the distributed UDG.
 
-==== UDG entity graph 
+==== UDG entity graph
 
 all instances of SW entities and connections represented in HSML
 
-==== UDG node graph: 
+==== UDG node graph:
 
 all distributed computing SW Nodes and connections using HSTP
 
-==== UDG Node 
+==== UDG Node
 
 a type of distributed computing Spatial Web Node that performs UDG functions
 
@@ -129,15 +148,16 @@ Compare with Spatial Web Domain Server
 
 ==== Spatial Web Node
 
-Computing machine connected to the internet, capable of exchanging HSTP messages. 
+Computing machine connected to the internet, capable of exchanging HSTP messages.
 
 ==== vector space
+
 Type of space composed of {{dimension,dimensions}} where each {{dimension}} is the set of real numbers.
 
 NOTE: Vector space is a type of {{HYPERSPACE}}, and {{Euclidean space}} is a type of vector space.
 
 
-=== Acronyms and abbreviations
+=== Abbreviated terms
 
 AI:: artificial intelligence
 API:: application programming interface

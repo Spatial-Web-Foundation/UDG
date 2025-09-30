@@ -1,29 +1,44 @@
 = Universal Domain Graph (UDG) Design
-:title: Universal Domain Graph (UDG) Design Study
-:docnumber: 9999
-:doctype: study
-:docstage: approved
-:revdate: 2026-01-01
-:issued-date: 2026-01-01
-:ieee-sasb-approved-date: 2026-01-01
-:copyright-year: 2025
-:language: en
+:docnumber: 6
 :edition: 1
-:society: Computer Society
-:committee: Artificial Intelligence Standards Committee
-:working-group: Spatial Web Working Group
-:keywords: HSML, HSTP, Hyperspace Modelling Language, Hyperspace Transaction Protocol, IEEE 9999™, Spatial Web, Spatial Web identifier, SWID, UDG, Universal Domain Graph, verifiable credentials, W3C decentralized identifier (DIDs)
-:isbn-pdf: 979-8-XXXX-XXXX-X
-:stdid-pdf: STDXXXXX
-:isbn-print: 979-8-XXXX-XXXX-X
-:stdid-print: STDPDXXXXX
+:revdate: 2026-01-01
+:copyright-year: 2026
+:language: en
+:title-intro-en: The Spatial Web
+:title-main-en: Universal Domain Graph (UDG) Design Study
+:committee: SWID
+:committee-type: technical
+:mn-document-class: swf
+:mn-output-extensions: xml,html,pdf,rxl
+:doctype: standard
+:status: published
+:docidentifier: SWF STD-6:2025 (0.1.0)
 :imagesdir: images
-:mn-document-class: ieee
-:mn-output-extensions: xml,html,doc,rxl,pdf
 :local-cache-only:
 :toc-figures: true
 :toc-tables: true
-:boilerplate-authority: copyright.adoc
+:comment: [backcover] leadership team list below
+:fullname: Gabriel René
+:role-description: leadership
+:contributor-position: Executive Director / Founder
+:fullname_2: Dan Mapes
+:role-description_2: leadership
+:contributor-position_2: Managing Director / Founder
+:fullname_3: Bastiaan den Braber
+:role-description_3: leadership
+:contributor-position_3: Director of Operations
+:fullname_4: George Percivall
+:role-description_4: leadership
+:contributor-position_4: Distinguished Engineering Fellow
+:fullname_5: Dan Richardson
+:role-description_5: leadership
+:contributor-position_5: Director of Market Analysis
+:fullname_6: Dr. Sarah Grace Manski
+:role-description_6: leadership
+:contributor-position_6: Senior Ethics Advisor
+:comment: [backcover] participants list below
+:fullname_7: George Percivall (lead editor)
+:fullname_8: Kurt Cagle
 
 // 20250319 rwp override background colors for admonitions in the current document
 // based on ticket
@@ -42,9 +57,6 @@
 .Admonition { background-color: white}
 .example { background-color: white}
 ----
-
-
-include::sections/00-participants.adoc[]
 
 include::sections/00-abstract.adoc[]
 

@@ -3,13 +3,18 @@
 
 === Overview
 
-Computing Continuum and Spatial Web Nodes. 
+Computing Continuum and Spatial Web Nodes.
+
 Overall architecture of the spatial web node system, which involves both communication across HSTP protocols (query/response) as well as joining nodes together to create ad-hoc super nodes (i.e., spatial web federation).
+
 Structure of the Spatial Web Node, including the primary hstp.d and hsml.d daemons, the domain graph, a credential graph, and a schema graph.
+
 Bridging HSTP and UDG scopes (handled through hstp.d and hsml.d respectively)
+
 Managing internal local hstp.d clocks (repeating internal events) to manage query and updates against live resources.
+
 Place, Person, Thing and SW Node registry for commonly referenced entities (the Spatial Web registry)
-	
+
 [[computing_continuum]]
 .Distributed computing continuum
 image::computing_continuum.png[Distributed computing continuum]

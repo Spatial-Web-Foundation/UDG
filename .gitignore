@@ -1,0 +1,10 @@
+.DS_Store
+.vscode
+Gemfile.lock
+*.code-workspace
+relaton/
+iev/
+*.log.*
+*.err
+*.abort
+_site

@@ -32,11 +32,17 @@
 
 // ------------------------------------
 
+* [[[ISO_19111_2019,ISO 19111:2019]]]
+
 * [[[ISO_19135_1_2015,ISO 19135-1:2015]]]
 
 * [[[ISO_22300_2021,ISO 22300:2021]]]
 
+* [[[ISO_IEC_23188_2020,ISO/IEC 23188:2020]]]
+
 * [[[ISO_37101_2016,ISO 37101:2016]]]
+
+* [[[ISO_IEC_IEEE_42010_2022,ISO/IEC/IEEE 42010:2022]]]
 
 * [[[ISO_IEC_12113_2022,ISO/IEC 12113:2022]]]
 
@@ -90,6 +96,8 @@ span:uri[https://www.electropedia.org/]
 * [[[w3c_respon_spatial,W3C responsible-use-spatial]]]
 
 * [[[w3c_rdf,W3C rdf-concepts]]]
+
+* [[[w3c_did_core,W3C did-core]]]
 
 // IETF documents
 

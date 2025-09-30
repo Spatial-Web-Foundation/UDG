@@ -1,3 +1,4 @@
+[[sensors]]
 = Sensors
 
 == Overview
@@ -24,7 +25,9 @@ Sensors are basically data plugins - they are intended to provide some meaningfu
 
 The exact mechanism for how sensors work is still under development, but runs roughly along the following lines:
 
-```mermaid
+[source,mermaid]
+----
+
 ---
 config:
     layout: elk
@@ -36,7 +39,7 @@ graph TD
     filter --> transform[Transform the<br>result into<br>requested format]
     transform --> respond[Send to<br>output channel]
     respond-->stop
-```
+----
 In general, this output is performed as an HSTP request to get a description of state of either a given entity or the domain of entities.
 
 A similar loop occurs for each entity's internal update, but does not include the filter or transform, and typically does not respond to data outside of the hsml namespace. This is used in order to query the state of the surrounding graph in order to adjust movement to desired goals. This is handled by the internal udg daemon.
