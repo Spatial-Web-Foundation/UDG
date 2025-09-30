@@ -58,9 +58,6 @@
 .example { background-color: white}
 ----
 
-
-include::sections/00-participants.adoc[]
-
 include::sections/00-abstract.adoc[]
 
 include::sections/00-introduction.adoc[]
