@@ -43,6 +43,8 @@ The subsequent clauses in this viewpoint
 * Relation between UDG KG and UDG Social
 * Relation between UDG KG and UDG Registries
 
+The UDG shall be similar to existing knowledge bases held within current web platforms, but shall be a public utility compared to proprietary platform knowledge bases.
+
 include::06-01-domain.adoc[leveloffset=+2]
 
 include::06-03-places.adoc[leveloffset=+2]

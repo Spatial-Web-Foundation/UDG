@@ -1,5 +1,6 @@
 
 [appendix,obligation=normative]
+[[annex-requirements-allocation]]
 == Annex Requirements Allocation
 
 . https://www.notion.so/IEEE-UDG-Requirements-1fa40ac3a1e8802cbca5f503e627a391

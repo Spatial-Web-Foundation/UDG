@@ -56,3 +56,28 @@ polycentric governance shall promote exploration and engagement
 [[exploration-engagement-networks]]
 .Variation of network structure for exploration vs engagement (Source: Pentland)
 image::exploration-engagement-networks.png[Variation of network structure for exploration vs engagement]
+
+
+References
+
+* System Science
+** https://www.google.com/books/edition/Systems_Thinking/fI21tBxGLMQC?hl=en&gbpv=1
+
+* Network science
+** https://www.cs.cornell.edu/home/kleinber/networks-book/
+** https://networksciencebook.com/
+
+* Spatial Web and JHU Symposium - relevant to the UDG
+* Friston: Designing Ecosystems of Intelligence from First Principles, 2024
+* Friston, Tenenbaum: World model learning and inference, 2021
+* Levin: Collective intelligence as a public good, 2022
+* Levin: Evolutionary dynamics within and among competing groups, 2023
+* Levin: McMillen: Collective intelligence, 2024
+* Zollman: Network Epistemology, 2012
+* Zollman: Communication Structure of Epistemic Communities, 2022
+* Ladyman: Patterns All The Way Up: Prolegomena to Naturalised Metaphysics, 2024
+* Shalizi: Peer Influence in Homophilous Social Network, 2021
+* Collective intelligence: comes from the idea flow of agents and udg
+* Collective intelligence as public good, Leonard and Levin, 2022
+* Cultural Intelligence hypotheis, Hermann, Tomasello, Science 2007
+* Peer Pressure to Promote Cooperation, Pentland, 2013
