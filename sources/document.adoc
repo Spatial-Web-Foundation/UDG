@@ -78,7 +78,7 @@ include::sections/07-conceptual-registry.adoc[]
 
 include::sections/08-conceptual-social.adoc[]
 
-include::sections/9-distributed-computing.adoc[]
+include::sections/09-distributed-computing.adoc[]
 
 include::sections/annex-bibliography.adoc[]
 
@@ -86,6 +86,5 @@ include::sections/annex-requirements-allocation.adoc[]
 
 include::sections/annex-application-scenario.adoc[]
 
-include::sections/annex-swf_authors_reviewers.adoc[]
 
 
