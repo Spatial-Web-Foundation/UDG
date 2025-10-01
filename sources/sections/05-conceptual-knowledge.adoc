@@ -45,13 +45,13 @@ The subsequent clauses in this viewpoint
 
 The UDG shall be similar to existing knowledge bases held within current web platforms, but shall be a public utility compared to proprietary platform knowledge bases.
 
-include::06-01-domain.adoc[leveloffset=+2]
+include::05-01-domain.adoc[leveloffset=+2]
 
-include::06-03-places.adoc[leveloffset=+2]
+include::05-03-places.adoc[leveloffset=+2]
 
-include::06-04-links-membership.adoc[leveloffset=+2]
+include::05-04-links-membership.adoc[leveloffset=+2]
 
-include::06-05-sensors.adoc[leveloffset=+2]
+include::05-05-sensors.adoc[leveloffset=+2]
 
 
 
@@ -537,8 +537,7 @@ prefix swid: <did:swid:>
     .
 ----
 
-The notation `<#agent/light-123>` for the swrl is indicative that (at least in
-RDF) this is an IRI fragment relative to the containing spatial web node.
+The notation agent/light-123 for the swrl is indicative that (at least in RDF) this is an IRI fragment relative to the containing spatial web node.
 
 A __blank node__ is a node that has an IRI that is defined within a graph, but
 is not defined globally. This structure makes it possible within Turtle to write
@@ -1155,7 +1154,7 @@ internal name:
 
 ----
 [] a hsml:Domain ;
-    hsml:swurl <#domain/ExternalTaxonomy>
+    hsml:swurl <domain/ExternalTaxonomy>
     hsml:importDomain <https://myExternalResources.com#domain/externalTaxonomy> .
     .
 ----
@@ -1327,7 +1326,7 @@ flowchart TD
   swra[<b>Domain</b><br>Spatial Web Registry]
   swra -->SWRAF
 
-  style SWRAF fill:#FFFFF8
+  style SWRAF fill:FFFFF8
 ----
 
 Here, Oxbridge University is part of two affiliation networks - a university
@@ -1354,7 +1353,7 @@ another.
 As mentioned, a place is itself an agent, and is an abstraction. For instance,
 suppose that you were representing a field hospital in a wartime setting. This
 is a place - it is where agents perform activities - but it is not necessarily
-fixed in space. When you say, "I am going to Field Hospital #4077", for
+fixed in space. When you say, "I am going to Field Hospital 4077", for
 instance, what you are indicating is that you are going to a place but the
 specific location of that place will vary over time.
 
