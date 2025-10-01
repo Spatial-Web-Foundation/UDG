@@ -5,19 +5,14 @@ The UDG is a publicly accessible information commons that serves as a key infras
 
 The UDG is a complex concept composed of the following concepts:
 
-* The UDG Knowledge Graph (KG) is the hypergraph containing all relationships between all known Spatial Web conceptual ENTITIES. The UDG KG is composed of nodes and links where the nodes are ENTITIES and the links are relations between the ENTITIES. Each Spatial Web ENTITY has a Spatial Web Identifier (SWID).  The UDG KG is defined in <<section-conceptual-view-knowldge-graph>>
-* UDG Hyperspace is the representation of UDG relationship using the several types of Spatial Web Hyperspace including Graphs, Cellular spaces with cell identifiers, and Vector spaces with coordinates.  The different types of Hyperspace allow for different methods for navigating and discoverying ENTITIES.  These concpets along with the relationshps between UDG in differing hyperspaces are defined in <<section-conceptual-view-hyperspace>>
-* UDG Registries are a coordinated set of hierarchically organized registeries of DOMAINS.  Top-level DOMAINs are registered in the Spatial Web Designated Authority Registry.  Top-level domains may link to a domain-specific registry.  The sysgtem of UDG Registries are defined in  <<section-conceptual-registry>>
-* The UDG Social Networks is the communication between ENTITIES in the UDG.  In particular AGENTS will gather information about the state of the environment from other ENTITIES in the UDG.  AGENTS will exchange information with other AGENTS to form beliefs about the environment.  This communication between AGENTS is implements a social epistemological process leading to collective intelligence as described in the <<section-conceputal-view-social-network>>
-* The Distributed UDG System: is the set of coordinated Spatial Web Nodes that provide services on the distributed UDG.  A Spatial Web Node is a computing machine connected to the internet, capable of exchanging HSTP messages.  Spatial Web Nodes particular to the UDG include: UDG Nodes and Registry Nodes.  The UDG Node peforms functions related to the distributed communications needed for UDG functions, e.g., state propogation and distributed queries.  UDG Registry Nodes implement UDG Registry functions.  These topics are discussed in the <<section-distributed-computing>>
+* **UDG Knowledge Graph (KG)** is the hypergraph containing all relationships between all known Spatial Web conceptual ENTITIES. The UDG KG is composed of nodes and links where the nodes are ENTITIES and the links are relations between the ENTITIES. Each Spatial Web ENTITY has a Spatial Web Identifier (SWID).  The UDG KG is defined in <<section-conceptual-view-knowldge-graph>>
+* **UDG Hyperspace** is the representation of UDG relationship using the several types of Spatial Web Hyperspace including Graphs, Cellular spaces with cell identifiers, and Vector spaces with coordinates.  The different types of Hyperspace allow for different methods for navigating and discoverying ENTITIES.  These concpets along with the relationshps between UDG in differing hyperspaces are defined in <<section-conceptual-view-hyperspace>>
+* **UDG Registries** are a coordinated set of hierarchically organized registeries of DOMAINS.  Top-level DOMAINs are registered in the Spatial Web Designated Authority Registry.  Top-level domains may link to a domain-specific registry.  The sysgtem of UDG Registries are defined in  <<section-conceptual-registry>>
+* **UDG Social Networks** is the communication between ENTITIES in the UDG.  In particular AGENTS will gather information about the state of the environment from other ENTITIES in the UDG.  AGENTS will exchange information with other AGENTS to form beliefs about the environment. Neighborhoods in the UDG will affect the social engagement between AGENTS. This communication between AGENTS is a social epistemological process leading to collective intelligence as described in the <<section-conceputal-view-social-network>>
+* **Distributed UDG System** is the set of coordinated Spatial Web Nodes that provide services on the distributed UDG.  A Spatial Web Node is a computing machine connected to the internet, capable of exchanging HSTP messages.  Spatial Web Nodes particular to the UDG include: UDG Nodes and Registry Nodes.  The UDG Node peforms functions related to the distributed communications needed for UDG functions, e.g., state propogation and distributed queries.  UDG Registry Nodes implement UDG Registry functions.  These topics are discussed in the <<section-distributed-computing>>
 
 
 The UDG Conceptual structures (KG, Hyperspace, Registries, Social network) are distributed across the Spatial Web Nodes of the Distributed UDG System. There isa non-isomorphic relationship between the Conceptual domain hierarchies and the SW Nodes. Presence of a Domain in a a specific SW node may be dynamic and transient.  This relationship between the Conceptual views and the Distributed Computing view are represented in <<fig-udg-enterprise>> 
-
-
-[[fig-udg-enterprise]]
-.UDG Enterprise Viewpoint
-image::enterprise_ov1_diagram.png[UDG enterprise view showing conceptual and distributed views]
 
 The implementation of the Spatial Web UDG design is accomplished by allocation of requirements to the Spatial Web Components.  Each viewpoint of the UDG includes requirements that are specific to a Spatial Web Components.  The <<annex-requirements-allocation>> gathers the requirements for each component.  The Spatial Web Components used in this UDG Design specification are:
 
@@ -29,3 +24,10 @@ The implementation of the Spatial Web UDG design is accomplished by allocation o
 * UDG Node Design (SWF STD-07) 
 * Agent Verification plan (SWF STD-08) 
 * Spatial Web Goverannce (SWF RP-1)
+
+
+[[fig-udg-enterprise]]
+.UDG Enterprise Viewpoint
+image::enterprise_ov1_diagram.png[UDG enterprise view showing conceptual and distributed views]
+
+
