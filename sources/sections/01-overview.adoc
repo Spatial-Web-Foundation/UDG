@@ -2,11 +2,9 @@
 
 === Scope
 
-This report describes the preliminary approach for the Spatial Web UDG System
-Design Specification.  
+This report describes the preliminary approach for the Spatial Web UDG System Design Specification.  
 
-NOTE: In IEEE 2874-2025 this document was titled the UDG
-Implmentation Specification.
+NOTE: In IEEE 2874-2025 this document was titled the UDG Implmentation Specification.
 
 === Purpose
 
@@ -20,11 +18,9 @@ The report addresses these themes:
 * Provides an assessment of relevant, existing technology and research
 * Draft Design for UDG System:  Foundations, Conceptual Models, Distributed Computing
 
-This document is structured as an architecture description consistent with the approach
-defined in <<ISO_IEC_IEEE_42010_2022>>. 
+This document is structured as an architecture description consistent with the approach defined in <<ISO_IEC_IEEE_42010_2022>>. 
 
-This document provides five viewpoints of the UDG.  These five viewpoints
-comprise the UDG System Design:
+This document provides five viewpoints of the UDG.  These five viewpoints comprise the UDG System Design:
 
 * <<section-enterprise-viewpoint>>
 * <<section-conceptual-view-knowldge-graph>>
@@ -36,6 +32,4 @@ comprise the UDG System Design:
 
 === Conventions used in this standard
 
-In this document the following Spatial Web ontology entries (ENTITY, ACTIVITY,
-AGENT, CONTRACT, CHANNEL, CREDENTIAL, DOMAIN, HYPERSPACE, and TIME) are
-represented using uppercase.
+In this document the following Spatial Web ontology entries (ENTITY, ACTIVITY, AGENT, CONTRACT, CHANNEL, CREDENTIAL, DOMAIN, HYPERSPACE, and TIME) are represented using uppercase.
