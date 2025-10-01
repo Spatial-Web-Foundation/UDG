@@ -3,36 +3,34 @@
 === Scope
 
 This report describes the preliminary approach for the Spatial Web UDG System
-Design Specification.  (In IEEE 2874-2025 this document was titled the UDG
-Implmentation Specification.)
+Design Specification.  
+
+NOTE: In IEEE 2874-2025 this document was titled the UDG
+Implmentation Specification.
 
 === Purpose
 
-The purpose of this report is to present the results of a trade study on
-technology and research that is relevant to a Spatial Web UDG Design.   The
-report was prepared as part of the Spatial Web Foundation Preliminary Design
-activities.
+The purpose of this report is to provide information that is relevant to a Spatial Web UDG Design. The UDG design in this report defines requiremetns for the Spatial Web Implementation standards and guides domain-specific Spatial Web architecture development.
 
 === Structure of document
 
-As a trade study the report addresses these themes:
+The report addresses these themes:
 
-* Identification of requirements and fundamental design questions
-* Survey and assessment of relevant, existing technology and research
+* Indentifies requirements and fundamental design questions
+* Provides an assessment of relevant, existing technology and research
 * Draft Design for UDG System:  Foundations, Conceptual Models, Distributed Computing
 
-This document is structured as a reference model consistent with the approach
-defined in <<ISO_IEC_IEEE_42010_2022>>. This reference model provides concepts
-to subsequently define Spatial Web Implementation standards and to guide
-domain-specific Spatial Web architecture developments.
+This document is structured as an architecture description consistent with the approach
+defined in <<ISO_IEC_IEEE_42010_2022>>. 
 
 This document provides five viewpoints of the UDG.  These five viewpoints
 comprise the UDG System Design:
 
 * <<section-enterprise-viewpoint>>
 * <<section-conceptual-view-knowldge-graph>>
-* <<section-conceputal-view-social-network>>
+* <<section-conceptual-view-hyperspace>>
 * <<section-conceptual-registry>>
+* <<section-conceputal-view-social-network>>
 * <<section-distributed-computing>>
 
 
