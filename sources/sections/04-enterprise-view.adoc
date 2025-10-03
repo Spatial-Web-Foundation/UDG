@@ -1,84 +1,33 @@
 [[section-enterprise-viewpoint]]
 == Enterprise view of the UDG
 
-The UDG is the infrastrcutre for the Spatial Web
+The UDG is a publicly accessible information commons that serves as a key infrastructure component of the Spatial Web.  The UDG is a structured graph that groups domains and allows for nested, hierarchical and heterarchical searches and transformations within and across domains. It shall enable efficient and accurate modeling and analysis of domain relationships, which are essential for the Spatial Web. The UDG shall allow for the organization of domains into an architecture that maintains intra-relational and inter-relational domain coherence, allowing for the coordination and integration of domain-specific data and content.
+
+The UDG is a complex concept composed of the following concepts:
+
+* **UDG Knowledge Graph (KG)** is the hypergraph containing all relationships between all known Spatial Web conceptual ENTITIES. The UDG KG is composed of nodes and links where the nodes are ENTITIES and the links are relations between the ENTITIES. Each Spatial Web ENTITY has a Spatial Web Identifier (SWID).  The UDG KG is defined in <<section-conceptual-view-knowldge-graph>>
+* **UDG Hyperspace** is the representation of UDG relationship using the several types of Spatial Web Hyperspace including Graphs, Cellular spaces with cell identifiers, and Vector spaces with coordinates.  The different types of Hyperspace allow for different methods for navigating and discoverying ENTITIES.  These concpets along with the relationshps between UDG in differing hyperspaces are defined in <<section-conceptual-view-hyperspace>>
+* **UDG Registries** are a coordinated set of hierarchically organized registeries of DOMAINS.  Top-level DOMAINs are registered in the Spatial Web Designated Authority Registry.  Top-level domains may link to a domain-specific registry.  The sysgtem of UDG Registries are defined in  <<section-conceptual-registry>>
+* **UDG Social Networks** is the communication between ENTITIES in the UDG.  In particular AGENTS will gather information about the state of the environment from other ENTITIES in the UDG.  AGENTS will exchange information with other AGENTS to form beliefs about the environment. Neighborhoods in the UDG will affect the social engagement between AGENTS. This communication between AGENTS is a social epistemological process leading to collective intelligence as described in the <<section-conceputal-view-social-network>>
+* **Distributed UDG System** is the set of coordinated Spatial Web Nodes that provide services on the distributed UDG.  A Spatial Web Node is a computing machine connected to the internet, capable of exchanging HSTP messages.  Spatial Web Nodes particular to the UDG include: UDG Nodes and Registry Nodes.  The UDG Node peforms functions related to the distributed communications needed for UDG functions, e.g., state propogation and distributed queries.  UDG Registry Nodes implement UDG Registry functions.  These topics are discussed in the <<section-distributed-computing>>
 
 
-UDG in IEEE 2874
+The UDG Conceptual structures (KG, Hyperspace, Registries, Social network) are distributed across the Spatial Web Nodes of the Distributed UDG System. There isa non-isomorphic relationship between the Conceptual domain hierarchies and the SW Nodes. Presence of a Domain in a a specific SW node may be dynamic and transient.  This relationship between the Conceptual views and the Distributed Computing view are represented in <<fig-udg-enterprise>> 
 
-Universal Domain Graph (UDG) is the distributed hypergraph which contains all relationships between all known SWIDs in the Spatial Web. Syn: UDG. The universal domain graph is the complete Spatial Web hypergraph.
+The implementation of the Spatial Web UDG design is accomplished by allocation of requirements to the Spatial Web Components.  Each viewpoint of the UDG includes requirements that are specific to a Spatial Web Components.  The <<annex-requirements-allocation>> gathers the requirements for each component.  The Spatial Web Components used in this UDG Design specification are:
 
-The Distributed UDG System: is the set of coordinated Spatial Web Nodes that provide services on the distributed UDG. Syn: distributed UDG system.
-
-A Spatial Web Node is a computing machine connected to the internet, capable of exchanging HSTP messages.
-
-
-What kind of graph is the UDG?
-
-Technologies for graphs that are relevant to the UDG.
-
-* System thinking: parts/wholes, autopoietic
-* Networks: distance, neighbor, connectedness, degrees, FOAF, dynamics
-* Semantics: subject-predicate-object triples, RDF
-* Property graph: attributed graphs for cyber-physical entities
-* Tesselation and index of the physical world; DGGS
-* Factor graphs: message passing
-* Ecosystems: competition and collective resources, multilevel evolutionary dynamics
-* Social: Network Epistemology, collective intelligence
-
-
-UDG Concepts from the Spatial Web architecture spec (P2874).
-
-* A Graph in the Spatial Web is a set of nodes along with a set of edges, such that every edge has a source note and a target node. (6.2.2.1.)
-* The Universal Domain Graph (UDG) is a graph serving as key infrastructure of the Spatial Web (6.3.5.1.)
-** The UDG graph allows for nested, hierarchical and heterarchical groupings
-** The UDG graph maintains intra-relational and inter-relational domain coherence
-** The UDG is a hypergraph containing all relationships between all known SWIDs in the Spatial Web.
-** The UDG is composed of nodes and links where the nodes are ENTITIES and the links are relations between the ENTITIES.
-
-How will UDG be used
-
-* Agent updating its factor graph
-* Finding friends and situations
-* Looking for patterns in UDG - Platonic paper
-* Collective intelligence
-
-
-References
-
-* System Science
-** https://www.google.com/books/edition/Systems_Thinking/fI21tBxGLMQC?hl=en&gbpv=1
-
-* Network science
-** https://www.cs.cornell.edu/home/kleinber/networks-book/
-** https://networksciencebook.com/
-
-* Spatial Web and JHU Symposium - relevant to the UDG
-* Friston: Designing Ecosystems of Intelligence from First Principles, 2024
-* Friston, Tenenbaum: World model learning and inference, 2021
-* Levin: Collective intelligence as a public good, 2022
-* Levin: Evolutionary dynamics within and among competing groups, 2023
-* Levin: McMillen: Collective intelligence, 2024
-* Zollman: Network Epistemology, 2012
-* Zollman: Communication Structure of Epistemic Communities, 2022
-* Ladyman: Patterns All The Way Up: Prolegomena to Naturalised Metaphysics, 2024
-* Shalizi: Peer Influence in Homophilous Social Network, 2021
-* Collective intelligence: comes from the idea flow of agents and udg
-* Collective intelligence as public good, Leonard and Levin, 2022
-* Cultural Intelligence hypotheis, Hermann, Tomasello, Science 2007
-* Peer Pressure to Promote Cooperation, Pentland, 2013
-
-UDG as a graph of entities vs. UDG as a ditsributed computing nodes
-
-The UDG Conceptual structure is distributed across SW computing nodes. There is
-a non-isomorphic relationship between the Conceptual domain hierarchies and the
-SW Nodes. Presence of a Domain in a a specific SW node may be dynamic and
-transient. SW Registries are hosted by UDG nodes.
+* Hyperspace Modeling Language (HSML) (SWF STD-02) 
+* Hyperspatial Transaction Protocol (HSTP) (SWF STD-03) 
+* SWID Documents (SWF STD-04) 
+* Spatial Web DID method (SWF STD-05) 
+* Spatial Web Registry  
+* UDG Node Design  
+* Agent Verification plan 
+* Spatial Web Governance
 
 
 [[fig-udg-enterprise]]
 .UDG Enterprise Viewpoint
 image::enterprise_ov1_diagram.png[UDG enterprise view showing conceptual and distributed views]
-
 
 
