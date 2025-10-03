@@ -34,10 +34,10 @@ Links are one of the few actions that can cross spacial web node boundaries.  Ac
 This is more complex than moving within a given node because the latter simply requires changing pointers.
 
 
-include::10-01-design-spatial-web-node.adoc[leveloffset=+2]
+include::09-01-design-spatial-web-node.adoc[leveloffset=+2]
 
-include::10-02-node-registries.adoc[leveloffset=+2]
+include::09-02-node-registries.adoc[leveloffset=+2]
 
-include::10-03-udg-and-hstp.adoc[leveloffset=+2]
+include::09-03-udg-and-hstp.adoc[leveloffset=+2]
 
-include::10-04-use-cases.adoc[leveloffset=+2]
+include::09-04-use-cases.adoc[leveloffset=+2]
