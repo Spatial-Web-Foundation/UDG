@@ -1,11 +1,6 @@
 [[domains]]
 = DOMAINS as the primary ENTITY in the UDG
 
-* ENTITIES as the basic type for all knowledge in the UDG
-* Discussion of UDG specific types of DOMAINS in the UDG
-* SWIDS as the identifier used in ENTITIES and how SWIDS are used in the UDG KG
-* Domain Use Case: The Light Bulb Room
-
 == ENTITIES as the basic type for all knowledge in the UDG
 
 The primary structure for the concepts in this viewpoint is the Spatial Web
@@ -17,6 +12,12 @@ UDG as a conceptual graph for Knowledge representation and reasoning
 [[spatial_web_ontology]]
 .Spatial Web ontology
 image::spatial_web_ontology.png[ontology showing Spatial Web entities and their relations]
+
+The subsequent clasues in this clause are:
+
+** Discussion of UDG specific types of DOMAINS in the UDG
+** SWIDS as the identifier used in ENTITIES and how SWIDS are used in the UDG KG
+** Domain Use Case: The Light Bulb Room
 
 == Definition of a DOMAIN
 

@@ -10,3 +10,5 @@ span:title[H3: Hexagonal hierarchical geospatial indexing system]
 span:type[website]
 span:date[2024]
 span:uri[https://h3geo.org]
+
+* [[[w3c_rdf12-concepts,W3C WD rdf12-concepts]]]
