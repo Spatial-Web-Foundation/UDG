@@ -307,4 +307,4 @@ broader UDG. One registration (one SWID), many discoverable contexts
 * As an Index, it organizes and makes baseball-related information searchable.
 
 
-include::08-01-registries-atlas.adoc[leveloffset=+2]
+include::07-01-registries-atlas.adoc[leveloffset=+2]

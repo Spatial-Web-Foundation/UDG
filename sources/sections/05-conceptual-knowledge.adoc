@@ -37,13 +37,13 @@ The subsequent clauses in this viewpoint are the following:
 ** Relationship with UDG Hyperspace Geography
 ** Relation between UDG KG and UDG Registries
 
-include::06-01-domain.adoc[leveloffset=+2]
+include::05-01-domain.adoc[leveloffset=+2]
 
-include::06-03-places.adoc[leveloffset=+2]
+include::05-03-places.adoc[leveloffset=+2]
 
-include::06-04-links-membership.adoc[leveloffset=+2]
+include::05-04-links-membership.adoc[leveloffset=+2]
 
-include::06-05-sensors.adoc[leveloffset=+2]
+include::05-05-sensors.adoc[leveloffset=+2]
 
 
 
