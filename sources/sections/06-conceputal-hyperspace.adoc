@@ -167,7 +167,122 @@ of 90 dm2 and there are 5.7*10**14 hexagons
 .Estimate of the number of entities in the Spatial Web UDG
 image::udg_size_estimate.png[Estimate of number of entities in the Spatial Web UDG]
 
-== Domain as a map
+
+=== Domains, Links and Hyperspaces
+
+Places have an obvious containment relationship - Earth is made up of
+continents, which are made up of ountries, which are made up of cities, which
+are made up of even smaller divisions.
+
+Domains are not places, though they might appear to be at first glance. A domain
+has a place property that can in fact refer to multiple places. For instance,
+one can make up a domain of Red States, a domain of Blue States, and possible a
+domain of Purple States in the United States. It also has a Home place property
+that acts as a default when the domain is referenced as the target of a link -
+this can be thought of as the equivalent of a landing page (or index.html in
+HTTP terms).
+
+This creates an interesting phenomenon. The most common form of link within the
+UDG is a link from one place to another place typically within the same domain.
+The links exist primarily for agents, but an agent may also have the ability to
+carry certain things from one place to another within a given domain.
+
+This is different behavior from the way that a link works in HTTP. There,
+activating a link sends the browser (the user agent) to a new address. With
+HSTP, activating a link will typically move the agent to a new Place within the
+domain. In a game environment such as Monopoly, this basically moves the agent's
+token to the new place (say from Pennsylvania Ave to Boardwalk). In a game like
+chess, each player in effect controls sixteen agents, one for each chess piece
+on their side, though they can only control one such agent at any given turn.
+
+This also raises an interesting quandry. Links can be contextual, and are also
+not necessarily contiguous. The valid links for a knight agent, for instance, is
+L shaped, and it can jump over adjacent squares, but can't jump outside of the
+boundaries of the board. The bishop can only move across diagonals, and only
+until it encounters a piece of the opposite's side (a capture) or a piece of the
+active side (a block). This indicates that the hyperspace of a domain is
+topological.
+
+=== The Topological Hyperspace
+
+A topological space is one in which direct physical constraints are minimized in
+favor of conceptual ones. In effect, a domain consists of a set of places, each
+of which is a conceptual node connected by links. The set of all places that are
+traversable within the graph makeup the hyperspace for that domain, with the
+links in turn controlling access from one place to another within the domain.
+
+[source,mermaid]
+----
+---
+config:
+    layout: elk
+---
+graph LR
+    r1[Room1]
+    r2[Room2]
+    r3[Room3]
+    r4[Room4]
+    r5[Room5]
+    r6[Room6]
+    r1 -->|=9758;| r2
+    r1 -->|=9919;| r3
+    r2 -->|=9919;| r4
+    r3 -->|=9758;| r4
+    r2 -->|=9758;| r3
+    r4 -->|=9719;| r5
+    r4 -->|=9758;| r6
+----
+
+In this case, the hyperspace for the domain consists of six "rooms", each
+connected by links of various types:
+
+* Pointers (&=9758;) represent open links - an agent can move from one room to
+the next freely.
+
+* Keys (&=9919;) represent locked links - the agent needs some form of key to
+open the link and move to the next room.
+
+* Finally, clocks (&=9719;) represents conditional locks - an external condition
+(such as a store being closed for the night) must be met before traversal can
+happen.
+
+This is an example of a topological domain. It consists of six Places, but each
+Place does not necessarily have to represent a physical location in the real
+world. Instead, the place is simply a scope for containment. It could represent
+stations in an assembly line, steps in a process, a detailed internal
+representation of a given subsystem, and so forth.
+
+The notion of linked places can be used to create an alternative for managing
+holonic viewpoints. For instance, if you have a place that represents a car,
+there is a link (perhaps the button that releases the latch that holds the hood
+closed), which will then take you to an entry place ("room") that contains the
+engine compartment, and that lets you in turn dig deeper into the engine, the
+battery, the alternator and so forth.
+
+This approach has a number of key advantages - first - you can control access to
+various subsystems because they are topological just places within the overall
+domain that are constrained by the links that connect them. Because links are
+contextual, you can only access certain subsystem if either you (or your agent)
+have the relevant key or some external condition is in force.
+
+This also relieves the Spatial Web of having to do heavy extensive physical
+mapping. This can be added back in, either by increasing the number of places to
+better represent a tighter partitioning of the space, or by providing more
+subtle links to create more neighborhoods (these are essentially equivlent
+actions).
+
+The hyperspace of the domain then becomes the set of all places within that
+domain. This solves another problem that a more physical realization introduces
+- determining whether you are at the edge of, or out of the boundaries of, a
+physical space. In a topological model, if the place is not in the domain, then
+it is not accessible by ANY agent.
+
+=== Topological vs Continuous Hyperspace
+
+The topological view is one where a domain consists of a finite number of
+discrete places, each with its own SWID.
+
+=== Domain as a map
 
 A DOMAIN is a model. It provides context for the things within the model, and also describes a purpose for that model. It is, in a very real sense, a __map__, albeit one that is self-aware and changes dynamically over time, though the question about what a domain is a map ___of___ is something that is dependent upon the author or model maker.
 
@@ -190,3 +305,209 @@ To that end, designing a domain typically comes down to answering a number of qu
 * __Who or what is the intended audience of the map?__ Is this used primarily by humans or by automated systems?
 
 The role of the Spatial Web system is to deliver these different kinds of maps, to make them integrated and useful across a wide variety of applications. Just as the world wide web exploded the concept of a library - a collection of documents - into a world-wide phenomenon, so too does the creation of domains enable the same thing for maps as a way of perceiving and understanding the worlds, both real and imagined, around us.
+
+
+
+
+=== Places
+
+A __place__ represents a particular bounded region with a domain. The set of all places inside of a domain identifies the
+__hyperspace__ of that domain.
+
+Note that a place is a conceptual entity, not necessarily just a geophysical
+one. The role of a place is to indicate _where_ a particular agent performs a
+specific activity within a given domain, and an agent will always be connected
+to a place, though the specific place may change from one domain to the next.
+
+Within this context, a _tour_ can be thought of as the navigation of an agent
+through various places within a given domain. The specific mechanisms for how
+that agent moves from place to place are abstracted out in HSML, which is not
+necessarily a high fidelity representation of the physical world. What is
+important is only that the agent has moved from one operational context to
+another.
+
+As mentioned, a place is itself an agent, and is an abstraction. For instance,
+suppose that you were representing a field hospital in a wartime setting. This
+is a place - it is where agents perform activities - but it is not necessarily
+fixed in space. When you say, "I am going to Field Hospital 4077", for
+instance, what you are indicating is that you are going to a place but the
+specific location of that place will vary over time.
+
+This becomes especially important when dealing with vessels or platforms of
+various sorts. A cruise ship is a place, but its position will vary. That ship,
+in turn, can be decomposed (in its own subdomain) into multiple decks, rooms and
+cabins, each of which are also places.
+
+Two critical points to note:
+
+* A domain can have just a single place. If there is no particular need to
+indicate changes in spatial focus, then only one place is needed.* An agent may
+specify a location on its associated place, in either ___absolute___ or
+___relative____ terms.
+
+** An __absolute location__ is one given by an absolute coordinate system such
+as h3 or wgs-84, and assumes an orthogonal vector system used for specifying
+position, orientation and/or extent. This is typically used for larger scale
+domains, such as those on a planet. It may also be a custom tiling system where
+each tile has a specific address.
+
+** A __relative location__ is a little more complicated to define, and is
+strictly speaking Euclidean. In this particular case, the domain identifies a
+set of places within it and associates each place with an orthogenal vector,
+along with one place that's an origin vector (a point). These places are
+markers, with n + 1 markers where n is the desired dimension, and n = 0
+represents the origin. Once these are defined, any place can be defined relative
+to the corresponding coordinate system. Note, these do not necessarily need to
+be cartesian - you can set a 2D space as (r,θ), for instance.
+
+One advantage of using relative coordinates is that it can be used to simplify
+modeling of smaller structures. For instance, suppose that you wanted to model
+an apartment. You can set this up as follows:
+
+[source]
+----
+[] a hsml:Domain ;
+    hsml:swid did:swid:ACE11921CD587AF245 ;
+    hsml:swurl <domain/standardApartment-ACE11921CD587AF245>
+    hsml:hyperspace (_:origin _:x-axis :y-axis);
+    hsml:hasPlaces _:livingRoom, _:kitchen, _:bedroom, _:bathroom ;
+    hsml:hasHomePlace _:livingRoom ;
+    .
+_:origin a hsml:Place ;
+    hsml:hasLocation (0 0) ;
+    hsml:hasUnits <concept/units/feet> ;
+    .
+_:x-axis a hsml:Place ;
+    hsml:hasLocation (1 0) ;
+    hsml:hasUnits <concept/units/feet> ;
+    .
+
+_:y-axis a hsml:Place ;
+    hsml:hasLocation (0 1) ;
+    hsml:hasUnits <concept/units/feet> ;
+    .
+
+_:livingRoom a hsml:Place ;
+    hsml:hasLocation (0 0) ;
+    hsml:hasExtent (12 8) ;
+    hsml:hasTopic <concept/Room> ;
+    hsml:hasAgent [
+        # door from LR to Kitchen
+        a hsml:Agent ;
+        hsml:hasTopic topic:Door ;
+        hsml:hasLocation (12 4);
+        hsml:hasLink [
+            hsml:hasTarget _:kitchen ;
+        ] , [
+        # door from LR to Bedroom
+        a hsml:Agent ;
+        hsml:hasTopic topic:Door ;
+        hsml:hasLocation (6 8) ;
+        hsml:hasLink [
+            hsml:hasTarget _:kitchen ;
+        ]
+
+    ],[
+        # a person agent standing in to the living room
+        a hsml:Agent ;
+        hsml:swurl <agent/JaneDoe> ;
+        hsml:hasTopic topic:Person, topic:Woman ;
+        hsml:hasLocation (7,3) ;
+    ].
+
+_:kitchen a hsml:Place ;
+    hsml:hasLocation (12 0) ;
+    hsml:hasExtent (6 8) ;
+    hsml:hasTopic <concept/Room> ;
+    hsml:hasAgent [
+        # door from Kitchen to LR
+        a hsml:Agent ;
+        hsml:hasTopic topic:Door ;
+        hsml:hasLocation (12 4);
+        hsml:hasLink [
+            hsml:hasTarget _:livingRoom ;
+        ]
+    ]
+    .
+
+_:bedroom a hsml:Place ;
+    hsml:hasLocation (0 8) ;
+    hsml:hasExtent (10 8) ;
+    hsml:hasTopic <concept/Room> ;
+    hsml:hasAgent [
+        # door from LR to Bedroom
+        a hsml:Agent ;
+        hsml:hasTopic topic:Door ;
+        hsml:hasLocation (6 8) ;
+        hsml:hasLink [
+            hsml:target _:livingRoom ;
+        ], [
+        # door from Bedroom to Bathroom
+        a hsml:Agent ;
+        hsml:hasTopic topic:Door ;
+        hsml:hasLocation (10 12) ;
+        hsml:hasLink [
+            hsml:hasTarget _:bathroom ;
+           ]
+        ]
+    .
+
+_:bathroom a hsml:Place ;
+    hsml:hasLocation (10 8) ;
+    hsml:hasExtent (8 8) ;
+    hsml:hasTopic <concept/Room> ;
+    hsml:hasAgent [
+        # door from Bedroom to Bathroom
+        a hsml:Agent ;
+        hsml:hasTopic topic:Door ;
+        hsml:hasLocation (10 12) ;
+        hsml:hasLink [
+            hsml:hasTarget _:bathroom ;
+           ]
+        ]
+    .
+----
+
+This can be interpreted as follows:
+
+.Apartment Floorplan
+image::apartment_floorplan-1-svg-08-16-2025_12_34_PM.png[]
+
+Several key points:
+
+
+* _None of this has been normalized yet within the working group, so may
+change._
+
+* The () notation indicates an ordered linked list, which is used for any
+ordered sequence of items in RDF.
+
+* The use of the blank node (underscore notation) is to create local identifiers
+rather than global identifiers, and will be replaced by system scope identifiers
+when loaded into the graph.
+
+* Hyperspace here is identified by three places - an origin and two orthogonal
+vectors.
+
+* Units are treated as conceptual entities in the taxonomy and are defined at
+the level of the spatial web node. If units are not included, then the default
+is an undifferentiated unit.
+
+* The domain identifies the active places within the system (coordinate axes are
+usually not included as they don't normally take active agents).
+
+* Each place has a location that identifies where it is relative to either a
+global coordinate system or a custom (relative) system.
+
+* Agents are attached to places via the hsml:hasAgent predicate. In this
+particular case, the agents are doors with attached links that allow for transit
+between two rooms. Note that the door or portal agents have locations within the
+local coordinate system (and can have extents, though they are not necessary
+here). There is an additional icon showing a person and their current position
+within the apartment.
+
+* The `hsml:hasExtent` predicate identifies the boundaries of a place. Note that
+such boundaries may be multi-dimensional in nature, and may be specified in a
+number of different ways. The `hsml:hasTopic` predicate can be used to clarify
+how this boundary is expressed, as indicated in the section
+link:#extending-entities[Extending Entities].
