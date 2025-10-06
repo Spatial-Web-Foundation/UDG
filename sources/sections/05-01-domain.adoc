@@ -3,8 +3,7 @@
 
 == ENTITIES as the basic type for all knowledge in the UDG
 
-The primary structure for the concepts in this viewpoint is the Spatial Web
-Ontology and the corresponding HSML.
+The primary structure for the concepts in this viewpoint is the Spatial Web Ontology and the corresponding HSML.
 
 UDG as a conceptual graph for Knowledge representation and reasoning
 
@@ -15,9 +14,33 @@ image::spatial_web_ontology.png[ontology showing Spatial Web entities and their 
 
 The subsequent clasues in this clause are:
 
-** Discussion of UDG specific types of DOMAINS in the UDG
-** SWIDS as the identifier used in ENTITIES and how SWIDS are used in the UDG KG
-** Domain Use Case: The Light Bulb Room
+== SWIDS as the identifier used in ENTITIES
+
+=== UDG and SWIDs
+
+All resources within th Universal Domain Graph have some form of a __Spatial Web Identifier__ also known as a __SWID__. The SWID serves a number of purposes:
+
+* A SWID is a __W3C Decentralized Identifier__ (__DiD__), and is used as a mechanism to make claims (assertions) about specific facts with a form of verification backing up those claims. This is known as a __Verifiable Credential__ or (__VC__).
+* The SWID identifies the resource uniquely within the spatial web network. In this regard, the SWID acts as an (indirect) IRI.
+* SWIDs are also used to establish links between resources. Because the VC for the SWID can hold multiple potential values, such links typically are used to combine SW Node information with Domain and Entity resolution.
+* SWIDs are also used to resolve __nodelink__ connections between different nodes in the SW Node Graph, making it possible to bind together nodes in networks. In this case, the __nodelink document__ identifies both authentication and address information for different nodes within the spatial web.
+
+=== Aliases
+
+It should be noted that such SWIDs are not directly Uniform Resource Locators (URLs) in the WWW sense. In the Spatial Web, one or more *__aliases__* can be assigned to a SWID that is intended to locate a resource, but the actual "physical" address for the resource is contained within the SWID certificate. In effect, the alias is analogous to a HTTP domain name mapping to an IPV6 address, but in this case the "domain name" alias maps to a SWID, which then maps to the corresponding IPV6.
+[source,mermaid]
+----
+
+flowchart LR
+Alias --> SWID1 --> doc["Verifiable<br>Credential"]
+doc --> SWNode[Spatial Web Node]
+doc --> Domain[Reference Domain]
+----
+
+One key difference between HTTP and HSTP is that there is no GET parameterization on SWIDs. An alias could have such a paremeterization of course, but it becomes the role of the alias resolver to convert this into a corresponding HSML message, which then gets passed as an HSTP post message.
+
+The specific form of aliases is still to be determined.
+
 
 == Definition of a DOMAIN
 
@@ -123,6 +146,7 @@ is intended to model corporations, institutions, governments, and so forth, but
 it can also model physical or other composite structures.  Cf.
 link:#assemblages[Assemblages] for more information.
 
+
 == DOMAIN modeling checklist
 
 A DOMAIN is a system. The DOMAIN provides the answers to a number of key
@@ -152,11 +176,7 @@ entities.
 
 == Domain as a map
 
-A DOMAIN is a model. It provides context for the things within the model, and
-also describes a purpose for that model. It is, in a very real sense, a __map__,
-albeit one that is self-aware and changes dynamically over time, though the
-question about what a domain is a map ___of___ is something that is dependent
-upon the author or model maker.
+A DOMAIN is a model. It provides context for the things within the model, and also describes a purpose for that model. It is, in a very real sense, a __map__, albeit one that is self-aware and changes dynamically over time, though the question about what a domain is a map ___of___ is something that is dependent upon the author or model maker.
 
 Something that is central to the spatial web is that it is __not__ necessarily a
 reflection of reality. As with any map, a domain is an abstraction of a
@@ -185,91 +205,334 @@ questions:
 * __Does the map have persistance?__ When an agent enters the map, will that map reflect changes made to it by others (an environment), or are changes lost between sessions (typical of tours)?
 * __Who or what is the intended audience of the map?__ Is this used primarily by humans or by automated systems?
 
-The role of the Spatial Web system is to deliver these different kinds of maps,
-to make them integrated and useful across a wide variety of applications. Just
-as the world wide web exploded the concept of a library - a collection of
-documents - into a world-wide phenomenon, so too does the creation of domains
-enable the same thing for maps as a way of perceiving and understanding the
-worlds, both real and imagined, around us.
+The role of the Spatial Web system is to deliver these different kinds of maps, to make them integrated and useful across a wide variety of applications. Just as the world wide web exploded the concept of a library - a collection of documents - into a world-wide phenomenon, so too does the creation of domains enable the same thing for maps as a way of perceiving and understanding the worlds, both real and imagined, around us.
 
-[[agents]]
-== Agents Are Not Domains, They Have Domains
+== The UDG Taxonomy
 
-One of the long-standing debates within the spatial web working group has been
-the distinction between a domain and an agent, what is frequently referred to as
-the holonic paradox. A smart city, for instance, is both a domain (a context in
-which agents interoperate) and an agent (a thing that has changeable state but
-can be treated as a distinct entity).
+The __UDG Taxonomy__ is a taxonomy designed to augment discovery within the
+spatial web by providing common concepts and definitions for agents and, by
+extensions, domains.
 
-Ultimately, this distinction can be thought of as a distinction between
-__external state__ - the state of an entity as perceived by the environment -
-vs. __internal state__, which is the state of the components that make up that
-thing relative to one another.
+=== The hsml:hasTopic property
 
-_For purposes of modeling_, all entities have external (extrinsic or perceived) state, however, not all entities necessarily have internal (or intrinsic) state, _within the model_.
+The UDG Taxonomy can be thought of as the thesaurus for the Spatial Web. Each
+term in that thesaurus provides an adjective or noun that identifies some
+characteristic of a given agent.
 
-[quote]
-____
-The physical world does not, of course, have such a natural division; the
-viscera of a person, for instance, is still in the same "reality" as the outer
-form of that person, and that reality extends from the largest scales of the
-universe to the smallest quarks. However, the virtual world does not have that
-same constraint, and as such it is usually preferable to create holistically
-contained models that handle relevant aspects of the system in question.
-____
+For instance, an agent that is intended to be a proxy for a car in a smart city
+scenario may be identified by a number of such characteristics: the vehicle's
+_make_, _model_, and _trim_, its _carriage designation_ (a sedan, sports car,
+SUV, light truck), its _primary and secondary external and internal colors_, its
+_engine type_ (internal combustion engine, diesel, electric, hybrid,
+hydrogen-powered) and so forth. A building may be classified by _purpose_,
+_construction method_, _zone classification_, etc. A robot may be given by its
+_purpose_, _ambulatory status_, _activation level_, etc.
 
-What this means in practice is simple. All domains are effectively bound to
-agents as the "inside" of some thing is still connected to that thing. If you
-were to create an internal model of yourself, that domain's interactions would
-likely have some reflection in your external state. The boundary between
-external state and internal state is an interface. If you have a stomach ache,
-your expression (one aspect of that interface) will be sour and pained.
+Each of these terms are used primarily as mechanisms for classification, and are
+considered as __categories__, with each particular enumeration in turn
+considered a __topic__. The `hsml:hasTopic`, `Place:hasTopic` and
+`hsml:hasTopic` properties in HSML takes zero or more topics as arguments.
 
-By this same reasoning, in the spatial web, the distinction between the domain
-where an entity is an agent and the domain representing the internal state of
-that entity is a form of link. If I have a special scanner that shows your
-insides, what you are seeing is a ___map___ of the "insides" domain through that
-link.
+[[fig-udg-taxonomy]]
+.UDG Taxonomy
+image::UDG_Taxonomy.png[UDG Taxonomy]
 
-[quote]
-____
-Note again that this is different from reality. An MRI uses a magnetic field
-sensor coupled with strong magnets to generate and interpret the internals of a
-person, but an endoscopy actually creates an agent (the camera end of a fiber
-optic cable) that invades that domain. In the virtual world, on the other hand,
-the camera becomes a part of the internal domain but acts as an interface to
-create a map or view of the internal domain to display within the context of the
-external domain.
-____
 
-This relationship can be seen as follows:
+// [source,mermaid]
+// ----
+
+// ---
+// config:
+//     layout: elk
+// ---
+// graph LR
+//     car1[<b>Agent</b><br>Car 1]:::agent
+//     car2[<b>Agent</b><br>Car 2]:::agent
+//     automobile[<b>Topic</b><br>Automobile]:::topic
+//     sedan[<b>Topic</b><br>SUV]:::topic
+//     toyota[<b>Topic</b><br>Toyota]:::topic
+//     camry[<b>Topic</b><br>Camry]:::topic
+//     corolla[<b>Topic</b><br>Corolla]:::topic
+//     XE[<b>Topic</b><br>XE]:::topic
+//     AE[<b>Topic</b><br>AE]:::topic
+//     car1 -->|hsml:hasTopic| automobile & sedan & toyota & camry
+//     car2 -->|hsml:hasTopic| automobile & sedan & toyota & corolla & AE
+//     carriage[<b>Category</b><br>Carriage]:::category
+//     make[<b>Category</b><br>Make]:::category
+//     model[<b>Category</b><br>Model]:::category
+//     trim[<b>Category</b><br>Trim]:::category
+//     domainType[<b>Category</b><br>Domain Type]:::category
+//     carriage --->|hsml:hasTopic| sedan
+//     make --->|hsml:hasTopic| toyota
+//     model --->|hsml:hasTopic| camry
+//     model --->|hsml:hasTopic| corolla
+//     trim --->|hsml:hasTopic| XE
+//     trim --->|hsml:hasTopic| AE
+//     domainType --->|hsml:hasTopic| automobile
+// %%%    camry -->|hsml:hasConstraint| toyota
+// %%%    corolla -->|hsml:hasConstraint| toyota
+// %%%    XE -->|hsml:hasConstraint| camry
+// %%%    AE -->|hsml:hasConstraint| corolla
+//
+// style car1 stroke-width:4
+// classDef node stroke:black
+// classDef agent fill:lightBlue
+// classDef topic fill:yellow
+// classDef category fill:orange
+// ----
+
+The power of the UDG taxonomy is in its ability to cluster agents by topic,
+mediated by category. For instance, car 1 and car 2 are both of the same make
+(Toyota) but of different models (Camry vs. Corolla) and trims. They are also of
+the same "domain Type" of automobile. Note that domain type here is not
+privileged, it is simply one more category that agents can be in, though a
+fairly broad category.
+
+=== The `hsml:hasConstraint` Property
+
+Some times there are interdependencies between topics. For instance, the Corolla
+and the Camry are two different models produced by Toyota, and another car
+company will not produce those same models. Similarly trim provides variants for
+a given car model.
+
+These relationships are called __constraints_, which is a relationship
+indicating that one topic is dependent upon another. This changes the diagram
+somewhat:
+
+[[fig-udg-taxonomy-constraints-example]]
+.An example of the UDG Taxonomy with constraints
+image::UDG_taxonomy_example_with_constraints.png[an example of the UDG Taxonomy with constraints]
+
+// https://www.mermaidchart.com/app/projects/ecd8eb1d-8b86-4074-9e57-f89503604e51/diagrams/463b3340-401b-4c6f-a24b-48310639b1db/version/v0.1/edit
+// [source,mermaid]
+// ----
+
+// ---
+// config:
+//     layout: elk
+// ---
+// graph LR
+//     car1[<b>Agent</b><br>Car 1]:::agent
+//     car2[<b>Agent</b><br>Car 2]:::agent
+//     automobile[<b>Topic</b><br>Automobile]:::topic
+//     sedan[<b>Topic</b><br>SUV]:::topic
+//     toyota[<b>Topic</b><br>Toyota]:::topic
+//     camry[<b>Topic</b><br>Camry]:::topic
+//     corolla[<b>Topic</b><br>Corolla]:::topic
+//     XE[<b>Topic</b><br>XE]:::topic
+//     AE[<b>Topic</b><br>AE]:::topic
+//     car1 -->|hsml:hasTopic| automobile & sedan & toyota & camry
+//     car2 -->|hsml:hasTopic| automobile & sedan & toyota & corolla & AE
+//     carriage[<b>Category</b><br>Carriage]:::category
+//     make[<b>Category</b><br>Make]:::category
+//     model[<b>Category</b><br>Model]:::category
+//     trim[<b>Category</b><br>Trim]:::category
+//     domainType[<b>Category</b><br>Domain Type]:::category
+//     carriage --->|hsml:hasTopic| sedan
+//     make --->|hsml:hasTopic| toyota
+//     model --->|hsml:hasTopic| camry
+//     model --->|hsml:hasTopic| corolla
+//     trim --->|hsml:hasTopic| XE
+//     trim --->|hsml:hasTopic| AE
+//     domainType --->|hsml:hasTopic| automobile
+//     camry --->|hsml:hasConstraint| toyota
+//     corolla --->|hsml:hasConstraint| toyota
+//     XE -->|hsml:hasConstraint| camry
+//     AE -->|hsml:hasConstraint| corolla
+//
+// style car1 stroke-width:4
+// classDef node stroke:black
+// classDef agent fill:lightBlue
+// classDef topic fill:yellow
+// classDef category fill:orange
+// ----
+
+
+=== Places with `hsml:hasTopic` and `hsml:hasConstraint`
+
+Places can be defined in a similar manner. For instance, a place may be a
+country, city, planet, river, lake, sea, township, etc., Each of these are
+`geoFeature` topics, though these may be subclassed.
+
+For instance, Vancouver, British Columbia, Canada, and North America are all
+places, they are connected as follows:
+
+[[fig-udg-taxonomy-geofeature]]
+.UDG Taxonomy example with a GeoFeature
+image::UDG_Taxonomy_GeoFeature.png[UDG Taxonomy example with a GeoFeature]
+
+// [source,mermaid]
+// ----
+
+// ---
+// config:
+//     layout: elk
+// ---
+// graph TD
+//     vancouver[<b>Place</b><br>Vancouver]:::place
+//     bc[<b>Place</b><br>British Columbia]:::place
+//     can[<b>Place</b><br>Canada]:::place
+//     nam[<b>Place</b><br>North America]:::place
+//     earth[<b>Place</b><br>Earth]:::place
+//     un[<b>Agent</b><br>United Nations]:::agent
+//     city[<b>Topic</b><br>City]:::topic
+//     province[<b>Topic</b><br>Province]:::topic
+//     country[<b>Topic</b><br>Country]:::topic
+//     continent[<b>Topic</b><br>Continent]:::topic
+//     planet[<b>Topic</b><br>Planet]:::topic
+//     geoFeature[<b>Category</b><br>Geo-Feature]:::category
+//     org[<b>Category</b><br>Organization]:::category
+//     ngo[<b>Topic</b><br>Non-Governmental Organization]:::topic
+//     geoFeature -->|hsml:hasTopic| city & province & country & continent & planet
+//     vancouver --->|hsml:hasConstraint| bc
+//     bc --->|hsml:hasConstraint| can
+//     can -->|hsml:hasConstraint| nam
+//     nam -->|hsml:hasConstraint| earth
+//     can -->|hsml:hasConstraint| un
+//     vancouver --->|hsml:hasTopic| city
+//     bc --->|hsml:hasTopic| province
+//     can --->|hsml:hasTopic| country
+//     nam --->|hsml:hasTopic| continent
+//     earth --->|hsml:hasTopic| planet
+//     un ---> |hsml:hasTopic| ngo
+//     org ---> |hsml:hasTopic| ngo
+//
+// classDef node stroke:black
+// classDef place fill:lightGreen
+// classDef agent fill:lightBlue
+// classDef topic fill:yellow
+// classDef category fill:orange
+// ----
+
+In this case, while these are all geoFeatures, Vancouver is a city while Canada
+is a country. Significantly, the implicit structuring (Vancouver is a part of
+Canada) becomes simply a constraint relationship here, albeit one that can be
+exploited for reasoning purposes. Furthermore, Canada might also be in another
+constraint relationships with an organization of countries (such as NAFTA or the
+United Nations), so the hierarchy here is a hierarchy of topics, and is actually
+more mereological than strictly hierarchical.
+
+==== Domains with `hsml:hasTopic` and `hsml:hasConstraint`
+
+The topics and constraints of a domain are the same as the topics and
+constraints of the associated super-agent that binds that domain.
+
+==== Topics vs. States
+
+At first glance, topics and state properties would appear to be similar - one
+could express topics as states, though they serve somewhat different purposes. A
+state typically associates a facet value with a normalized value indicating the
+strength of that value, while a topic typically is a binary relationship used
+for classification exclusively (you could say that a state property is a topic
+with a value of either 0 or 1, not something in between).
+
+Moreover, topics tend to be relatively stable once assigned to an agent or
+place. This makes them useful for classification, and discovery. For instance,
+while it is possible to identify the state of a traffic light as being red or
+green, this value is likely to change regularly between queries. However, it's
+designation as a traffic light is very much unlikely to change. meaning that if
+you look for traffic lights on a given node, you will likely get all such
+agents.
+
+Discovery on a given spatial web node then becomes a matter of querying the node
+for desired topics. Note that the topics can include synonyms (analogous to
+`skos:altLabel`) that can be compared to the base topic labels for mapping to
+the respective node. Moreover, multiple language versions of the same topic can
+be provided in order to match in different languages.
+
+Note that topics can be used for state variables. In that particular case,
+however, they won't necessarily participate in search unless they are also
+incorporated as hsml:hasTopic objects.
+
+==== Taxonomies and Schemas with Domains
+
+A taxonomy is a data structure that defines the topics that are relevant to that
+domain. The predicate `hsml:hasCategory` identifies the categories that are
+defined within the domain (and is a property of the hsml:Domain class). Each
+category in turn identifies one or more topics that are associated with that
+category. Because domains are named graphs, the categories defined are local to
+that domain.
 
 [source,mermaid]
 ----
 graph LR
+    gameWorld[<b>Domain</b><br>Game World]
+    swords[<b>Category</b><br>Swords]
+    axes[<b>Category</b><br>Axes]
+    rapier[<b>Topic</b><br>Rapier]
+    gladius[<b>Topic</b><br>Gladius]
+    katana[<b>Topic</b><br>Katana]
+    halberd[<b>Topic</b><br>Halberd]
+    battleaxe[<b>Topic</b><br>Battle Axe]
 
-    baseAgent[<b>Agent</b><br>Base Agent]
-    subgraph agentDomain[<b>Domain:</b>Agent Domain]
-       proxyDomain[<b>Domain</b><br>Proxy Domain]
-       childAgent[<b>Agent</b><br>Child Agent]
-       proxyDomain -->|has Agent| childAgent
-    end
-    baseAgent -->|has Domain| agentDomain
+    gameWorld -->|has Category| swords & axes
+    swords -->|has Topic| rapier & gladius & katana
+    axes -->|has Topic| halberd & battleaxe
 ----
 
-In this case, the agent has a property called `hsml:hasDomain`. This points to a
-named graph, with the name being the IRI for the agent's domain. Within the
-named graph, there exists a proxy domain (probably a blank node), that acts as
-the representative of the base agent within the subordinated domain graph.
+==== Importing Taxonomies and Schemas
 
-The named graph represents a ___Markov Boundary___.
+The predicate `hsml:includeDomain` is an instruction to add the graph of the
+indicated domain as part of the graph search, and is applied to the hsml:Domain
+object. This makes it possible to import external taxonomies and schemas into an
+existing domain. This has a lot of utility, in that it means that a domain can
+be defined that contains common taxonomy and schema definitions which can then
+be used within another domain.
 
-One final point before digging into links. In theory, an agent can have multiple
-domains that represent different aspects or systems for that agent. So long as
-the domains are completely independent, this is an effective strategy, but if
-two domains are descriptive of the same system, then either these domains need
-to be linked together in some way or the internal domain needs to model all of
-these potentially interrelated subsystems.
+Typically, a spatial web node will contain a primary domain that contains many
+of the core concepts, structures, and places and common agents that may be used
+within the majority of domains on that node. This can be imported into any given
+domain, providing a common framework for terms. In general, this is like a link
+in that the SWURL for the resource is passed. This is then interpreted by HSML
+(through the graph.d engine) to add this as resource into the active graph for
+the domain.
+
+This can also be done across node boundaries. A __resource repository__ is a
+domain server that contains various entity resources that may be used across the
+entirety of the spatial web. By working from these common repositories, entities
+such as common places, frequently defined agents, taxonomy terms, and so forth
+can be referenced within a domain, while staying up to date.
+
+Note that because of latency considerations, there are times where it may be
+more advantageous to autoload an external domain's contents permanently onto a
+given spatial web node. The `hsml:importDomain` is similar to the
+`hsml:includeDomain` but copies the imported domain content to the server
+directly, rather than referencing them from an external server. This creates an
+internal domain, and requires that you specify both the external SWURL and the
+internal name:
+
+----
+[] a hsml:Domain ;
+    hsml:swurl <domain/ExternalTaxonomy>
+    hsml:importDomain <https://myExternalResources.com#domain/externalTaxonomy> .
+    .
+----
+
+When this is interpreted by the hsml parser, it will retrieve the subgraph from
+the external domain and load it into the graph as a named graph with associated
+local-name SWURL. This may frequently be done from packages that are loaded in
+initially, and that may be periodicallly refreshed.
+
+The primary difference between `hsml:includeDomain` and `hsml:importDomain` is
+that `hsml:includeDomain` creates a domain extension from the external system
+that is always up to date but that may have higher latency (and is not actually
+stored on the same node as the including domain), while the `hsml:importDomain`
+creates a local copy of the external graph in the calling graph. This graph may
+be out of date but that has much lower latency.
+
+An example of an included domain would be a hotel that had a number of guest
+rooms, each of which were in their own domain (which may or may not be on the
+same spatial web node). An example of an imported domain would be one that
+incorporated a taxonomy that is commonly used by other domains but that also
+does not change frequently and may be heavily referenced.
+
+Another way of thinking about imports vs. includes is that an import is
+essentially a cache of one domain within another, while, an include is a
+temporary reference.
+
+Note also that in both cases, the node server MUST have the relevant credentials
+to load in the external domain. Otherwise this statement will fail and an error
+message will be sent to the error channel.
 
 
 == Domains, Links and Hyperspaces

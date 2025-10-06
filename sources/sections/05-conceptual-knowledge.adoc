@@ -3,12 +3,11 @@
 
 === Knowledge Graphs
 
-This clause considers the UDG as a knowledge graph (KG). A KG is a representation of information that uses a graph-structured data model to represent and operate on data. KGs are used for interlinked descriptions of
-entities, e.g., linked data.
+This clause considers the UDG as a knowledge graph (KG). A KG is a representation of information that uses a graph-structured data model to represent and operate on data. KGs are used for interlinked descriptions of entities, e.g., linked data.
 
 The UDG KG is a graph where the nodes are Spatial Web ENTITIES.  The interlinking for ENTITIES in the UDG is created by: 1. links between ENTITIES or 2. ENTITIES being members of a DOMAIN entity.
 
-Knowledge in the Spatial Web will be both statements of fact and probablistic beliefs. Contradictory statements will exist across the KG.  Knowledge will change through a dialectic process of social agents as defined in <<section-conceputal-view-social-network>>.
+Knowledge in the Spatial Web is both statements of fact and probablistic beliefs. Contradictory statements will exist across the KG.  Knowledge will change through the dialectic activity of social agents as defined in <<section-conceputal-view-social-network>>.
 
 For data exchange, the Spatial Web HSML standard uses the W3C Resource Description Framework (RDF) suite of standards.  RDF graphs are sets of subject-predicate-object triples, where the elements may be IRIs, blank nodes, datatyped literals, or triple terms. 
 
@@ -39,9 +38,7 @@ The subsequent clauses in this viewpoint are the following:
 
 include::05-01-domain.adoc[leveloffset=+2]
 
-include::05-03-places.adoc[leveloffset=+2]
-
-include::05-04-links-membership.adoc[leveloffset=+2]
+include::05-02-links-membership.adoc[leveloffset=+2]
 
 include::05-05-sensors.adoc[leveloffset=+2]
 

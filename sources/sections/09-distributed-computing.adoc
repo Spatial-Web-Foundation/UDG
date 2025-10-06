@@ -41,3 +41,247 @@ include::09-02-node-registries.adoc[leveloffset=+2]
 include::09-03-udg-and-hstp.adoc[leveloffset=+2]
 
 include::09-04-use-cases.adoc[leveloffset=+2]
+
+
+=== Directory Domain and Home Places
+
+A spatial web node can identify a particular domain that serves as it's
+directory domain. If no domain is specified by an hstp request, this will be the
+default domain. This domain is designed to provide a directory or catalog of the
+domains that are accessible to a given external agent based upon their
+credential profile, and also provides mechanisms to "sign in" if this is
+required to change the domains that they see.
+
+Similarly, within every domain, there is the option of specifying a home place.
+This is where agents are positioned when they first "enter" a given domain, if
+no domain is otherwise specified. In simple scenarios (such as the smart room
+scenario), there may be only one place in the domain, but in more complex
+scenarios (especially those representing tours or rpgs), this home place
+typically also serves the role of establishing context and backstory for the
+agent, providing instructions for interacting with the domain, and identifying
+pertinent "destinations".
+
+
+==== Spatial Web Addresses
+
+In the Spatial Web, there is a distinction between a Spatial Web Identifier
+(SWID) and a ___Spatial Web URL___ (here, proposed as __SWURL__). The SWID
+provides an address to a credential that verifies the existence of that
+resource, but does not in fact identify where a resource is within the spatial
+web. This makes it far more difficult to create a linking system as such
+credentials are not necessarily guaranteed to be within the same indexing
+system.
+
+___Addressing__ and ___credentialing__ serve two different functions. A
+__spatial web resource locator__ (or SWURL) identifies where a given resource is
+located on the spatial web. The address typically will identify a spatial node
+(the physical system where the resource is located) coupled with an identifier
+for that resource on that machine.
+
+A SWAD does not make any guarantees by itself about the verifiability of the
+address (this is the role of the SWID), nor does it identify the resource
+semantically. Instead, the SWURL is a label that locates the resource on the web
+itself.
+
+Just as a resource has a SWID, it also has a SWURL. The SWURL is a ___local
+name___ that is assigned to the resource in question, utilizing HTTP naming
+conventions. A resource may have more than one SWAD, or none. If a resource has
+no SWURL, then the SWURL defaults to the portion of the SWID after the
+"did:swid:" method. If a resource has multiple SWRLs, then any of these can be
+used to reference that resource.
+
+The UGD.d resolves local SWRLs and returns the resource in question, but only
+after it verifies credential access for that resource via its SWID, returning an
+Unverified Access Error if the resource fails its credential check.
+
+For instance, if the spatial web node has a SWURL of:
+
+----
+https://mySmartRoom.com:8200
+----
+
+with 8200 indicating the port number where the hstp.d daemon is located (there
+is no port specifically dedicated to the spatial web, but it would be a good
+idea to be thinking about this), then resources that are defined on that node
+(such as domains, agents, scripts, etc.) can be further accessed by normal http
+qualification methods, such as:
+
+----
+https://mySmartRoom.com:8200#agent-light-123
+----
+
+If done with a content type of `application/hsml+json`, this would retrieve an
+HSML description giving the relevant details of the resource in JSON-LD (not
+necessarily the internal one-to-one encodings - the internal graph exists not
+for commonality but for state management). If the content type is `text/html`
+then what gets returned is a summary of that resource or system in an HTML
+format, and so forth.
+
+Internally, this same entity is represented as a graph, quite possibly one given
+as a blank node:
+
+[source,turtle]
+----
+# Turtle
+prefix hsml: <http://spatialwebfoundation.org/hsml#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+prefix swid: <did:swid:>
+@base: <https://mySmartRoom.com>
+
+[] a hsml:Agent;
+    hsml:swid swid:3195A951EF1109 ;
+    hsml:swrl <#agent/light-123> ;
+    rdfs:label "Light 123" ;
+    .
+----
+
+The notation <agent/light-123> for the swrl is indicative that (at least in
+RDF) this is an IRI fragment relative to the containing spatial web node.
+
+A __blank node__ is a node that has an IRI that is defined within a graph, but
+is not defined globally. This structure makes it possible within Turtle to write
+something like:
+
+[source,turtle]
+----
+# Turtle
+prefix hsml: <http://spatialwebfoundation.org/hsml#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+prefix swid: <did:swid:>
+@base: <https://mySmartRoom.com>
+
+[] a hsml:Domain ;
+    hsml:swid swid:EA519DEFFC1235 ;
+    hsml:swrl <#domain/lightRoomScenario> ;
+    hsml:hasAgent [
+        a hsml:Agent;
+        hsml:swid swid:3195A951EF1109 ;
+        hsml:swrl <#agent/light-123> ;
+        rdfs:label "Light 123" ;
+        ]  .
+
+----
+
+The domain and agent SWRLs in this scenario then resolve to:
+
+----
+    # Domain SWURL
+    <https://mySmartRoom.com#domain/lightRoomScenario>
+    # Agent SWURL
+    <https://mySmartRoom.com#agent/light-123>
+----
+
+Every spatial web node has a distinct base, and for the most part, resources are
+defined relative to those nodes. This is a bit of a departure from the normal
+best practices for the semantic web, but the distinction here is that most
+spatial web resources are effectively local to their nodes. Because a given
+resource can have multiple SWRLs, this also implies that most references will be
+indirect - "give me the (graph) node that has this SWURL", just as one would say
+"give me the (graph) node that has this SWID".
+
+One other key point - the spatial web does not recognize URL parameters being
+passed as part of a GET request - if you need to pass parameters, these should
+be passed as the body of a POST request. This keeps the address space clean,
+makes it easier to validate incoming requests, and is more consistent with
+regards to semantic web principles.
+
+===== Home Domains
+
+There is a chicken and egg situation with regard to whether a given Spatial Web
+Node can be considered an agent or a domain. To get around this, there is a
+specific exception to the idea that all agents exist on places within domains.
+There is assumed to be on a given spatial web node a designated Home Domain that
+is explicitly stated to be associated with the node itself. It's "agency" in
+this particular case is the action of the node daemons, with specific
+capabilities. When a spatial web node is first set up, this home domain/agent
+holds the configuration metadata for the node itself, as well as any credentials
+that are specific to the node.
+
+Put another way, ___from the standpoint of the UDG, the Spatial Web Node is a
+domain, with an implicit super agent___. The mechanics of this are still to be
+determined.
+
+==== Affiliation Networks
+
+An __affiliation network__ is a network of spatial web nodes which shares common
+resources, taxonomic classifications and typically a common registry. The
+registry serves as the hub of the network, identifying membership in the
+affiliation network as well as providing a mechanism for discovery within that
+network.
+
+One of the roles of a registry is to issue and affiliation credential. This
+credential serves as a way of verifying that nodes within the network are in
+fact part of that network, and provide permissions that spatial web clients need
+to have in order to access certain features.
+
+For instance, a group of universities in a given region may establish an
+affiliated network. This means that each university effectively agrees to abide
+by specific taxonomies as a way of organizing information, provides common set
+of activities for performing such tasks as transferring students between
+universities, enrolling in classes, and so forth, and will often allow students
+and faculty from one university to access resources or get consistent grading at
+other universities within the affiliation.
+
+This is accomplished through a "university league" credential which is issued
+when the node is added to the network. When a student registers to a given node,
+their user agent (the software client they interact with) within the system
+receives a corresponding private key credential that both makes the user a
+resource in the system and provides them access to that system.
+
+This serves a number of functions. For instance, an administrator can perform an
+affiliation level search for a given student, faculty member, class, or program
+(among many other things), either by ID or by attributes. A student can register
+with another university within the affiliation to take a class remotely, or can
+even sign up to and use remotely controlled laboratories stations (such as
+observatory time at a telescope or participation within a collaborative
+concert). A teacher can make available resources such as books or training
+videos from protected repositories to all of her students.
+
+In this particular case, the registry serves to identify those domains within
+the network of nodes of affiliated members that may contain the desired
+resources. When a query is made in the broader context of the affiliation, each
+of these affiliated nodes are then queried in turn and return the associated
+links to those resources as a structure (analogous to an RSS or Atom type
+structure) that are then collated by the calling domain.
+
+Note that the nodes in these affiliated networks are not (typically) graph
+extensions. A graph extension expands the active domain graph of a given node
+and is normally secured, because it exposes all resources within that graph. An
+affiliation query, on the other hand, is a request for information (typically
+links but also maps) from other nodes in the affiliated network.
+
+[source,mermaid]
+----
+---
+config:
+  layout: elk
+---
+flowchart TD
+  subgraph SWRAF[Spatial Web Affiliation]
+      subgraph ULN[University Network]
+         direction TB
+            Oxbridge1[<b>Domain</b><br>Oxbridge University]
+            Camford[<b>Domain</b><br>Camford University]
+            Eden[<b>Domain</b><br>Eden University]
+            Queens[<b>Domain</b><br>Queens College]
+      end
+      subgraph CL[College Rugby League]
+         direction TB
+         Oxbridge2[<b>Domain</b><br>Oxbridge University]
+         Amhurter[<b>Domain</b><br>Anhurter]
+         Chancery[<b>Domain</b><br>Chancery]
+      end
+      Oxbridge1 -.- Oxbridge2
+      ulna[<b>Domain</b><br>University League Registry]
+      cla[<b>Domain</b><br>College Rugby Registry]
+      ulna -->ULN
+      cla -->CL
+  end
+  swra[<b>Domain</b><br>Spatial Web Registry]
+  swra -->SWRAF
+
+  style SWRAF fill:#FFFFF8
+----
+
+Here, Oxbridge University is part of two affiliation networks - a university
+network and a rugby league network.
