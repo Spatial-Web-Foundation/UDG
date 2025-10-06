@@ -8,7 +8,7 @@ NOTE: In IEEE 2874-2025 this document was titled the UDG Implmentation Specifica
 
 === Purpose
 
-The purpose of this report is to provide information that is relevant to a Spatial Web UDG Design. The UDG design in this report defines requirements for the Spatial Web Implementation standards and guides domain-specific Spatial Web architecture development.
+The purpose of this report is to provide information that is relevant to a Spatial Web UDG design. The UDG design in this report defines requirements for the Spatial Web Implementation standards and guides domain-specific Spatial Web architecture development.
 
 === Structure of document
 
