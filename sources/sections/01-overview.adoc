@@ -8,19 +8,19 @@ NOTE: In IEEE 2874-2025 this document was titled the UDG Implmentation Specifica
 
 === Purpose
 
-The purpose of this report is to provide information that is relevant to a Spatial Web UDG Design. The UDG design in this report defines requiremetns for the Spatial Web Implementation standards and guides domain-specific Spatial Web architecture development.
+The purpose of this report is to provide information that is relevant to a Spatial Web UDG Design. The UDG design in this report defines requirements for the Spatial Web Implementation standards and guides domain-specific Spatial Web architecture development.
 
 === Structure of document
 
 The report addresses these themes:
 
-* Indentifies requirements and fundamental design questions
+* Identifies requirements and fundamental design questions
 * Provides an assessment of relevant, existing technology and research
-* Draft Design for UDG System:  Foundations, Conceptual Models, Distributed Computing
+* Defines UDG system design, including foundations, conceptual models and distributed computing
 
 This document is structured as an architecture description consistent with the approach defined in <<ISO_IEC_IEEE_42010_2022>>. 
 
-This document provides five viewpoints of the UDG.  These five viewpoints comprise the UDG System Design:
+This document provides five viewpoints of the UDG.  These viewpoints comprise the UDG system design:
 
 * <<section-enterprise-viewpoint>>
 * <<section-conceptual-view-knowldge-graph>>
