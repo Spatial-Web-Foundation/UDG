@@ -1,7 +1,9 @@
 [[section-enterprise-viewpoint]]
-== Enterprise view of the UDG
+== Enterprise view
 
-The UDG is a publicly accessible information commons that serves as a key infrastructure component of the Spatial Web.  The UDG is a structured graph that groups domains and allows for nested, hierarchical and heterarchical searches and transformations within and across domains. It shall enable efficient and accurate modeling and analysis of domain relationships, which are essential for the Spatial Web. The UDG shall allow for the organization of domains into an architecture that maintains intra-relational and inter-relational domain coherence, allowing for the coordination and integration of domain-specific data and content.
+The UDG is a publicly accessible information commons that serves as a key infrastructure component of the Spatial Web. As a data commons it provides public access to information about the world. The information in the UDG allows or a previously unavailable representation of the physical and conceptual aspects of existence. The UDG will be populated by observations from sensors and semantic statements from cognitive agents.  The UDG provides the solution for the grounding problem faced by Artifificial Intelligent Agents.  Improved reasoning by both artificial and natural intelligence will result in improved decisions for humanities future. 
+
+The UDG provides an open, accessible representation of all ENTITIES. It enables efficient and accurate modeling and analysis of domain relationships. It allows for the organization of domains into an architecture that maintains intra-relational and inter-relational domain coherence, allowing for the coordination and integration of domain-specific data and content. The UDG allows for nested, hierarchical and heterarchical searches and transformations within and across domains.
 
 The UDG is a complex concept composed of the following concepts:
 
@@ -12,9 +14,9 @@ The UDG is a complex concept composed of the following concepts:
 * **Distributed UDG System** is the set of coordinated Spatial Web Nodes that provide services on the distributed UDG.  A Spatial Web Node is a computing machine connected to the internet, capable of exchanging HSTP messages.  Spatial Web Nodes particular to the UDG include: UDG Nodes and Registry Nodes.  The UDG Node peforms functions related to the distributed communications needed for UDG functions, e.g., state propogation and distributed queries.  UDG Registry Nodes implement UDG Registry functions.  These topics are discussed in the <<section-distributed-computing>>
 
 
-The UDG Conceptual structures (KG, Hyperspace, Registries, Social network) are distributed across the Spatial Web Nodes of the Distributed UDG System. There isa non-isomorphic relationship between the Conceptual domain hierarchies and the SW Nodes. Presence of a Domain in a a specific SW node may be dynamic and transient.  This relationship between the Conceptual views and the Distributed Computing view are represented in <<fig-udg-enterprise>> 
+The UDG conceptual structures (KG, Hyperspace, Registries, Social network) are implemented in the Spatial Web Nodes of the Distributed UDG System. There is a non-isomorphic relationship between the Conceptual domain hierarchies and the SW Nodes. Presence of a Domain in a specific SW node may be dynamic and transient.  This relationship between the Conceptual views and the Distributed Computing view are represented in <<fig-udg-enterprise>> 
 
-The implementation of the Spatial Web UDG design is accomplished by allocation of requirements to the Spatial Web Components.  Each viewpoint of the UDG includes requirements that are specific to a Spatial Web Components.  The <<annex-requirements-allocation>> gathers the requirements for each component.  The Spatial Web Components used in this UDG Design specification are:
+Each viewpoint of the UDG includes requirements that are specific to Spatial Web Components. Implementations of the Spatial Web UDG design are achieved by allocating requirements across those components. The <<annex-requirements-allocation>> gathers the requirements for each component.  The Spatial Web Components used in this UDG Design specification are:
 
 * Hyperspace Modeling Language (HSML) (SWF STD-02) 
 * Hyperspatial Transaction Protocol (HSTP) (SWF STD-03) 
