@@ -485,22 +485,26 @@ category in turn identifies one or more topics that are associated with that
 category. Because domains are named graphs, the categories defined are local to
 that domain.
 
-[source,mermaid]
-----
-graph LR
-    gameWorld[<b>Domain</b><br>Game World]
-    swords[<b>Category</b><br>Swords]
-    axes[<b>Category</b><br>Axes]
-    rapier[<b>Topic</b><br>Rapier]
-    gladius[<b>Topic</b><br>Gladius]
-    katana[<b>Topic</b><br>Katana]
-    halberd[<b>Topic</b><br>Halberd]
-    battleaxe[<b>Topic</b><br>Battle Axe]
+[[fig-udg-gameworld]]
+.Game World
+image::GameWorld.png[Game world]
 
-    gameWorld -->|has Category| swords & axes
-    swords -->|has Topic| rapier & gladius & katana
-    axes -->|has Topic| halberd & battleaxe
-----
+// [source,mermaid]
+// ----
+// graph LR
+//    gameWorld[<b>Domain</b><br>Game World]
+//    swords[<b>Category</b><br>Swords]
+//    axes[<b>Category</b><br>Axes]
+//    rapier[<b>Topic</b><br>Rapier]
+//    gladius[<b>Topic</b><br>Gladius]
+//    katana[<b>Topic</b><br>Katana]
+//    halberd[<b>Topic</b><br>Halberd]
+//    battleaxe[<b>Topic</b><br>Battle Axe]
+//
+//    gameWorld -->|has Category| swords & axes
+//    swords -->|has Topic| rapier & gladius & katana
+//    axes -->|has Topic| halberd & battleaxe
+//----
 
 === Importing Taxonomies and Schemas
 
@@ -741,13 +745,17 @@ effect, the alias is analogous to a HTTP domain name mapping to an IPV6 address,
 but in this case the "domain name" alias maps to a SWID, which then maps to the
 corresponding IPV6.
 
-[source,mermaid]
-----
-flowchart LR
-Alias --> SWID1 --> doc["Verifiable<br>Credential"]
-doc --> SWNode[Spatial Web Node]
-doc --> Domain[Reference Domain]
-----
+[[fig-swid-alias]]
+.SWID Alias
+image::SWID-alias.png[SWID Alias]
+
+// [source,mermaid]
+// ----
+// flowchart LR
+// Alias --> SWID1 --> doc["Verifiable<br>Credential"]
+// doc --> SWNode[Spatial Web Node]
+// doc --> Domain[Reference Domain]
+// ----
 
 One key difference between HTTP and HSTP is that there is no GET
 parameterization on SWIDs. An alias could have such a paremeterization of
