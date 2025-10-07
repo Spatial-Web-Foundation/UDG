@@ -565,3 +565,22 @@ removed from a network by revoking the credentials of the home domain for that
 machine. The machine is still findable via a URL, but the lack of credentials
 mean that the request for data can't validate (it will send back an error across
 hstp indicating the data won't validate).
+
+=== Dynamic handling of links 
+
+When a link is received by the domain manager, it uses the context determined by
+these parameters to determine other necessary metadata. These are then passed to
+the link's activation handler (or the defaults relevant by type) to perform the
+associated link action.
+
+Links can be set up by the domain designer via the periodicity property as one
+of singleton (the link is only activated once) or periodic (the link is invoked
+across a given channel periodically until either the link is terminated or the
+channel's time-to-live (TTL) is exceeded). Once the link completes, it will
+either be reset (the default) or it will be expired (for links that expire upon
+use).
+
+This operation is handled by the domain manager. Note that in fully autonomous
+operations, open links simply cause the agent to reset to the new place (and
+domain, if this changes, without UX involvement. However, key activation still
+requires the relevant credentials.

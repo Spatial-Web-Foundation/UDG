@@ -1,18 +1,14 @@
 [[links]]
-= Links and domain membership
+= ENTITY relationships: Links, domain membership, situations, paths
 
 == Mereology in the Spatial Web
 
-Spatial Web Domains have a variety of attributes and relationships with one another, reflecting the complexity of the real world and its vast interconnectedness.
-The UDG's ability to accurately represent and navigate arbitrarily complex relationships--including hierarchical, heterarchical, and holonic--is central to its role as the foundational component of the Spatial Web and ensures that Domain-specific data is not only coherent within itself but also in coordination with other Domains.
-This ability is a result of the UDG being formalized in the language of hyperspace.
+Spatial Web DOMAINS have a variety of attributes and relationships with one another, reflecting the complexity of the real world and its vast interconnectedness. The UDG's ability to represent and navigate arbitrarily complex relationships is central to its role as the foundational component of the Spatial Web and ensures that Domain-specific data is not only coherent within itself but also in coordination with other Domains.
 
-The formalization draws on ideas from mereology (the theory of parthood relations), order theory (the study of hierarchy), and category theory (the mathematics of structure).
-In the Spatial Web, domains may be related in structures of arbitrary complexity.
-However, this clause focuses on hierarchy, heterarchy, and holonic as shown in <<domain_relationships>>.
+The formalization draws on ideas from mereology (the theory of parthood relations), order theory (the study of hierarchy), and category theory (the mathematics of structure). In the Spatial Web, domains may be related in structures of arbitrary complexity.
+This clause discusses the complexity as hierarchy, heterarchy, and holonic as described in <<domain_relationships>>.
 
 It is certain that there will be inconsistencies in the UDG, similar to inconsistencies in the WWW. Some inconsistencies will be from relationships between Domains as described in this clause. Other inconsistencies will be regarding the content of Domains in the UDG.  UDG operations will need to be resilient to inconsistencies in the relationships between nodes and the content of nodes.
-
 
 
 [[domain_relationships]]
@@ -29,34 +25,31 @@ It is certain that there will be inconsistencies in the UDG, similar to inconsis
 |===
 
 
-== Links between ENTITIES
 
+[[links]]
+== Links between ENTITIES
 
 === Links are relationships between ENTITIES.
 
-Using RDF, a links is a subject-predicate-object triple, where the elements may be IRIs, blank nodes, datatyped literals, or triple terms.
+A link is a relationship from an initiator ENTITY to a receiver ENTITY.  The link is part of the initiator ENTITY and indicates tat the initiator ENTITY seeks to point to the receiver ENTITY. There are no bidirectional links within the Spatial Web. All links are unidirectional (one way), but there may be analogous entities (portals) for each link that provide the corresponding link back to the original place or entity.
+
+[[fig-room-to-room]]
+.Bidirectional links between rooms
+image::room-to-room.png[Links showing relationship between room domains]
 
 
-=== One Way and Bidirectional links
+//[source,mermaid]
+/// ----
+// graph LR
+//    place1[Room 1]
+//    place2[Room 2]
+//    place1 -->|link to room2| place2
+//    place2 -->|link to room1| place1
+// ----
 
-There are no true bidirectional links within the spatial web. Instead, all links
-are unidirectional (one way), but there may be analogous entities (portals) for
-each link that provide the corresponding link back to the original place or
-entity.
+In HSML, using RDF, a link is a subject-predicate-object triple, where the elements may be IRIs, blank nodes, datatyped literals, or triple terms.
 
-[source,mermaid]
-----
-graph LR
-    place1[Room 1]
-    place2[Room 2]
-    place1 -->|link to room2| place2
-    place2 -->|link to room1| place1
-----
-
-
-=== Architecture of Links
-
-A link transmits the following information to the domain manager:
+A link implies the following information between domains:
 
 * initiator of the link
 * recipient of the link
@@ -66,294 +59,133 @@ A link transmits the following information to the domain manager:
 * periodicity
 * duration
 
-Once this is received by the domain manager, it uses the context determined by
-these parameters to determine other necessary metadata. These are then passed to
-the link's activation handler (or the defaults relevant by type) to perform the
-associated link action.
 
-Links can be set up by the domain designer via the periodicity property as one
-of singleton (the link is only activated once) or periodic (the link is invoked
-across a given channel periodically until either the link is terminated or the
-channel's time-to-live (TTL) is exceeded). Once the link completes, it will
-either be reset (the default) or it will be expired (for links that expire upon
-use).
+A link can be set to be _inactive__ and/or __hidden__. 
 
-This operation is handled by the domain manager. Note that in fully autonomous
-operations, open links simply cause the agent to reset to the new place (and
-domain, if this changes, without UX involvement. However, key activation still
-requires the relevant credentials.
+An inactive link is visible, but can't be activated. Inactive links may serve the purpose of being descriptive (in a way similar to an inactive option in a select control in HTML works) or may be a divider.
+
+__Hidden Links__ are links that cause their containing entity to be invisible until a specific condition is met in the environment (such as the agent finding a magic scroll or having a certain power level).
+
+It's also possible to have __nested links__.  _Nested Links__ are links that point to other links
+
+Types of links are described in the remainder of this clause
+
+EDITOR: the link types described below need to be reviewed.
+
+
+==== Persistent links
+
+ Links to DOMAINS present in the DOMAIN description. These are persistent links, in that they are always available to the DOMAIN. 
 
 === Link Challenges and Keys
 
-A link may be associated with a challenge query. This query must be satisfied
-before the link is activated. Think of this as a lock on the link. The agent
-must have and apply an associated key for that lock before the agent can
-traverse the link. This metaphor is so persistent that it is easy to think of
-the entity containing the relevant link as a portal or door of some sort, though
-in general it is the link that powers this door.
+A link may be associated with a challenge query. This query must be satisfied before the link is activated. Think of this as a lock on the link. The agent must have and apply an associated key for that lock before the agent can activate the link. This metaphor is so persistent that it is easy to think of the entity containing the relevant link as a portal or door of some sort.
 
-another analogy may be a turnstile for a subway station. In order to transition
-from the domain of the lobby to the domain of the station itself, you need to
-have a token or card. Without that token, you cannot make that transition - the
-turnstile won't turn.
+Note that the hosting entity of the link can query the state of that link, and present a representation of that link's status to the corresponding agent. This is different from the way that HTTP links work.
 
-To carry forward with that metaphor, when boarding the train at the station, an
-agent has to wait until the train door opens before boarding. This is an example
-of a temporal link - it can only be traversed if a specific condition is met
-(the train is in the station and is at a complete stop, and is only open for a
-specific interval).
-
-Note that the hosting entity of the link can query the state of that link, and
-present a representation of that link's status to the corresponding agent. This
-is different from the way that HTTP links work.
-
-
-
-=== Nexted Links
-
-__Nested Links__ are links that point to other links. These are frequently used
-in menus, but they can also be used for things like double key authentication.
-
-=== Programmatic Links
-
-Ordinarily a link changes the location of the activating agent to a target SWID.
-Howevever, if a link does not have a target but does have an activity, then the
-activity is initiated once the initiating conditions are met, with the agent
-being passed as an argument.
-
-This is a mechanism by which activation of a link may introduce a change in the
-agent. For instance, dringing a magic potion (activating the link of that
-potion, may make the agent "stronger" in game terms ... or may turn them into a
-frog.
-
-Such a programmatic link also passes the linking entity. This can, for instance,
-inactivate the link once the potion is consumed, or make it hidden and inactive
-(which means that it can be removed from the domain).
-
-=== Subsystem or Holonic Links
-
-An internal state link describes the connection between an agent and its
-subsystem domains. Such links are usually indicated in the interface by some
-form of common icon or identifier, with a corresponding icon when within the
-subsystem indicating a link to the super-domain for that agent. As with all
-links, traversing the link will take you to the subdomain in question, while
-traversing the inverse link will take you back to the superdomain.
-
-A ___place___ in this case is treated as an agent. That is to say, if an agent
-is located on a given place, and that place has a subdomain that provides a
-higher level of detail or a portion of the overall hyperspace of the domain,
-then clicking on the holonic link will take you to sub-place domain.
-
-For instance, a given planet domain may have multiple places that represent the
-countries of that planet. Clicking on the country icon will change the active
-domain for that user to the country in question, which may then display
-different place markers indicating active cities or regions, and will also
-indicate a super-icon that will take the agent back to the relevant country.
-Note that the icons in question may reflect some relevant information about the
-country in its visualization, and the `about` display for that country can also
-provide summary metadata - another form of map.
-
-This points to the fact that most links have two distinct modes - a selection
-mode that is used to indicate the resource is of interest (bringing up
-metadata), and an activate mode that causes the shift of the agent from the
-source to the target link. In a GUI, this may be represented as a single click
-vs. a double click, but these are implementation specific.
 
 === Portal Links
 
-Places are agents that represent specific locations rather than people,
-characters, bots, etc. They are all part of the same domain and generally just
-handle movement within the domain. A good example of a place to place movement
-is in the Street View mode of Google maps, where, depending upon your
-orientation, you will see several icons indicating movement is possible to a
-different place in the same scope.
+Places represent locations and relations of a DOMAIN to other DOMAINs.  A good example of a place to place movement is the change in Pose of an DOMAIN, where, depending upon the pose orientation, various DOMAINS indicating options for movement are visible.
 
-Places, consequently, can be thought of as a necessary kludge - they allow for
-changing perspective while still being part of the same security and activities
-context, and they play a significant role in tours, wizards, educational systems
-and other use cases.
+Places allow for changing perspective while still being part of the same security and activities context in an enclosing DOMAIN. Places play a significant role in tours, wizards, educational systems and other use cases.
 
-A place link is essentially a __portal__ that will take an agent from one place
-to another within the domain. Such links are topological rather than
-topographical, in that such links are not necessarily dependent upon contiguity
-or geometry.
+A place link is essentially a __portal__ that will take an agent from one place to another within the domain. Such links are topological rather than topographical, in that such links are not necessarily dependent upon contiguity or geometry.
 
-Portals may be one, two or multi-sided, and, as with all links, access may be
-constrained by the requirement that the initiating agent has access to a
-cryptographic key in order to activate the link. Such keys may be associated
-with dedicated agents in a Bag relationship.
+Portals may be one, two or multi-sided, and, as with all links, access may be constrained by the requirement that the initiating agent has access to a cryptographic key in order to activate the link. Such keys may be associated with dedicated agents in a Bag relationship.
 
-Portals can exist between places in different domains, even if those domains
-aren't nested. For instance, in a conquest game there are natural boundaries and
-fords that exist between different domains within distinct but affiliated
-spatial web nodes. In general, each domain will require that the agent have an
-affiliate key in order to enter into that domain, and the domain manager will be
-responsible for managing the replication (and disabling) of agents moving from
-one system to another across SW Node boundaries.
+Portals can exist between places in different domains, even if those domains aren't nested. For instance, in a conquest game there are natural boundaries and fords that exist between distinct but affiliated domains. In general, each domain will require that the agent have an affiliate key in order to enter into that domain, and the domain manager will be responsible for managing the replication (and disabling) of agents moving from one system to another across SW Node boundaries.
 
-=== Bag Links
+=== Bag link: AGENT carrying a DOMAIN 
 
-One common use case in the spatial web occurs when one agent (say a truck) acts
-as a transport for another agent (such as a package). The container in this case
-places the contents onto a Bag Place - part of the container's domain that can
-be thought of as the "Bag of Holding" for that container. The carrying capacity
-for that bag can be determined individually for that particular place (it may be
-by weight, by volume, by insurability, or by some even more exotic measure)
+One common use case in the Spatial Web occurs when an AGENT (say a truck) acts as a transport for another DOMAIN (such as a package). The package becomes linked to the truck.  The carrying capacity for the AGENT domain can be determined individually for that particular place (it may be by weight, by volume, by insurability, or by some even more exotic measure)
 
-Each carried agent in turn has a specific credential key that can serve as a key
-to a portal (or other linked agent). These are connected to the carrier agent
-through a bag link. In effect the carrier can "borrow" the key of the carried
-item.
+Each carried DOMAIN in turn has a specific credential key that can serve as a key to a portal (or other linked agent). These are connected to the carrier agent through a bag link. In effect the carrier can "borrow" the key of the carried item.
 
-A carryable agent in that case can be "picked up" by the carrier agent and thus
-removed from the place within the active domain into the bag place in the
-carrier's domain. Even if the carrier moves to a new domain, the carried object
-stays associated with the carrier's internal domain "bag". The carried agent can
-be used by the carrier to activate a portal or similar Thing agent.
+A carryable agent in that case can be "picked up" by the carrier agent and thus removed from the place within the active domain into the bag place in the carrier's domain. Even if the carrier moves to a new domain, the carried object stays associated with the carrier's internal domain "bag". The carried agent can be used by the carrier to activate a portal or similar Thing agent.
 
-[quote]
-____
-It is worth noting here that activation of a bag item _may_ also cause the
-item to expire, in essence, being removed from the bag upon use. Additionally, a
-carried item may be transferred to another agent or "dropped" into the current
-place. That has obvious implications for both supply chain scenarios and
-e-commerce scenarios, where a specific virtual item is "sold" to another agent,
-and its use in role playing games should be self-evident.
-____
+Activation of a bag link _may_ also cause the item to expire, in essence, being removed from the bag upon use. Additionally, a
+carried item may be transferred to another agent or "dropped" into the current place. That has obvious implications for both supply chain scenarios and e-commerce scenarios, where a specific virtual item is "sold" to another agent, and its use in role playing games should be self-evident.
 
+=== AGENT-to-DOMAIN Links
 
-=== Agent-to-Agent Links and Channels
+A use case is connecting one agent that is in effect a camera (a sensor array) with another agent that is a display or monitor. 
 
-A link can also connect two or more agents. Again in its simplest form, such a
-link can allow for "teleportation" of one agent to the location of the other,
-but outside of specialized games, this is likely an edge case. However, a much
-more critical use case is connecting one agent that is in effect a camera (a
-sensor array) with another agent that is a display or monitor. This will usually
-be accomplished via a channel (it is arguably whether a link and a channel are
-related, though there is some overlap).
-
-One particular mechanism that may be worth thinking about in agent-to-agent
-communication is the use of a filter acting on a channel to limit it to a small
-subset of properties on an entity's state vector. For instance, one such channel
-may be a message property that could be periodically polled. As this message
-property changes, this would be reflected across the channel to all subscribers
-to that channel (this may be analogous to Scott's LENS concept)
-
-This could also be used to monitor the value of a given set of properties such
-as position, temperature, funds, or emotional state. Since in many cases, these
-values may be computed rather than intrinsic, this provides a light-weight
-mechanism for determining relevant state without needing to know the internal
-mechanisms for that agent.
-
-=== Button or Selector Links
-
-If no Activation handler is specified for the link, then the activity will be
-dependent upon the type of agent doing (and receiving the invocation). However,
-if an activation handler is available as part of the activations for that link,
-then the presented handler will be invoked first, and the option to propagate
-the event to its default afterwards can be controlled by the handler. These are
-called button or selector links, and in essence they represent a significant
-component in the form interface for the given entity.
-
-=== Specialized Link Properties
-
-A link can be set to be *__inactive__* and/or *__hidden__*. It's also possible
-to have *__nested links__*.
-
-==== Inactive Links
-
-An inactive link is visible, but can't be activated. Inactive links may serve
-the purpose of being descriptive (in a way similar to an inactive option in a
-select control in HTML works) or may be a divider.
-
-==== Hidden Links
-
-__Hidden Links__ are links that cause their containing entity to be invisible
-until a specific condition is met in the environment (such as the agent finding
-a magic scroll or having a certain power level).
+This could also be used to monitor the value of a given set of properties such as position, temperature, funds, or emotional state. Since in many cases, these values may be computed rather than intrinsic, this provides a light-weight mechanism for determining relevant state without needing to know the internal mechanisms for that agent.
 
 
 == Membership in a DOMAIN
 
-=== 
+=== DOMAIN as a container of DOMAINS
+
+A DOMAIN is a holon: it is both a unit and a composition.  As a unit or system, a DOMAIN performs functions that are only achievable as a collective whole.  As a composition, a DOMAIN contains parts which are subject to conditions on the parts enforced by the overall DOMAIN.  An AGENT is an excellent example of a DOMAIN as a system or organism.  In this clause we focus on the DOMAIN as a composition.
+
+Membership in a DOMAIN is type of credential granted by the Domain Authority of the upper domain to the member domain.  The credential provides the evidence of the claim that a DOMAIN is a member of an upper DOMAIN.
+
+Membership in DOMAINS may be a multi-layer hierarchy: a DOMAIN maybe included in a DOMAIN which in turn is included in a DOMAIN. 
+
+As a holarchy, the membership relationship allows for a DOMAIN to be a member of more than one DOMAIN.
+
+Movement of a DOMAIN in and out of membership in an upper DOMAIN is allowed as specified in the membership agreement of the DOMAIN.
+
+=== Obligation of DOMAIN members.
+
+DOMAINS define norms, obligations and laws which the member DOMAINS must adhear with.  Enforcement of the domain obligations is a function of the domain authority which manages the upper DOMAIN.
+
+=== Place in DOMAINS
+
+PLACE defines the current set of membership 
+
+A ___place___ in this case is treated as an agent. That is to say, if an agent is located on a given place, and that place has a subdomain that provides a higher level of detail or a portion of the overall hyperspace of the domain, then clicking on the holonic link will take you to sub-place domain.
+
+For instance, a given planet domain may have multiple places that represent the countries of that planet. Clicking on the country icon will change the active domain for that user to the country in question, which may then display different place markers indicating active cities or regions, and will also indicate a super-icon that will take the agent back to the relevant country.
+Note that the icons in question may reflect some relevant information about the country in its visualization, and the `about` display for that country can also provide summary metadata - another form of map.
 
 
-== Dynamic aspects of UDG KM Graph
 
-=== Registering Dependent Graph Nodes
+== SITUATIONS
 
-Graph and Content Nodes can be registered in one of three ways.
+For the purposes of defining context, the SITUATION relationship is defined.  Typically the SITUATION is a dynamically changing relationship. 
 
-==== Static Registries
+A SITUATION relationship is an entity comprised of all DOMAINS that can be perceived and reasoned about by an AGENT. 
 
-The first is a static registry, where links to the nodes (typically as html
-links) are stored in the active graph for the node itself. These are "permanent"
-graph nodes, in that they are automatically linked when the spatial web node
-boots up or reboots. These are typically shared nodes, graph registries,
-taxonomies, code modules or similar content.
+Situation is to be understood as defined in [IEEE_7007_2021]: a situation is an entity comprised of participating entities and relationships that represent the limited parts of reality that can be perceived and reasoned about by agents.
 
-==== Domain Graphs
+An SITUATION describes the relationship between an agent and nearby domains. Traversing the link will provide the AGENT with information about the recipent DOMAIN.  
 
-A domain can similarly attach an additional graph when it first starts up
-through the domain manager. Such graphs are only accessible within the scope of
-the domain, and when the domain is disinstantiated, the connection to the graph
-is lost. Domain graphs are especially useful when you have a lot of domain
-specific content in a graph, such as taxonomy information, narrative lore, and
-so forth. As with static registries, the connections are endpoints, meaning that
-he specific internal implementations are unimportant, meaning that such domain
-graphs could be knowledge graphs, databases, LLMS and so forth. Note that, as
-with static registries, write access to these resources will be system
-dependent.
+If a link is to an ACTIVITY, then the link provides information about the state of the ACTIVITY.
 
-==== Activity Graphs
+A SITUATION may be composed of
 
-An activity graph is a graph endpoint that is invoked dynamically based upon a
-specific algorithm, and is usually used to pass data from external processes to
-internal processes (though if the graph is read/write it can also be used to
-update external content). Activity graphs are parametrically invoked and are
-transient.
-
-=== Links for moving between DOMAINS
-
-A link is a mechanism for moving both between places or other entities within a
-domain (local links) and to places or other entities within an external domain
-(external links).
-
-A link uses the link:swids.md[SWID] of an entity as its target. When activated
-(through a specific activation activity), the controlling daemon will move the
-activator (typically an link:agents.md[agent]) into the link:domain.md[domain]
-of the target (typically a link:places.md[place]) at the target's location. If
-only a domain is given, then the domain's
-link:places.md=landing-places[landing place] within the domain will be targeted.
-
-If the link's target is not a place but some other form of entity, then the
-activiting agent will be placed at the
-link:places.md=entities-as-places[location of that entity within the domain].
+* Location in Hyperspace
+* Links to other DOMAINS that are currently active
+* Membership in DOMAINS that are currently relevant
+* Current presence of the AGENT within a DOMAIN which it may not be a member
+* Awareness (e.g., via query) of nearby DOMAINS of interest to the AGENT with which it may not have any current relatioship.
 
 
-[example]
-====
-For example, in a RISK game, there is a global RISK map domain that consists of
-multiple "countries".
+== Dynamic aspects of relationships
 
-image::risk-map.png[The Risk World View]
+=== Updating relationships with time and activity
 
-Each country (a place) has an associated link to the domain for that country.
-When that link is activated by an agent (a particular player's general in the
-game) the agent is moved to the domain of that link, typically at the landing
-place for that domain.
-====
+In addition to persistent links, a DOMAIN, in particular an AGENT, can create a SITUATION at any given momenent in time.  This may include determining the visible, nearby DOMAINS and deleting DOMAINS no longer of interest.
 
-Note that there are two distinct actions that can be taken, selection and link
-traversal. If a place can be __selected__, it identifies that place as being
-part of an active set of places. If it is __activated__, then the link is
-traversed as described above.
+SITUATIONS are especially useful when there is a lot of domain specific content near the AGENT, such as taxonomy information, narrative lore, and so forth. 
 
-Links are fundamental to the Spatial Web. At its core, a link associates a SWURL
-for a resource with an activity. For instance, one of the most common kinds of
-links is a ___portal link___ that is applied to a given link (styled as a door
-or other kind of portal), that causes the activating agent (such as a player
-character in a game) to move to a different, specified place:
+An ACTIVITY is a partially ordered set of changes effected by an AGENT.  An ACTIVITY may affect the relationships for a DOMAIN including adding or deleting links, joining or leaving membership in a DOMAIN, and/or, affecting the member ENTITIES of a SITUATION.
+
+An AGENT may move between DOMAINS.  An AGENT may be present in a DOMAIN without being a member.  The AGENT may be present in a DOMAIN and then move to another DOMAIN.  
+
+
+=== Constrained paths for change
+
+EDITOR: are paths between domains constrained?  The following text addressing constrained movement as paths needs to be reviewed.
+
+To go from one place to another, an AGENT has to traverse a path.
+
+Note that there are two distinct actions that can be taken, selection and path traversal. If a place can be __selected__, it identifies that place as being part of an active set of places. If it is __activated__, then the path is traversed as described above.
+
+A ___portal link___ that is applied to a given path (styled as a door or other kind of portal), that causes the activating agent (such as a player character in a game) to move to a different, specified place:
 
 [[links-game-example]]
 .Example of links between entities
@@ -387,78 +219,45 @@ image::links-game-example.png[example of link between entities]
 // ----
 
 
+For an AGENT to traverse a path means moving from one place to another following a particular path of intervening places. This approach is straightforward and especially conducive to optimization of path traversals to minimize energy expenditure, though as the number of places goes up, so too does the complexity of such computations.
 
-== Links as Movement
+In the real world, of course, we do not hop from place to place but move in a continuous fashion, and a robot or physical twin has to determine the "how" of traversal. Typically, this process lives in the interface between the virtual and physical twin.
 
-This topological perspect presents some challenges that help to differentiate a
-Spatial Web domain from a web page document. The first is that there is no
-intrinsic "direction" within the Spatial Web, as compared to a document, which
-has a specific "reading order". To go from one place to another, your agent has
-to traverse a link.
+In general, this information may be stored in metadata that is associated with the link, but that is outside of the scope of the spatial web. For instance, a robot needs to move from the bottom of a hill to the top of a hill along a road. The link may indicate characteristics of the hill - its inclination in particular - but from the standpoint of the Spatial Web, this slope is a challenge that has to be met prior to achieving the key to allow the transition from one place (the bottom of the hill) to another (the top of the hill).
 
-This means that moving from one place to another within a domain involves
-following a particular path of intervening places. This approach is
-straightforward and especially conducive to optimization of path traversals to
-minimize energy expenditure, though as the number of places goes up, so too does
-the complexity of such computations.
+In this case, the path challenge would be to solve a physics problem - is the weight of the robot, the power of the motor, and the inclination of the slope sufficient to reach the top, and are there any routes (sequences of places) that the robot can take if the slope is too challenging? If the problem is solved, then the robot goes ahead with the selected route, otherwise, the lock remains locked.
 
-In the real world, of course, we do not hop from place to place but move in a
-continuous fashion, and a robot or physical twin has to determine the "how" of
-traversal. Typically, this process lives in the interface between the virtual
-and physical twin.
+For a sufficient large hyperspace, the mesh of potential paths can more closely represent a curve. For instance, the road may be treated as a space with a fairly high density of hexes, and rather than trying to tackle the road head-on in a linear fashion, it ascends the road as a series of switchbacks (much like a sailboat tacking against the wind).
 
-In general, this information may be stored in metadata that is associated with
-the link, but that is outside of the scope of the spatial web. For instance, a
-robot needs to move from the bottom of a hill to the top of a hill along a road.
-The link may indicate characteristics of the hill - its inclination in
-particular - but from the standpoint of the Spatial Web, this slope is a
-challenge that has to be met prior to achieving the key to allow the transition
-from one place (the bottom of the hill) to another (the top of the hill).
-
-In this case, the link challenge would be to solve a physics problem - is the
-weight of the robot, the power of the motor, and the inclination of the slope
-sufficient to reach the top, and are there any routes (sequences of places) that
-the robot can take if the slope is too challenging? If the problem is solved,
-then the robot goes ahead with the selected route, otherwise, the lock remains
-locked.
-
-For a sufficient large hyperspace, the mesh of potential paths can more closely
-represent a curve. For instance, the road may be treated as a space with a
-fairly high density of hexes, and rather than trying to tackle the road head-on
-in a linear fashion, it ascends the road as a series of switchbacks (much like a
-sailboat tacking against the wind).
-
+[[fig-tacking]]
+.Tacking as movement in a cellular space
 image::tacking.png[Tacking]
 
-In the case where there is a physical twin bound to an agent, the link remains
-active until the physical twin indicates it has successfully completed the task,
-at which point it may update the metadata associated with the agent with
-physical coordinates that can be translated back into tiling.
+In the case where there is a physical twin bound to an agent, the path remains active until the physical twin indicates it has successfully completed the task, at which point it may update the SITUATION associated with the agent with physical coordinates that can be translated back into tiling.
 
-This means that in general the physical location of a tile will typically be its
-centrum, unless this is specifically overrriden with a centrum property.
+This means that in general the physical location of a tile will typically be its centrum, unless this is specifically overrriden with a centrum property.
 
-This analogy, by the way, also corresponds with non-Hilbert spaces, such as
-heat/pressure state regimes. In this case, the tiles represent specific regimes
-of behavior for the system, as the agent (or token) moves from one such state to
-the next. In the real world, these transitions are usually analog and may be
-subtle, but modeling these as a state diagram can be useful:
+This analogy also corresponds with non-Hilbert spaces, such as heat/pressure state regimes. In this case, the tiles represent specific regimes of behavior for the system, as the agent (or token) moves from one such state to the next. In the real world, these transitions are usually analog and may be subtle, but modeling these as a state diagram can be useful:
 
-[source,mermaid]
-----
----
-config:
-   layout: elk
----
-graph LR
-   perovskite[Perovskite]
-   ice[Ice]
-   liquidWater[Liquid Water]
-   steam[Steam]
-   plasma[Plasma]
-   perovskite <--> ice <-->liquidWater <--> steam <--> plasma
-   ice <--> steam
-----
 
-The agent's position across the hyperspace of places indicates what state the
-agent is in, where the agent can be seen as a marker for the current state.
+[[fig-ice-steam-plasma]]
+.Transitions of state between ice, steam, plasma
+image::ice-steam-plasma.png[Transitions of state between ice, steam, plasma]
+
+// [source,mermaid]
+// ----
+// ---
+// config:
+//    layout: elk
+// ---
+// graph LR
+//    perovskite[Perovskite]
+//    ice[Ice]
+//    liquidWater[Liquid Water]
+//    steam[Steam]
+//    plasma[Plasma]
+//    perovskite <--> ice <-->liquidWater <--> steam <--> plasma
+//    ice <--> steam
+// ----
+
+The agent's position across the hyperspace of places indicates what state the agent is in, where the agent can be seen as a marker for the current state.
