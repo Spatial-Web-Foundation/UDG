@@ -17,6 +17,10 @@
 ** Key Observations
 
 
+include::annex-requirements-summary.adoc[leveloffset=+2]
+include::annex-use-cases-requirements-allocation.adoc[leveloffset=+2]
+
+
 === IEEE UDG Requirements
 
 [cols="1a,3a,2a,2a,1a", options="header"]

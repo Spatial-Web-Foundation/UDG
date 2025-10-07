@@ -5,10 +5,7 @@
 
 === Domain Graph Queries
 
-There are two distinct methods that can be used for querying the state of a
-domain within a spatial web node: HSTP Node Queries and UDG Graph Queryies. Both
-of these work on the Domain Graphs for a given node, but do so in very different
-ways.
+There are two distinct methods that can be used for querying the state of a domain within a spatial web node: HSTP Node Queries and UDG Graph Queryies. Both of these work on the Domain Graphs for a given node, but do so in very different ways.
 
 ==== Domain Graphs
 
