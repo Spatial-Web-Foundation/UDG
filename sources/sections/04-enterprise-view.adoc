@@ -5,7 +5,7 @@ The UDG is a publicly accessible information commons that serves as a key infras
 
 The UDG provides an open, accessible representation of all ENTITIES. It enables efficient and accurate modeling and analysis of domain relationships. It allows for the organization of domains into an architecture that maintains intra-relational and inter-relational domain coherence, allowing for the coordination and integration of domain-specific data and content. The UDG allows for nested, hierarchical and heterarchical searches and transformations within and across domains.
 
-The UDG is a complex concept composed of the following concepts:
+The UDG is complex composed of the following concepts:
 
 * **UDG Knowledge Graph (KG)** is the hypergraph containing all relationships between all known Spatial Web conceptual ENTITIES. The UDG KG is composed of nodes and links where the nodes are ENTITIES and the links are relations between the ENTITIES. Each Spatial Web ENTITY has a Spatial Web Identifier (SWID).  The UDG KG is defined in <<section-conceptual-view-knowldge-graph>>
 * **UDG Hyperspace** is the representation of UDG relationship using the several types of Spatial Web Hyperspace including Graphs, Cellular spaces with cell identifiers, and Vector spaces with coordinates.  The different types of Hyperspace allow for different methods for navigating and discoverying ENTITIES.  These concpets along with the relationshps between UDG in differing hyperspaces are defined in <<section-conceptual-view-hyperspace>>
