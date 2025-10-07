@@ -5,14 +5,14 @@
 :copyright-year: 2026
 :language: en
 :title-intro-en: The Spatial Web
-:title-main-en: Universal Domain Graph (UDG) Design Study
+:title-main-en: Universal Domain Graph (UDG) Design Specification
 :committee: SWID
 :committee-type: technical
 :mn-document-class: swf
 :mn-output-extensions: xml,html,pdf,rxl
 :doctype: standard
 :status: published
-:docidentifier: SWF STD-6:2025 (0.1.0)
+:docidentifier: SWF STD-6:2025 (0.1)
 :imagesdir: images
 :local-cache-only:
 :toc-figures: true
@@ -39,6 +39,7 @@
 :comment: [backcover] participants list below
 :fullname_7: George Percivall (lead editor)
 :fullname_8: Kurt Cagle
+:fullname_8: Christine Perey
 
 // 20250319 rwp override background colors for admonitions in the current document
 // based on ticket
@@ -86,6 +87,5 @@ include::sections/annex-requirements-allocation.adoc[]
 
 include::sections/annex-application-scenario.adoc[]
 
-include::sections/annex-swf_authors_reviewers.adoc[]
 
 
