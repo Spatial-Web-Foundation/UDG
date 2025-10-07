@@ -2,4 +2,4 @@
 [abstract]
 == Abstract
 
-TBD.
+The Universal Domain Graph (UDG) is a critial item in the Spatial Web.  The UDG is composed of all entities in the Spatial Web.  It is the space in which agents operate.  This specification presents analysis of the system level functions peformed in the UDG.  The results of the analysis are requirements on components of the Spatial Web.  

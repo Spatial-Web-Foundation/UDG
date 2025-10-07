@@ -18,16 +18,16 @@ The report addresses these themes:
 * Provides an assessment of relevant, existing technology and research
 * Defines UDG system design, including foundations, conceptual models and distributed computing
 
-This document is structured as an architecture description consistent with the approach defined in <<ISO_IEC_IEEE_42010_2022>>. 
+This document is structured as an architecture description consistent with the approach defined in <<ISO_IEC_IEEE_42010_2022, Spatial Web Protocol, Architecture and Governance>>. 
 
 This document provides five viewpoints of the UDG.  These viewpoints comprise the UDG system design:
 
-* <<section-enterprise-viewpoint>>
-* <<section-conceptual-view-knowldge-graph>>
-* <<section-conceptual-view-hyperspace>>
-* <<section-conceptual-registry>>
-* <<section-conceputal-view-social-network>>
-* <<section-distributed-computing>>
+* <<section-enterprise-viewpoint, Enterprise viewpoint>>
+* <<section-conceptual-view-knowldge-graph, UDG as a knowledge graph>>
+* <<section-conceptual-view-hyperspace, UDG hyperspace atlas>>
+* <<section-conceptual-registry, UDG as a registry of registries>>
+* <<section-conceputal-view-social-network, UDG as a social network>>
+* <<section-distributed-computing, UDG distributed computing>>
 
 
 === Conventions used in this standard
