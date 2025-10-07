@@ -11,8 +11,8 @@ Knowledge in the Spatial Web is both statements of fact and probablistic beliefs
 
 For data exchange, the Spatial Web HSML standard uses the W3C Resource Description Framework (RDF) suite of standards.  RDF graphs are sets of subject-predicate-object triples, where the elements may be IRIs, blank nodes, datatyped literals, or triple terms. 
 
-include::05-01-domain.adoc[leveloffset=+2]
+include::05-02-domain.adoc[leveloffset=+2]
 
-include::05-02-links-membership.adoc[leveloffset=+2]
+include::05-03-links-membership.adoc[leveloffset=+2]
 
-include::05-03-queries-use-case.adoc[leveloffset=+2]
+include::05-04-queries-use-case.adoc[leveloffset=+2]
