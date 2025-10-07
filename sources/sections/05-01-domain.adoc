@@ -1,156 +1,109 @@
 [[domains]]
-= DOMAINS as the primary ENTITY in the UDG
+= DOMAINS are the primary ENTITY in the UDG
 
-== ENTITIES as the basic type for all knowledge in the UDG
+== ENTITIES are the basic type for all knowledge in the UDG
 
-The primary structure for the concepts in this viewpoint is the Spatial Web Ontology and the corresponding HSML.
-
-UDG as a conceptual graph for Knowledge representation and reasoning
-
+The UDG KG is composed of Spatial Web ENTITIES.  An ENTITY is that which is perceived, known, or inferred to exist, has existed, or is anticipated to exist.  ENTITIES are of several types as shown in the <<hsml_ontology>> which are the primary concepts used across the Spatial Web and in the Hyperspace Modeling Language (HSML).  HSML implements the Spatial Web ontology as a set of schemas that enable increased coherence across diverse datasets without sacrificing flexibility.  
 
 [[spatial_web_ontology]]
 .Spatial Web ontology
 image::spatial_web_ontology.png[ontology showing Spatial Web entities and their relations]
 
-The subsequent clasues in this clause are:
 
-== SWIDS as the identifier used in ENTITIES
+== SWIDS and Aliases
 
 === UDG and SWIDs
 
-All resources within th Universal Domain Graph have some form of a __Spatial Web Identifier__ also known as a __SWID__. The SWID serves a number of purposes:
+All ENTITIES in the UDG KG have a __Spatial Web Identifier__  known as a __SWID__. The SWID serves a number of purposes:
 
-* A SWID is a __W3C Decentralized Identifier__ (__DiD__), and is used as a mechanism to make claims (assertions) about specific facts with a form of verification backing up those claims. This is known as a __Verifiable Credential__ or (__VC__).
-* The SWID identifies the resource uniquely within the spatial web network. In this regard, the SWID acts as an (indirect) IRI.
-* SWIDs are also used to establish links between resources. Because the VC for the SWID can hold multiple potential values, such links typically are used to combine SW Node information with Domain and Entity resolution.
+* A SWID is a decentralized identifier (DID) for digital identity devoid of any type of centralization (see <<w3c_did>>)
+* The SWID identifies the ENTITY uniquely within the Spatial Web. In this regard, the SWID acts as an (indirect) IRI.
+* SWIDs are also used to establish links between resources. 
 * SWIDs are also used to resolve __nodelink__ connections between different nodes in the SW Node Graph, making it possible to bind together nodes in networks. In this case, the __nodelink document__ identifies both authentication and address information for different nodes within the spatial web.
 
 === Aliases
 
-It should be noted that such SWIDs are not directly Uniform Resource Locators (URLs) in the WWW sense. In the Spatial Web, one or more *__aliases__* can be assigned to a SWID that is intended to locate a resource, but the actual "physical" address for the resource is contained within the SWID certificate. In effect, the alias is analogous to a HTTP domain name mapping to an IPV6 address, but in this case the "domain name" alias maps to a SWID, which then maps to the corresponding IPV6.
-[source,mermaid]
-----
+In the Spatial Web, one or more *__aliases__* can be assigned to a SWID that is intended to locate a resource, but the actual "physical" address for the resource is contained within the SWID Document. In effect, the alias is analogous to a HTTP domain name mapping to an IPV6 address, but in this case the "domain name" alias maps to a SWID, which then maps to the corresponding IPV6.
 
-flowchart LR
-Alias --> SWID1 --> doc["Verifiable<br>Credential"]
-doc --> SWNode[Spatial Web Node]
-doc --> Domain[Reference Domain]
-----
+[[fig-swid-alias]]
+.SWID Alias
+image::SWID-alias.png[SWID Alias]
 
-One key difference between HTTP and HSTP is that there is no GET parameterization on SWIDs. An alias could have such a paremeterization of course, but it becomes the role of the alias resolver to convert this into a corresponding HSML message, which then gets passed as an HSTP post message.
+// [source,mermaid]
+// ----
+// flowchart LR
+// Alias --> SWID1 --> doc["Verifiable<br>Credential"]
+// doc --> SWNode[Spatial Web Node]
+// doc --> Domain[Reference Domain]
+// ----
 
-The specific form of aliases is still to be determined.
+
+EDITOR:  The specific form of aliases is still to be determined. To be consistent with other SWF specificaitons, the figure may need to be revised, inserting "SWID Document"  between SWID1 and "Verifiable Credential." 
 
 
 == Definition of a DOMAIN
 
-A DOMAIN is the fundamental class within the UDG for describing the various
-things, agents, and places that make up the Spatial Web. Every structure,
-building, planet, character (agent), animal, mystical alien pyramid or similar
-construct, is ultimately a DOMAIN, and is addressable within the context of the
-spatial web.
+A DOMAIN is the fundamental class within the UDG for describing the various things, agents, and places that make up the Spatial Web. Every structure, building, planet, character (agent), animal, mystical alien pyramid or similar construct, is ultimately a DOMAIN, and is addressable within the context of the Spatial Web.
 
-A DOMAIN  can be thought of as an area of concern in which things happen. While
-this may (and most likely will) be a physical construct, it doesn't necessarily
-have to be.
+A DOMAIN is an ENTITY that may identify the context for an ACTIVITY for or by an AGENT at a specific place acting upon various things within that DOMAIN. Everything that happens within the UDG happens within a DOMAIN.
 
-A DOMAIN is an ENTITY that may identify the context for an ACTIVITY for or by an
-AGENT at a specific place acting upon various things within that DOMAIN.
-Everything that happens within the UDG happens within a DOMAIN.
+A DOMAIN is required to have these attributes:
 
-A DOMAIN can be a Spatial Web representation of a thing. Internally this DOMAIN
-is represented as a graph of information that describes its identifier, changing
-in response to changes in its environment (the domain graph in which it resides,
-which is composed of the graphs of other entities in that system).
-
-There are a specific set of attributes which are required for the DOMAIN.
-Specifically, a DOMAIN must have:
-
-* a Spatial Web Identifier or SWID, a form of decentralized identifier that can
-be used to identify the domain uniquely within the Spatial Web.
-
-* A DOMAIN Type, which indicates the particular role that the domain plays. This
-identifies how the domain is classified within the Spatial Web. Note that a
-DOMAIN can be defined by multiple different ontologies, but it _must_ have the
-domain type.
+* a SWID, a form of decentralized identifier that can be used to identify the domain uniquely within the Spatial Web.
+* A DOMAIN Type, which indicates the particular role that the domain plays. This identifies how the domain is classified within the Spatial Web. Note that a DOMAIN can be defined by multiple different ontologies, but it _must_ have the domain type.
 
 A DOMAIN may have other other attributes, but these are not required:
 
-* A __location__, which identifies the entity's position in a state space (or
-__hyperspace__), relative to either the containing domain, or to an externally
-defined domain. If a domain exists solely as a vehicle for containment, then
-location is not specifically required, though it often contains additional state
-information that is not strictly speaking positional.
-
-* Zero or more __activities__, which provides the operational instructions for
-the entity in question. The structure of the activity is language independent
-and declarative.
-
-* Zero or more __style__ resources, which provides a mechanism for rendering the
-entity with different content types. _Please note, this has not been formally
-proposed yet, and may be removed_.
-
-* Zero or one __link__ references to an external domain. Some entities provide a
-link that can be activated through certain interfaces or affordances. This is a
-simple link, meaning it changes the context (domain) of the agent initiating the
-link without specific constraints, which is analogous to an HTTP standard
-hyperlink. More information about links will be covered in the subsection
-<<links,Links>>.
+* A __location__, which identifies the entity's position in HYPERSPACE, relative to either the containing DOMAIN, or to an externally defined DOMAIN. If a domain exists solely as a vehicle for containment, then location is not specifically required, though it often contains additional state information that is not strictly speaking positional.
+* Zero or more ACTIVITIES, which provids operational instructions for the entity in question. 
+* Zero or more __style__ resources, which provides a mechanism for rendering the DOMAIN with different content types. _EDITOR:  this has not been formally proposed yet, and may be removed.
+* Zero or one __link__ references to an external DOMAIN. Some ENTITIES provide a link that can be activated through certain interfaces or affordances. This is a simple link, meaning it changes the context (DOMAIN) of the agent initiating the
+link without specific constraints, which is analogous to an HTTP standard hyperlink. More information about links will be covered in the subsection <<links,Links>>.
 
 
 == DOMAIN types
 
-A DOMAIN type is a specialization of an entity that incorporates additional
-capabilities. Within the Spatial Web, these extensions are defined using the
-Shape Constraint Language (SHACL), as a generalized schema language, with the
-mechanism for such extension covered in <<domain-entity-type>>.
+A DOMAIN type is a specialization of a DOMAIN that incorporates additional capabilities.  <<IEEE Std 2874>> defines several DOMAIN types:
 
-Currently several DOMAIN types are defined: Place, Link, Domain, Sensor, Thing,
-Agent, and Assemblages, with others derivable from these.
 
-These are differentiated as follows:
+[[domain-types-based-on-their-defining-characteristics]]
+.Domain types based on their defining characteristics
+[%autowidth]
+|===
+|Type of Domain |Description
 
-* A __place__ is defined roughly as a specific addressable location within a
-domain. Places define where an entity can be, and where they can't. Cf
-<<places,Places>> for more information.
+|Geographic
+|Implicitly or explicitly associated with a location
+|Concept
+|Intangible concepts and abstract ideas shared by a community of users
+|Organization
+|Pertaining to membership within an entity
+|Agent
+|Individual domains with active states and agency
+|Person
+|Special subtype of agent maintaining a self-sovereign identity
+|Thing
+|Bounded items without agency
+|===
 
-* A __link__ is a mechanism for navigating between both places (internal links)
-and domains (external links). It is the analog of a hypertext link in the HTTP
-world.Cf. <<links,Links>> for more information.
 
-* A __domain__ is a system of concern, and is effectively the partition of a
-given universe into a navigable area. Domains are where things happen. Cf
-<<domains,Domains>>.
+EDITOR: the additional concepts related to DOAMIN types is under review.
 
-* A __sensor__ is an abstraction of a camera, recording device, eyeball, etc.
-Its purpose is to provide a reference point of view for an entity within a
-domain (or of the domain itself).  Cf. <<sensors,Sensors>> for more
-information.
+Additional concepts are being considered relevant to DOMAIN types. These are differentiated as follows:
 
-* A __thing__ is defined as an entity that is directed by the system (the local
-spatial web daemon). Not that directed here means simply that it provides the
-motivating influence on the thing, not that it determines a things exact
-behaviors. In effect, both things and agents are "semi-autonomous" in that they
-have some (perhaps minimal) self-control, but they respond to outside
-influences. Things can be considered non-player characters, but they can also be
-structures, vehicles, animals, portals, and so forth. Cf. link:#things[Things]
-for more details.
+* A __place__ is defined roughly as a specific addressable location within a domain. Places define where an entity can be, and where they can't. Cf <<places,Places>> for more information.
 
-* An __agent__ is defined as an entity that is directable by an outside (out of
-system) actor. Agents generally act as the eyes, ears, hands, and feet of the
-actor. It corresponds roughly to a character in a novel, play, or game, but in a
-more generalized fashion. Cf. <<agents,Agents>> for more details.
+* A __link__ is a mechanism for navigating between both places (internal links) and domains (external links). It is the analog of a hypertext link in the HTTP world.Cf. <<links,Links>> for more information.
 
-* An __assemblage__ is an aggregate structure of things, places, and agents. It
-is intended to model corporations, institutions, governments, and so forth, but
-it can also model physical or other composite structures.  Cf.
-link:#assemblages[Assemblages] for more information.
+* A __sensor__ is an abstraction of a camera, recording device, eyeball, etc. Its purpose is to provide a reference point of view for an entity within a domain (or of the domain itself).  Cf. <<sensors,Sensors>> for more information.
+
+
+* An __assemblage__ is an aggregate structure of things, places, and agents. It is intended to model corporations, institutions, governments, and so forth, but it can also model physical or other composite structures.  Cf. link:#assemblages[Assemblages] for more information.
 
 
 == DOMAIN modeling checklist
 
-A DOMAIN is a system. The DOMAIN provides the answers to a number of key
-questions about the system in question.
+A DOMAIN provides the answers to a number of key questions about the system in question.
 
 * __Where?__. Where (what place) does the action within the system take place?
 * __How Is Space Defined?__ What are the relevant places of relevance within the system (it's hyperspace).
@@ -164,26 +117,13 @@ questions about the system in question.
 * __Why?__. What are the goals or purposes of the domain, and what happens when those goals are achieved?
 
 
-DOMAINS exist within hyperspace including time. DOMAINS usually have a specific
-start time (or other condition) and end time (or other condition).
+DOMAINS may be references using hyperspace including time. DOMAINS usually have a specific start time (or other condition) and end time (or other condition).
 
-In general, a domain has a schematic representation that can be extended from a
-core domain type. This identifies the relevant state variables and properties
-for the domains beyond the properties of the Domain base class. Domains are
-entities in that they have swids, but they are in effect system (or holonic)
-entities.
+In general, a domain has a schematic representation that can be extended from a core domain type. This identifies the relevant state variables and properties for the domains beyond the properties of the Domain base class. Domains are entities in that they have SWIDs, but they are in effect system (or holonic) entities.
 
 == Extending Entities
 
-While the Spatial Web makes use of core classes such as Domain, Place, or Agent,
-the use of a traditional class mechanism for identifying different kinds of
-entities breaks down quickly when dealing with the sheer number of potential
-classes that could be created.
-
-To compensate for this, and to better work within the domain framework, a SHACL
-framework is defined that can identify nodes contextually using topics and state
-dependencies. For instance, suppose that you wanted to add a property to a given
-country called population. In this case, a property node can be added via SHACL.
+While the Spatial Web makes use of the Domain Types defined in <<IEEE Std 2874>>, those types may need to be extended to model the complexity of all worlds.  A framework is defined that can identify nodes contextually using topics and state dependencies. For instance, suppose that you wanted to add a property to a given country called population. In this case, a property node can be added using SHACL.
 
 ----
 [] a hsml:Domain ;
@@ -207,19 +147,11 @@ country called population. In this case, a property node can be added via SHACL.
      ] .
 ----
 
-In this case, the domain holds the shape definitions via the `hsml:hasShape`
-property, and when the domain is instantiated, this provides information to the
-system about how the given property or properties are implemented.
+In this case, the domain holds the shape definitions via the `hsml:hasShape` property, and when the domain is instantiated, this provides information to the system about how the given property or properties are implemented.
 
-For instance, in this particular case, the place (a country) is defined with a
-property `ex:population` as well as a second property `hsml:hasTopic`. The first
-is considered valid if it has a nonNegative integer (and is an optional
-parameter), the second is considered valid if the hsml:hasTopic property has the
-value <concept/Country>. If either of these are not true for the place, then
-the structure generates an error for the shape.
+For instance, in this particular case, the place (a country) is defined with a property `ex:population` as well as a second property `hsml:hasTopic`. The first is considered valid if it has a nonNegative integer (and is an optional parameter), the second is considered valid if the hsml:hasTopic property has the value <concept/Country>. If either of these are not true for the place, then the structure generates an error for the shape.
 
-Within the graph, then, this would be applied to the Canada place node as
-follows:
+Within the graph, then, this would be applied to the Canada place node as follows:
 
 ----
 [] a hsml:Place ;
@@ -230,40 +162,23 @@ follows:
     .
 ----
 
-This makes it possible to add any number of properties to entities within the
-domain in question, as well as to set constraints that more accurately specify
-things such as topicality or state configurations.
+This makes it possible to add any number of properties to entities within the domain in question, as well as to set constraints that more accurately specify things such as topicality or state configurations.
 
-Note that common shapes can be bound specifically to reference domains and
-included or imported, as specified in the section
+Note that common shapes can be bound specifically to reference domains and included or imported, as specified in the section
 link:#importing-taxonomies-and-schemas[Importing Taxonomies and Schemas].
 
 
 == The UDG Taxonomy
 
-The __UDG Taxonomy__ is a taxonomy designed to augment discovery within the
-spatial web by providing common concepts and definitions for agents and, by
-extensions, domains.
+The __UDG Taxonomy__ is a taxonomy designed to augment discovery within the Spatial Web by providing common concepts and definitions for agents and, by extensions, domains.
 
 === The hsml:hasTopic property
 
-The UDG Taxonomy can be thought of as the thesaurus for the Spatial Web. Each
-term in that thesaurus provides an adjective or noun that identifies some
-characteristic of a given agent.
+The UDG Taxonomy can be thought of as the thesaurus for the Spatial Web. Each term in that thesaurus provides an adjective or noun that identifies some characteristic of a given agent.
 
-For instance, an agent that is intended to be a proxy for a car in a smart city
-scenario may be identified by a number of such characteristics: the vehicle's
-_make_, _model_, and _trim_, its _carriage designation_ (a sedan, sports car,
-SUV, light truck), its _primary and secondary external and internal colors_, its
-_engine type_ (internal combustion engine, diesel, electric, hybrid,
-hydrogen-powered) and so forth. A building may be classified by _purpose_,
-_construction method_, _zone classification_, etc. A robot may be given by its
-_purpose_, _ambulatory status_, _activation level_, etc.
+For instance, an agent that is intended to be a proxy for a car in a smart city scenario may be identified by a number of such characteristics: the vehicle's _make_, _model_, and _trim_, its _carriage designation_ (a sedan, sports car, SUV, light truck), its _primary and secondary external and internal colors_, its _engine type_ (internal combustion engine, diesel, electric, hybrid, hydrogen-powered) and so forth. A building may be classified by _purpose_, _construction method_, _zone classification_, etc. A robot may be given by its _purpose_, _ambulatory status_, _activation level_, etc.
 
-Each of these terms are used primarily as mechanisms for classification, and are
-considered as __categories__, with each particular enumeration in turn
-considered a __topic__. The `hsml:hasTopic`, `Place:hasTopic` and
-`hsml:hasTopic` properties in HSML takes zero or more topics as arguments.
+Each of these terms are used primarily as mechanisms for classification, and are considered as __categories__, with each particular enumeration in turn considered a __topic__. The `hsml:hasTopic`, `Place:hasTopic` and `hsml:hasTopic` properties in HSML takes zero or more topics as arguments.
 
 [[fig-udg-taxonomy]]
 .UDG Taxonomy
@@ -313,23 +228,13 @@ image::UDG_Taxonomy.png[UDG Taxonomy]
 // classDef category fill:orange
 // ----
 
-The power of the UDG taxonomy is in its ability to cluster agents by topic,
-mediated by category. For instance, car 1 and car 2 are both of the same make
-(Toyota) but of different models (Camry vs. Corolla) and trims. They are also of
-the same "domain Type" of automobile. Note that domain type here is not
-privileged, it is simply one more category that agents can be in, though a
-fairly broad category.
+The power of the UDG taxonomy is in its ability to cluster agents by topic, mediated by category. For instance, car 1 and car 2 are both of the same make (Toyota) but of different models (Camry vs. Corolla) and trims. They are also of the same "domain Type" of automobile. Note that domain type here is not privileged, it is simply one more category that agents can be in, though a fairly broad category.
 
 === The `hsml:hasConstraint` Property
 
-Some times there are interdependencies between topics. For instance, the Corolla
-and the Camry are two different models produced by Toyota, and another car
-company will not produce those same models. Similarly trim provides variants for
-a given car model.
+Some times there are interdependencies between topics. For instance, the Corolla and the Camry are two different models produced by Toyota, and another car company will not produce those same models. Similarly trim provides variants for a given car model.
 
-These relationships are called __constraints_, which is a relationship
-indicating that one topic is dependent upon another. This changes the diagram
-somewhat:
+These relationships are called _constraints_, which is a relationship indicating that one topic is dependent upon another. This changes the diagram somewhat:
 
 [[fig-udg-taxonomy-constraints-example]]
 .An example of the UDG Taxonomy with constraints
@@ -380,14 +285,11 @@ image::UDG_taxonomy_example_with_constraints.png[an example of the UDG Taxonomy 
 // ----
 
 
-=== Places with `hsml:hasTopic` and `hsml:hasConstraint`
+=== Geographic DOMAINS with `hsml:hasTopic` and `hsml:hasConstraint`
 
-Places can be defined in a similar manner. For instance, a place may be a
-country, city, planet, river, lake, sea, township, etc., Each of these are
-`geoFeature` topics, though these may be subclassed.
+Geographic DOMAINS can be defined in a similar manner. For instance, a place may be a country, city, planet, river, lake, sea, township, etc., Each of these are `geoFeature` topics, though these may be subclassed.
 
-For instance, Vancouver, British Columbia, Canada, and North America are all
-places, they are connected as follows:
+For instance, Vancouver, British Columbia, Canada, and North America are all places, they are connected as follows:
 
 [[fig-udg-taxonomy-geofeature]]
 .UDG Taxonomy example with a GeoFeature
@@ -436,18 +338,7 @@ image::UDG_Taxonomy_GeoFeature.png[UDG Taxonomy example with a GeoFeature]
 // classDef category fill:orange
 // ----
 
-In this case, while these are all geoFeatures, Vancouver is a city while Canada
-is a country. Significantly, the implicit structuring (Vancouver is a part of
-Canada) becomes simply a constraint relationship here, albeit one that can be
-exploited for reasoning purposes. Furthermore, Canada might also be in another
-constraint relationships with an organization of countries (such as NAFTA or the
-United Nations), so the hierarchy here is a hierarchy of topics, and is actually
-more mereological than strictly hierarchical.
-
-=== Domains with `hsml:hasTopic` and `hsml:hasConstraint`
-
-The topics and constraints of a domain are the same as the topics and
-constraints of the associated super-agent that binds that domain.
+In this case, while these are all geoFeatures, Vancouver is a city while Canada is a country. Significantly, the implicit structuring (Vancouver is a part of Canada) becomes simply a constraint relationship here, albeit one that can be exploited for reasoning purposes. Furthermore, Canada might also be in another constraint relationships with an organization of countries (such as NAFTA or the United Nations), so the hierarchy here is a hierarchy of topics, and is actually more holonic than strictly hierarchical.
 
 === Topics vs. States
 
@@ -723,46 +614,6 @@ controller, this the termination of the updates to the devices in question. When
 the domain is instantiated, the why is set up as an end condition and is
 evaluated as part of the processing cycle for the domain.
 
-== UDG SWIDs and Aliases
-
-=== UDG and SWIDs
-
-All resources within th Universal Domain Graph have some form of a __Spatial Web
-Identifier__ also known as a __SWID__. The SWID serves a number of purposes:
-
-* A SWID is a __W3C Decentralized Identifier__ (__DiD__), and is used as a mechanism to make claims (assertions) about specific facts with a form of verification backing up those claims. This is known as a __Verifiable Credential__ or (__VC__).
-* The SWID identifies the resource uniquely within the spatial web network. In this regard, the SWID acts as an (indirect) IRI.
-* SWIDs are also used to establish links between resources. Because the VC for the SWID can hold multiple potential values, such links typically are used to combine SW Node information with Domain and Entity resolution.
-* SWIDs are also used to resolve __nodelink__ connections between different nodes in the SW Node Graph, making it possible to bind together nodes in networks. In this case, the __nodelink document__ identifies both authentication and address information for different nodes within the spatial web.
-
-=== Aliases
-
-It should be noted that such SWIDs are not directly Uniform Resource Locators
-(URLs) in the WWW sense. In the Spatial Web, one or more *__aliases__* can be
-assigned to a SWID that is intended to locate a resource, but the actual
-"physical" address for the resource is contained within the SWID certificate. In
-effect, the alias is analogous to a HTTP domain name mapping to an IPV6 address,
-but in this case the "domain name" alias maps to a SWID, which then maps to the
-corresponding IPV6.
-
-[[fig-swid-alias]]
-.SWID Alias
-image::SWID-alias.png[SWID Alias]
-
-// [source,mermaid]
-// ----
-// flowchart LR
-// Alias --> SWID1 --> doc["Verifiable<br>Credential"]
-// doc --> SWNode[Spatial Web Node]
-// doc --> Domain[Reference Domain]
-// ----
-
-One key difference between HTTP and HSTP is that there is no GET
-parameterization on SWIDs. An alias could have such a paremeterization of
-course, but it becomes the role of the alias resolver to convert this into a
-corresponding HSML message, which then gets passed as an HSTP post message.
-
-The specific form of aliases is still to be determined.
 
 == Domain Use Case: The Light Bulb Room
 
