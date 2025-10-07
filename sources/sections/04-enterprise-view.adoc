@@ -16,7 +16,7 @@ The UDG is complex composed of the following concepts:
 
 The UDG conceptual structures (KG, Hyperspace, Registries, Social network) are implemented in the Spatial Web Nodes of the distributed UDG System. There is a non-isomorphic relationship between the conceptual domain hierarchies and the SW Nodes. Presence of a Domain in a specific SW node may be dynamic and transient. This relationship between the conceptual views and the Distributed Computing view is represented in <<fig-udg-enterprise>> 
 
-Each viewpoint of the UDG includes requirements that are specific to Spatial Web Components. Implementations of the Spatial Web UDG design are achieved by allocating requirements across those components. The <<annex-requirements-allocation>> gathers the requirements for each component.  The Spatial Web Components used in this UDG Design specification are:
+Each viewpoint of the UDG includes requirements that are specific to Spatial Web Components. Implementations of the Spatial Web UDG design are achieved by allocating requirements across those components. The <<annex-requirements-allocation>> gathers the requirements for each component. The Spatial Web Components used in this UDG Design specification are:
 
 * Hyperspace Modeling Language (HSML) (SWF STD-02) 
 * Hyperspatial Transaction Protocol (HSTP) (SWF STD-03) 
