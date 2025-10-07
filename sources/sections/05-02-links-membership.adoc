@@ -1,4 +1,4 @@
-[[links]]
+[[relationships]]
 = ENTITY relationships: Links, domain membership, situations, paths
 
 == Mereology in the Spatial Web
