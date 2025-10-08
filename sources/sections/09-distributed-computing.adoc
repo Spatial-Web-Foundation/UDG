@@ -40,7 +40,9 @@ include::09-02-node-registries.adoc[leveloffset=+2]
 
 include::09-03-udg-and-hstp.adoc[leveloffset=+2]
 
-include::09-04-use-cases.adoc[leveloffset=+2]
+include::09-04-queries.adoc[leveloffset=+2]
+
+include::09-05-use-cases.adoc[leveloffset=+2]
 
 
 
