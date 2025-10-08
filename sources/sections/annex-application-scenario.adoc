@@ -1,9 +1,9 @@
-=== Application Scenarios
+[[annex-application-scenario-tourist]]
+=== Application Scenario: Cultural Location Tourism
 
-==== 5.3.5. Cultural Location Tourism
+==== Overview
 
-There are a number of different potential scenarios with the UDG for the D3.3.1
-specification 5.3.5, which focuses on cultural location tourism.
+This annex is based on the Cultural Location Tourism application scenario from <<IEEE_2874_2025, Spatial Web Protocol Architecture and Governance clause 5.3.5.>>
 
 ===== 5.3.5.1. A Virtual Tour
 
