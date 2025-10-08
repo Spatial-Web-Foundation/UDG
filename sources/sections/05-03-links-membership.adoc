@@ -1,5 +1,5 @@
 [[relationships]]
-= ENTITY relationships: Links, domain membership, situations, paths
+= ENTITY relationships: Links, portals, membership, situations, paths
 
 == Mereology in the Spatial Web
 
@@ -55,7 +55,7 @@ A link implies the following information between domains:
 * recipient of the link
 * target of the link
 * type of link (if known)
-* time and place of the link
+* time and location of the link
 * periodicity
 * duration
 
@@ -73,7 +73,7 @@ Types of links are described in the remainder of this clause
 EDITOR: the link types described below need to be reviewed.
 
 
-==== Persistent links
+=== Persistent links
 
  Links to DOMAINS present in the DOMAIN description. These are persistent links, in that they are always available to the DOMAIN. 
 
@@ -83,35 +83,33 @@ A link may be associated with a challenge query. This query must be satisfied be
 
 Note that the hosting entity of the link can query the state of that link, and present a representation of that link's status to the corresponding agent. This is different from the way that HTTP links work.
 
-
-=== Portal Links
-
-Places represent locations and relations of a DOMAIN to other DOMAINs.  A good example of a place to place movement is the change in Pose of an DOMAIN, where, depending upon the pose orientation, various DOMAINS indicating options for movement are visible.
-
-Places allow for changing perspective while still being part of the same security and activities context in an enclosing DOMAIN. Places play a significant role in tours, wizards, educational systems and other use cases.
-
-A place link is essentially a __portal__ that will take an agent from one place to another within the domain. Such links are topological rather than topographical, in that such links are not necessarily dependent upon contiguity or geometry.
-
-Portals may be one, two or multi-sided, and, as with all links, access may be constrained by the requirement that the initiating agent has access to a cryptographic key in order to activate the link. Such keys may be associated with dedicated agents in a Bag relationship.
-
-Portals can exist between places in different domains, even if those domains aren't nested. For instance, in a conquest game there are natural boundaries and fords that exist between distinct but affiliated domains. In general, each domain will require that the agent have an affiliate key in order to enter into that domain, and the domain manager will be responsible for managing the replication (and disabling) of agents moving from one system to another across SW Node boundaries.
-
 === Bag link: AGENT carrying a DOMAIN 
 
-One common use case in the Spatial Web occurs when an AGENT (say a truck) acts as a transport for another DOMAIN (such as a package). The package becomes linked to the truck.  The carrying capacity for the AGENT domain can be determined individually for that particular place (it may be by weight, by volume, by insurability, or by some even more exotic measure)
+One common use case in the Spatial Web occurs when an AGENT (say a truck) acts as a transport for another DOMAIN (such as a package). The package becomes linked to the truck.  The carrying capacity for the AGENT domain can be determined individually for that particular location (it may be by weight, by volume, by insurability, or by some even more exotic measure)
 
 Each carried DOMAIN in turn has a specific credential key that can serve as a key to a portal (or other linked agent). These are connected to the carrier agent through a bag link. In effect the carrier can "borrow" the key of the carried item.
 
-A carryable agent in that case can be "picked up" by the carrier agent and thus removed from the place within the active domain into the bag place in the carrier's domain. Even if the carrier moves to a new domain, the carried object stays associated with the carrier's internal domain "bag". The carried agent can be used by the carrier to activate a portal or similar Thing agent.
+A carryable agent in that case can be "picked up" by the carrier agent and thus removed from the location within the active domain into the bag location in the carrier's domain. Even if the carrier moves to a new domain, the carried object stays associated with the carrier's internal domain "bag". The carried agent can be used by the carrier to activate a portal or similar Thing agent.
 
 Activation of a bag link _may_ also cause the item to expire, in essence, being removed from the bag upon use. Additionally, a
-carried item may be transferred to another agent or "dropped" into the current place. That has obvious implications for both supply chain scenarios and e-commerce scenarios, where a specific virtual item is "sold" to another agent, and its use in role playing games should be self-evident.
+carried item may be transferred to another agent or "dropped" into the current location. That has obvious implications for both supply chain scenarios and e-commerce scenarios, where a specific virtual item is "sold" to another agent, and its use in role playing games should be self-evident.
 
 === AGENT-to-DOMAIN Links
 
 A use case is connecting one agent that is in effect a camera (a sensor array) with another agent that is a display or monitor. 
 
 This could also be used to monitor the value of a given set of properties such as position, temperature, funds, or emotional state. Since in many cases, these values may be computed rather than intrinsic, this provides a light-weight mechanism for determining relevant state without needing to know the internal mechanisms for that agent.
+
+
+== Portals
+
+A __portal__ connects spaces as defined in <<IEEE_2874_2025, Spatial Web clause 6.2.3.7.2. Connecting spaces>>.   By identifying  sets of points in two spaces a portal between the spaces is established.  A portal need not be binary; it could be mutiple sets of points to define an n-ary portal.  
+
+Portals are defined using sets of points in spaces.  The sets of points might also be the locations of several domains. For example, a portal defined by locations on each side of a doorway also defines the connection of room DOMAINS which share the doorway.
+
+A portal may be used by an AGENT to move between spaces.  The path of the agent uses the portal to move from one location to another and between domains. Such links are topological, in that such links are not necessarily dependent upon contiguity or geometry.
+
+Portals access may be constrained by the requirement that the initiating agent has access to a cryptographic key in order to activate the portal. Such keys may be associated with dedicated agents in a Bag relationship.
 
 
 == Membership in a DOMAIN
@@ -128,19 +126,15 @@ As a holarchy, the membership relationship allows for a DOMAIN to be a member of
 
 Movement of a DOMAIN in and out of membership in an upper DOMAIN is allowed as specified in the membership agreement of the DOMAIN.
 
-=== Obligation of DOMAIN members.
+=== Obligations on DOMAIN members.
 
 DOMAINS define norms, obligations and laws which the member DOMAINS must adhear with.  Enforcement of the domain obligations is a function of the domain authority which manages the upper DOMAIN.
 
-=== Place in DOMAINS
+=== DOMAIN location
 
-PLACE defines the current set of membership 
+A DOMAIN will typically have a location in hyperspace.  The location may be a single point or it may be a more complext geometry, e.g., polygon, sphere, etc.
 
-A ___place___ in this case is treated as an agent. That is to say, if an agent is located on a given place, and that place has a subdomain that provides a higher level of detail or a portion of the overall hyperspace of the domain, then clicking on the holonic link will take you to sub-place domain.
-
-For instance, a given planet domain may have multiple places that represent the countries of that planet. Clicking on the country icon will change the active domain for that user to the country in question, which may then display different place markers indicating active cities or regions, and will also indicate a super-icon that will take the agent back to the relevant country.
-Note that the icons in question may reflect some relevant information about the country in its visualization, and the `about` display for that country can also provide summary metadata - another form of map.
-
+A DOMAIN location may be with in an upper Domain location.  The DOMAIN may include sub-domains contained within the DOMAIN lcoation.  For instance, a given planet domain may have multiple locations that represent the countries of that planet. 
 
 
 == SITUATIONS
@@ -181,14 +175,14 @@ An AGENT may move between DOMAINS.  An AGENT may be present in a DOMAIN without 
 
 EDITOR: are paths between domains constrained?  The following text addressing constrained movement as paths needs to be reviewed.
 
-To go from one place to another, an AGENT has to traverse a path.
+To go from one location to another, an AGENT has to traverse a path.
 
-Note that there are two distinct actions that can be taken, selection and path traversal. If a place can be __selected__, it identifies that place as being part of an active set of places. If it is __activated__, then the path is traversed as described above.
+Note that there are two distinct actions that can be taken, selection and path traversal. If a location can be __selected__, it identifies that location as being part of an active set of location. If it is __activated__, then the path is traversed as described above.
 
-A ___portal link___ that is applied to a given path (styled as a door or other kind of portal), that causes the activating agent (such as a player character in a game) to move to a different, specified place:
+A ___portal___ that is applied to a given path (styled as a door or other kind of portal), that causes the activating agent (such as a player character in a game) to move to a different, specified location:
 
 [[links-game-example]]
-.Example of links between entities
+.Example of relationships between entities
 image::links-game-example.png[example of link between entities]
 
 
@@ -219,13 +213,13 @@ image::links-game-example.png[example of link between entities]
 // ----
 
 
-For an AGENT to traverse a path means moving from one place to another following a particular path of intervening places. This approach is straightforward and especially conducive to optimization of path traversals to minimize energy expenditure, though as the number of places goes up, so too does the complexity of such computations.
+For an AGENT to traverse a path means moving from one location to another following a particular path of intervening locations. This approach is straightforward and especially conducive to optimization of path traversals to minimize energy expenditure, though as the number of locations goes up, so too does the complexity of such computations.
 
-In the real world, of course, we do not hop from place to place but move in a continuous fashion, and a robot or physical twin has to determine the "how" of traversal. Typically, this process lives in the interface between the virtual and physical twin.
+In the real world, of course, we do not hop from location to location but move in a continuous fashion, and a robot or physical twin has to determine the "how" of traversal. Typically, this process lives in the interface between the virtual and physical twin.
 
-In general, this information may be stored in metadata that is associated with the link, but that is outside of the scope of the spatial web. For instance, a robot needs to move from the bottom of a hill to the top of a hill along a road. The link may indicate characteristics of the hill - its inclination in particular - but from the standpoint of the Spatial Web, this slope is a challenge that has to be met prior to achieving the key to allow the transition from one place (the bottom of the hill) to another (the top of the hill).
+In general, this information may be stored in metadata that is associated with the link, but that is outside of the scope of the spatial web. For instance, a robot needs to move from the bottom of a hill to the top of a hill along a road. The link may indicate characteristics of the hill - its inclination in particular - but from the standpoint of the Spatial Web, this slope is a challenge that has to be met prior to achieving the key to allow the transition from one location (the bottom of the hill) to another (the top of the hill).
 
-In this case, the path challenge would be to solve a physics problem - is the weight of the robot, the power of the motor, and the inclination of the slope sufficient to reach the top, and are there any routes (sequences of places) that the robot can take if the slope is too challenging? If the problem is solved, then the robot goes ahead with the selected route, otherwise, the lock remains locked.
+In this case, the path challenge would be to solve a physics problem - is the weight of the robot, the power of the motor, and the inclination of the slope sufficient to reach the top, and are there any routes (sequences of locations) that the robot can take if the slope is too challenging? If the problem is solved, then the robot goes ahead with the selected route, otherwise, the lock remains locked.
 
 For a sufficient large hyperspace, the mesh of potential paths can more closely represent a curve. For instance, the road may be treated as a space with a fairly high density of hexes, and rather than trying to tackle the road head-on in a linear fashion, it ascends the road as a series of switchbacks (much like a sailboat tacking against the wind).
 
@@ -260,4 +254,4 @@ image::ice-steam-plasma.png[Transitions of state between ice, steam, plasma]
 //    ice <--> steam
 // ----
 
-The agent's position across the hyperspace of places indicates what state the agent is in, where the agent can be seen as a marker for the current state.
+The agent's position across the hyperspace of locations indicates what state the agent is in, where the agent can be seen as a marker for the current state.
