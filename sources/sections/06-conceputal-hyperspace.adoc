@@ -3,88 +3,69 @@
 
 === Spatial Web Hyperspace
 
-The concept of hyperspace is fundamental for the Spatial Web and an organizing
-method for entities in the UDG. To support this fundamental role, clause 6.2 of
-IEEE P2874 provides a formal definition of hyperspace, as any set whose elements
-are related by a formal notion of _path_.  The basic classes of hyperspace
-include: Graphs including Cellular spaces and Vector spaces with coordinate
-systems.
+The concept of hyperspace is fundamental for the Spatial Web and an organizing method for entities in the UDG. To support this fundamental role, clause 6.2 of IEEE P2874 provides a formal definition of hyperspace, as any set whose elements are related by a formal notion of _path_.  The basic classes of hyperspace include: Graphs including Cellular spaces and Vector spaces with coordinate systems.
 
 [[basic-classes-of-hyperspace]]
 .Basic classes of hyperspace
 image::hyperspace_basic_classes.png[Basic classes of hyperspace and their relationships]
 
-Geographic space can be modelled as a particular kind of cellular space, called
-a _Discrete Global Grid System_ (DGGS), which typically models both
-three-dimensional physical space plus one time dimension. DGGSs therefore
-provide the Spatial Web with an approach for embedding geographic space into
-cellular or graphy hyperspace. The figure below illustrates a framework for the
-coordination of geographic DGGS and CRS with Spatial Web hyperspace.
+<<IEEE_2874_2025, Spatial Web Protocol Architecture and Governance>> defines the following hyperspace concepts
+
+* Classes of hyperspace: graphs, vector spaces, hypergraphs, abstract data types.  
+* Hyperspaces of spaces: where a point of a space is a space of the corresponding type
+* Cellular spaces: in which cells of a chosen type are connected according to a schema.
+* Geographic spaces: locations relative to the Earth
+* Time in hyperspace: as a dimension, as a duration, as a trajectory 
+* Structures: origin, dimension, metric, similarity, norm and inner product
+* Operations: products, sums, subspaces
+* Connecting spaces: points in common to multiple subspaces, i.e., Portal.
+
+
+
+
+Use of DGGS allows geographic Domains to be embedded as graphs in the Spatial Web UDG which is also a graph space.
+
+=== DOMAIN locations in hyperspace
+
+DOMAINS are represented in hyperspace by identifying the type of hyperspace and the location of the DOMAIN in the hyperspace.  
+
+For Geographic DOMAINS, the hyperspace may be a geographic Coordinate Reference System (CRS) or a cellular space with an associated graph. Geographic space can be modelled as a particular kind of cellular space, called a _Discrete Global Grid System_ (DGGS), which typically models both three-dimensional physical space plus one time dimension. DGGSs therefore provide the Spatial Web with an approach for embedding geographic space into cellular or graphy hyperspace. The figure below illustrates a framework for the coordination of geographic DGGS and CRS with Spatial Web hyperspace.  Latitude and Longitude are examples of location in a CRS.  Alternatively, the ECEF Geographic CRS uses 3 orthogonal axis located at the center of the Earth.  
 
 .Embedding geographic space in hyperspace
 image::embedding_geo.jpeg[Embedding Geospatial in Hyperspace]
 
-Use of DGGS allows geographic Domains to be embedded as graphs in the Spatial
-Web UDG which is also a graph space.
+For Concept DOMAINS, the use of coordinates and graphs can be extended from geographic locations to conceptual locations.  The motivation for using a coordinate location for conceptual DOMAIN will be become apparent through spatial embedding.
 
 === Spatial embedding of Spatial Web entities
 
-The Spatial Web defines space as hyperspace in order to represent many entity
-properties using a spatial embedding approach.   Spatial embedding: mathematical
-methods for representing data in a continuous, multi-dimensional vector space.
-Spatial embedding was a key technology to the recent advances in LLM AI, see for
-example, Distributed Representations of Words and Phrases and their
-Compositionality, Mikolov, et.al. NIPS-2013
+The Spatial Web defines space as hyperspace in order to represent many entity properties using a spatial embedding approach.   Spatial embedding: mathematical methods for representing data in a continuous, multi-dimensional vector space.
+Spatial embedding was a key technology to the recent advances in LLM AI, see for example, Distributed Representations of Words and Phrases and their Compositionality, Mikolov, et.al. NIPS-2013
 
-LLMs use spatial embedding for linguistic concepts, encoding words as vectors,
-also called  Word2Vec.  The Spatial Web uses spatial embedding for the Spatial
-Web ENTITIES.  One inspiration for this approach is World2Vec.   World2Vec was
-an internal name for a project led by
-https://x.com/ylecun/status/1523018860731023361[Yann LeCunn]
+LLMs use spatial embedding for linguistic concepts, encoding words as vectors, also called  Word2Vec.  The Spatial Web uses spatial embedding for the Spatial Web ENTITIES.  One inspiration for this approach is World2Vec.   World2Vec was
+an internal name for a project led by https://x.com/ylecun/status/1523018860731023361[Yann LeCunn]
 
 Recent research has shown that features in LLM spatial embeddings may have universal applicability.
 
-"Representing Features in Hyperspace Geography; Extracting Interpretable
-Features" is a study by
-https://transformer-circuits.pub/2024/scaling-monosemanticity/[Anthropic]. They
-found a diversity of highly abstract features in Claude 3. Examples of features
-they found include features for famous people, features for countries and
-cities. Many features are multilingual (responding to the same concept across
-languages) and multimodal (responding to the same concept in both text and
-images), as well as encompassing both abstract and concrete instantiations of
-the same idea.
+"Representing Features in Hyperspace Geography; Extracting Interpretable Features" is a study by https://transformer-circuits.pub/2024/scaling-monosemanticity/[Anthropic]. They found a diversity of highly abstract features in Claude 3. Examples of features they found include features for famous people, features for countries and cities. Many features are multilingual (responding to the same concept across languages) and multimodal (responding to the same concept in both text and
+images), as well as encompassing both abstract and concrete instantiations of the same idea.
 
 https://arxiv.org/pdf/2405.07987["The Platonic Representation Hypothesis", Huh, et.al. 2024],
-observes that representations in AI models, particularly deep networks, are
-converging. Different neural networks representations are becoming more aligned.
-Convergence is occurring across modalities: vision models and language. This
-convergence is driving toward a shared statistical model of reality, akin to
-Plato's concept of an ideal reality.
+observes that representations in AI models, particularly deep networks, are converging. Different neural networks representations are becoming more aligned. Convergence is occurring across modalities: vision models and language. This convergence is driving toward a shared statistical model of reality, akin to Plato's concept of an ideal reality.
 
 
 === Indexing Spatial Web graph entities using hyperspace embedding
 
-The UDG KG contains a graph of Spatial Web Entities.  Spatial embedding of the
-world, e.g., World2Vec, results in generalized features in hypespace.
+The UDG KG contains a graph of Spatial Web Entities.  Spatial embedding of the world, e.g., World2Vec, results in generalized features in hypespace.
 
-Development is needed along the lines of linking UDG KG entities with features
-in Coordinate Hyperspace.
+Development is needed along the lines of linking UDG KG entities with features in Coordinate Hyperspace.
 
-This ability to go between graph and coordinate domains may provide a basis for
-semantic interoperabilty.
+This ability to go between graph and coordinate domains may provide a basis for semantic interoperabilty.
 
 === Hyperspace Entity Locators (HELs)
 
-Vector emdedding occurs in a vector space.  Vector spaces are indexed using
-coordinate systems.  The coordinates are the index. Here a vector may have up to
-1024 dimensions.
+Vector emdedding occurs in a vector space.  Vector spaces are indexed using coordinate systems.  The coordinates are the index. Here a vector may have up to 1024 dimensions.
 
-Geogrpahic space is indexed by Coordinate Reference Systems.  A CRS includes
-both a Coordinate System (CS) and a Datum.  The CS provides the dimensions and
-units.  The Datum anchors the abstract CS to the physical world.  Typically a
-Datum includes a benchmark plate at a specific location to which coordinates are
-assigned.  The assigned coordinates for that location allow for transformation
-to a CRS with a different datum.  (See ISO 19111, Referencing by coordinates)
+Geogrpahic space is indexed by Coordinate Reference Systems.  A CRS includes both a Coordinate System (CS) and a Datum.  The CS provides the dimensions and units.  The Datum anchors the abstract CS to the physical world.  Typically a Datum includes a benchmark plate at a specific location to which coordinates are assigned.  The assigned coordinates for that location allow for transformation to a CRS with a different datum.  (See ISO 19111, Referencing by coordinates)
 
 A coordinate set such as latitude and longitude is ambigous unless a datum is
 specified.  The GPS positioning system led to the most widely used family of

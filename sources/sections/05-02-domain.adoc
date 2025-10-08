@@ -90,8 +90,6 @@ EDITOR: the additional concepts related to DOAMIN types is under review.
 
 Additional concepts are being considered relevant to DOMAIN types. These are differentiated as follows:
 
-* A __place__ is defined roughly as a specific addressable location within a domain. Places define where an entity can be, and where they can't. Cf <<places,Places>> for more information.
-
 * A __link__ is a mechanism for navigating between both places (internal links) and domains (external links). It is the analog of a hypertext link in the HTTP world.Cf. <<links,Links>> for more information.
 
 * A __sensor__ is an abstraction of a camera, recording device, eyeball, etc. Its purpose is to provide a reference point of view for an entity within a domain (or of the domain itself).  Cf. <<sensors,Sensors>> for more information.

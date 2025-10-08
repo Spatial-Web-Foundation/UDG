@@ -15,6 +15,8 @@ include::05-02-domain.adoc[leveloffset=+2]
 
 include::05-03-links-membership.adoc[leveloffset=+2]
 
-include::05-04-queries-use-case.adoc[leveloffset=+2]
+include::05-04-queries.adoc[leveloffset=+2]
 
-include::05-05-udg-taxonomy.adoc[leveloffset=+2]
+include::05-04-use-cases.adoc[leveloffset=+2]
+
+include::05-06-udg-taxonomy.adoc[leveloffset=+2]
