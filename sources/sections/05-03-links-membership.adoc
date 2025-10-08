@@ -111,6 +111,8 @@ A portal may be used by an AGENT to move between spaces.  The path of the agent 
 
 Portals access may be constrained by the requirement that the initiating agent has access to a cryptographic key in order to activate the portal. Such keys may be associated with dedicated agents in a Bag relationship.
 
+EDITOR: The OMA3 Inter-World Portaling System (IWPS) draft standard may be relevant for Spatial Web.  IWPS presents a framework for digital interoperability, acting as the 3D equivalent to a web hyperlink, linking users to various virtual worlds. The IWPS standard enables users to move between applications, even on different devices, effectively serving as a generic application launcher. 
+
 
 == Membership in a DOMAIN
 
