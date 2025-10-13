@@ -1,0 +1,68 @@
+= Spatial embedding of Spatial Web entities
+
+== Spatial embedding of concepts 
+
+The Spatial Web defines space as hyperspace in order to represent many entity properties using a spatial embedding approach.   Spatial embedding: mathematical methods for representing data in a continuous, multi-dimensional vector space.
+
+Spatial embedding was a key technology to the recent advances in LLM AI, see for example, Distributed Representations of Words and Phrases and their Compositionality, Mikolov, et.al. NIPS-2013
+
+LLMs use spatial embedding for linguistic concepts, encoding words as vectors, also called  Word2Vec.  The Spatial Web uses spatial embedding for the Spatial Web ENTITIES.  One inspiration for this approach is World2Vec.   World2Vec was
+an internal name for a project led by https://x.com/ylecun/status/1523018860731023361[Yann LeCunn]
+
+
+Distributed Representations of Words and Phrasesand their Compositionality
+The recently introduced continuous Skip-gram model is an efficient method forlearning high-quality distributed vector representations that capture a large num-ber of precise syntactic and semantic word relationships. In this paper we presentseveral extensions that improve both the quality of the vectors and the trainingspeed. By subsampling of the frequent words we obtain significant speedup andalso learn more regular word representations. We also describe a simple alterna-tive to the hierarchical softmax called negative sampling
+ author = {Mikolov, Tomas and Sutskever, Ilya and Chen, Kai and Corrado, Greg S and Dean, Jeff},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {C.J. Burges and L. Bottou and M. Welling and Z. Ghahramani and K.Q. Weinberger},
+ pages = {},
+ publisher = {Curran Associates, Inc.},
+ title = {Distributed Representations of Words and Phrases and their Compositionality},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2013/file/9aa42b31882ec039965f3c4923ce901b-Paper.pdf},
+ volume = {26},
+ year = {2013}
+
+
+ Word2vec is a technique in natural language processing (NLP) for obtaining vector representations of words. These vectors capture information about the meaning of the word based on the surrounding words. The word2vec algorithm estimates these representations by modeling text in a large corpus. Once trained, such a model can detect synonymous words or suggest additional words for a partial sentence. Word2vec was developed by Tomáš Mikolov and colleagues at Google and published in 2013.
+https://en.m.wikipedia.org/wiki/Word2vec 
+No activity since 2018
+
+
+World2Vec
+https://github.com/ppn029012/World2Vec#world2vec
+Natural Language can not be understood well by computer, the main reason of it is that the computer can not understand the world behind the text. Therefore, the only way we can bring the concious understanding is to create a virtual world for computer, where it can read, learn and predict, and understand.
+World2Vec Project is a plan to mapping the real world to a vector, which will finally help the computer understand the language and the world.
+
+== Cartographic example of concept mapping
+
+Geography and cartography are a source of rich metaphors. However, have you ever seen these landscapes? And do maps of products or innovation in any meaningful manner look or function like the real-world artifact after which they are presumably fashioned? An artifact whose history goes back millennia, and whose modern incarnation in the form of GIS has become a fulcrum of enterprise computing for many governments and businesses. Think about all that depends on the ability to place anyone and anything in geographic space, from transportation to public health, environmental protection, and national defense. Meanwhile, hundreds of years of cartographic innovation yielded solid principles for how data can be turned into symbols, leading the way for what we now call data visualization. With that in mind, some have long argued that geography and cartography can yield not only metaphors but also methods for shaping a wide range of non-georeferenced data into a visual, map-like form. BigKnowledge is turning that vision into reality with the BoKMap platform for exploration, discovery, and insight in document spaces.
+https://researchmethodscommunity.sagepub.com/blog/concept-grant-update-bigknowledge
+
+.Cartographic example of spatial embedding of geographic concepts
+image::geospatial_explorer.png[Cartographic example of spatial embedding of geographic concepts]
+
+
+== Useful functions based on embedding
+
+We find that these representationsare surprisingly good at capturing syntacticand semantic regularities in language, andthat each relationship is characterized by arelation-specific vector offset. This allowsvector-oriented reasoning based on the offsetsbetween words. For example, the male/femalerelationship is automatically learned, and withthe induced vector representations, “King -Man + Woman” results in a vector very closeto “Queen.” - Linguistic Regularities in Continuous Space Word Representations, Tomas Mikolov∗ , Wen-tau Yih, Geoffrey Zweig, 
+Proceedings of NAACL-HLT 2013, pages 746–751,
+
+
+=== Hyperspace Entity Locators (HELs)
+
+Vector emdedding occurs in a vector space.  Vector spaces are indexed using coordinate systems.  The coordinates are the index. 
+
+Geogrpahic space is indexed by Coordinate Reference Systems.  A CRS includes both a Coordinate System (CS) and a Datum.  The CS provides the dimensions and units.  The Datum anchors the abstract CS to the physical world.  Typically a Datum includes a benchmark plate at a specific location to which coordinates are assigned.  The assigned coordinates for that location allow for transformation to a CRS with a different datum.  (See ISO 19111, Referencing by coordinates)
+
+A coordinate set such as latitude and longitude is ambigous unless a datum is specified.  The GPS positioning system led to the most widely used family of datums known as WGS-84.
+
+By analogy, investigation is needed to determine if Hyperspace Reference System (HRSs) can be defined for hyperspace coordinates systems using for Spatial Web embedding.  CS systems for spatial embedding already exist.  Datums for Spatial Web hyperspace HRSs are needed. The datums most likely will be based on real-world semantics.  Real-world semantic datums may allow for transformation between HRSs based on differing semantic datums.
+
+With HRSs based on semantic datums defined, Hyperspace Entity Locators (HELs) can be defined. Much like URLs locate based on hypertext, HELs would location an ENTITY ased on an HRS.  HELs would locate ENTITIES in hyperspace.
+
+With HRS and HEL defined, the ability to go from the UDG KG to Hyperspace can be done.  ENTITIES in UDG KG would include an HEL to located it in hyperspace. Thereby providing every KG ENTITY a locating in an HRS; and the locations could
+be converted between HRSs.
+
+It would be important to define HRS that are useful across many DOMAINS.
+
+

@@ -1,0 +1,69 @@
+= Hyperspace Geography
+
+== Hyperspace geography defined
+
+Traditional geography is the study of objects and phenomena that are directly or indirectly associated with a location relative to the Earth. 
+
+Hyperspace geography is an ecology of humans and autonomous agents interacting as complex adaptive systems in physical space and extended to hyperspace. 
+
+The First Law of Geography states that “everything is related to everything else, but near things are more related than distant things” Miller [B89]. Traditional geography calculates this distance in physical space. 
+
+The Spatial Web extends the First Law by calculating distance in hyperspace. In hyperspace, entities may be physically distant while being strongly coupled in other dimensions.
+
+By identifying strong relations between entities that are close in hyperspace but may be physically distant, the Spatial Web defines hyperspace geography. Such a hyper-geography provides new perspectives
+
+
+== DOMAINS in hyperspace geography
+
+Features are the key concept for modeling objects and phenomena in traditional geography.  In the Spatial Web, DOMAINS play the role that features play in traditional geography. DOMAINS like features are abstractions of phenomena of interest.
+
+Features in traditional geography include continents, mountains, rivers, countries, cities, roads, buildings, houses, and many others.  DOMAINS in the Spatial Web include these traditional features and include entities not considered features in traditional geography: concepts, organizations, agents.
+
+Geographic information uses Spatial Referencing Systems (SRS) for location referencing including Coordinate Reference Systems, Discrete Global Grids, and civic addressing. The Spatial Web extends SRSs to include graph referencing systems
+
+Features in traditional geography are conceptual and have geometric attributes in a physical space, e.g., the boundary of a parcel of ground.  As there may be multiple geometries associated with a feature, the feature exists independent of the geometric attribute.  Determining the geometry of an attribute may not be easy or unique.
+
+DOMAINS in the Spatial Web exist independently of having a hyperspace represenation.  A DOMAIN may have multiple hyperspace represenations.  A DOMAIN may have hypspace represenations of differing types: graphc, cellular, coordinate.  A DOMAIN may have multiple represenations of the same type: several coordinate geometries.
+
+== Features in LLM spatial embedding
+
+Recent research has shown that features in LLM spatial embeddings may have universal applicability.
+
+"Representing Features in Hyperspace Geography; Extracting Interpretable Features" is a study by https://transformer-circuits.pub/2024/scaling-monosemanticity/[Anthropic]. They found a diversity of highly abstract features in Claude 3. Examples of features they found include features for famous people, features for countries and cities. Many features are multilingual (responding to the same concept across languages) and multimodal (responding to the same concept in both text and
+images), as well as encompassing both abstract and concrete instantiations of the same idea.
+
+https://arxiv.org/pdf/2405.07987["The Platonic Representation Hypothesis", Huh, et.al. 2024],
+observes that representations in AI models, particularly deep networks, are converging. Different neural networks representations are becoming more aligned. Convergence is occurring across modalities: vision models and language. This convergence is driving toward a shared statistical model of reality, akin to Plato's concept of an ideal reality.
+
+
+== Universal Geometry of Embeddings
+
+We introduce the first method for translating text embeddings from one vector space to another without any paired data, encoders, or predefined sets of matches. Our unsupervised approach translates any embedding to and from a universal latent representation (i.e., a universal semantic structure conjectured by the Platonic Representation Hypothesis). Our translations achieve high cosine similarity across model pairs with different architectures, parameter counts, and training datasets. The ability to translate unknown embeddings into a different space while preserving their geometry has serious implications for security. An adversary with access to a database of only embedding vectors can extract sensitive information about underlying documents, sufficient for classification and attribute inference.
+ title={Harnessing the Universal Geometry of Embeddings}, 
+      author={Rishi Jha and Collin Zhang and Vitaly Shmatikov and John X. Morris},
+      year={2025},
+      eprint={2505.12540},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2505.12540},
+
+
+
+== Manifolds in Hyperspace Geography
+
+GeoCognition based on location, social nets 2014_Lee
+	- [ ] Cyber-physical geography references
+	- [ ] TOPOLOGY AND DATA, Carlsson 2009
+	- [ ] data topology
+	- [ ] maps for AI
+
+Tangential Action Spaces, Blattner, 2025
+		TAS consists of three manifolds/subspaces: Physical, Cognitive, Intentional along with functions for mapping between the spaces; mappings which constrain the paths in each space.
+TAS hints at necessary rules for structures in the UDG which could be utilized for desired UDG-based behaviors of Agents
+
+
+
+
+== SWF Atlas of Hyperspace Geography
+
+A UDG Atlas will define regions of the UDG that have semantic similarity.  The UDG Atlas then becomes a basis for the distributed replication of the large knowledge base that is the UDG.

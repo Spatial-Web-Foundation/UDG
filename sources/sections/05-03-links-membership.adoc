@@ -111,6 +111,10 @@ A portal may be used by an AGENT to move between spaces.  The path of the agent 
 
 Portals access may be constrained by the requirement that the initiating agent has access to a cryptographic key in order to activate the portal. Such keys may be associated with dedicated agents in a Bag relationship.
 
+A landing place is a place within a domain that is used to indicate where a given agent is placed (lands) when entering a domain without an explicit link to a place. This can be thought of as the "home" of the domain, and is indicated as a property of the domain. This corresponds roughly with the top of an HTML page when it is rendered.
+
+Typically portals will take you from a place to another place, but it is possible to link to other entities. Such links will take you to the location of that entity. For instance, if you wanted to join a party (an link:aggregations.md[aggregation]), then you could use the SWID of that aggregation to take you to where that party is located, even if that party moves around. See <<links,Links>> for more details.
+
 EDITOR: The OMA3 Inter-World Portaling System (IWPS) draft standard may be relevant for Spatial Web.  IWPS presents a framework for digital interoperability, acting as the 3D equivalent to a web hyperlink, linking users to various virtual worlds. The IWPS standard enables users to move between applications, even on different devices, effectively serving as a generic application launcher. 
 
 

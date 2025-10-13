@@ -1,0 +1,38 @@
+= Spatial Web Hyperspace
+
+== Classes of hypespace
+
+The concept of hyperspace is fundamental for the Spatial Web and an organizing method for entities in the UDG. To support this fundamental role, clause 6.2 of IEEE P2874 provides a formal definition of hyperspace, as any set whose elements are related by a formal notion of _path_.  The basic classes of hyperspace include: Graphs including Cellular spaces and Vector spaces with coordinate systems.
+
+[[basic-classes-of-hyperspace]]
+.Basic classes of hyperspace
+image::hyperspace_basic_classes.png[Basic classes of hyperspace and their relationships]
+
+<<IEEE_2874_2025, Spatial Web Protocol Architecture and Governance>> defines the following hyperspace concepts
+
+* Classes of hyperspace: graphs, vector spaces, hypergraphs, abstract data types.  
+* Hyperspaces of spaces: where a point of a space is a space of the corresponding type
+* Cellular spaces: in which cells of a chosen type are connected according to a schema.
+* Geographic spaces: locations relative to the Earth
+* Time in hyperspace: as a dimension, as a duration, as a trajectory 
+* Structures: origin, dimension, metric, similarity, norm and inner product
+* Operations: products, sums, subspaces
+* Connecting spaces: points in common to multiple subspaces, i.e., Portal.
+
+
+== Attributes associated with hyperspace
+
+Location identifies a specific place in a hyperspace.
+Location in hyperspace can be of several types: cell address, coordinate 
+location in HSML:  graph:Node, cell identifier, coordinates as well-known-text, tensor 
+
+Geometries
+Entities have a hyperspace:spatialProperty (e.g., geo:hasGeometry, hspace:cell) to point to the actual value.
+
+Entities as features of hyperspace
+
+Neighborhoods in hyperspace 
+
+
+
+

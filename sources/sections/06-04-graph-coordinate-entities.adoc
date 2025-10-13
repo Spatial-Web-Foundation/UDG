@@ -1,0 +1,233 @@
+= Using hyperspace geography
+
+== Geography as both geometry and topology
+
+The UDG KG contains a graph of Spatial Web Entities.  Spatial embedding of the world, e.g., World2Vec, results in generalized features in hyperspace. Development is needed along the lines of linking UDG KG entities with features in Coordinate Hyperspace. This ability to go between graph and coordinate domains may provide a basis for semantic interoperabilty.
+
+DOMAINS are represented in hyperspace by identifying the type of hyperspace and the location of the DOMAIN in the hyperspace.  
+
+For Geographic DOMAINS, the hyperspace may be a geographic Coordinate Reference System (CRS) or a cellular space with an associated graph. Geographic space can be modelled as a particular kind of cellular space, called a _Discrete Global Grid System_ (DGGS), which typically models both three-dimensional physical space plus one time dimension. DGGSs therefore provide the Spatial Web with an approach for embedding geographic space into cellular or graphy hyperspace. The figure below illustrates a framework for the coordination of geographic DGGS and CRS with Spatial Web hyperspace.  Latitude and Longitude are examples of location in a CRS.  Alternatively, the ECEF Geographic CRS uses 3 orthogonal axis located at the center of the Earth.  
+
+.Embedding geographic space in hyperspace
+image::embedding_geo.jpeg[Embedding Geospatial in Hyperspace]
+
+For Concept DOMAINS, the use of coordinates and graphs can be extended from geographic locations to conceptual locations.  The motivation for using a coordinate location for conceptual DOMAIN will be become apparent through spatial embedding.
+
+
+
+== improving graphs using vector embedding
+
+Spatio-temporal state embedding for knowledge graph completion
+Xiaoyu Ji, Yibing Cao, Jiangshui Zhang, Xinke Zhao,
+STSE: Spatio-temporal state embedding for knowledge graph completion,
+Knowledge-Based Systems,
+Volume 317,
+2025,
+113469,
+ISSN 0950-7051,
+https://doi.org/10.1016/j.knosys.2025.113469.
+(https://www.sciencedirect.com/science/article/pii/S0950705125005167)
+Abstract: The explicit integration of temporal and geospatial features into knowledge graphs enables more precise characterization of knowledge dynamics across temporal and geographic dimensions, while simultaneously amplifying the complexity of inferring missing facts in spatio-temporal knowledge graphs (STKGs). To address these dual challenges in Spatio-Temporal Knowledge Graph Completion (STKGC), we present STSE (Spatio-Temporal State Embedder), an innovative embedding framework that systematically coordinates relational semantics with spatial-temporal continuum modeling. Our technical contributions manifest through three key innovations: (1) A novel descriptive form that enhances practicality by distinguishing head/tail entity locations in tuples; (2) A geometry-aware embedding space that dynamically fuses spatial grids and temporal slices through spatio-temporal states, enabling robust reasoning on heterogeneous graphs; (3) An enhanced encoder that captures complex spatio-temporal contextual relationships between entities using modified Transformer and ResNet architectures. Experimental validation across three benchmark datasets (YAGO11k-ST, Wikidata12k-ST, ICEWS05-ST) demonstrates STSE's superiority, achieving 3.8 % Mean Reciprocal Rank (MRR) improvement in time prediction and 7.1 % Hits@10 enhancement in spatial location reasoning compared to state-of-the-art baselines. This methodological breakthrough establishes three implementable principles for STKGC: (1) geometric consistency constraints during fusion operations, (2) spatio-temporal difference capturing across heterogeneous relationships, (3) cross-domain applications ranging from epidemiological spread prediction to urban mobility pattern mining.
+
+
+== creating global EO models
+
+Massive Earth Observation (EO) archives containing hundreds of petabytes of dataoffer a huge potential for understanding the Earth’s resources and potential hazards tosecurity while also addressing societal challenges. Even so, extracting actionableinsights remains a challenge. This data requires specialized knowledge in machinelearning and geospatial expertise as well as significant computational resources. Whilethe size and value of these archives is constantly increasing, we are not makingmeaningful progress fast enough to handle the challenges of our changing world
+Element 84
+
+Global and Dense Embeddings of Earth: Major TOM Floating in the Latent Space
+With the ever-increasing volumes of the Earth observation data present in the archives of large programmes such as Copernicus, there is a growing need for efficient vector representations of the underlying raw data. The approach of extracting feature representations from pretrained deep neural networks is a powerful approach that can provide semantic abstractions of the input data. However, the way this is done for imagery archives containing geospatial data has not yet been defined. In this work, an extension is proposed to an existing community project, Major TOM, focused on the provision and standardization of open and free AI-ready datasets for Earth observation. Furthermore, four global and dense embedding datasets are released openly and for free along with the publication of this manuscript, resulting in the most comprehensive global open dataset of geospatial visual embeddings in terms of covered Earth’s surface.
+https://arxiv.org/html/2412.05600v1
+
+AlphaEarth Foundations: An embedding field model for accurate and efficient global mapping from sparse label data
+title={AlphaEarth Foundations: An embedding field model for accurate and efficient global mapping from sparse label data}, 
+      author={Christopher F. Brown and Michal R. Kazmierski and Valerie J. Pasquarella and William J. Rucklidge and Masha Samsikova and Chenhui Zhang and Evan Shelhamer and Estefania Lahera and Olivia Wiles and Simon Ilyushchenko and Noel Gorelick and Lihui Lydia Zhang and Sophia Alj and Emily Schechter and Sean Askay and Oliver Guinan and Rebecca Moore and Alexis Boukouvalas and Pushmeet Kohli},
+      year={2025},
+      eprint={2507.22291},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2507.22291}, 
+
+
+
+=== Knowledge derivation in hyperspace
+
+- Amazingly, analogies are identified by subtracting vectors of embedded words (Russell and Norvig, 2024, chap 25.)
+- For the Spatial Web, knowledge derivation by subtracting vectors of embedded domains?
+
+
+- [ ] 6.4. Indexing Spatial Web graph entities using hyperspace embedding 45
+- [ ] Geographic example
+- [ ] Category theory from P2874
+- [ ] Cateogry Theory JD for Toby
+- [ ] Energy example
+	- [ ] From p2874
+	- [ ] from digital twins energy twin
+
+
+
+
+== Game board examples 
+
+To make this definition clearer, consider a domain that represents a game (an instance) of _chess_. There are 66 potential cells where a given piece can be located - the 64 squares that make up an 8x8 chessboard, and two cache areas, one for each player, where pieces that are removed are located.
+
+image::SCD_algebraic_notation.svg[Chess Board, using algebraic notation and the initial starting position for the black pieces]
+
+This link:https://en.wikipedia.org/wiki/Algebraic_notation_%28chess%29[board nomenclature] is considered canonical by link:https://en.wikipedia.org/wiki/FIDE[FIDE, the International Chess Federation].
+
+Each of these cells has a distinct identifier that makes up its address, and, within the scope of a particular game of chess, is considered unique. Note that the places here are not globally unique - the same position may be used across multiple games across multiple servers - but within the context of its domain, it IS unique.
+
+We can also make up notations for each of the two caches - White Cache (WC) and Black Cache (BC) for pieces that are outside the formal scope of the board but nonetheless represent the location of a specific piece. If I move the White Queen (WQ) to e4, then that piece is now located in the cell 4 units up from the White queen's side of the board and five units (e) from the left edge of the board.
+
+It is worth noting that the hyperspace here is ONLY these particular squares (or caches). You cannot go to position j17, because such a position, while plausable, does not exist within the set of all permissible places in the hyperspace.
+
+It is also worth noting that movement from cell to cell within a domain does not have to follow contiguity rules. The knight in particular is very constrained in where it can go (if the knight is on e4, than it can go to d6, f6, c3, c5, g3, g5, d2 or f2, but it cannot go to d4 or f4, which are contiguous to it ), but can also move over other pieces so long as the target place is not occupied by a piece of their own color.
+
+This is worth reiterating - a Spatial Web Domain is not a perfect reproduction of the real world. The knight cannot move within its cell in this particular domain (though a representation could move within that square, it's not something that is considered in the model).
+
+To extend this, you can consider a hexagonal tiling of a space, as may be considered by a table top war game. The addressing in this space is more complex, because each hexagon has a particular index (address) that can be derived from some particular algorithm. The link:https://h3geo.org[H3 System] system used by Uber is an illustration of such a tiling system on a sphere.
+
+image::st_hexagongrid01.png[Hexagonal tiling]
+
+A cell can also be defined in terms of an array of such tiling indices. These can in turn be hashed in some fashion to am irregular polygon. For instance, in the game of Risk, you can create such polygon that describe each of the "countries" in the game. Note that what is important in Risk is the movement from country (say Kamchatka) to country (Alaska).
+
+image::risk-map.png[The Risk World View]
+
+In this particular map, the specific boundaries or definitions as geometries are less important than the underlying topology of the map (shown here specifically for North America)
+
+[[map_north_america]]
+.Map of North America as a graph
+image::north-america.png[Map of North America as a graph]
+
+// [source,mermaid]
+// ----
+// graph TD
+//
+//     subgraph North America
+//         Alaska(Alaska)
+//         NWTerritory(NW Territory)
+//         Greenland(Greenland)
+//         Alberta(Alberta)
+//         Ontario(Ontario)
+//         Quebec(Quebec)
+//         WesternUS(Western US)
+//         EasternUS(Eastern US)
+//         CentralAmerica(Central America)
+//
+//         Alaska --- NWTerritory
+//         Alaska --- Alberta
+//         Alaska --- Kamchatka_Asia
+//
+//         NWTerritory --- Greenland
+//         NWTerritory --- Alberta
+//         NWTerritory --- Ontario
+//
+//         Greenland --- Ontario
+//         Greenland --- Quebec
+//         Greenland --- Iceland_Europe
+//
+//         Alberta --- Ontario
+//         Alberta --- WesternUS
+//
+//         Ontario --- Quebec
+//         Ontario --- EasternUS
+//         Ontario --- WesternUS
+//
+//         WesternUS --- EasternUS
+//         WesternUS --- CentralAmerica
+//
+//         EasternUS --- CentralAmerica
+//
+//         CentralAmerica --- Venezuela_SA
+//     end
+//
+// ----
+
+This notion of identifying the cells within a domain is useful in a number of ways because it forces thinking in terms of topology, rather than geometry. There are ways of specifying the extents of particular cells from a rendering standpoint (typically as sheets of polygons) but in most domains, dealing with the conceptual representation of a place is often far more important than dealing with a precise geometrical distribution.
+
+In a topological view, cells are connected via links. These represent permissible trajectories that a given agent can move to from a given place, absent any other constraining information. For instance, from Ontario, one can go to the Eastern or Western United States, Greenland, Quebec or Alberta, but you cannot go to Central America or Iceland directly without passing through an intervening country.
+
+This approach requires a certain degree of pre-planning. One reason that games are used as a metaphor is that they often allow for a significant reduction in the number of dimensions necessarily to capture a model. They also make goal achievement more feasible, because the agent or thing in the system can identify a goal and work with the information inherent in the topology rather than trying to intrinsically capture the specifics of how to achieve these goals.
+
+
+== Topologies in higher dimensions
+
+Topologies also work in higher dimensions and non-geospatial contexts. If you have an assembly line, for instance, the actual position of an object becomes secondary to where it is in terms of station and process. This is a key point, because once you move into a topological description of space, you can connect places via workflows (or even talk about conceptual stations that represent a place where you gain more information or perform specific actions), without having to deal with physical proximity as well.
+
+For instance, a physical description of the body can be rendered in one of three ways: the physical, using a tranverse plane coordinate system, can be helpful for developing models, but because bodies can be wildly different from individual to individual, most doctors make use of a taxonomic approach for describing the various systems - skeletal, musculature, pulminary, vascular, etc, then using relational maps and juncture points to indicate the specific connections. This anatomical hyperspace can identify not only location but also body system, and can be tied into diagnostics and drug pathway interaction graphs. Similarly, voxel type systems can be used to identify (with CRT partitioning) specific entities as aggregates of voxels, just as you would use hex tiling to do the same thing in two dimensions.
+
+
+=== The Topological Hyperspace
+
+A topological space is one in which direct physical constraints are minimized in
+favor of conceptual ones. In effect, a domain consists of a set of places, each
+of which is a conceptual node connected by links. The set of all places that are
+traversable within the graph makeup the hyperspace for that domain, with the
+links in turn controlling access from one place to another within the domain.
+
+[source,mermaid]
+----
+---
+config:
+    layout: elk
+---
+graph LR
+    r1[Room1]
+    r2[Room2]
+    r3[Room3]
+    r4[Room4]
+    r5[Room5]
+    r6[Room6]
+    r1 -->|=9758;| r2
+    r1 -->|=9919;| r3
+    r2 -->|=9919;| r4
+    r3 -->|=9758;| r4
+    r2 -->|=9758;| r3
+    r4 -->|=9719;| r5
+    r4 -->|=9758;| r6
+----
+
+In this case, the hyperspace for the domain consists of six "rooms", each
+connected by links of various types:
+
+* Pointers (&=9758;) represent open links - an agent can move from one room to
+the next freely.
+
+* Keys (&=9919;) represent locked links - the agent needs some form of key to
+open the link and move to the next room.
+
+* Finally, clocks (&=9719;) represents conditional locks - an external condition
+(such as a store being closed for the night) must be met before traversal can
+happen.
+
+This is an example of a topological domain. It consists of six Places, but each
+Place does not necessarily have to represent a physical location in the real
+world. Instead, the place is simply a scope for containment. It could represent
+stations in an assembly line, steps in a process, a detailed internal
+representation of a given subsystem, and so forth.
+
+The notion of linked places can be used to create an alternative for managing
+holonic viewpoints. For instance, if you have a place that represents a car,
+there is a link (perhaps the button that releases the latch that holds the hood
+closed), which will then take you to an entry place ("room") that contains the
+engine compartment, and that lets you in turn dig deeper into the engine, the
+battery, the alternator and so forth.
+
+This approach has a number of key advantages - first - you can control access to
+various subsystems because they are topological just places within the overall
+domain that are constrained by the links that connect them. Because links are
+contextual, you can only access certain subsystem if either you (or your agent)
+have the relevant key or some external condition is in force.
+
+This also relieves the Spatial Web of having to do heavy extensive physical
+mapping. This can be added back in, either by increasing the number of places to
+better represent a tighter partitioning of the space, or by providing more
+subtle links to create more neighborhoods (these are essentially equivlent
+actions).
+
+The hyperspace of the domain then becomes the set of all places within that
+domain. This solves another problem that a more physical realization introduces
+- determining whether you are at the edge of, or out of the boundaries of, a
+physical space. In a topological model, if the place is not in the domain, then
+it is not accessible by ANY agent.
+
