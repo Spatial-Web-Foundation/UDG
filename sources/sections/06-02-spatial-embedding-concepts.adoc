@@ -38,17 +38,17 @@ World2Vec Project is a plan to mapping the real world to a vector, which will fi
 Geography and cartography are a source of rich metaphors. However, have you ever seen these landscapes? And do maps of products or innovation in any meaningful manner look or function like the real-world artifact after which they are presumably fashioned? An artifact whose history goes back millennia, and whose modern incarnation in the form of GIS has become a fulcrum of enterprise computing for many governments and businesses. Think about all that depends on the ability to place anyone and anything in geographic space, from transportation to public health, environmental protection, and national defense. Meanwhile, hundreds of years of cartographic innovation yielded solid principles for how data can be turned into symbols, leading the way for what we now call data visualization. With that in mind, some have long argued that geography and cartography can yield not only metaphors but also methods for shaping a wide range of non-georeferenced data into a visual, map-like form. BigKnowledge is turning that vision into reality with the BoKMap platform for exploration, discovery, and insight in document spaces.
 https://researchmethodscommunity.sagepub.com/blog/concept-grant-update-bigknowledge
 
-.Cartographic example of spatial embedding of geographic concepts
+.Cartographic visualization of spatial embedded concepts
 image::geospatial_explorer.png[Cartographic example of spatial embedding of geographic concepts]
 
 
-== Useful functions based on embedding
+== Embedding enables useful functions
 
 We find that these representationsare surprisingly good at capturing syntacticand semantic regularities in language, andthat each relationship is characterized by arelation-specific vector offset. This allowsvector-oriented reasoning based on the offsetsbetween words. For example, the male/femalerelationship is automatically learned, and withthe induced vector representations, “King -Man + Woman” results in a vector very closeto “Queen.” - Linguistic Regularities in Continuous Space Word Representations, Tomas Mikolov∗ , Wen-tau Yih, Geoffrey Zweig, 
 Proceedings of NAACL-HLT 2013, pages 746–751,
 
 
-=== Hyperspace Entity Locators (HELs)
+== Hyperspace Entity Locators (HELs)
 
 Vector emdedding occurs in a vector space.  Vector spaces are indexed using coordinate systems.  The coordinates are the index. 
 

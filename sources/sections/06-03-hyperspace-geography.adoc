@@ -36,7 +36,29 @@ https://arxiv.org/pdf/2405.07987["The Platonic Representation Hypothesis", Huh, 
 observes that representations in AI models, particularly deep networks, are converging. Different neural networks representations are becoming more aligned. Convergence is occurring across modalities: vision models and language. This convergence is driving toward a shared statistical model of reality, akin to Plato's concept of an ideal reality.
 
 
-== Universal Geometry of Embeddings
+== Geography as both geometry and topology
+
+The UDG KG contains a graph of Spatial Web Entities.  Spatial embedding of the world, e.g., World2Vec, results in generalized features in hyperspace. Development is needed along the lines of linking UDG KG entities with features in Coordinate Hyperspace. This ability to go between graph and coordinate domains may provide a basis for semantic interoperabilty.
+
+DOMAINS are represented in hyperspace by identifying the type of hyperspace and the location of the DOMAIN in the hyperspace.  
+
+For Geographic DOMAINS, the hyperspace may be a geographic Coordinate Reference System (CRS) or a cellular space with an associated graph. Geographic space can be modelled as a particular kind of cellular space, called a _Discrete Global Grid System_ (DGGS), which typically models both three-dimensional physical space plus one time dimension. DGGSs therefore provide the Spatial Web with an approach for embedding geographic space into cellular or graphy hyperspace. The figure below illustrates a framework for the coordination of geographic DGGS and CRS with Spatial Web hyperspace.  Latitude and Longitude are examples of location in a CRS.  Alternatively, the ECEF Geographic CRS uses 3 orthogonal axis located at the center of the Earth.  
+
+.Embedding geographic space in hyperspace
+image::embedding_geo.jpeg[Embedding Geospatial in Hyperspace]
+
+For Concept DOMAINS, the use of coordinates and graphs can be extended from geographic locations to conceptual locations.  The motivation for using a coordinate location for conceptual DOMAIN will be become apparent through spatial embedding.
+
+== Generalize interfaces to hyperspaces
+
+- [ ] 6.4. Indexing Spatial Web graph entities using hyperspace embedding
+- [ ] Geographic example
+- [ ] Category theory from P2874
+- [ ] Cateogry Theory JD for Toby
+
+
+== Generalized geometry of embeddings
+
 
 We introduce the first method for translating text embeddings from one vector space to another without any paired data, encoders, or predefined sets of matches. Our unsupervised approach translates any embedding to and from a universal latent representation (i.e., a universal semantic structure conjectured by the Platonic Representation Hypothesis). Our translations achieve high cosine similarity across model pairs with different architectures, parameter counts, and training datasets. The ability to translate unknown embeddings into a different space while preserving their geometry has serious implications for security. An adversary with access to a database of only embedding vectors can extract sensitive information about underlying documents, sufficient for classification and attribute inference.
  title={Harnessing the Universal Geometry of Embeddings}, 
@@ -63,7 +85,6 @@ TAS hints at necessary rules for structures in the UDG which could be utilized f
 
 
 
-
-== SWF Atlas of Hyperspace Geography
+== Hyperspace geography atlas
 
 A UDG Atlas will define regions of the UDG that have semantic similarity.  The UDG Atlas then becomes a basis for the distributed replication of the large knowledge base that is the UDG.

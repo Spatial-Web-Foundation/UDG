@@ -7,7 +7,7 @@ include::06-02-spatial-embedding-concepts.adoc[leveloffset=+2]
 
 include::06-03-hyperspace-geography.adoc[leveloffset=+2]
 
-include::06-04-graph-coordinate-entities.adoc[leveloffset=+2]
+include::06-04-hyperspace-geography-applications.adoc[leveloffset=+2]
 
 include::06-05-udg-hyperspace-sizing.adoc[leveloffset=+2]
 
