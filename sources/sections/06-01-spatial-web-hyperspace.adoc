@@ -10,7 +10,7 @@ DOMAINS are represented in hyperspace by identifying the type of hyperspace and 
 .Basic classes of hyperspace
 image::hyperspace_basic_classes.png[Basic classes of hyperspace and their relationships]
 
-<<IEEE_2874_2025, Spatial Web Protocol Architecture and Governance>> defines the following hyperspace concepts
+The <<IEEE_2874_2025, Spatial Web Protocol Architecture and Governance>> standard defines the following hyperspace concepts:
 
 * Classes of hyperspace: graphs, vector spaces, hypergraphs, abstract data types.  
 * Hyperspaces of spaces: where a point of a space is a space of the corresponding type
