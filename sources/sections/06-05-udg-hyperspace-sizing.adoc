@@ -3,7 +3,7 @@
 
 == Internet scale
 
-<<IEEE_2874_2025>> requires the Spatial Web be designed to internet scale.  Internet scale has changed as the Internet has evolved and grown.  Internet Protocol version 4 (IPv4) address size was found to be inadequate.  IPv6 address space was greatly increased to meet future demands.
+<<IEEE_2874_2025>> requires the Spatial Web be designed for internet scale.  Internet scale has changed as the Internet has evolved and grown.  Internet Protocol version 4 (IPv4) address size was found to be inadequate.  IPv6 address space was greatly increased to meet future demands.
 
 The Spatial Web size estimates listed below are currently less than the IPv6 scale.  While the Spatial Web estimates below are justified, the need for extensibility of the Spatial Web should be anticipated. 
 
@@ -56,3 +56,6 @@ EDITOR: this figure needs to be simplified.
 .Estimate of the number of entities in the Spatial Web UDG
 image::udg_size_estimate.png[Estimate of number of entities in the Spatial Web UDG]
 
+== Requirements and recommendations
+
+TBD

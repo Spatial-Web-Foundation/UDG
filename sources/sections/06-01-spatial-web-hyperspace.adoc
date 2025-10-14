@@ -1,6 +1,6 @@
 = Spatial Web Hyperspace
 
-== Classes of hypespace
+== Classes of hyperspace
 
 The Spatial Web hyperspace ENTITY provides the fundamental organizing method for entities in the UDG. To enable this role, <<IEEE_2874_2025, Spatial Web clause 6.2.3.7>> provides a formal definition of hyperspace, as any set whose elements are related by a formal notion of _path_.  The basic classes of hyperspace include: Graphs including Cellular spaces and Vector spaces with coordinate systems.
 
@@ -84,9 +84,8 @@ physical space. In a topological model, if the place is not in the domain, then 
 
 Another example of a topological representation is to use a cellular space.  For example, consider a domain that represents a game (an instance) of _chess_. There are 66 potential cells where a given piece can be located - the 64 squares that make up an 8x8 chessboard, and two cache areas, one for each player, where pieces that are removed are located.
 
+.Chess board with algebraic notation
 image::SCD_algebraic_notation.svg[Chess Board, using algebraic notation and the initial starting position for the black pieces]
-
-This link:https://en.wikipedia.org/wiki/Algebraic_notation_%28chess%29[board nomenclature] is considered canonical by link:https://en.wikipedia.org/wiki/FIDE[FIDE, the International Chess Federation].
 
 Each of these cells has a distinct identifier that makes up its address, and, within the scope of a particular game of chess, is considered unique. Note that the places here are not globally unique - the same position may be used across multiple games across multiple servers - but within the context of its domain, it IS unique.
 
@@ -100,10 +99,12 @@ This is worth reiterating - a Spatial Web Domain is not a perfect reproduction o
 
 To extend this, you can consider a hexagonal tiling of a space, as may be considered by a table top war game. The addressing in this space is more complex, because each hexagon has a particular index (address) that can be derived from some particular algorithm. The link:https://h3geo.org[H3 System] system used by Uber is an illustration of such a tiling system on a sphere.
 
+.Hexagonal tiling
 image::st_hexagongrid01.png[Hexagonal tiling]
 
 A cell can also be defined in terms of an array of such tiling indices. These can in turn be hashed in some fashion to am irregular polygon. For instance, in the game of Risk, you can create such polygon that describe each of the "countries" in the game. Note that what is important in Risk is the movement from country (say Kamchatka) to country (Alaska).
 
+.The Risk World View
 image::risk-map.png[The Risk World View]
 
 In this particular map, the specific boundaries or definitions as geometries are less important than the underlying topology of the map (shown here specifically for North America)
@@ -169,7 +170,9 @@ Topologies also work in higher dimensions and non-geospatial contexts. If you ha
 
 For instance, a physical description of the body can be rendered in one of three ways: the physical, using a tranverse plane coordinate system, can be helpful for developing models, but because bodies can be wildly different from individual to individual, most doctors make use of a taxonomic approach for describing the various systems - skeletal, musculature, pulminary, vascular, etc, then using relational maps and juncture points to indicate the specific connections. This anatomical hyperspace can identify not only location but also body system, and can be tied into diagnostics and drug pathway interaction graphs. Similarly, voxel type systems can be used to identify (with CRT partitioning) specific entities as aggregates of voxels, just as you would use hex tiling to do the same thing in two dimensions.
 
+== Requirements and recommendations
 
+TBD
 
 
 

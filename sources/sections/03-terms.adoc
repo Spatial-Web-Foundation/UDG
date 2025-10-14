@@ -97,7 +97,7 @@ NOTE: Representation can be probabilistic (e.g., a conditional probability distr
 
 ==== Spatial Web
 
-A decentralized, open, and interoperable network of networks.
+Network structures supported by the protocol, architecture, and governance related to HSTP and HSML and their supporting components.
 
 ==== spatial web identifier
 preferred:[SWID]

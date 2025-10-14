@@ -1,4 +1,10 @@
-= Hyperspace geography applications
+= Collective intelligence
+
+== Hyperspace geography applications
+
+This clause describes applications use of Hyperspace Geography to various types of knowledge.  
+
+The main aim is for the UDG to serve as a medium for collective intelligence in the Spatial Web.
 
 == Geospatial and graph domains for urban energy grid
 
@@ -34,3 +40,6 @@ Living systems balance energetic efficiency with the capacity for path-dependent
 Ecosystems of intelligence are core to the Spatial Web. Intelligence can be understood as the capacity to accumulate evidence for a generative model of a sensed world. Formally, this corresponds to maximizing model evidence, via belief updating over several scales: i.e., inference, learning, and model selection Friston et al. <<Ecosystems_intelligence>>. Operationally, this self-evidencing can be realized via message passing or belief propagation on a factor graph. This same imperative underwrites belief sharing in ensembles of agents, in which certain aspects of each agent’s generative world model provide a common ground or frame of reference. Active inference addresses this ecology of belief sharing—leading to a formal account of collective intelligence that rests on shared narratives and goals. Based on this perspective, levels of multi-scale cognitive computing in a Spatial Web ecosystem of Agents can be defined. The ensuing levels can be used for governance in the Spatial Web.
 
 
+== Requirements and recommendations
+
+TBD

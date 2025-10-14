@@ -2,7 +2,7 @@
 
 === Scope
 
-This report describes the preliminary approach for the Spatial Web UDG System Design Specification.  
+This Spatial Web UDG System Design Specification defines the functions performed by the UDG, the analysis of those functions, and the allocation of requirements to the Spatial Web components including HSML, HSTP, and several Spatial Web Nodes.   describes the preliminary approach for the   
 
 NOTE: In IEEE 2874-2025 this document was titled the UDG Implmentation Specification.
 

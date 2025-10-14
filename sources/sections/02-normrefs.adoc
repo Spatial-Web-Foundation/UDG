@@ -2,7 +2,7 @@
 [bibliography]
 == Normative references
 
-* [[[IEEE_2874_2025,IEEE Std 2874-2025]]].
+* [[[IEEE_2874_2025,IEEE Std 2874-2025 Spatial Web Protocol, Architecture, and Governance]]].
 * [[[IEEE_7007_2021,IEEE Std 7007-2021]]]
 
 * [[[h3geo,1]]],

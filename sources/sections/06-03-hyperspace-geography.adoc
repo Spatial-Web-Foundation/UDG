@@ -1,4 +1,4 @@
-= Hyperspace Geography
+= Hyperspace geography
 
 == Hyperspace geography defined
 
@@ -24,11 +24,11 @@ DOMAINS in the Spatial Web exist independently of having a hyperspace represenat
 
 Recent research has shown that features in LLM spatial embeddings may have universal applicability.  Such unviversal applicability provides the basis for building interoperabilty methods between hyperspace models in the Spatial Web.
 
-<<Anthropic>> found a diversity of highly abstract features in the Claude 3 LLM. Examples include features for famous people, features for countries and cities. Many features are multilingual (responding to the same concept across languages) and multimodal (responding to the same concept in both text and images), as well as encompassing both abstract and concrete instantiations of the same idea.
+The <<Anthropic>> Claude 3 LLM was found to include a diversity of highly abstract features. Examples include features for famous people, features for countries and cities. Many features are multilingual (responding to the same concept across languages) and multimodal (responding to the same concept in both text and images), as well as encompassing both abstract and concrete instantiations of the same idea.
 
- <<Huh>> observes that representations in AI models, particularly deep networks, are converging. Different neural networks representations are becoming more aligned. Convergence is occurring across modalities: vision models and language. This convergence is driving toward a shared statistical model of reality, akin to Plato's concept of an ideal reality. 
+Representations in AI models, particularly deep networks, are converging <<Huh>>. Different neural networks representations are becoming more aligned. Convergence is occurring across modalities: vision models and language. This convergence is driving toward a shared statistical model of reality, akin to Plato's concept of an ideal reality. 
  
- Harnessing the universal geometry of embeddings provides a method for translating text embeddings from one vector space to another <<Jha>>.
+Harnessing the universal geometry of embeddings provides a method for translating text embeddings from one vector space to another <<Jha>>.
 
 
 == Generalized worlds in hyperspace
@@ -50,11 +50,7 @@ For Concept DOMAINS, the use of coordinates and graphs can be extended from geog
 
 It woudl be beneficial to coordinate inferfaces that access data represented in differeing classes of hyperspace.   Category theory defines a set of concepts to uniformly treat the multiple concepts of hyperspace: coordinate spaces, cellular spaces, concepts spaces, vector spaces.  
 
-Category theory is a system of interfaces that are learned once, and then reliably applied across scientific fields.  Originating in abstract mathematics, specifically algebraic topology it thoroughly permeates, these fields: systems theory, bayesian learning, and  information theory and probability.  The theory can express functions that process structured data from computer science (e.g. lists and trees) and behave in stateful ways like automata.
-Yesterday I read a document that you previously sent: Categorical Deep Learning; Gavranovic, et.al. 2024
-Some compelling excerpts:
-
-The article helped me in understanding your comments that Spatial Web Hyperspace is uniformly developed using category theory.  I continue to increase my appreciation of how your approach of using  category theory defines a set of concepts to uniformly treat the multiple concepts of hyperspace: coordinate spaces, cellular spaces, concepts spaces, vector spaces.  <<Gavranović>>
+Category theory is a system of interfaces that are learned once, and then reliably applied across scientific fields.  Originating in abstract mathematics, specifically algebraic topology it thoroughly permeates, these fields: systems theory, bayesian learning, and  information theory and probability.  The theory can express functions that process structured data from computer science (e.g. lists and trees) and behave in stateful ways like automata. <<Gavranović>>
 
 The UDG will link a variety of data types: vector databases, digital twins with geometric models in coordinate spaces, the .Earth index for all locations on the globe, activities and contracts performed by agents, etc.  These items in the UDG each have different computer science representations. The UDG needs a common approach to managing the various data structures. Category Theory - categories, functors and natural transformations - can be  a basis for the UDG.
 
@@ -64,3 +60,7 @@ The UDG will link a variety of data types: vector databases, digital twins with 
 A traditional atlas is a collection of maps, that serves as a comprehensive geographical reference. Atlases are used to study geography by displaying physical, political, and thematic maps that show landscapes, country borders, and other data like population density, climate, or economic activity. This allows for the study of patterns and distributions across different regions or the entire world.
 
 A UDG Atlas will define regions of the UDG that have semantic and/or spatial similarity.  A UDG Atlas then becomes a basis for the distributed replication of the large knowledge base that is the UDG.
+
+== Requirements and recommendations
+
+TBD

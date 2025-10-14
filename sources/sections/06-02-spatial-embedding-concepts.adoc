@@ -20,7 +20,7 @@ Spatial embeddings can be visualized using cartographic methods.  <<BigKnolwedge
 image::geospatial_explorer.png[Cartographic example of spatial embedding of geographic concepts]
 
 
-== Hyperspace Reference Systems (HRSs) are needed
+== Hyperspace Reference Systems (HRSs)
 
 Vector emdeddings occur in a vector space.  Vector spaces are indexed using coordinate systems.  The coordinates are the index. 
 
@@ -35,4 +35,8 @@ With HRSs based on semantic datums defined, Hyperspace Entity Locators (HELs) ca
 With HRS and HEL defined, the ability to go from the UDG KG to Hyperspace can be done.  ENTITIES in UDG KG would include an HEL to located it in hyperspace. Thereby providing every KG ENTITY a locating in an HRS; and the locations could be converted between HRSs.
 
 It will be important to define HRSs that are useful across many DOMAINS.
+
+== Requirements and recommendations
+
+TBD
 

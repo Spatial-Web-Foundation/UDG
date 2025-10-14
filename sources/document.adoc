@@ -1,18 +1,18 @@
 = Universal Domain Graph (UDG) Design
 :docnumber: 6
-:edition: 1
-:revdate: 2026-01-01
-:copyright-year: 2026
+:edition: 0.0.1
+:revdate: 2025-10-24
+:copyright-year: 2025
 :language: en
 :title-intro-en: The Spatial Web
 :title-main-en: Universal Domain Graph (UDG) Design Specification
-:committee: SWID
+:committee: UDG
 :committee-type: technical
 :mn-document-class: swf
 :mn-output-extensions: xml,html,pdf,rxl
 :doctype: standard
 :status: published
-:docidentifier: SWF STD-6:2025 (0.1)
+:docidentifier: SWF STD-6:2025 (0.0.1)
 :imagesdir: images
 :local-cache-only:
 :toc-figures: true
