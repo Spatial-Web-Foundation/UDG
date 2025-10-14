@@ -25,6 +25,7 @@
 
 * [[[IEEE_2755_2017,IEEE Std 2755-2017]]]
 
+* [[[IEEE_2874_2025,IEEE Std 2874-2025]]]
 
 // ------------------------------------
 
@@ -161,3 +162,51 @@ pp. span:pages[852]
 span:date[2019],
 doi: span:uri.doi[10.1007/978-981-32-9915-3]
 
+* [[[Ecosystems_intelligence, 1]]]
+ Friston, K. J., M. J. Ramstead, A. B. Kiefer et al., “Designing ecosystems of intelligence from first principles,” Collective Intelligence, vol. 3 no. 1, 2024, http://journals.sagepub.com/doi/10.1177/26339137231222481.
+
+
+* [[[stse, 1]]]
+Spatio-temporal state embedding for knowledge graph completion
+Xiaoyu Ji, Yibing Cao, Jiangshui Zhang, Xinke Zhao,
+STSE: Spatio-temporal state embedding for knowledge graph completion,
+Knowledge-Based Systems,
+Volume 317,
+2025,
+113469,
+ISSN 0950-7051,
+https://doi.org/10.1016/j.knosys.2025.113469.
+(https://www.sciencedirect.com/science/article/pii/S0950705125005167)
+
+* [[[Element_84,1]]]
+The Case for a Centralized Earth Observation Vector Embeddings Catalog
+Authors: Jason Gilman, Adeel Hassan, Nathan Zimmerman
+https://github.com/Element84/vector-embeddings-catalog-whitepaper?tab=readme-ov-file
+2025-06-05
+
+* [[[Embeddings_of_Earth, 1]]]
+      title={Global and Dense Embeddings of Earth: Major TOM Floating in the Latent Space}, 
+      author={Mikolaj Czerkawski and Marcin Kluczek and Jędrzej S. Bojanowski},
+      year={2024},
+      eprint={2412.05600},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2412.05600}, 
+
+* [[[AlphaEarth,1]]]
+      title={AlphaEarth Foundations: An embedding field model for accurate and efficient global mapping from sparse label data}, 
+      author={Christopher F. Brown and Michal R. Kazmierski and Valerie J. Pasquarella and William J. Rucklidge and Masha Samsikova and Chenhui Zhang and Evan Shelhamer and Estefania Lahera and Olivia Wiles and Simon Ilyushchenko and Noel Gorelick and Lihui Lydia Zhang and Sophia Alj and Emily Schechter and Sean Askay and Oliver Guinan and Rebecca Moore and Alexis Boukouvalas and Pushmeet Kohli},
+      year={2025},
+      eprint={2507.22291},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2507.22291}, 
+
+* [[[blattner, 1]]]
+      title={Tangential Action Spaces: Geometry, Memory and Cost in Holonomic and Nonholonomic Agents}, 
+      author={Marcel Blattner},
+      year={2025},
+      eprint={2509.03399},
+      archivePrefix={arXiv},
+      primaryClass={eess.SY},
+      url={https://arxiv.org/abs/2509.03399},

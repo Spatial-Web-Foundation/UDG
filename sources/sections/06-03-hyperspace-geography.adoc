@@ -10,8 +10,7 @@ The First Law of Geography states that “everything is related to everything el
 
 The Spatial Web extends the First Law by calculating distance in hyperspace. In hyperspace, entities may be physically distant while being strongly coupled in other dimensions.
 
-By identifying strong relations between entities that are close in hyperspace but may be physically distant, the Spatial Web defines hyperspace geography. Such a hyper-geography provides new perspectives
-
+By identifying strong relations between entities that are close in hyperspace but may be physically distant, the Spatial Web defines hyperspace geography. Such a hyper-geography provides new perspectives.
 
 == DOMAINS in hyperspace geography
 
@@ -35,6 +34,11 @@ images), as well as encompassing both abstract and concrete instantiations of th
 https://arxiv.org/pdf/2405.07987["The Platonic Representation Hypothesis", Huh, et.al. 2024],
 observes that representations in AI models, particularly deep networks, are converging. Different neural networks representations are becoming more aligned. Convergence is occurring across modalities: vision models and language. This convergence is driving toward a shared statistical model of reality, akin to Plato's concept of an ideal reality.
 
+== Generalized worlds in hyperspace
+
+The UDG KG contains a graph of Spatial Web Entities.  Spatial embedding of the world results in generalized features in hyperspace. Development is needed along the lines of linking UDG KG entities with features in Coordinate Hyperspace. This ability to go between graph and coordinate domains may provide a basis for semantic interoperabilty.
+
+
 
 == Geography as both geometry and topology
 
@@ -50,6 +54,7 @@ image::embedding_geo.jpeg[Embedding Geospatial in Hyperspace]
 For Concept DOMAINS, the use of coordinates and graphs can be extended from geographic locations to conceptual locations.  The motivation for using a coordinate location for conceptual DOMAIN will be become apparent through spatial embedding.
 
 == Generalize interfaces to hyperspaces
+
 
 - [ ] 6.4. Indexing Spatial Web graph entities using hyperspace embedding
 - [ ] Geographic example
@@ -78,11 +83,6 @@ GeoCognition based on location, social nets 2014_Lee
 	- [ ] TOPOLOGY AND DATA, Carlsson 2009
 	- [ ] data topology
 	- [ ] maps for AI
-
-Tangential Action Spaces, Blattner, 2025
-		TAS consists of three manifolds/subspaces: Physical, Cognitive, Intentional along with functions for mapping between the spaces; mappings which constrain the paths in each space.
-TAS hints at necessary rules for structures in the UDG which could be utilized for desired UDG-based behaviors of Agents
-
 
 
 == Hyperspace geography atlas

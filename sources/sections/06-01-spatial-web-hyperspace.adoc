@@ -2,7 +2,9 @@
 
 == Classes of hypespace
 
-The concept of hyperspace is fundamental for the Spatial Web and an organizing method for entities in the UDG. To support this fundamental role, clause 6.2 of IEEE P2874 provides a formal definition of hyperspace, as any set whose elements are related by a formal notion of _path_.  The basic classes of hyperspace include: Graphs including Cellular spaces and Vector spaces with coordinate systems.
+The Spatial Web hyperspace ENTITY provides the fundamental organizing method for entities in the UDG. To enable this role, <<IEEE_2874_2025, Spatial Web clause 6.2.3.7>> provides a formal definition of hyperspace, as any set whose elements are related by a formal notion of _path_.  The basic classes of hyperspace include: Graphs including Cellular spaces and Vector spaces with coordinate systems.
+
+DOMAINS are represented in hyperspace by identifying the type of hyperspace and the location of the DOMAIN in the hyperspace. 
 
 [[basic-classes-of-hyperspace]]
 .Basic classes of hyperspace
