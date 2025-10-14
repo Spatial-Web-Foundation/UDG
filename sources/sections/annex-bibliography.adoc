@@ -209,3 +209,105 @@ https://github.com/Element84/vector-embeddings-catalog-whitepaper?tab=readme-ov-
       archivePrefix={arXiv},
       primaryClass={eess.SY},
       url={https://arxiv.org/abs/2509.03399},
+
+*  [[[BigKnolwedge]]]
+      Title: BigKnowledge: Not Just a Metaphor
+      Date: Jul 31, 2024
+      Author: André Skupin of BigKnowledge
+      url=https://researchmethodscommunity.sagepub.com/blog/concept-grant-update-bigknowledge 
+
+* [[[Kanerva]]
+      Cogn Comput (2009) 1:139–159 DOI 10.1007/s12559-009-9009-8
+      Hyperdimensional Computing: An Introduction to Computing in Distributed Representation with High-Dimensional Random Vectors
+      Pentti Kanerva
+      Published online: 28 January 2009
+      Springer Science+Business Media, LLC 2009
+
+* [[[Mikolov]]]
+       author = {Mikolov, Tomas and Sutskever, Ilya and Chen, Kai and Corrado, Greg S and Dean, Jeff},
+      booktitle = {Advances in Neural Information Processing Systems},
+      editor = {C.J. Burges and L. Bottou and M. Welling and Z. Ghahramani and K.Q. Weinberger},
+      pages = {},
+      publisher = {Curran Associates, Inc.},
+      title = {Distributed Representations of Words and Phrases and their Compositionality},
+      url = {https://proceedings.neurips.cc/paper_files/paper/2013/file/9aa42b31882ec039965f3c4923ce901b-Paper.pdf},
+      volume = {26},
+      year = {2013}
+
+* [[[word2vec]]]
+      https://github.com/dav/word2vec
+
+* [[[World2Vec]]]
+      https://x.com/ylecun/status/1523018860731023361
+      Author: Yann LeCunn
+
+* [[[PBG]]]
+      title={PyTorch-BigGraph: A Large-scale Graph Embedding System}, 
+      author={Adam Lerer and Ledell Wu and Jiajun Shen and Timothee Lacroix and Luca Wehrstedt and Abhijit Bose and Alex Peysakhovich},
+      year={2019},
+      eprint={1903.12287},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/1903.12287}, 
+
+* [[[Anthropic]]]
+      title Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet
+      Authors: Adly Templeton*, Tom Conerly*, Jonathan Marcus, Jack Lindsey, Trenton Bricken, Brian Chen, Adam Pearce, Craig Citro, Emmanuel Ameisen, Andy Jones, Hoagy Cunningham, Nicholas L Turner, Callum McDougall, Monte MacDiarmid, Alex Tamkin, Esin Durmus, Tristan Hume, Francesco Mosconi, C. Daniel Freeman, Theodore R. Sumers, Edward Rees, Joshua Batson, Adam Jermyn, Shan Carter, Chris Olah, Tom Henighan
+      Affiliations: Anthropic
+      Published: May 21, 2024
+
+
+* [[[Jha]]]
+      title={Harnessing the Universal Geometry of Embeddings}, 
+      author={Rishi Jha and Collin Zhang and Vitaly Shmatikov and John X. Morris},
+      year={2025},
+      eprint={2505.12540},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2505.12540},
+
+* [[[Huh]]]
+      title={The Platonic Representation Hypothesis}, 
+      author={Minyoung Huh and Brian Cheung and Tongzhou Wang and Phillip Isola},
+      year={2024},
+      eprint={2405.07987},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2405.07987}, 
+
+
+* [[[Gavranović]]]
+      title={Position: Categorical Deep Learning is an Algebraic Theory of All Architectures}, 
+      author={Bruno Gavranović and Paul Lessard and Andrew Dudzik and Tamara von Glehn and João G. M. Araújo and Petar Veličković},
+      year={2024},
+      eprint={2402.15332},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2402.15332}, 
+
+* [[[Hull_and_Liu]]]
+      Hull, V. and J. Liu. 2018. 
+      Telecoupling: A new frontier for global sustainability. 
+      Ecology and Society 23(4):41. 
+      https://www.ecologyandsociety.org/vol23/iss4/art41/ 
+      https://doi.org/10.5751/ES-10494-230441
+      Guest Editorial, part of a Special Feature on Telecoupling: A New Frontier for Global Sustainability
+
+
+* [[Manning]]
+      Nicholas Manning, Yingjie Li, Jianguo Liu,
+      Broader applicability of the metacoupling framework than Tobler’s first law of geography for global sustainability: A systematic review, 
+      Geography and Sustainability, Volume 4, Issue 1,
+      2023,
+      Pages 6-18,
+      ISSN 2666-6839,
+      https://doi.org/10.1016/j.geosus.2022.11.003.
+
+
+* [[[Noy]]]
+      Industry-scale knowledge graphs: lessons and challenges
+      Authors: Natasha Noy, Yuqing Gao, Anshu Jain, Anant Narayanan, Alan Patterson, Jamie TaylorAuthors Info & Claims
+      Communications of the ACM, Volume 62, Issue 8
+      Pages 36 - 43
+      https://doi.org/10.1145/3331166
+      Published: 24 July 2019

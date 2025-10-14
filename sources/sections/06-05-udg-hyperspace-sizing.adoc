@@ -1,13 +1,16 @@
 = UDG size estimate
 
 
-- [ ] 6.6. UDG size estimate 46
-- [ ] SWF Udg kg size - add discussion of IPV6
-- [ ] IPv6 address space
+== Internet scale
 
-==== Summary Estimate
+<<IEEE_2874_2025>> requires the Spatial Web be designed to internet scale.  Internet scale has changed as the Internet has evolved and grown.  Internet Protocol version 4 (IPv4) address size was found to be inadequate.  IPv6 address space was greatly increased to meet future demands.
 
-How big is the UDG?  Estimates of the UDG size are given below.  Here is a summary:
+The Spatial Web size estimates listed below are currently less than the IPv6 scale.  While the Spatial Web estimates below are justified, the need for extensibility of the Spatial Web should be anticipated. 
+
+
+== Summary of Spatial Web estimate
+
+Estimates of the UDG size are given below.  Here is a summary:
 
 * UDG is a hypergraph which contains all relationships between all known SWIDs in the Spatial Web.
 * How many SWIDs might there be in the Spatial Web: approximately 10^14^
@@ -18,40 +21,35 @@ How big is the UDG?  Estimates of the UDG size are given below.  Here is a summa
 ** H3 grid/hash queries by Databricks
 ** Geographic query bigger than a set of buildings in the US is too big. 2.5*10^8^
 
-==== Existing large knowledge graphs
+== Existing large knowledge graphs
 
 The UDG is similar to existing, proprietary knowledge graphs.
 
-https://cacm.acm.org/practice/industry-scale-knowledge-graphs/[Industry-Scale Knowledge Graphs in ACM Communications 2019]
-provides a summary of large existing knowledge graphs.  These knowledge graphs
-may have grown a handful of orders of magnitude since 2019 when the size of each
-was:
+<<Noy, Industry-scale knowledge graphs: lessons and challenges>> provides a summary of large existing knowledge graphs.  These knowledge graphs may have grown a handful of orders of magnitude since 2019 when the size of each was:
 
 * Microsoft’s knowledge graph:  approximately 2 billion primary entities,  2*10^9^ entities as of 2019.
 * 2023 estimate of large knowledge graphs 10^12^ entities
 
 
-As of September 2025, the contents of
-https://en.wikipedia.org/wiki/Wikipedia:Size_of_Wikipedia[Wikipedia] were:
+As of September 2025, the contents of Wikipedia were:
 
 * English articles 7,063,252 (roughly 7*10^7^)
 * Total wiki pages: 64,128,394
 
-
-
-==== Geographic H3 index
+== Geographic H3 index
 
 The H3 geospatial indexing system is a discrete global grid system (see Sahr et al., 2003) consisting of a multi-precision hexagonal tiling of the sphere with hierarchical indexes.   H3 was developed to address the challenges of Uber's data science needs. H3 is now open source under the Apache 2 license.
 
 H3 is a hierarchical geospatial index. Hexagonal cells at level 12 have an area of 90 dm2 and there are 5.7*10^14^ hexagons
 
-
-==== VERSES estimate of the Spatial Web
+== VERSES estimate of the Spatial Web
 
 * 2.4 trillion objects on the Earth.  2.4*10^12^
 * 9.9 sextillion connections on the internet 9.9*10^21^
 * 2.9 septillion connections on the spatial web 2.9*10^24^
 * Square root of a septillion = approximately 10^12^
+
+EDITOR: this figure needs to be simplified.
 
 
 [[udg_size_estimate]]
