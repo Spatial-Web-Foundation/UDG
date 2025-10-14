@@ -161,6 +161,7 @@ FAIR:: Findable, Accessible, Interoperable, and Reusable
 glTF:: GL Transmission Format
 IIC:: Industry IoT Consortium
 IoT:: Internet of Things
+IRI:: Internationalized Resource Identifier
 M2M:: machine to machine
 MIME:: Multipurpose Internet Mail Extensions
 OGC:: Open Geospatial Consortium

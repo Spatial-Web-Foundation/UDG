@@ -1,4 +1,4 @@
-[[section-conceputal-view-social-network]]
+[[section-conceptual-view-social-network]]
 == UDG as a social network
 
 === Social networks
