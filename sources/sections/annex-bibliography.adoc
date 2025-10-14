@@ -311,3 +311,7 @@ https://github.com/Element84/vector-embeddings-catalog-whitepaper?tab=readme-ov-
       Pages 36 - 43
       https://doi.org/10.1145/3331166
       Published: 24 July 2019
+
+
+<<wikipedia-KG>>
+      https://en.wikipedia.org/wiki/Knowledge_graph
