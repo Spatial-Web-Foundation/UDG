@@ -38,7 +38,7 @@ image::SWID-alias.png[SWID Alias]
 // ----
 
 
-EDITOR:  The specific form of aliases is still to be determined. To be consistent with other SWF specificatons, the figure may need to be revised, inserting "SWID Document"  between SWID1 and "Verifiable Credential." 
+EDITOR:  The specific form of aliases is still to be determined. To be consistent with other SWF specificatons, the figure may need to be revised, inserting "SWID Document" between SWID1 and "Verifiable Credential." 
 
 
 == Definition of a DOMAIN
