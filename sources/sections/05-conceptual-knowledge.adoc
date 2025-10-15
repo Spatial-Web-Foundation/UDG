@@ -5,7 +5,7 @@
 
 This clause considers the UDG as a knowledge graph (KG). A KG is a representation of information that uses a graph-structured data model to represent and operate on data <<wikipedia-KG>>. 
 
-The UDG KG is a graph where the nodes are Spatial Web ENTITIES.  Interlinking of ENTITIES in the UDG is accomplished using Links, portals, membership, situations, paths (see <<relationships>>)
+The UDG KG is a graph where the nodes are Spatial Web ENTITIES. Interlinking of ENTITIES in the UDG is accomplished using Links, portals, membership, situations, paths (see <<relationships>>).
 
 Knowledge in the Spatial Web will include statements of fact as well as statements with probablistic uncertainty. At any given time contradictory statements will exist unresovled across the UDG KG.  Statements of knowledge will change through the dialectic activity of social agents as defined in <<section-conceptual-view-social-network>>.
 
