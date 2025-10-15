@@ -3,7 +3,7 @@
 
 == ENTITIES are the basic type for all knowledge in the UDG
 
-The UDG KG is composed of ENTITIES.  An ENTITY is that which is perceived, known, or inferred to exist, has existed, or is anticipated to exist.  ENTITIES are of several types as shown in the <<hsml_ontology>> which are the primary concepts used across the Spatial Web and in the Hyperspace Modeling Language (HSML).  HSML implements the Spatial Web ontology as a set of schemas that enable increased coherence across diverse datasets without sacrificing flexibility.  
+The UDG KG is composed of ENTITIES. An ENTITY is that which is perceived, known, or inferred to exist, has existed, or is anticipated to exist. ENTITIES are of several types as shown in the <<hsml_ontology>>, which are the primary concepts used across the Spatial Web and in the Hyperspace Modeling Language (HSML). HSML implements the Spatial Web ontology as a set of schemas that enable increased coherence across diverse datasets without sacrificing flexibility.  
 
 [[spatial_web_ontology]]
 .Spatial Web ontology
