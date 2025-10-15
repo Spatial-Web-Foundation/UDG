@@ -19,7 +19,7 @@ All ENTITIES have a Spatial Web Identifier (SWID) which may:
 * Serve as decentralized identifier (DID) for digital identity devoid of any type of centralization (see <<w3c_did>>)
 * Identify the ENTITY uniquely within the Spatial Web. In this regard, the SWID acts as an (indirect) IRI.
 * Establish links between ENTITIES,
-* Resolve nodelink connections between different nodes in the UDG KG. The nodelink document identifies both authentication and address information for different nodes within the spatial web.
+* Resolve connections between different nodes in the UDG KG. The nodelink document identifies both authentication and address information for different nodes within the spatial web.
 
 === Aliases
 
