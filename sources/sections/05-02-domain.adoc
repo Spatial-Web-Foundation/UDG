@@ -118,7 +118,7 @@ A DOMAIN may have a schematic representation that can be extended from a core DO
 
 == Extending Entities
 
-While the Spatial Web makes use of the DOMAIN Types defined in <<IEEE Std 2874>>, those types may need to be extended to model the complexity of all use cases.  A framework is defined that can identify nodes contextually using topics and state dependencies. If a use case needs to add a property, the property can be added using SHACL.
+While the Spatial Web makes use of the DOMAIN Types defined in <<IEEE Std 2874>>, those types may need to be extended to model the complexity of all use cases. A framework is defined that can identify nodes contextually using topics and state dependencies. If a use case needs to add a property, the property can be added using SHACL.
 
 ----
 [] a hsml:Domain ;
