@@ -23,7 +23,7 @@ All ENTITIES have a Spatial Web Identifier (SWID) which may:
 
 === Aliases
 
-In the Spatial Web, one or more aliases can be assigned to a SWID that is intended to locate a resource, but the address for the resource is contained within the SWID Document. The alias is analogous to a HTTP domain name mapping to an IPV6 address, but in this case the "domain name" alias maps to a SWID.
+In the Spatial Web, one or more aliases can be assigned to a SWID that is intended to locate a resource, but the address for the resource is contained within the SWID Document. The alias is analogous to an HTTP domain name mapping to an IPV6 address, but in this case, the "domain name" alias maps to a SWID.
 
 [[fig-swid-alias]]
 .SWID Alias
