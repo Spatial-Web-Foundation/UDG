@@ -99,7 +99,7 @@ Additional concepts are being considered relevant to DOMAIN types. These are dif
 
 == DOMAIN modeling checklist
 
-This checklist is provided to aid in modeling a DOMAIN to be included in the UDG KM.
+This checklist is provided to aid in modeling a DOMAIN to be included in the UDG KG.
 
 * __Where?__. Where does the action take place?
 * __How Is Space Defined?__ What is the relevant hyperspace of relevance within the system.
