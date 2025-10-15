@@ -102,7 +102,7 @@ Additional concepts are being considered relevant to DOMAIN types. These are dif
 This checklist is provided to aid in modeling a DOMAIN to be included in the UDG KM.
 
 * __Where?__. Where does the action take place?
-* __How Is Space Defined?__ What is the relevant hyperspace of relevance within the system (it's ).
+* __How Is Space Defined?__ What is the relevant hyperspace of relevance within the system.
 * __How Is the DOMAIN Connected?__. How are things within the domain connected, and how are domains connected to other domains?
 * __What Happened?__. Is it possible to retrieve a history of what happened within the domain over time?
 * __What Kind?__. What classifications apply to the domain?
