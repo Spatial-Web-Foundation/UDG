@@ -261,3 +261,7 @@ image::ice-steam-plasma.png[Transitions of state between ice, steam, plasma]
 // ----
 
 The agent's position across the hyperspace of locations indicates what state the agent is in, where the agent can be seen as a marker for the current state.
+
+== Requirements and recommendations
+
+TBD

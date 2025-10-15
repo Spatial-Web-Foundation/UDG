@@ -3,7 +3,7 @@
 
 == ENTITIES are the basic type for all knowledge in the UDG
 
-The UDG KG is composed of Spatial Web ENTITIES.  An ENTITY is that which is perceived, known, or inferred to exist, has existed, or is anticipated to exist.  ENTITIES are of several types as shown in the <<hsml_ontology>> which are the primary concepts used across the Spatial Web and in the Hyperspace Modeling Language (HSML).  HSML implements the Spatial Web ontology as a set of schemas that enable increased coherence across diverse datasets without sacrificing flexibility.  
+The UDG KG is composed of ENTITIES. An ENTITY is that which is perceived, known, or inferred to exist, has existed, or is anticipated to exist. ENTITIES are of several types as shown in the <<hsml_ontology>>, which are the primary concepts used across the Spatial Web and in the Hyperspace Modeling Language (HSML). HSML implements the Spatial Web ontology as a set of schemas that enable increased coherence across diverse datasets without sacrificing flexibility.  
 
 [[spatial_web_ontology]]
 .Spatial Web ontology
@@ -14,16 +14,16 @@ image::spatial_web_ontology.png[ontology showing Spatial Web entities and their 
 
 === SWIDs
 
-All ENTITIES in the UDG KG have a __Spatial Web Identifier__  known as a __SWID__. The SWID serves a number of purposes:
+All ENTITIES have a Spatial Web Identifier (SWID) which may:
 
-* A SWID is a decentralized identifier (DID) for digital identity devoid of any type of centralization (see <<w3c_did>>)
-* The SWID identifies the ENTITY uniquely within the Spatial Web. In this regard, the SWID acts as an (indirect) IRI.
-* SWIDs are also used to establish links between resources. 
-* SWIDs are also used to resolve __nodelink__ connections between different nodes in the SW Node Graph, making it possible to bind together nodes in networks. In this case, the __nodelink document__ identifies both authentication and address information for different nodes within the spatial web.
+* Serve as decentralized identifier (DID) for digital identity devoid of any type of centralization (see <<w3c_did>>)
+* Identify the ENTITY uniquely within the Spatial Web. In this regard, the SWID acts as an (indirect) IRI.
+* Establish links between ENTITIES.
+* Resolve connections between different nodes in the UDG KG. The nodelink document identifies both authentication and address information for different nodes within the spatial web.
 
 === Aliases
 
-In the Spatial Web, one or more *__aliases__* can be assigned to a SWID that is intended to locate a resource, but the actual "physical" address for the resource is contained within the SWID Document. In effect, the alias is analogous to a HTTP domain name mapping to an IPV6 address, but in this case the "domain name" alias maps to a SWID, which then maps to the corresponding IPV6.
+In the Spatial Web, one or more aliases can be assigned to a SWID that is intended to locate a resource, but the address for the resource is contained within the SWID Document. The alias is analogous to an HTTP domain name mapping to an IPV6 address, but in this case, the "domain name" alias maps to a SWID.
 
 [[fig-swid-alias]]
 .SWID Alias
@@ -38,7 +38,7 @@ image::SWID-alias.png[SWID Alias]
 // ----
 
 
-EDITOR:  The specific form of aliases is still to be determined. To be consistent with other SWF specificaitons, the figure may need to be revised, inserting "SWID Document"  between SWID1 and "Verifiable Credential." 
+EDITOR:  The specific form of aliases is still to be determined. To be consistent with other SWF specificatons, the figure may need to be revised, inserting "SWID Document" between SWID1 and "Verifiable Credential." 
 
 
 == Definition of a DOMAIN
@@ -99,11 +99,11 @@ Additional concepts are being considered relevant to DOMAIN types. These are dif
 
 == DOMAIN modeling checklist
 
-A DOMAIN provides the answers to a number of key questions about the system in question.
+This checklist is provided to aid in modeling a DOMAIN to be included in the UDG KG.
 
-* __Where?__. Where (what place) does the action within the system take place?
-* __How Is Space Defined?__ What are the relevant places of relevance within the system (it's hyperspace).
-* __How Is Spae Connected?__. How are things within the domain connected, and how are domains connected to other domains?
+* __Where?__. Where does the action take place?
+* __How Is Space Defined?__ What is the relevant hyperspace of relevance within the system.
+* __How Is the DOMAIN Connected?__. How are ENTITIES within the DOMAIN connected, and how are DOMAINS connected to other DOMAINS?
 * __What Happened?__. Is it possible to retrieve a history of what happened within the domain over time?
 * __What Kind?__. What classifications apply to the domain?
 * __Who?__. Which agents are participating within the domain?
@@ -112,14 +112,13 @@ A DOMAIN provides the answers to a number of key questions about the system in q
 * __How?__. What are the activities that can be accomplished within the domain, and how are these activated?
 * __Why?__. What are the goals or purposes of the domain, and what happens when those goals are achieved?
 
-
 DOMAINS may be references using hyperspace including time. DOMAINS usually have a specific start time (or other condition) and end time (or other condition).
 
-In general, a domain has a schematic representation that can be extended from a core domain type. This identifies the relevant state variables and properties for the domains beyond the properties of the Domain base class. Domains are entities in that they have SWIDs, but they are in effect system (or holonic) entities.
+A DOMAIN may have a schematic representation that can be extended from a core DOMAIN type. The core identifies the relevant properties for the DOMAIN beyond the properties of the DOMAIN base class. 
 
 == Extending Entities
 
-While the Spatial Web makes use of the Domain Types defined in <<IEEE Std 2874>>, those types may need to be extended to model the complexity of all worlds.  A framework is defined that can identify nodes contextually using topics and state dependencies. For instance, suppose that you wanted to add a property to a given country called population. In this case, a property node can be added using SHACL.
+While the Spatial Web makes use of the DOMAIN Types defined in <<IEEE Std 2874>>, those types may need to be extended to model the complexity of all use cases. A framework is defined that can identify nodes contextually using topics and state dependencies. If a use case needs to add a property, the property can be added using SHACL.
 
 ----
 [] a hsml:Domain ;
@@ -143,9 +142,9 @@ While the Spatial Web makes use of the Domain Types defined in <<IEEE Std 2874>>
      ] .
 ----
 
-In this case, the domain holds the shape definitions via the `hsml:hasShape` property, and when the domain is instantiated, this provides information to the system about how the given property or properties are implemented.
+As illustrated below, the DOMAIN holds the shape definitions via the `hsml:hasShape` property, and when the DOMAIN is instantiated, this provides information about how the given property or properties are implemented.
 
-For instance, in this particular case, the place (a country) is defined with a property `ex:population` as well as a second property `hsml:hasTopic`. The first is considered valid if it has a nonNegative integer (and is an optional parameter), the second is considered valid if the hsml:hasTopic property has the value <concept/Country>. If either of these are not true for the place, then the structure generates an error for the shape.
+In the example, the place (a country) is defined with a property `ex:population` as well as a second property `hsml:hasTopic`. The first is considered valid if it has a nonNegative integer (and is an optional parameter), the second is considered valid if the hsml:hasTopic property has the value <concept/Country>. If either of these are not true for the place, then the structure generates an error for the shape.
 
 Within the graph, then, this would be applied to the Canada place node as follows:
 
@@ -158,7 +157,8 @@ Within the graph, then, this would be applied to the Canada place node as follow
     .
 ----
 
-This makes it possible to add any number of properties to entities within the domain in question, as well as to set constraints that more accurately specify things such as topicality or state configurations.
+This makes it possible to add any number of properties to the DOMAIN, as well as to set constraints that more accurately specify things such as topicality or state configurations.
 
-Note that common shapes can be bound specifically to reference domains and included or imported, as specified in the section
-link:#importing-taxonomies-and-schemas[Importing Taxonomies and Schemas].
+== Requirements and recommendations
+
+TBD

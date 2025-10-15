@@ -234,3 +234,7 @@ An example of an included domain would be a hotel that had a number of guest roo
 Another way of thinking about imports vs. includes is that an import is essentially a cache of one domain within another, while, an include is a temporary reference.
 
 Note also that in both cases, the node server MUST have the relevant credentials to load in the external domain. Otherwise this statement will fail and an error message will be sent to the error channel.
+
+== Requirements and recommendations
+
+TBD
