@@ -23,14 +23,14 @@ Integration of geospatial features into knowledge graphs can enable more precise
 
 == Global Earth observation models
 
-Massive Earth Observation (EO) archives containing hundreds of petabytes of dataoffer a huge potential for understanding the Earth’s resources and potential hazards tosecurity while also addressing societal challenges <<Element_84>>. There is a growing need for efficient vector representations of the underlying raw data. The approach of extracting feature representations from pretrained deep neural networks is a powerful approach that can provide semantic abstractions of the input data. Several projects are creating global and dense embedding datasets released openly and for free. <<Embeddings_of_Earth>>, <<AlphaEarth>>. <<omniverse>>.
+Massive Earth Observation (EO) archives containing hundreds of petabytes of dataoffer a huge potential for understanding the Earth’s resources and potential hazards tosecurity while also addressing societal challenges <<Element_84>>. There is a growing need for efficient vector representations of the underlying raw data. The approach of extracting feature representations from pretrained deep neural networks is a powerful approach that can provide semantic abstractions of the input data. Several projects are creating global and dense embedding datasets released openly and for free. <<Embeddings_of_Earth>>, <<AlphaEarth>>.
 
 == Telecoupling
 
 Telecoupling implicilty uses hyperspace for identifying connections between physically distant systems.  Telecoupling exposes socioeconomic and environmental interactions between distant coupled human and natural systems. The integrated framework of telecoupling examines flows of information, energy, matter, people, organisms, and other things such as financial capital and goods and products around the globe. It pinpoints causes and effects arising from engagement of diverse agents in the global sphere.  It enables recognizing trade-offs between local and global sustainability and the need for multi-level management and governance solutions.  Telecoupling can help systematically expand from a focus on specific places separately to human-nature interactions across distant places.  (see <<Hull_and_Liu>> and <<Manning>>)
 
 
-== Embodied cyber-physical agents
+== Emboddied cyber-physical agents
 
 Living systems balance energetic efficiency with the capacity for path-dependent effects. <<blattner>> defines a geometric framework that models embodied agents as hierarchies of manifolds linked by projections from physical states to cognitive representations and onward to intentions. The framework consists of three manifolds/subspaces - Physical, Cognitive, Intentional - along with functions for mapping between the spaces; mappings which constrain the paths in each space. The framework provides a geometric language linking embodiment, memory, and energetic cost, yielding testable predictions and design guidelines for biological and robotic systems. This framework might provide necessary rules for structures in the UDG which could be utilized for desired UDG-based behaviors of cyber-physical agents,
 
