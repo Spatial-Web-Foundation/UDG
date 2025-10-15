@@ -2,7 +2,7 @@
 
 == Spatial embedding of concepts 
 
-The Spatial Web defines space as hyperspace in order to represent many entity properties using a spatial embedding approach.   Spatial embedding: mathematical methods for representing data in a continuous, multi-dimensional vector space.
+The Spatial Web applies spatial embedding to Spatial Web ENTITIES to create the vector space version of Hyperspace. The Spatial Web defines space as hyperspace in order to represent many entity properties using a spatial embedding approach.   Spatial embedding: mathematical methods for representing data in a continuous, multi-dimensional vector space.
 
 Spatial embedding was a key technology to the recent advances in LLM AI.  A survey of the development of hyperdimensional representation technology presents the main ideas behind the models <<Kanerva>>.  One of the fundamental papers showed an efficient method for learning high-quality distributed vector representations that capture a large number of precise syntactic and semantic word relationships <<Mikolov>>.  LLMs use spatial embedding for linguistic concepts, encoding words as vectors. The <<Word2Vec>> code represents a word as a high-dimension vector of numbers which capture relationships between words. In particular, words which appear in similar contexts are mapped to vectors which are nearby.  
 
@@ -10,7 +10,9 @@ Spatial embedding enables useful functions based on syntactic and semantic regul
 
 <<World2Vec>> was an internal name for the PyTorch-BigGraph: A Large-scale Graph Embedding System project <<PBG>>.
 
-The Spatial Web applies spatial embedding to Spatial Web ENTITIES to create the vector space version of Hyperspace.
+Scalability of embedding needs to be assessed for the Spatial Web. <<Weller>> has shown limits of embedding models under a certain vector paradigm and calls for future research to develop methods that can resolve this fundamental limitation.
+
+
 
 == Cartographic visualization of concept mapping
 

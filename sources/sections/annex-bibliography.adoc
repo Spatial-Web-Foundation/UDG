@@ -315,3 +315,13 @@ https://github.com/Element84/vector-embeddings-catalog-whitepaper?tab=readme-ov-
 
 <<wikipedia-KG>>
       https://en.wikipedia.org/wiki/Knowledge_graph
+      
+      
+* [[[Weller]]]
+      title={On the Theoretical Limitations of Embedding-Based Retrieval}, 
+      author={Orion Weller and Michael Boratko and Iftekhar Naim and Jinhyuk Lee},
+      year={2025},
+      eprint={2508.21038},
+      archivePrefix={arXiv},
+      primaryClass={cs.IR},
+      url={https://arxiv.org/abs/2508.21038},

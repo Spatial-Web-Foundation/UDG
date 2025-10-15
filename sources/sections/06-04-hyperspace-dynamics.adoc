@@ -1,0 +1,28 @@
+[[hyperspace-dynamics]]
+= Hyperspace dynamics
+
+== Concept: Movement in UDG 
+
+ * Represented in hyperspace
+ * Trajectories and activities
+ * Pose, geopose
+
+
+== Design: thing states 
+
+	1. Energetic physical systems
+	2. State machines 
+	3. Trajectory of an individual 
+	4. Group hamiltonian
+
+== Design: agent locations
+
+	1. Route
+	2. Agent based population
+
+== Design: agent Ideas, concepts
+
+	1. Etymology: changed in meaning over time 
+	2. Worlds of ideas and how they evolve
+
+== Requirements and Recommendations 
