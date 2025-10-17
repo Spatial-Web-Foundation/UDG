@@ -26,7 +26,9 @@ The complexity of the relationships in the UDG can be charaterized using mereolo
 | * DOMAINS may not have links to other DOMAINS.   
 | * Coordination between DOMAINS occurs through the Domain Authority of the DOMAIN in which the DOMAIN is a member. 
 | Heterarchical
-| * DOMAINS may be a member of one and only one upper DOMAIN. * DOMAINS may have links to other domains.  * Coordination between DOMAINS occurs through the Domain Authority of the upper DOMAIN and through relationships to other domains. 
+| * DOMAINS may be members of one and only one upper DOMAIN. 
+| * DOMAINS may have links to other DOMAINS. 
+| * Coordination between DOMAINS occurs through the Domain Authority of the upper DOMAIN and through relationships to other DOMAINS. 
 | Holonic
 | * DOMAINs may be a member of multiple upper DOMAINS. * DOMAINS may have links to other domains.  * Coordination between DOMAINS occurs through the Domain Authority of the upper DOMAIN and through relationships to other domains.
 |===
