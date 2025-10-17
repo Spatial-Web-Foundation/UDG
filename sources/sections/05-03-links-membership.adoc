@@ -155,7 +155,7 @@ Movement of a DOMAIN in and out of membership in an upper DOMAIN is allowed as s
 
 === Obligations on DOMAIN members.
 
-DOMAINS define norms, obligations and laws which the member DOMAINS must adhere with.  Enforcement of the domain obligations is a function of the domain authority which manages the upper DOMAIN.
+DOMAINS define norms, obligations and laws which the member DOMAINS must adhere with.  Enforcement of the DOMAIN obligations is a function of the Domain Authority that manages the upper DOMAIN.
 
 === DOMAIN location
 
