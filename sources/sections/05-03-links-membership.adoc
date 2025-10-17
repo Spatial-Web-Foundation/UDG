@@ -134,7 +134,7 @@ Portals access may be constrained by the requirement that the initiating agent h
 
 A landing place is a place within a domain that is used to indicate where a given agent is placed (lands) when entering a domain without an explicit link to a place. This can be thought of as the "home" of the domain, and is indicated as a property of the domain. This corresponds roughly with the top of an HTML page when it is rendered.
 
-Typically portals will take you from a place to another place, but it is possible to link to other entities. Such links will take you to the location of that entity. For instance, if you wanted to join a party (an link:aggregations.md[aggregation]), then you could use the SWID of that aggregation to take you to where that party is located, even if that party moves around. See <<links,Links>> for more details.
+Portals will take you from a place to another place, but it is possible to link to other entities. Such links will take you to the location of that entity. For instance, if you wanted to join a party (an link:aggregations.md[aggregation]), then you could use the SWID of that aggregation to take you to where that party is located, even if that party moves around. See <<links,Links>> for more details.
 
 EDITOR: The OMA3 Inter-World Portaling System (IWPS) draft standard may be relevant for Spatial Web.  IWPS presents a framework for digital interoperability, acting as the 3D equivalent to a web hyperlink, linking users to various virtual worlds. The IWPS standard enables users to move between applications, even on different devices, effectively serving as a generic application launcher. 
 
@@ -159,14 +159,14 @@ DOMAINS define norms, obligations and laws which the member DOMAINS must adhere 
 
 === DOMAIN location
 
-A DOMAIN will typically have a location in hyperspace.  The location may be a single point or it may be a more complex geometry, e.g., polygon, sphere, etc.
+A DOMAIN may have a location in hyperspace.  The location may be a single point or it may be a more complex geometry, e.g., polygon, sphere, etc.
 
 A DOMAIN location may be within an upper DOMAIN location. The DOMAIN may include sub-domains contained within the DOMAIN location.  For instance, a given planet domain may have multiple locations that represent the countries of that planet. 
 
 
 == SITUATIONS
 
-For the purposes of defining context, the SITUATION relationship is defined.  Typically the SITUATION is a dynamically changing relationship. 
+For the purposes of defining context, the SITUATION relationship is defined.  A SITUATION may be a dynamically changing relationship. 
 
 A SITUATION relationship is a relationship ENTITY comprised of all DOMAINS that can be perceived and reasoned about by an AGENT <<IEEE_2874-2025, Spatial Web clause 6.6.4.>>.  SITUATION is to be understood as defined in [IEEE_7007_2021]: a situation is an entity comprised of participating entities and relationships that represent the limited parts of reality that can be perceived and reasoned about by agents.
 
@@ -233,7 +233,7 @@ image::links-game-example.png[example of link between entities]
 
 For an AGENT to traverse a path means moving from one location to another following a particular path of intervening locations. This approach is straightforward and especially conducive to optimization of path traversals to minimize energy expenditure, though as the number of locations goes up, so too does the complexity of such computations.
 
-In the real world, of course, we do not hop from location to location but move in a continuous fashion, and a robot or physical twin has to determine the "how" of traversal. Typically, this process lives in the interface between the virtual and physical twin.
+In the real world, of course, we do not hop from location to location but move in a continuous fashion, and a robot or physical twin has to determine the "how" of traversal. This process may live in the interface between the virtual and physical twin.
 
 In general, this information may be stored in metadata that is associated with the link, but that is outside of the scope of the spatial web. For instance, a robot needs to move from the bottom of a hill to the top of a hill along a road. The link may indicate characteristics of the hill - its inclination in particular - but from the standpoint of the Spatial Web, this slope is a challenge that has to be met prior to achieving the key to allow the transition from one location (the bottom of the hill) to another (the top of the hill).
 
@@ -247,7 +247,7 @@ image::tacking.png[Tacking]
 
 In the case where there is a physical twin bound to an agent, the path remains active until the physical twin indicates it has successfully completed the task, at which point it may update the SITUATION associated with the agent with physical coordinates that can be translated back into tiling.
 
-This means that in general the physical location of a tile will typically be its centrum, unless this is specifically overrriden with a centrum property.
+This means that in general the physical location of a tile may be its centrum, unless this is specifically overrriden with a centrum property.
 
 This analogy also corresponds with non-Hilbert spaces, such as heat/pressure state regimes. In this case, the tiles represent specific regimes of behavior for the system, as the agent (or token) moves from one such state to the next. In the real world, these transitions are usually analog and may be subtle, but modeling these as a state diagram can be useful:
 
