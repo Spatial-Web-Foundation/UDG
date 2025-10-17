@@ -1,4 +1,5 @@
-= UDG as a network of registries
+[[section-conceptual-view-regisries]]
+== UDG as a network of registries
 
 include::07-01-registries-membership.adoc[leveloffset=+2]
 
