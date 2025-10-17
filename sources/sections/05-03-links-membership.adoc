@@ -162,7 +162,7 @@ A DOMAIN location may be within an upper DOMAIN location. The DOMAIN may include
 
 For the purposes of defining context, the SITUATION relationship is defined.  Typically the SITUATION is a dynamically changing relationship. 
 
-A SITUATION relationship is a relationship ENTITY comprised of all DOMAINS that can be perceived and reasoned about by an AGENT <<IEEE_2874-2025, Spatial Web clause 6.6.4.>>.  Situation is to be understood as defined in [IEEE_7007_2021]: a situation is an entity comprised of participating entities and relationships that represent the limited parts of reality that can be perceived and reasoned about by agents.
+A SITUATION relationship is a relationship ENTITY comprised of all DOMAINS that can be perceived and reasoned about by an AGENT <<IEEE_2874-2025, Spatial Web clause 6.6.4.>>.  SITUATION is to be understood as defined in [IEEE_7007_2021]: a situation is an entity comprised of participating entities and relationships that represent the limited parts of reality that can be perceived and reasoned about by agents.
 
 A DOMAIN, in particular an AGENT, can create a SITUATION at any given momenent in time.  This may include determining the visible, nearby DOMAINS and deleting DOMAINS no longer of interest. A SITUATION may be composed of
 
