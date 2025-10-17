@@ -178,7 +178,7 @@ A DOMAIN, in particular an AGENT, can create a SITUATION at any given moment in 
 
 === Updating relationships with time and activity
 
-An ACTIVITY is a partially ordered set of changes effected by an AGENT.  An ACTIVITY may affect the relationships for a DOMAIN including adding or deleting links, joining or leaving membership in a DOMAIN, and/or, affecting the member ENTITIES of a SITUATION.
+An ACTIVITY is a partially ordered set of changes effected by an AGENT. An ACTIVITY may affect the relationships for a DOMAIN, including adding or deleting links, joining or leaving membership in a DOMAIN, and/or, affecting the member ENTITIES of a SITUATION.
 
 An AGENT may move between DOMAINS.  An AGENT may be present in a DOMAIN without being a member.  The AGENT may be present in a DOMAIN and then move to another DOMAIN.  
 
