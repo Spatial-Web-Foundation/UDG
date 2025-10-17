@@ -3,7 +3,7 @@
 
 == Complexity of relationships
 
-Spatial Web DOMAINS have a variety of relationships with one another, thereby reflecting the complexity of the real world and its vast interconnectedness. The UDG's ability to represent and navigate arbitrarily complex relationships is central to its role as the foundational component of the Spatial Web and ensures that DOMAIN-specific data is not only coherent within itself but also in coordination with other DOMAINS.
+Spatial Web DOMAINS have a variety of relationships with one another, thereby reflecting the complexity of the real world and the interconnectedness of its many parts. The UDG's ability to represent and navigate arbitrarily complex relationships is central to its role as the foundational component of the Spatial Web and ensures that DOMAIN-specific data is not only coherent within itself but also in coordination with other DOMAINS.
 
 There are several types of relationships between ENITITIES in the UDG.  The following relationships are defined in this clause: 
 
