@@ -155,7 +155,7 @@ DOMAINS define norms, obligations and laws which the member DOMAINS must adhere 
 
 A DOMAIN will typically have a location in hyperspace.  The location may be a single point or it may be a more complex geometry, e.g., polygon, sphere, etc.
 
-A DOMAIN location may be with in an upper Domain location.  The DOMAIN may include sub-domains contained within the DOMAIN location.  For instance, a given planet domain may have multiple locations that represent the countries of that planet. 
+A DOMAIN location may be within an upper DOMAIN location. The DOMAIN may include sub-domains contained within the DOMAIN location.  For instance, a given planet domain may have multiple locations that represent the countries of that planet. 
 
 
 == SITUATIONS
