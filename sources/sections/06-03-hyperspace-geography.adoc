@@ -65,6 +65,15 @@ Many DOMAINS (such as the Planet Earth) will be used commonly by many DOMAINS th
 
 A DOMAIN can create a relationship to a publicly registered entity internally, such as the government of The United Provinces of North America (a fictional entity) creating a reference to Planet:Earth called Planet:Earth:UPNA that can then be used by any specific subnetwork under the UPNA umbrella. Planet:Earth may contain some specific metadata (how large the planet is, for instance), but this metadata will be fairly limited. Each Node administrator would then create local definitions relevant to the node in question. This makes it possible to query for specific public entities across nodes while decentralizing definition.
 
+DOMAINS may be registered in the Spatial Web Registry as Atlas term for use by any DOMAIN. 
+
+If a DOMAIN already exists, then the registrants could "attach" their entity to the existing canonical one so that when searches are made over a range of nodes by querants, the synonym searches can identify which nodes have some version of Planet:Earth.
+
+Inversely, if a local synonym is known on a given node, this can be used to determine what the canonical entity SWID is for that node.
+
+EDITOR: This serves two purposes. The first is, as mentioned, discovery; finding a way to find a particular resource then extracting the relevant metadata from multiple nodes that each have that resource. The second is more political - toponyms and extents of places in particular tend to be contentious. This system makes it possible to provide the minimal definition identifying a resource, but then to allow different SW Node claimants to make their own claims about that resource that can then be used to establish provenance.
+
+
 == Requirements and recommendations
 
 TBD

@@ -1,0 +1,131 @@
+= Baseball league domain example
+
+EDITOR: STD-1 generalized the MLB example to a generic baseball league.  
+
+== MLB example
+
+Major League Baseball is an American sport that has 30 professional teams organized in several sub and regional leagues.  The domain of baseball has many public domains such as bat, pitcher, uniform, strike out, base hit, umpire, baseball diamond, baseball stadium, etc.  These public domains can be linked to and used by any top-level domain baseball organization anywhere in the world, who can then use the domain model as the base structure domain model, modifying any of the rules or attributes for their local domain.  For example, in the public domain there are several kinds of baseball bats (aluminum, wood, composite) that can be used to play the game or as a weapon.  However, in MLB, there are very specific attributes that can be used for a baseball bat.
+
+Below is an example of some of the relationships between the Public Domain of baseball, the MLB Top Domain and its various Sub Domains.  MLB registers one top domain (mlb.spatialweb) linking it to all relevant Public Domains in the UDG.  This ensures discoverability, governance inheritance, and interoperability without needing multiple SWIDs.
+
+----
+* Public Domains
+  * America
+    * Sports
+     * Baseball
+       * Bat
+       * Pitcher
+       * Uniform
+* Top Domains 
+  * Major League Baseball
+    * Sub Domain
+      * American League
+      * National League
+    * Sub Sub Domain
+      * East
+      * Central
+      * West
+      * East
+      * Central
+      * West
+    * Sub Sub Sub Domain
+      * Baltimore Orioles
+      * Chicago White Sox
+      * Athletics
+      * Atlanta Braves
+      * Chicago Cubs
+      * Arizona Diamondbacks
+      * Boston Red Sox
+      * Cleveland Guardians
+      * Houston Astros
+      * Miami Marlins
+      * Cincinnati Reds
+      * Colorado Rockies
+      * New York Yankees
+      * Detroit Tigers
+      * Los Angeles Angels
+      * New York Mets
+      * Milwaukee Brewers
+      * Los Angeles Dodgers 
+      * Tampa Bay Rays
+      * Kansas City Royals
+      * Seattle Mariners
+      * Philadelphia Phillies
+      * Pittsburgh Pirates
+      * San Diego Padres
+      * Toronto Blue Jays
+      * Minnesota Twins
+      * Texas Rangers
+      * Washington Nationals
+      * St. Louis Cardinals
+      * San Francisco Giants
+----
+
+
+== MLB's Multi-Role Responsibilities in the UDG
+
+[cols="1,2,3",options="header"]
+|===
+|Role |Definition |MLB's Function
+
+| Domain Authority (DA)
+|A governing body that sets rules for its domain and subdomains.
+|MLB acts as the DA of mlb.spatialweb, defining governance, credentialing, and policies for baseball-related entities.
+
+| Registrant
+|An entity that registers a domain and owns its SWID.
+|MLB is the registrant of mlb.spatialweb, meaning it officially holds the domain.
+
+| Subdomain Registry
+|A system that maintains records of registered subdomains and SWIDs.
+|MLB acts as the registry for all baseball-related subdomains registered to it, maintaining an authoritative list.
+
+| Subdomain Registrar
+|A service that registers subdomains and issues SWIDs
+|MLB serves as the registrar for subdomains like yankees.mlb.spatialweb, dodgers.mlb.spatialweb, stadiums.mlb.spatialweb, etc.
+
+| Index
+|A searchable index of a domains and their subdomains within the UDG.
+|MLB maintains an index (or assigns the right to its subdomains) of its subdomains i.e. all teams, players, stadiums, and equipment, making them searchable.
+|===
+
+
+== How It Works: MLB’s Registration & Linking Process
+
+. MLB registers its SWID mlb.spatialweb.
+. A single SWID is assigned SWID:web:swf.com:domain:mlb
+. MLB becomes a registrant of mlb.spatialweb.
+. MLB selects relevant Public Domains (Linking).
+. MLB is given a “Select All That Apply” option to associate with relevant parent domains.
+
+. Linking occurs to connect MLB’s SWID to:
+** baseball.spatialweb (General Baseball)
+** baseball-pitcher.spatialweb (Baseball pitcher)
+** bat.spatialweb (Bats as it relates to baseball)
+** american-sports.spatialweb (American Sports)
+** uniform.spatialweb (Uniforms as it relates to baseball)
+
+. The UDG establishes these connections via graph-based relationships.
+. MLB’s SWID is indexed under all selected domains.
+. Queries from any relevant domain will correctly return MLB and its Sub Domain.
+
+. Domain model inheritance
+** MLB inherits the attributes, schema and model of the parent Public Domain and can then make any necessary modifications required for use in the MLB.
+** This ensures a common data model and interoperability that can be understood by any outside entity.
+
+. Governance Inheritance & Discovery
+** MLB inherits governance and rules constraints from each linked Public Domain.
+
+. Search engines & AI agents can traverse the UDG graph to find MLB and its Sub Domain through any relevant path.
+
+== Example: How UDG Queries Would Work
+
+Because MLB registers one top domain (mlb.spatialweb) and links it to all relevant Public Domains in the UDG, MLB can be discovered by searching adjacent public domains.
+
+* Query 1: "Show all professional baseball leagues"
+* Searches in: sports-leagues.spatialweb → Finds MLB (via smart link)
+* Query 2: "Find all governing bodies in baseball"
+* Searches in: baseball-organizations.spatialweb → Finds MLB (via smart link)
+* Query 3: "Show all baseball businesses”
+* Searches in: sports_business.spatialweb → Finds MLB  (via smart link)
+

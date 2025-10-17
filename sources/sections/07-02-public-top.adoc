@@ -1,0 +1,46 @@
+= Public and Top Domains
+
+== DOMAINS in general
+
+In the inhabitable world, a domain refers to the geopolitical territory governed by a single entity or government or a geophysical region characterized by a specific feature, type of growth or wildlife, etc. E.g. The domain of the US, the State, or your home.
+
+In the human world, a domain refers to a cultural field of knowledge or influence or range of personal knowledge, or responsibility. E.g. The domain of science, art, or morals.
+
+In the digital world of the Internet, a domain is a set of addresses that refers to the category or geographical area that an Internet address belongs to. E.g. Internet or web domains.
+
+Although each definition of a domain has a slightly different meaning, they all refer to a type of location or “hyperspace” that defines a range of knowledge, activity, or interest, over which someone has control, influence, or rights.
+
+Domains, as defined in IEEE P2874 clause 6.6 about the Spatial Web ontology, are Entities with identity maintained through time, endowed with rights and credentials as defined in the Hyperspatial Modeling Language (HSML), a framework for describing objects, relationships, and governance rules in the Spatial Web and how it links domain structures to policies, credentials, or other metadata.
+
+Functionality: Domains provide structure, often parallel structures, for the existence of people, places, and things, including concepts, nested in nature, that allow for parent, child, and sibling relationships.
+
+Purpose: A purpose of a DOMAIN is to offer a conceptual area in which to add definitions or behavior with HSML-compliant software that allows reality to be described from multiple perspectives and correlated hierarchies. It can be used to provide a single distinct container for things such as a geolocation, physical object, or a concept without having to be the thing itself.
+
+
+=== Public and private domains
+
+Public Domains have no owner and are for the public good like a wiki commons.  SWF acts as the steward for all public domains. Examples: knowledge concepts like baseball, traffic laws, lidar, weather, applied physics.
+
+Private Domains are domains registered by individuals, organizations and their agents.
+Examples: Los Angeles Dodgers, California DMV, your autonomous car, a weather sensor, Johns Hopkins University Applied Physics Laboratory.
+Top Domains are the highest Private domain of a domain hierarchy and managed by the Domain Authority, which governs the entire domain.  Examples: Major League Baseball, United States, Coca-Cola Company, NASA, Johns Hopkins University.
+
+Domain Authority: Domain Authority: Spatial Web entity that manages membership in the domain and defines norms for the domain.
+
+
+=== Top Domains & UDG
+
+A top domain registers just one domain (topdomain.spatialweb) but can be linked to all relevant Public Domains in the UDG.
+This ensures discoverability, governance inheritance, and interoperability without the need for multiple SWIDs.
+
+
+
+
+
+
+
+
+
+
+
+

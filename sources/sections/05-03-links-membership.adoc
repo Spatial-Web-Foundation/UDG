@@ -139,6 +139,7 @@ Portals will take you from a place to another place, but it is possible to link 
 EDITOR: The OMA3 Inter-World Portaling System (IWPS) draft standard may be relevant for Spatial Web.  IWPS presents a framework for digital interoperability, acting as the 3D equivalent to a web hyperlink, linking users to various virtual worlds. The IWPS standard enables users to move between applications, even on different devices, effectively serving as a generic application launcher. 
 
 
+[[domain_membership]]
 == Membership in a DOMAIN
 
 === DOMAIN as a container of DOMAINS
