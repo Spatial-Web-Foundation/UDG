@@ -124,7 +124,7 @@ This could also be used to monitor the value of a given set of properties such a
 
 == Portals
 
-A __portal__ connects spaces as defined in <<IEEE_2874_2025, Spatial Web clause 6.2.3.7.2. Connecting spaces>>.   By identifying  sets of locations in hyperspace that connect two domains, a portal between the domains is created as a relationship between the domains.  A portal need not be binary; it could be mutiple sets of points to define an n-ary portal.  
+A __portal__ connects spaces as defined in <<IEEE_2874_2025, Spatial Web clause 6.2.3.7.2. Connecting spaces>>.  By identifying  sets of locations in hyperspace that connect two DOMAINS, a portal between the DOMAINS is created as a relationship between DOMAINS.  A portal need not be binary; it could be multiple sets of points to define an n-ary portal.  
 
 Portals are defined using sets of points in spaces.  The sets of points might also be the locations of several domains. For example, a portal defined by locations on each side of a doorway also defines the connection of room DOMAINS which share the doorway.
 
