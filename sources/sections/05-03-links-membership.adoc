@@ -13,7 +13,7 @@ There are several types of relationships between ENITITIES in the UDG.  The foll
  * Situations are a set of DOMAINS currently in the context of a DOMAIN
  * Dynamic relationships bring in the notion of paths
 
-The complexity of the relationships in the UDG can be charaterized using mereology. The approach draws on ideas from mereology (the theory of parthood relations), order theory (the study of hierarchy), and category theory (the mathematics of structure). In the Spatial Web, domains may be related in structures of arbitrary complexity. discusses the complexity as hierarchy, heterarchy, and holonic as described in <<domain_relationships>>.
+The complexity of the relationships in the UDG can be charaterized using mereology. The approach draws on ideas from mereology (the theory of parthood relations), order theory (the study of hierarchy), and category theory (the mathematics of structure). In the Spatial Web, DOMAINS may be related in structures of arbitrary complexity. [WHO? WHERE is the clause?] discusses the complexity as hierarchy, heterarchy, and holonic as described in <<domain_relationships>>.
 
 
 [[domain_relationships]]
