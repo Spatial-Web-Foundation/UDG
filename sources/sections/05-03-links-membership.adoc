@@ -41,7 +41,7 @@ The complexity of the relationships in the UDG can be charaterized using mereolo
 image::domain_relationship_types.png["Figure shows three types of mereological relationships between domain hypergraphs: hierarchy, heterarchy, holonic."]
 
 
-It is certain that there will be inconsistencies in the UDG, similar to inconsistencies in the WWW. Some inconsistencies will be from relationships between Domains as described in this clause. Other inconsistencies will be regarding the content of Domains in the UDG.  UDG operations will need to be resilient to inconsistencies in the relationships between nodes and the content of nodes.
+It is certain that there will be inconsistencies in the UDG, similar to inconsistencies in the WWW. Some inconsistencies will be from relationships between DOMAINS as described in this clause. Other inconsistencies will be the result of the content of DOMAINS in the UDG.  UDG operations will need to be resilient to inconsistencies in the relationships between nodes and the content of nodes.
 
 
 
