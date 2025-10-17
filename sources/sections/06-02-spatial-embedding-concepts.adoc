@@ -1,6 +1,6 @@
-= Spatial embedding of Spatial Web entities
+= Spatial embedding of entities
 
-== Spatial embedding of concepts 
+== Spatial embedding technology 
 
 The Spatial Web applies spatial embedding to Spatial Web ENTITIES to create the vector space version of Hyperspace. The Spatial Web defines space as hyperspace in order to represent many entity properties using a spatial embedding approach.   Spatial embedding: mathematical methods for representing data in a continuous, multi-dimensional vector space.
 

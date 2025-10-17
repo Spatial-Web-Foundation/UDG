@@ -1,28 +1,47 @@
 [[relationships]]
-= ENTITY relationships: Links, portals, membership, situations, paths
+= Relationships between ENTITIES
 
-== Mereology in the Spatial Web
+== Complexity of relationships
 
-Spatial Web DOMAINS have a variety of attributes and relationships with one another, reflecting the complexity of the real world and its vast interconnectedness. The UDG's ability to represent and navigate arbitrarily complex relationships is central to its role as the foundational component of the Spatial Web and ensures that Domain-specific data is not only coherent within itself but also in coordination with other Domains.
+Spatial Web DOMAINS have a variety of relationships with one another, thereby reflecting the complexity of the real world and the interconnectedness of its many parts. The UDG's ability to represent and navigate arbitrarily complex relationships is central to its role as the foundational component of the Spatial Web and ensures that DOMAIN-specific data is not only coherent within itself but also in coordination with other DOMAINS.
 
-The formalization draws on ideas from mereology (the theory of parthood relations), order theory (the study of hierarchy), and category theory (the mathematics of structure). In the Spatial Web, domains may be related in structures of arbitrary complexity.
-This clause discusses the complexity as hierarchy, heterarchy, and holonic as described in <<domain_relationships>>.
+There are several types of relationships between ENITITIES in the UDG.  The following relationships are defined in this clause: 
 
-It is certain that there will be inconsistencies in the UDG, similar to inconsistencies in the WWW. Some inconsistencies will be from relationships between Domains as described in this clause. Other inconsistencies will be regarding the content of Domains in the UDG.  UDG operations will need to be resilient to inconsistencies in the relationships between nodes and the content of nodes.
+ * Links represent relationships between an initiator ENTITY to a receiver ENTITY
+ * Portals are relationships between locations in two or more DOMAINS, providing a leap between DOMAINS
+ * Membership is a relationship type that signifies that a DOMAIN is a member of a DOMAIN that is of a higher order or level
+ * Situations are a set of DOMAINS currently in the context of a DOMAIN
+ * Dynamic relationships bring in the notion of paths
+
+The complexity of the relationships in the UDG can be charaterized using mereology. The approach draws on ideas from mereology (the theory of parthood relations), order theory (the study of hierarchy), and category theory (the mathematics of structure). In the Spatial Web, DOMAINS may be related in structures of arbitrary complexity. [WHO? WHERE is the clause?] discusses the complexity as hierarchy, heterarchy, and holonic as described in <<domain_relationships>>.
 
 
 [[domain_relationships]]
-.Spatial Web Domain relationship types
+.Mereological relationships in domain hypergraphs
 [%autowidth]
 |===
-| Type of Domain Relationship | Description
+| Type of Relationship | Description
 | Hierarchical
-| A hierarchical domain may be a member of one and only one upper domain. The domain may have not links to other domains.   Coordination between domains occurs through the Domain Authority of the domain in which the domain is a member. 
+| * DOMAINS may be a member of one and only one upper DOMAIN. 
+| * DOMAINS may not have links to other DOMAINS.   
+| * Coordination between DOMAINS occurs through the Domain Authority of the DOMAIN in which the DOMAIN is a member. 
 | Heterarchical
-| A heterarchical domain may be a member of one and only one upper domain. The domain may have links to other domains.  Coordination between domains occurs through the Domain Authority of the domain in which the domain is a member and through links to other domains. 
+| * DOMAINS may be members of one and only one upper DOMAIN. 
+| * DOMAINS may have links to other DOMAINS. 
+| * Coordination between DOMAINS occurs through the Domain Authority of the upper DOMAIN and through relationships to other DOMAINS. 
 | Holonic
-| A holonic domain (or holon) may be a member of multiple upper domain. The domain may have links to other domains.  Coordination between domains occurs through the Domain Authorities of the domain in which the domain is a member and through links to other domains. 
+| * DOMAINs may be members of multiple upper DOMAINS.
+| * DOMAINS may have links to other DOMAINS. 
+| * Coordination between DOMAINS occurs through the Domain Authority of the upper DOMAIN and through relationships to other DOMAINS.
 |===
+ 
+
+[[domain_relationship_types]]
+.Mereological relationships in domain hypergraphs
+image::domain_relationship_types.png["Figure shows three types of mereological relationships between domain hypergraphs: hierarchy, heterarchy, holonic."]
+
+
+It is certain that there will be inconsistencies in the UDG, similar to inconsistencies in the WWW. Some inconsistencies will be from relationships between DOMAINS as described in this clause. Other inconsistencies will be the result of the content of DOMAINS in the UDG.  UDG operations will need to be resilient to inconsistencies in the relationships between nodes and the content of nodes.
 
 
 
@@ -38,8 +57,8 @@ A link is a relationship from an initiator ENTITY to a receiver ENTITY.  The lin
 image::room-to-room.png[Links showing relationship between room domains]
 
 
-//[source,mermaid]
-/// ----
+// [source,mermaid]
+// ----
 // graph LR
 //    place1[Room 1]
 //    place2[Room 2]
@@ -69,6 +88,8 @@ __Hidden Links__ are links that cause their containing entity to be invisible un
 It's also possible to have __nested links__.  _Nested Links__ are links that point to other links
 
 Types of links are described in the remainder of this clause
+
+EDITOR: Comments about the text above: 1. a bullet mentions "target". It's unclear why a target is needed/what it provides when you have an initiator and a receiver.  2. Statement about inactive links isn't correctly stated. Statements that follow are better (if "link" is really going to be used): "A link may be active or inactive. A link may be visible or hidden." 
 
 EDITOR: the link types described below need to be reviewed.
 
@@ -103,7 +124,7 @@ This could also be used to monitor the value of a given set of properties such a
 
 == Portals
 
-A __portal__ connects spaces as defined in <<IEEE_2874_2025, Spatial Web clause 6.2.3.7.2. Connecting spaces>>.   By identifying  sets of points in two spaces a portal between the spaces is established.  A portal need not be binary; it could be mutiple sets of points to define an n-ary portal.  
+A __portal__ connects spaces as defined in <<IEEE_2874_2025, Spatial Web clause 6.2.3.7.2. Connecting spaces>>.  By identifying  sets of locations in hyperspace that connect two DOMAINS, a portal between the DOMAINS is created as a relationship between DOMAINS.  A portal need not be binary; it could be multiple sets of points to define an n-ary portal.  
 
 Portals are defined using sets of points in spaces.  The sets of points might also be the locations of several domains. For example, a portal defined by locations on each side of a doorway also defines the connection of room DOMAINS which share the doorway.
 
@@ -113,7 +134,7 @@ Portals access may be constrained by the requirement that the initiating agent h
 
 A landing place is a place within a domain that is used to indicate where a given agent is placed (lands) when entering a domain without an explicit link to a place. This can be thought of as the "home" of the domain, and is indicated as a property of the domain. This corresponds roughly with the top of an HTML page when it is rendered.
 
-Typically portals will take you from a place to another place, but it is possible to link to other entities. Such links will take you to the location of that entity. For instance, if you wanted to join a party (an link:aggregations.md[aggregation]), then you could use the SWID of that aggregation to take you to where that party is located, even if that party moves around. See <<links,Links>> for more details.
+Portals will take you from a place to another place, but it is possible to link to other entities. Such links will take you to the location of that entity. For instance, if you wanted to join a party (an link:aggregations.md[aggregation]), then you could use the SWID of that aggregation to take you to where that party is located, even if that party moves around. See <<links,Links>> for more details.
 
 EDITOR: The OMA3 Inter-World Portaling System (IWPS) draft standard may be relevant for Spatial Web.  IWPS presents a framework for digital interoperability, acting as the 3D equivalent to a web hyperlink, linking users to various virtual worlds. The IWPS standard enables users to move between applications, even on different devices, effectively serving as a generic application launcher. 
 
@@ -134,45 +155,36 @@ Movement of a DOMAIN in and out of membership in an upper DOMAIN is allowed as s
 
 === Obligations on DOMAIN members.
 
-DOMAINS define norms, obligations and laws which the member DOMAINS must adhear with.  Enforcement of the domain obligations is a function of the domain authority which manages the upper DOMAIN.
+DOMAINS define norms, obligations and laws which the member DOMAINS must adhere with.  Enforcement of the DOMAIN obligations is a function of the Domain Authority that manages the upper DOMAIN.
 
 === DOMAIN location
 
-A DOMAIN will typically have a location in hyperspace.  The location may be a single point or it may be a more complext geometry, e.g., polygon, sphere, etc.
+A DOMAIN may have a location in hyperspace.  The location may be a single point or it may be a more complex geometry, e.g., polygon, sphere, etc.
 
-A DOMAIN location may be with in an upper Domain location.  The DOMAIN may include sub-domains contained within the DOMAIN lcoation.  For instance, a given planet domain may have multiple locations that represent the countries of that planet. 
+A DOMAIN location may be within an upper DOMAIN location. The DOMAIN may include sub-domains contained within the DOMAIN location.  For instance, a given planet domain may have multiple locations that represent the countries of that planet. 
 
 
 == SITUATIONS
 
-For the purposes of defining context, the SITUATION relationship is defined.  Typically the SITUATION is a dynamically changing relationship. 
+For the purposes of defining context, the SITUATION relationship is defined.  A SITUATION may be a dynamically changing relationship. 
 
-A SITUATION relationship is an entity comprised of all DOMAINS that can be perceived and reasoned about by an AGENT. 
+A SITUATION relationship is a relationship ENTITY comprised of all DOMAINS that can be perceived and reasoned about by an AGENT <<IEEE_2874-2025, Spatial Web clause 6.6.4.>>.  SITUATION is to be understood as defined in [IEEE_7007_2021]: a situation is an entity comprised of participating entities and relationships that represent the limited parts of reality that can be perceived and reasoned about by agents.
 
-Situation is to be understood as defined in [IEEE_7007_2021]: a situation is an entity comprised of participating entities and relationships that represent the limited parts of reality that can be perceived and reasoned about by agents.
-
-An SITUATION describes the relationship between an agent and nearby domains. Traversing the link will provide the AGENT with information about the recipent DOMAIN.  
-
-If a link is to an ACTIVITY, then the link provides information about the state of the ACTIVITY.
-
-A SITUATION may be composed of
+A DOMAIN, in particular an AGENT, can create a SITUATION at any given moment in time.  This may include determining the visible, nearby DOMAINS and deleting DOMAINS no longer of interest. A SITUATION may be composed of:
 
 * Location in Hyperspace
 * Links to other DOMAINS that are currently active
 * Membership in DOMAINS that are currently relevant
 * Current presence of the AGENT within a DOMAIN which it may not be a member
-* Awareness (e.g., via query) of nearby DOMAINS of interest to the AGENT with which it may not have any current relatioship.
+* Awareness (e.g., via query) of nearby DOMAINS of interest to the AGENT with which it may not have any current relationship.
 
 
-== Dynamic aspects of relationships
+
+== Dynamic relationships - paths
 
 === Updating relationships with time and activity
 
-In addition to persistent links, a DOMAIN, in particular an AGENT, can create a SITUATION at any given momenent in time.  This may include determining the visible, nearby DOMAINS and deleting DOMAINS no longer of interest.
-
-SITUATIONS are especially useful when there is a lot of domain specific content near the AGENT, such as taxonomy information, narrative lore, and so forth. 
-
-An ACTIVITY is a partially ordered set of changes effected by an AGENT.  An ACTIVITY may affect the relationships for a DOMAIN including adding or deleting links, joining or leaving membership in a DOMAIN, and/or, affecting the member ENTITIES of a SITUATION.
+An ACTIVITY is a partially ordered set of changes effected by an AGENT. An ACTIVITY may affect the relationships for a DOMAIN, including adding or deleting links, joining or leaving membership in a DOMAIN, and/or, affecting the member ENTITIES of a SITUATION.
 
 An AGENT may move between DOMAINS.  An AGENT may be present in a DOMAIN without being a member.  The AGENT may be present in a DOMAIN and then move to another DOMAIN.  
 
@@ -221,7 +233,7 @@ image::links-game-example.png[example of link between entities]
 
 For an AGENT to traverse a path means moving from one location to another following a particular path of intervening locations. This approach is straightforward and especially conducive to optimization of path traversals to minimize energy expenditure, though as the number of locations goes up, so too does the complexity of such computations.
 
-In the real world, of course, we do not hop from location to location but move in a continuous fashion, and a robot or physical twin has to determine the "how" of traversal. Typically, this process lives in the interface between the virtual and physical twin.
+In the real world, of course, we do not hop from location to location but move in a continuous fashion, and a robot or physical twin has to determine the "how" of traversal. This process may live in the interface between the virtual and physical twin.
 
 In general, this information may be stored in metadata that is associated with the link, but that is outside of the scope of the spatial web. For instance, a robot needs to move from the bottom of a hill to the top of a hill along a road. The link may indicate characteristics of the hill - its inclination in particular - but from the standpoint of the Spatial Web, this slope is a challenge that has to be met prior to achieving the key to allow the transition from one location (the bottom of the hill) to another (the top of the hill).
 
@@ -235,7 +247,7 @@ image::tacking.png[Tacking]
 
 In the case where there is a physical twin bound to an agent, the path remains active until the physical twin indicates it has successfully completed the task, at which point it may update the SITUATION associated with the agent with physical coordinates that can be translated back into tiling.
 
-This means that in general the physical location of a tile will typically be its centrum, unless this is specifically overrriden with a centrum property.
+This means that in general the physical location of a tile may be its centrum, unless this is specifically overrriden with a centrum property.
 
 This analogy also corresponds with non-Hilbert spaces, such as heat/pressure state regimes. In this case, the tiles represent specific regimes of behavior for the system, as the agent (or token) moves from one such state to the next. In the real world, these transitions are usually analog and may be subtle, but modeling these as a state diagram can be useful:
 
