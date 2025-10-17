@@ -9,7 +9,7 @@ There are several types of relationships between ENITITIES in the UDG.  The foll
 
  * Links represent relationships between an initiator ENTITY to a receiver ENTITY
  * Portals are relationships between locations in two or more DOMAINS, providing a leap between DOMAINS
- * Membership is when a DOMAIN is a member of an upper DOMAIN
+ * Membership is a relationship type that signifies that a DOMAIN is a member of a DOMAIN that is of a higher order or level
  * Situations are a set of DOMAINS currently in the context of a DOMAIN
  * Dynamic relationships bring in the notion of paths
 
