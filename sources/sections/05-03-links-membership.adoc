@@ -96,7 +96,7 @@ EDITOR: the link types described below need to be reviewed.
 
 === Persistent links
 
- Links to DOMAINS present in the DOMAIN description. These are persistent links, in that they are always available to the DOMAIN. 
+Links to DOMAINS present in the DOMAIN description. These are persistent links, in that they are always available to the DOMAIN. 
 
 === Link Challenges and Keys
 
