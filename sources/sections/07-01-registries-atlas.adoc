@@ -13,11 +13,7 @@ EDITOR: This document focuses solely on entity and domain registries. For more i
 
 There are a number of key reasons for establishing an entity registry:
 
-==== Atlas
 
-Creating unique identifiers (Spatial Web IDs, or SWIDs) that can identify a given resource for use across multiple Spatial Web Nodes. For instance, many places (such as the Planet Earth) will be used commonly by many domains that have global operations. The Places Registry could then be used to enumerate these places, in the same way that would be the case with a gazeteer or Atlas.
-
-In general, every spatial web node can create a reference to a publicly registered entity internally, such as the government of The United Provinces of North America (a fictional entity) creating a reference to Planet:Earth called Planet:Earth:UPNA that can then be used by any specific subnetwork under the UPNA umbrella. Planet:Earth may contain some specific metadata (how large the planet is, for instance), but this metadata will be fairly limited. Each Node administrator would then create local definitions relevant to the node in question. This makes it possible to query for specific public entities across nodes while decentralizing definition.
 
 ==== Discovery and Search
 

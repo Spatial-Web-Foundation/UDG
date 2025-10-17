@@ -87,6 +87,10 @@ Set of files containing identifiers assigned to items with descriptions of the a
 [.source]
 <<ISO_19135_1_2015,clause=4.1.9>>
 
+==== relationship
+
+Links, portals, membership, situations, paths
+
 ==== representation
 
 Model that can be used to describe some aspect of a world.

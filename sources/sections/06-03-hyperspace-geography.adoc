@@ -61,6 +61,10 @@ A traditional atlas is a collection of maps, that serves as a comprehensive geog
 
 A UDG Atlas will define regions of the UDG that have semantic and/or spatial similarity.  A UDG Atlas then becomes a basis for the distributed replication of the large knowledge base that is the UDG.
 
+Many DOMAINS (such as the Planet Earth) will be used commonly by many DOMAINS that have global operations. A Registry of commonly used DOMAINS is created similar to a traditional atlas.
+
+A DOMAIN can create a relationship to a publicly registered entity internally, such as the government of The United Provinces of North America (a fictional entity) creating a reference to Planet:Earth called Planet:Earth:UPNA that can then be used by any specific subnetwork under the UPNA umbrella. Planet:Earth may contain some specific metadata (how large the planet is, for instance), but this metadata will be fairly limited. Each Node administrator would then create local definitions relevant to the node in question. This makes it possible to query for specific public entities across nodes while decentralizing definition.
+
 == Requirements and recommendations
 
 TBD
