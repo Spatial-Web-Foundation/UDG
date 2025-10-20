@@ -1,6 +1,60 @@
-= Baseball league domain example
+= Societal norms, laws and contracts
 
-EDITOR: STD-1 generalized the MLB example to a generic baseball league.  
+== TBD
 
-== MLB example
+- [ ] Handbook of Normative Multiagent Systems, 2018
+	- [ ] challenges for agent programmers to provide tools for:
+		- 1. agents supporting communities in their task of recognizing, creating, and communicating norms to agents
+- [ ] Learning agent that acquires social norms - 2024
+	- [ ] To achieve collective action in this setting, we construct an agent architecture containing a classifier module that categorizes observed behaviors as approved or disapproved, and a motivation to punish in accord with the group. 
+	- [ ] We show that social norms emerge in multi-agent systems containing this agent and investigate the conditions under which this helps them achieve socially beneficial outcomes.               
 
+- [ ] Governance including privacy
+
+
+- [ ] SWF 6.5 Credentials, Norms, Contracts
+
+
+== socially coordinated activies
+
+6.5.1 Concepts
+- Safety and Trustworthiness on the Spatial Web are enable by credentials, norms, and contracts.
+- Credential: Information that an entity possesses that allows it to make a verifiable claim.
+    - W3C Verifiable Credentials Data Model v1.1: A set of one or more claims made by an issuer. 
+    - KOSM > Credentials
+    Credentials in hyperspace consist of verifiable credentials issued by an issuing authority that can be presented and verified during a transaction on the spatial web.
+
+Verifiable credentials consist of a DID credential document stored wrapped in a HSML document - referenced by the document’s SWID.
+
+Credentials should be presentable and verifiable in compliance with the W3C Verifiable Credentials specification.
+
+Types of credentials:
+- Contract credential - when a contract is posted for execution, it should specify the credential required to sign and execute that contract.
+- Peer-to-peer credential - In the case of automatic peer-to-peer discovery and connection, a proper credential is required.
+- Master credential - in the special case of domain ownership that involved a real person, a verifiable credential is used a master credential that can override other credentials. This credential is used to encrypt a personal data store owned by the user.
+- Exchange credential - controls the exchange of knowledge between nodes. In the case of peer-to-peer, the scope of the exchange is gated by this credential, where peer-to-peer copies.
+
+
+- Norm: A standard, or principle of right action, binding upon the members of a group and serving to guide, control, or regulate proper and acceptable behavior. (Includes statutory law)
+- Contract: A binding agreement between two parties, especially enforceable by law, or a similar internal agreement wholly within an organization
+6.4.2 Credentials for claims associated with entities
+- In the Spatial Web, credentials are used for several claims: Identity (6.2), Domain relationships (6.2), An Agent’s ability to perform an activity (6.3)
+6.4.3 Norms organized by domains
+- Spatial Web Domains are Entities in hyperspace that confer rights and responsibilities for associated Domains.
+6.4.4 Norms as structured language
+- Norms as described in D2 and the comment resolutions.
+6.4.5 Contracts as agreements for activities
+- A Contract in the Spatial Web is an encoded expression between agents regarding an activity.
+
+
+<<tomasello_2022>>
+- objective-normative world.
+	- shared agencies comprise both shared experience on a common focus along with different perspectives.
+	- Modern human agency thus operates in a world of objective facts and objective moral values. 
+	- Construction Of Social Reality, John Searle, 1995
+	- person or object acquires status based on deontic powers given by the group 
+	- a reality made of fictional entities, like nations, like gods, like money, like corporations.
+
+== Requirements and Recommendations
+
+TBD

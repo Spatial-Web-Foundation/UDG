@@ -1,7 +1,8 @@
-= Collective intelligence
+= Promoting collective intelligence
 
 == TBD
 
+Groups have a collective intelligence that is mostly independent of the intelligence of the individual participants.
 
 
 UDG maintanenance
@@ -16,3 +17,40 @@ altenate designs
 * udg agent entities shall promote exploration and engagement
 
 polycentric governance shall promote exploration and engagement
+
+	- Collective intelligence as public good, Leonard and Levin, 2022
+		- PNAS Special Issue
+		- "Evolution of norms"
+	- Cultural Intelligence hypotheis, Hermann, Tomasello, Science 2007
+	- Coasean Bargaining at Scale, Cosmos Institute, 2025
+	- Librarian agents 
+	- Agents that promote social well being as Community infrastucture (eg TBL p280)
+	- IEEE 7008 Nudging for Robotic, Intelligent and Autonomous Systems
+	- Udg is a commons. How to avoid tragedy of commons
+		- [ ] Pentland 260 peer pressure 
+		- [ ] Similar to designing villages for citizen interaction.  Why are physjcal cities more liveable 
+		- [ ] Tech that allows people to decide
+	- [ ] Peer Pressure to Promote Cooperation, Pentland, 2013
+
+
+
+ 43. Building blocks of collective intelligence <<Pentland_2015>>
+	- Each cohesive community has its own stream of idea flow that allows the members to incorporate innovations from other people within it, and even to create a separate culture.
+	- As a consequence of these shared habits, human communities can develop a sort of collective intelligence that is greater than the members' individual intelligence.
+	- Engagement with and learning from others, along with the mutual sharing and vetting of ideas, generate the collective intelligence.
+
+
+	- The fact that exposure turned out to be more important for driving idea flow than all the other factors combined highlights the overarching importance of automatic social learning in shaping our lives.
+	- providing social network incentives to change idea flow is afar more powerful method of changing behaviors than the traditional method of  using individual incentives.
+
+
+58. Collectively Rational, Not Individually Rational <<Pentland_2015>>
+	- we are now coming to realize that human behavior is determined as much by social context as by rational thinking or individual desires
+	- Bounded Rationality
+	- Our desires and preferences are mostly based on what our peer community agrees is valuable rather than on rational reflection based directly on our individual biological drives or inborn morals
+	- Using the terminology of economics, in most things we are collectively rational, and only in some areas are we individually rational.
+
+
+== Requirements and Recommendations
+
+TBD

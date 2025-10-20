@@ -325,3 +325,75 @@ https://github.com/Element84/vector-embeddings-catalog-whitepaper?tab=readme-ov-
       archivePrefix={arXiv},
       primaryClass={cs.IR},
       url={https://arxiv.org/abs/2508.21038},
+
+* [[[Pentland_2015]]]
+      Pentland, A. 
+      (2015). 
+      Social physics: how good ideas spread—the lessons from a new science. 
+      New York: Penguin Books.
+
+* [[[Hayek_1945]]]
+      The Use of Knowledge in Society
+      F. A. Hayek
+      The American Economic Review, Vol. 35, No. 4. (Sep., 1945), pp. 519-530.
+      Stable URL: http://links.jstor.org/sici?sici=0002-8282%28194509%2935%3A4%3C519%3ATUOKIS%3E2.0.CO%3B2-1
+
+
+* [[[Zollman_2025]]]
+      Network epistemology, 
+      Kevin J.S. Zollman CMU 
+      Not yet published.  Advanced copy from the author recieved May 2025
+
+* [[[Pan_et_al_2013]]]
+      Wei Pan, Wen Dong, M. Cebrian, Taemie Kim, J. H. Fowler, and A. S. Pentland.
+      “Modeling Dynamical Influence in Human Interaction: Using Data to Make Better Inferences About Influence Within Social Systems.” 
+      IEEE Signal Processing Magazine 29, no. 2 (March 2012): 77–86.
+      As Published: http://dx.doi.org/10.1109/msp.2011.942737
+
+* [[[Albarracin_2025]]]
+      title={The Physics and Metaphysics of Social Powers: Bridging Cognitive Processing and Social Dynamics, a New Perspective on Power through Active Inference}, 
+      author={Mahault Albarracin and Sonia de Jager and David Hyland and Sarah Grace Manski},
+      year={2025},
+      eprint={2501.19368},
+      archivePrefix={arXiv},
+      primaryClass={physics.soc-ph},
+      url={https://arxiv.org/abs/2501.19368}, 
+
+
+* [[[Veissière_et_al_2020]]]
+       Veissière SPL, Constant A, Ramstead MJD, Friston KJ, Kirmayer LJ. 
+       (2020) 
+       Thinking through other minds: A variational approach to cognition and culture. 
+       Behavioral and Brain Sciences 43, e90: 1–75. 
+       doi:10.1017/ S0140525X19001213
+
+* [[[tomasello_2022]]]
+      Title: The Evolution of Agency: Behavioral Organization from Lizards to Humans
+      Author: Michael Tomasello
+      Publisher: MIT Press
+      Publication Date: September 6, 2022
+      ISBN: 978-0262047005
+
+* [[[Nagel_2024]]]]
+      RT Book, Section
+      A1 Nagel, Jennifer
+      T1 Natural Curiosity
+      T2 Putting Knowledge to Work: New Directions for Knowledge-First Epistemology
+      A2 Logins, Artūrs
+      A2 Vollet, Jacques-Henri
+      YR 2024
+      DO 10.1093/9780191976766.003.0007
+      UL https://doi.org/10.1093/9780191976766.003.0007
+
+* [[[Friston_2017]]]
+      Friston, Karl & Lin, Marco & Frith, Chris & Pezzulo, Giovanni & Hobson, J. & Ondobaka, Sasha. 
+      (2017). 
+      Active Inference, Curiosity and Insight. 
+      Neural Computation. 29. 2633-2683. 
+      10.1162/neco_a_00999. 
+
+* [[[Milgram_1967]]] 
+      Milgram, Stanley 
+      (May 1967). 
+      "The Small World Problem". 
+      Psychology Today. Ziff-Davis Publishing Company.

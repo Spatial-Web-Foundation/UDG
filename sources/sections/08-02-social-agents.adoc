@@ -1,33 +1,63 @@
-= Social Agents
-
-EDITOR: STD-1 generalized the MLB example to a generic baseball league.  
-
-== TBD
-
-* Social agents: agent based networks
-** UDG Nodes shall conduct sociometric data on agent interactions
-* Group sizes: situation, cluster, society
-* Social signaling
+= Social Agents; shared goals and activities
 
 
-- [ ] Model from agent framework
-- [ ] Paradise: Ensemble Social Physics with LLM
-- [ ] Natural Curiosity, Nagel, 2024
-  Curiosity is an intrinsic desire for knowledge. This raises a puzzle about how unreflective animals can be curious. It is easy to understand how learning could be driven by factors such as hunger, but what proximal signal could guide animals towards knowledge itself? Recent work in reinforcement learning suggests that surprise functions as a reward signal for the curious animal. Reward for surprise can then be shown to amount to a desire for knowledge gain, where knowledge is a cognitive adaptation to reality. This adaptation results in a mental state whose stable existence depends essentially on the truth of its contents; that is, a factive mental state. Curious creatures benefit from an interaction between the prediction-error correction processes of basic learning and the active surprise-seeking force of their curiosity. This internally adversarial interaction accelerates knowledge gain in ways that are helpful for biological creatures in a complex natural world.
- - Friston, Karl & Lin, Marco & Frith, Chris & Pezzulo, Giovanni & Hobson, J. & Ondobaka, Sasha. (2017). Active Inference, Curiosity and Insight. Neural Computation. 29. 2633-2683. 10.1162/neco_a_00999. 
-     In short, the simulations used to illustrate the emergence of curiosity and insight below follow from a single principle: the minimization of free energy (i.e., surprise) or maximization of model evidence.
-- Veissière SPL, Constant A, Ramstead MJD, Friston KJ, Kirmayer LJ. Thinking through other minds: A variational approach to cognition and culture. Behavioral and Brain Sciences. 2020;43:e90. doi:10.1017/S0140525X19001213
-  Intrinsic motivation and artificial curiosity enable the agent toexplore novel, transient, and unexpected regions of the space ofpolicies open to them. This can be an “adaptive” exploration orepistemic foraging, because it allows for the exploration of thisspace; over longer timescales, the local increase in free energyserves the more general process of reducing free energy (for eitherthe individual or the group, because it prepares the organism forpotential changes in adaptive contexts and enlarges the repertoireof responses for the individual or the group). S
-- [ ] Agents are not Enough
+== Social agent type
+
+The Spatial Web Agent Framework Design Specification <<swf_std_6>> defines several AGENT types for the purpose of explaining examples of agency used in the Spatial Web.  The agent types are distinguished by the functions they perform which are visible through behavior or statements of the agent’s developer. The canonical Agent Types are informative as the following:  
+
+[[canonical_agent_types]]
+.Canonical Agent Types as a hierarchy. 
+image::canonical_agent_types.png[Canonical Agent Types as a hierarchy.]
+
+
+Natural social agents provide a basis for describing AGENTS in the Spaital Web.   <<tomasello_2022>> describes the traits of socially normative agents.  Even early human individuals formed with other individuals a joint agency. They engaged in socially normative self-regulation which obliges individuals to direct and control their actions not just individually but also to comport with the normative standards of the shared agency in which they are participating.  Individuals came together to form joint goal, coordinating roles and collaboratively self-regulating the collaboration.  Individuals closest to those with whom they shared the most experiences; derived through joint attention and common ground, in collaborative activities.
+
+Social agents learn the shared habits, norms, and expectations of their culture through immersive participation in patterned cultural practices that selectively pattern attention and behaviour. <<Veissière_et_al_2020>> call this process “thinking through other minds” (TTOM) – in effect, the process of inferring other agents’ expectations about the world and how to behave in social context. 
+
+<<thinking_through_other_minds>> depicts the loop between action, sensations, and niche construction that lead to the acquisition and production of cultural habits, and to the inference and learning about other minds. In the Spatial Web, this “thinking through other minds” (TTOM) depends on the exchange of HSML content using HSTP to share cultural practices and associated artefacts that guide the attention (and learning) of AGENTS.
+
+[[thinking_through_other_minds]]
+.Social agent interaction: thinking through other minds (Source: <<Veissière_et_al_2020>>)
+image::thinking_through_other_minds.png[Social agent interaction: thinking through other minds]
+
+
+Natural agents and some artificial agents exhibit behavior that implies curiosity.  
+
+Curiosity is an intrinsic desire for knowledge. Recent work in reinforcement learning suggests that surprise functions as a reward signal for the curious animal. Reward for surprise can then be shown to amount to a desire for knowledge gain, where knowledge is a cognitive adaptation to reality. This adaptation results in a mental state whose stable existence depends essentially on the truth of its contents; that is, a factive mental state. Curious creatures benefit from an interaction between the prediction-error correction processes of basic learning and the active surprise-seeking force of their curiosity. This internally adversarial interaction accelerates knowledge gain in ways that are helpful for biological creatures in a complex natural world.<<Nagel_2024>>
+
+Learning, inference, and decision making are processes that resolve uncertainty about the world. Active Inference  simulations used to illustrate the emergence of curiosity and insight follow from a single principle: the minimization of free energy (i.e., surprise) or maximization of model evidence. <<Friston_2017>>
+
+
+
 - [ ] Decision Theory in Multi-Agent Systems, Ki, Soh, 2004
+
+
+== Social epistemology 
+
+Curiosity causes AGENTS to aquire additional information.  Agents interact with other agents in order to gain this information and improve the internal models the agents holds.  Social epistemology is how AGENTS learn in interaction with other AGENTS. This social interaction is affected by Network epistemology: how social network structure affects beliefs and knowledge <<Zollman_2025>>.  
+
+Communities of AGENGS can develop collective intelligence that is greater than the members' individual intelligence. There is a complex relations between individual agent knowledge and collective intellgence.  <<Zollman_2025>>'s Independence Thesis is that norms of social epistemology are independent of norms of individual epistemology.  Two divergent “folk” notions about epistemic groups are 1. Wisdom of the Crowds: groups can be far wiser than its members vs. 2. The opposite: group think, pluralistic ignorance, echo chambers, information cascades.  Some epistemic problems are caused by social structure, not by individually bad behavior. These include group pathologies, like pluralistic ignorance, herding, and polarization,  Blindly increasing connectivity can make the group worse rather than better the individuals sometimes less communication is better. 
+
+Application of Landscape search problems to benefit social epistemology.  The knowledge landscape can be modelled using HYPERSPACE model of conceptual domains.  The AGENTS must ‘spread out’ over the space of possibilities in order to find the best solution. This can be approached using the notions of NK-Landscape to model landscape search’ problem. N is the number of propositions that the agent must assign truth values to;  K represents how complex are the relevant composite propositions.  Harder problems are those with both higher N and higher K.’  These models suggest that infrequent social learning is optimal.  Imitation reduces the diversity of the search; If every agent imitates on every round, the group ends up being very homogeneous. This is another example of the independence thesis:  individuals would prefer to engage in social learning far more frequently than would benefit the group.  <<Zollman_2025>>
+
+
+A central feature of many real world social networks is that they feature very low mean path length, the distance between two randomly chosen individuals in the network. The familiar ‘six-degrees of separation’ is an instantiation of this idea. Mean path length is related to eccentricity, since both are a measure of average distance.  Small world property characterizes this network: That two people are separated by a relatively small number of friends,  while each person also has relatively few friends.  The  weak ties those’ that tend to connect two different people who are otherwise quite distant in the social network were incredibly important in understanding diffusion processes <<Milgram_1967>>. 
+
+*  If the diffusion is simple, clustering slows down the spread of new ideas, 
+*  if the diffusion is complex, it makes the diffusion possible to begin with.
+
+No single network provides optimal social epistemology in all cases.  The UDG needs multiple adaptive methods to situtational networks and objectives for specific communities of AGENTS.
 
 [[sensors]]
 == Sensors 
-The challenge that is faced with the Spatial Web is that what you see is not always what you get. In general, the way that a given domain is perceived will vary depending upon the observer - some observers will be capable of seeing a great deal, others, not much at all. In order to manage this, one particularly useful entity is the *__sensor__*.
 
-> A __sensor__ is a mechanism to get a particular point of view on a domain from the perspective of either a place, agent, assemblage or thing.
+EDITOR: This clause on sensors needs to be reivewed, edited and possibly deleted.
 
-The most obvious form of sensor is an _eyeball_, or the mechanical equivalent, the _camera_. However, this gives a fairly restrictive idea about what sensors are capable of.
+A challenge that is faced with the Spatial Web is that what you see is not always what you get. In general, the way that a given domain is perceived will vary depending upon the observer - some observers will be capable of seeing a great deal, others, not much at all. In order to manage this, one particularly useful entity is the *__sensor__*.
+
+> A __sensor__ is a mechanism to get a particular point of view on a domain from the perspective of an AGENT
+
+The most obvious form of sensor is a _camera_. However, this gives a fairly restrictive idea about what sensors are capable of.
 
 As an example, a very common sensor is a map-view sensor, which provides a representation of a particular domain from the perspective of an all encompassing eye (the map-view, or omniscient-view). This need not be a direct satellite view, but instead may be some form of boundary heat map drawing or icon view of entities within the domain. This may also generate an ESRI shape file, KML, GeoJSON, Geographic Markup Language, OSM, IDRISI Vectors, or similar format map resources.
 
@@ -45,21 +75,29 @@ Sensors are basically data plugins - they are intended to provide some meaningfu
 
 The exact mechanism for how sensors work is still under development, but runs roughly along the following lines:
 
-[source,mermaid]
-----
+[[sensor_flow]]
+.Sensor flow
+image::sensor_flow.png[Sensor flow]
 
----
-config:
-    layout: elk
----
-graph TD
-    start([start])-->hstpReq[HSTP requests<br>View]
-    hstpReq-->iterate[Agent iterates<br>through other<br>entities' states]
-    iterate --> filter[Filter through<br>known sensor<br>Filters]
-    filter --> transform[Transform the<br>result into<br>requested format]
-    transform --> respond[Send to<br>output channel]
-    respond-->stop
-----
+// [source,mermaid]
+// ----
+// ---
+// config:
+//    layout: elk
+// ---
+// graph TD
+//    start([start])-->hstpReq[HSTP requests<br>View]
+//    hstpReq-->iterate[Agent iterates<br>through other<br>entities' states]
+//    iterate --> filter[Filter through<br>known sensor<br>Filters]
+//    filter --> transform[Transform the<br>result into<br>requested format]
+//    transform --> respond[Send to<br>output channel]
+//    respond-->stop
+//----
+
 In general, this output is performed as an HSTP request to get a description of state of either a given entity or the domain of entities.
 
 A similar loop occurs for each entity's internal update, but does not include the filter or transform, and typically does not respond to data outside of the hsml namespace. This is used in order to query the state of the surrounding graph in order to adjust movement to desired goals. This is handled by the internal udg daemon.
+
+== Requirements and Recommendations
+
+TBD

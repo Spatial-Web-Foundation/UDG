@@ -8,15 +8,3 @@ include::08-02-social-agents.adoc[leveloffset=+2]
 include::08-03-society.adoc[leveloffset=+2]
 
 include::08-04-collective-intelligence.adoc[leveloffset=+2]
-
-
-
-
-
-
-
-
-
-
-
-
