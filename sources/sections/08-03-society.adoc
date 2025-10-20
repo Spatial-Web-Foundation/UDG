@@ -1,0 +1,6 @@
+= Baseball league domain example
+
+EDITOR: STD-1 generalized the MLB example to a generic baseball league.  
+
+== MLB example
+
