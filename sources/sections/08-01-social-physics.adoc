@@ -52,10 +52,10 @@ idea-pooling approach only works for estimation problems as long as there is no 
 		- In other words, it assumes that all the people in the crowd will act independently. The moment social interaction occurs, however, all bets are off: people begin influencing other people,6 and that results in panics, bubbles, and fads.7 
 		- In humans, the social learning strategy of feeding back the best current idea—that is, a constrained, artificial sort of social interaction that interleaves periods of idea harvesting with periods when experts evaluate the ideas—produces a wisdom of the crowd effect that works even for small groups.9 
 
- 29 Social Learning
+29 Social Learning
 	- So our measure of idea flow is the chance that a person's behavior will change when a new idea has appeared in their extended social network. 
 
- Exploration
+Exploration
 	-  From here onward I will use the term “exploration” to refer to the use of social networks in harvesting ideas and information. Exploration is the part of idea flow that brings new ideas into a work group or community. 
 		- Social learning is critical
 		- Diversity is important
@@ -85,7 +85,7 @@ idea-pooling approach only works for estimation problems as long as there is no 
 		- Computational social science - Wikipedia
 
 [[exploration-engagement-networks]]
-.Variation of network structure for exploration vs engagement (Source: <<Pentland_2015>>)
+.Network structures for exploration vs engagement (Source: <<Pentland_2015>>)
 image::exploration-engagement-networks.png[Variation of network structure for exploration vs engagement]
 
 

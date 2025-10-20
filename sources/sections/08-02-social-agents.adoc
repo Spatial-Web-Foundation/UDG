@@ -27,11 +27,6 @@ Curiosity is an intrinsic desire for knowledge. Recent work in reinforcement lea
 
 Learning, inference, and decision making are processes that resolve uncertainty about the world. Active Inference  simulations used to illustrate the emergence of curiosity and insight follow from a single principle: the minimization of free energy (i.e., surprise) or maximization of model evidence. <<Friston_2017>>
 
-
-
-- [ ] Decision Theory in Multi-Agent Systems, Ki, Soh, 2004
-
-
 == Social epistemology 
 
 Curiosity causes AGENTS to aquire additional information.  Agents interact with other agents in order to gain this information and improve the internal models the agents holds.  Social epistemology is how AGENTS learn in interaction with other AGENTS. This social interaction is affected by Network epistemology: how social network structure affects beliefs and knowledge <<Zollman_2025>>.  

@@ -4,186 +4,73 @@
 
 [bibliography]
 === Bibliography
-
 // Standards
-
 // ------------------------------------
-
 // IEEE documents
-
 // ------------------------------------
-
 * [[[IEEE_730_2014,IEEE Std 730-2014]]]
-
 * [[[IEEE_802.1AR_2018,IEEE Std 802.1AR-2018]]]
-
 * [[[IEEE_1589_2020,IEEE Std 1589-2020]]]
-
 * [[[IEEE_1874_2013,IEEE Std 1874-2013]]]
-
 * [[[IEEE_2660.1_2020,IEEE Std 2660.1-2020]]]
-
 * [[[IEEE_2755_2017,IEEE Std 2755-2017]]]
-
-
 // ------------------------------------
-
 // ISO/IEC documents
-
 // ------------------------------------
-
 * [[[ISO_19111_2019,ISO 19111:2019]]]
-
 * [[[ISO_19135_1_2015,ISO 19135-1:2015]]]
-
 * [[[ISO_22300_2021,ISO 22300:2021]]]
-
 * [[[ISO_IEC_23188_2020,ISO/IEC 23188:2020]]]
-
 * [[[ISO_37101_2016,ISO 37101:2016]]]
-
 * [[[ISO_IEC_IEEE_42010_2022,ISO/IEC/IEEE 42010:2022]]]
-
 * [[[ISO_IEC_12113_2022,ISO/IEC 12113:2022]]]
-
 * [[[ISO_IEC_TR_18121_2015,ISO/IEC TR 18121:2015]]]
-
 // ------------------------------------
-
 // ISO/IEC/IEEE documents
-
 // ------------------------------------
-
 * [[[ISO_IEC_IEEE_21451-1_2010,ISO/IEC/IEEE 21451-1:2010]]]
-
 * [[[ISO_IEC_IEEE_24765_2017,ISO/IEC/IEEE 24765:2017]]]
-
-
 // ------------------------------------
-
 // IEC Electropedia: The World's Online Electrotechnical Vocabulary
-
 // ------------------------------------
-
 // 20240208 iev autofetch not resolving, using manual option
 // * [[[ievterms,IEV]]]
-
 * [[[ievterms_m,1]]]
 span:organization[International Electrotechnical Commission (IEC)]
 span:title[IEC Electropedia: The World's Online Electrotechnical Vocabulary]
 span:type[website]
 span:date[2024]
 span:uri[https://www.electropedia.org/]
-
-
 // ------------------------------------
-
 // OGC documents
-
 // ------------------------------------
-
-
 * [[[ogc_citygml,OGC 20-010]]], OGC OGC City Geography Markup Language (CityGML) Part 1: Conceptual Model Standard
-
 * [[[ogc_gml,OGC 07-036]]], OpenGIS Geography Markup Language (GML) Encoding Standard
-
 // ------------------------------------
-
 // W3C documents
-
 // ------------------------------------
-
 * [[[w3c_respon_spatial,W3C responsible-use-spatial]]]
-
 * [[[w3c_rdf,W3C rdf-concepts]]]
-
 * [[[w3c_did_core,W3C did-core]]]
-
 // IETF documents
-
 * [[[http3_rfc,IETF RFC 9114]]]
-
 // Groups
-
-* [[[H3_geo_functions,1]]]
-span:organization[Apache Software Foundation]
-span:title[databricks--H3 geospatial functions]
-span:type[website]
-span:date[2024]
-span:uri[https://docs.databricks.com/en/sql/language-manual/sql-ref-h3-geospatial-functions.html]
-
-* [[[didcomm,1]]],
-span:title[Decentralized Identity Foundation: DIDComm Messaging Working Group]
-span:type[website]
-span:uri[https://github.com/decentralized-identity/didcomm-messaging]
-
-* [[[mit_rules_as_code,1]]],
-span:organization[MIT Computational Law]
-span:surname[Morris], span:initials[J.]
-span:title[Blawx: Rules as Code Demonstration]
-span:type[webresource]
-span:uri[https://law.mit.edu/pub/blawxrulesascodedemonstration/release/1]
-
-* [[[nextgen_de,1]]],
-span:surname[Goodchild], span:initials[M.]
-span:surname[Guo], span:initials[H.]
-span:surname[Annoni], span:initials[A.]
-span:surname[Bian], span:initials[L.]
-span:surname[de Bie], span:initials[K.]
-span:surname[Campbell], span:initials[F.]
-span:surname[Craglia], span:initials[M.]
-span:surname[Ehlers], span:initials[M.]
-span:surname[van Genderen], span:initials[J.]
-span:surname[Jackson], span:initials[D.]
-span:surname[Lewis], span:initials[A. J.]
-span:surname[Pesaresi], span:initials[M.]
-span:surname[Remetey-Fülöpp], span:initials[G.]
-span:surname[Simpson], span:initials[R.]
-span:surname[Skidmore], span:initials[A.]
-span:surname[Wang], span:initials[C.]
-span:surname[Woodgate], span:initials[P.]
-span:title[Next-generation Digital Earth]
-span:type[inproceedings]
-In: span:in_title[Proceedings of the National Academy of Sciences of the United States of America]
-vol. span:volume[109],
-issue. span:issue[28],
-span:date[2012],
-pp. span:pages[11088-11094]
-doi: span:uri.doi[10.1073/pnas.1202383109]
-
-* [[[manual_of_de,1]]],
-span:surname[Goodchild], span:initials[M.]
-span:surname[Guo], span:initials[H.]
-span:surname[Annoni], span:initials[A.]
-span:type[book]
-span:title[Manual of Digital Earth]
-pp. span:pages[852]
-span:date[2019],
-doi: span:uri.doi[10.1007/978-981-32-9915-3]
-
-* [[[Ecosystems_intelligence, 1]]]
- Friston, K. J., M. J. Ramstead, A. B. Kiefer et al., “Designing ecosystems of intelligence from first principles,” Collective Intelligence, vol. 3 no. 1, 2024, http://journals.sagepub.com/doi/10.1177/26339137231222481.
-
-
-* [[[stse, 1]]]
-Spatio-temporal state embedding for knowledge graph completion
-Xiaoyu Ji, Yibing Cao, Jiangshui Zhang, Xinke Zhao,
-STSE: Spatio-temporal state embedding for knowledge graph completion,
-Knowledge-Based Systems,
-Volume 317,
-2025,
-113469,
-ISSN 0950-7051,
-https://doi.org/10.1016/j.knosys.2025.113469.
-(https://www.sciencedirect.com/science/article/pii/S0950705125005167)
-
-* [[[Element_84,1]]]
-The Case for a Centralized Earth Observation Vector Embeddings Catalog
-Authors: Jason Gilman, Adeel Hassan, Nathan Zimmerman
-https://github.com/Element84/vector-embeddings-catalog-whitepaper?tab=readme-ov-file
-2025-06-05
-
-* [[[Embeddings_of_Earth, 1]]]
+* [[[Ecosystems_intelligence, Ecosystems of intelligence 2024]]]
+       Friston, K. J., M. J. Ramstead, A. B. Kiefer et al., “Designing ecosystems of intelligence from first principles,” Collective Intelligence, vol. 3 no. 1, 2024, http://journals.sagepub.com/doi/10.1177/26339137231222481.
+* [[[stse, Spatio-temporal state embedding 2025]]]
+      Spatio-temporal state embedding for knowledge graph completion
+      Xiaoyu Ji, Yibing Cao, Jiangshui Zhang, Xinke Zhao,
+      STSE: Spatio-temporal state embedding for knowledge graph completion,
+      Knowledge-Based Systems, Volume 317, 2025, 113469,
+      ISSN 0950-7051,
+      https://doi.org/10.1016/j.knosys.2025.113469.
+      (https://www.sciencedirect.com/science/article/pii/S0950705125005167)
+* [[[Element_84,Earth Observation Vector Embeddings]]]
+      The Case for a Centralized Earth Observation Vector Embeddings Catalog
+      Authors: Jason Gilman, Adeel Hassan, Nathan Zimmerman
+      https://github.com/Element84/vector-embeddings-catalog-whitepaper?tab=readme-ov-file
+      2025-06-05
+* [[[Embeddings_of_Earth, Global Embeddings of Earth]]]
       title={Global and Dense Embeddings of Earth: Major TOM Floating in the Latent Space}, 
       author={Mikolaj Czerkawski and Marcin Kluczek and Jędrzej S. Bojanowski},
       year={2024},
@@ -191,8 +78,7 @@ https://github.com/Element84/vector-embeddings-catalog-whitepaper?tab=readme-ov-
       archivePrefix={arXiv},
       primaryClass={cs.CV},
       url={https://arxiv.org/abs/2412.05600}, 
-
-* [[[AlphaEarth,1]]]
+* [[[AlphaEarth, AlphaEarth]]]
       title={AlphaEarth Foundations: An embedding field model for accurate and efficient global mapping from sparse label data}, 
       author={Christopher F. Brown and Michal R. Kazmierski and Valerie J. Pasquarella and William J. Rucklidge and Masha Samsikova and Chenhui Zhang and Evan Shelhamer and Estefania Lahera and Olivia Wiles and Simon Ilyushchenko and Noel Gorelick and Lihui Lydia Zhang and Sophia Alj and Emily Schechter and Sean Askay and Oliver Guinan and Rebecca Moore and Alexis Boukouvalas and Pushmeet Kohli},
       year={2025},
@@ -200,8 +86,7 @@ https://github.com/Element84/vector-embeddings-catalog-whitepaper?tab=readme-ov-
       archivePrefix={arXiv},
       primaryClass={cs.CV},
       url={https://arxiv.org/abs/2507.22291}, 
-
-* [[[blattner, 1]]]
+* [[[blattner, Tangential Action Spaces]]]
       title={Tangential Action Spaces: Geometry, Memory and Cost in Holonomic and Nonholonomic Agents}, 
       author={Marcel Blattner},
       year={2025},
@@ -209,22 +94,19 @@ https://github.com/Element84/vector-embeddings-catalog-whitepaper?tab=readme-ov-
       archivePrefix={arXiv},
       primaryClass={eess.SY},
       url={https://arxiv.org/abs/2509.03399},
-
-*  [[[BigKnolwedge]]]
+*  [[[BigKnolwedge, BigKnowledge]]]
       Title: BigKnowledge: Not Just a Metaphor
       Date: Jul 31, 2024
       Author: André Skupin of BigKnowledge
       url=https://researchmethodscommunity.sagepub.com/blog/concept-grant-update-bigknowledge 
-
-* [[[Kanerva]]
+* [[[Kanerva, Hyperdimensional Computing]]]
       Cogn Comput (2009) 1:139–159 DOI 10.1007/s12559-009-9009-8
       Hyperdimensional Computing: An Introduction to Computing in Distributed Representation with High-Dimensional Random Vectors
       Pentti Kanerva
       Published online: 28 January 2009
       Springer Science+Business Media, LLC 2009
-
-* [[[Mikolov]]]
-       author = {Mikolov, Tomas and Sutskever, Ilya and Chen, Kai and Corrado, Greg S and Dean, Jeff},
+* [[[Mikolov, Words and Phrases and their Compositionality]]]
+      author = {Mikolov, Tomas and Sutskever, Ilya and Chen, Kai and Corrado, Greg S and Dean, Jeff},
       booktitle = {Advances in Neural Information Processing Systems},
       editor = {C.J. Burges and L. Bottou and M. Welling and Z. Ghahramani and K.Q. Weinberger},
       pages = {},
@@ -234,14 +116,14 @@ https://github.com/Element84/vector-embeddings-catalog-whitepaper?tab=readme-ov-
       volume = {26},
       year = {2013}
 
-* [[[word2vec]]]
+* [[[word2vec, word2vec]]]
       https://github.com/dav/word2vec
 
-* [[[World2Vec]]]
+* [[[World2Vec, World2Vec]]]
       https://x.com/ylecun/status/1523018860731023361
       Author: Yann LeCunn
 
-* [[[PBG]]]
+* [[[PBG, PyTorch-BigGraph]]]
       title={PyTorch-BigGraph: A Large-scale Graph Embedding System}, 
       author={Adam Lerer and Ledell Wu and Jiajun Shen and Timothee Lacroix and Luca Wehrstedt and Abhijit Bose and Alex Peysakhovich},
       year={2019},
@@ -250,14 +132,14 @@ https://github.com/Element84/vector-embeddings-catalog-whitepaper?tab=readme-ov-
       primaryClass={cs.LG},
       url={https://arxiv.org/abs/1903.12287}, 
 
-* [[[Anthropic]]]
+* [[[Anthropic, Monosemanticity]]]
       title Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet
       Authors: Adly Templeton*, Tom Conerly*, Jonathan Marcus, Jack Lindsey, Trenton Bricken, Brian Chen, Adam Pearce, Craig Citro, Emmanuel Ameisen, Andy Jones, Hoagy Cunningham, Nicholas L Turner, Callum McDougall, Monte MacDiarmid, Alex Tamkin, Esin Durmus, Tristan Hume, Francesco Mosconi, C. Daniel Freeman, Theodore R. Sumers, Edward Rees, Joshua Batson, Adam Jermyn, Shan Carter, Chris Olah, Tom Henighan
       Affiliations: Anthropic
       Published: May 21, 2024
 
 
-* [[[Jha]]]
+* [[[Jha, Universal Geometry of Embeddings]]]
       title={Harnessing the Universal Geometry of Embeddings}, 
       author={Rishi Jha and Collin Zhang and Vitaly Shmatikov and John X. Morris},
       year={2025},
@@ -266,7 +148,7 @@ https://github.com/Element84/vector-embeddings-catalog-whitepaper?tab=readme-ov-
       primaryClass={cs.LG},
       url={https://arxiv.org/abs/2505.12540},
 
-* [[[Huh]]]
+* [[[Huh, Platonic Representation Hypothesis]]]
       title={The Platonic Representation Hypothesis}, 
       author={Minyoung Huh and Brian Cheung and Tongzhou Wang and Phillip Isola},
       year={2024},
@@ -276,7 +158,7 @@ https://github.com/Element84/vector-embeddings-catalog-whitepaper?tab=readme-ov-
       url={https://arxiv.org/abs/2405.07987}, 
 
 
-* [[[Gavranović]]]
+* [[[Gavranović, Categorical Deep Learning]]]
       title={Position: Categorical Deep Learning is an Algebraic Theory of All Architectures}, 
       author={Bruno Gavranović and Paul Lessard and Andrew Dudzik and Tamara von Glehn and João G. M. Araújo and Petar Veličković},
       year={2024},
@@ -285,7 +167,7 @@ https://github.com/Element84/vector-embeddings-catalog-whitepaper?tab=readme-ov-
       primaryClass={cs.LG},
       url={https://arxiv.org/abs/2402.15332}, 
 
-* [[[Hull_and_Liu]]]
+* [[[Hull_and_Liu, Telecoupling]]]
       Hull, V. and J. Liu. 2018. 
       Telecoupling: A new frontier for global sustainability. 
       Ecology and Society 23(4):41. 
@@ -294,7 +176,7 @@ https://github.com/Element84/vector-embeddings-catalog-whitepaper?tab=readme-ov-
       Guest Editorial, part of a Special Feature on Telecoupling: A New Frontier for Global Sustainability
 
 
-* [[Manning]]
+* [[[Manning,metacoupling framework]]]
       Nicholas Manning, Yingjie Li, Jianguo Liu,
       Broader applicability of the metacoupling framework than Tobler’s first law of geography for global sustainability: A systematic review, 
       Geography and Sustainability, Volume 4, Issue 1,
@@ -304,7 +186,7 @@ https://github.com/Element84/vector-embeddings-catalog-whitepaper?tab=readme-ov-
       https://doi.org/10.1016/j.geosus.2022.11.003.
 
 
-* [[[Noy]]]
+* [[[Noy,  Industry-scale knowledge graphs]]]
       Industry-scale knowledge graphs: lessons and challenges
       Authors: Natasha Noy, Yuqing Gao, Anshu Jain, Anant Narayanan, Alan Patterson, Jamie TaylorAuthors Info & Claims
       Communications of the ACM, Volume 62, Issue 8
@@ -313,11 +195,11 @@ https://github.com/Element84/vector-embeddings-catalog-whitepaper?tab=readme-ov-
       Published: 24 July 2019
 
 
-<<wikipedia-KG>>
+* [[[wikipedia-KG, Knolwedge Graphs]]]
       https://en.wikipedia.org/wiki/Knowledge_graph
       
       
-* [[[Weller]]]
+* [[[Weller, Limitations of Embedding]]]
       title={On the Theoretical Limitations of Embedding-Based Retrieval}, 
       author={Orion Weller and Michael Boratko and Iftekhar Naim and Jinhyuk Lee},
       year={2025},
@@ -326,31 +208,31 @@ https://github.com/Element84/vector-embeddings-catalog-whitepaper?tab=readme-ov-
       primaryClass={cs.IR},
       url={https://arxiv.org/abs/2508.21038},
 
-* [[[Pentland_2015]]]
+* [[[Pentland_2015, Social physics]]]
       Pentland, A. 
       (2015). 
       Social physics: how good ideas spread—the lessons from a new science. 
       New York: Penguin Books.
 
-* [[[Hayek_1945]]]
+* [[[Hayek_1945, Knowledge in Societ]]]
       The Use of Knowledge in Society
       F. A. Hayek
       The American Economic Review, Vol. 35, No. 4. (Sep., 1945), pp. 519-530.
       Stable URL: http://links.jstor.org/sici?sici=0002-8282%28194509%2935%3A4%3C519%3ATUOKIS%3E2.0.CO%3B2-1
 
 
-* [[[Zollman_2025]]]
+* [[[Zollman_2025, Network epistemology]]]
       Network epistemology, 
       Kevin J.S. Zollman CMU 
       Not yet published.  Advanced copy from the author recieved May 2025
 
-* [[[Pan_et_al_2013]]]
+* [[[Pan_et_al_2013, Modeling Dynamical Influence]]]
       Wei Pan, Wen Dong, M. Cebrian, Taemie Kim, J. H. Fowler, and A. S. Pentland.
       “Modeling Dynamical Influence in Human Interaction: Using Data to Make Better Inferences About Influence Within Social Systems.” 
       IEEE Signal Processing Magazine 29, no. 2 (March 2012): 77–86.
       As Published: http://dx.doi.org/10.1109/msp.2011.942737
 
-* [[[Albarracin_2025]]]
+* [[[Albarracin_2025, Metaphysics of Social Powers]]]
       title={The Physics and Metaphysics of Social Powers: Bridging Cognitive Processing and Social Dynamics, a New Perspective on Power through Active Inference}, 
       author={Mahault Albarracin and Sonia de Jager and David Hyland and Sarah Grace Manski},
       year={2025},
@@ -360,21 +242,21 @@ https://github.com/Element84/vector-embeddings-catalog-whitepaper?tab=readme-ov-
       url={https://arxiv.org/abs/2501.19368}, 
 
 
-* [[[Veissière_et_al_2020]]]
+* [[[Veissière_et_al_2020, Thinking through other minds]]]
        Veissière SPL, Constant A, Ramstead MJD, Friston KJ, Kirmayer LJ. 
        (2020) 
        Thinking through other minds: A variational approach to cognition and culture. 
        Behavioral and Brain Sciences 43, e90: 1–75. 
        doi:10.1017/ S0140525X19001213
 
-* [[[tomasello_2022]]]
+* [[[tomasello_2022, Evolution of Agency]]]
       Title: The Evolution of Agency: Behavioral Organization from Lizards to Humans
       Author: Michael Tomasello
       Publisher: MIT Press
       Publication Date: September 6, 2022
       ISBN: 978-0262047005
 
-* [[[Nagel_2024]]]]
+* [[[Nagel_2024, Natural Curiosity]]]]
       RT Book, Section
       A1 Nagel, Jennifer
       T1 Natural Curiosity
@@ -385,14 +267,14 @@ https://github.com/Element84/vector-embeddings-catalog-whitepaper?tab=readme-ov-
       DO 10.1093/9780191976766.003.0007
       UL https://doi.org/10.1093/9780191976766.003.0007
 
-* [[[Friston_2017]]]
+* [[[Friston_2017, Active Inference, Curiosity and Insight]]]
       Friston, Karl & Lin, Marco & Frith, Chris & Pezzulo, Giovanni & Hobson, J. & Ondobaka, Sasha. 
       (2017). 
       Active Inference, Curiosity and Insight. 
       Neural Computation. 29. 2633-2683. 
       10.1162/neco_a_00999. 
 
-* [[[Milgram_1967]]] 
+* [[[Milgram_1967, Small World Problem]]] 
       Milgram, Stanley 
       (May 1967). 
       "The Small World Problem". 

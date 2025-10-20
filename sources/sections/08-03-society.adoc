@@ -1,4 +1,4 @@
-= Societal norms, laws and contracts
+= Societal norms, laws, contracts, certification
 
 == TBD
 
@@ -47,6 +47,10 @@ Types of credentials:
 - A Contract in the Spatial Web is an encoded expression between agents regarding an activity.
 
 
+== Decisions in multi-agent systems
+
+- [ ] Decision Theory in Multi-Agent Systems, Ki, Soh, 2004
+
 <<tomasello_2022>>
 - objective-normative world.
 	- shared agencies comprise both shared experience on a common focus along with different perspectives.
@@ -54,6 +58,9 @@ Types of credentials:
 	- Construction Of Social Reality, John Searle, 1995
 	- person or object acquires status based on deontic powers given by the group 
 	- a reality made of fictional entities, like nations, like gods, like money, like corporations.
+
+== Certification of AGENT behavior
+
 
 == Requirements and Recommendations
 
