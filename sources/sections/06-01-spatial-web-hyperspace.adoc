@@ -4,7 +4,7 @@
 
 The Spatial Web hyperspace ENTITY provides the fundamental organizing method for entities in the UDG. To enable this role, <<IEEE_2874_2025, Spatial Web clause 6.2.3.7>> provides a formal definition of hyperspace, as any set whose elements are related by a formal notion of _path_.  The basic classes of hyperspace include: Graphs including Cellular spaces and Vector spaces with coordinate systems.
 
-DOMAINS are represented in hyperspace by identifying the type of hyperspace and the location of the DOMAIN in the hyperspace. 
+
 
 [[basic-classes-of-hyperspace]]
 .Basic classes of hyperspace
@@ -22,11 +22,13 @@ The <<IEEE_2874_2025, Spatial Web Protocol Architecture and Governance>> standar
 * Connecting spaces: points in common to multiple subspaces, i.e., Portal.
 
 
-== Attributes associated with hyperspace
+== Hyperspace attributes
 
-Location identifies a specific place in a hyperspace.
+DOMAINS are represented in hyperspace by identifying the type of hyperspace and the location of the DOMAIN in the hyperspace. 
+
+Location identifies a specific coordinate or index value in a hyperspace.
 Location in hyperspace can be of several types: cell address, coordinate 
-location in HSML:  graph:Node, cell identifier, coordinates as well-known-text, tensor 
+Location in HSML:  graph:Node, cell identifier, coordinates as well-known-text, tensor 
 
 Geometries
 Entities have a hyperspace:spatialProperty (e.g., geo:hasGeometry, hspace:cell) to point to the actual value.
