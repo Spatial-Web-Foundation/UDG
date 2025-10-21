@@ -14,3 +14,4 @@ span:uri[https://h3geo.org]
 
 * [[[w3c_rdf12-concepts,W3C WD rdf12-concepts]]]
 * [[[w3c_did,W3C did-core]]], Decentralized Identifiers (DIDs) v1.0
+* [[[w3c_verifiable_credentials,W3C vc-data-model]]], W3C Verifiable Credentials Data Model v1.1

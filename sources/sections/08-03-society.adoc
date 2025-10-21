@@ -1,65 +1,90 @@
-= Societal norms, laws, contracts, certification
+= Objective-normative society 
 
-== TBD
+== Construction of social reality
 
-- [ ] Handbook of Normative Multiagent Systems, 2018
-	- [ ] challenges for agent programmers to provide tools for:
-		- 1. agents supporting communities in their task of recognizing, creating, and communicating norms to agents
-- [ ] Learning agent that acquires social norms - 2024
-	- [ ] To achieve collective action in this setting, we construct an agent architecture containing a classifier module that categorizes observed behaviors as approved or disapproved, and a motivation to punish in accord with the group. 
-	- [ ] We show that social norms emerge in multi-agent systems containing this agent and investigate the conditions under which this helps them achieve socially beneficial outcomes.               
+Social agents operate in objective-normative worlds: what an agent should do in part is based on objective statements established through social mechanisms.  Norms enable shared agencies that comprise both shared experience on a common focus along with different perspectives. Modern human agency operates in a world of objective facts and objective moral values (<<tomasello_2022>>). The Spatial Web integrates artificial social agents into our shared objective-normative world.
 
-- [ ] Governance including privacy
+The Spatial Web provides the infrastrcuture to construct a social reality including AI where objective facts exist in the world, that are only facts by human agreement.  The Spatial Web enables a virtual reality, a world of agency, intentionality, and other conceptual phenomena, to fit alongsie a world consisting of physical particles in fields of force (<<searle_1995>>). In the UDG an AGENT or DOMAIN acquires status based in part on deontic norms, laws, contracts, and certifications. 
 
+== Social entities: norms, laws, contracts
 
-- [ ] SWF 6.5 Credentials, Norms, Contracts
+The Spatial Web Ontology (<<STD-1>>) defines ENTITIES essential to construction of social reality: ACTIVITY, CREDENTIAL, CONTRACT.  HSML adds NORM as a ENTITY. 
 
+- ACTIVITY: A partially ordered set of changes effected by an AGENT. Activities are are performed on, by, in, or with, DOMAINS, including other AGENTS
+- CREDENTIAL: A set of one or more claims made by a DOMAIN. Credentials are used for several claims including Identity, DOMAIN relationships, an AGENT'S ability to perform an activity.
+- CONTRACT: A binding agreement between two parties, especially enforceable by law, or a similar internal agreement wholly within an organization.
+- NORM: A socially or organizationally defined expectation governing behavior within a DOMAIN or ACTIVITY. Defined in IEEE Norms specify conventions, standards, or best practices that guide interactions among ENTITIES.  NORMS may be a standard, or principle of right action, binding upon the members of a group and serving to guide, control, or regulate proper and acceptable behavior. (Includes statutory law)
 
-== socially coordinated activies
-
-6.5.1 Concepts
-- Safety and Trustworthiness on the Spatial Web are enable by credentials, norms, and contracts.
-- Credential: Information that an entity possesses that allows it to make a verifiable claim.
-    - W3C Verifiable Credentials Data Model v1.1: A set of one or more claims made by an issuer. 
-    - KOSM > Credentials
-    Credentials in hyperspace consist of verifiable credentials issued by an issuing authority that can be presented and verified during a transaction on the spatial web.
-
-Verifiable credentials consist of a DID credential document stored wrapped in a HSML document - referenced by the document’s SWID.
-
-Credentials should be presentable and verifiable in compliance with the W3C Verifiable Credentials specification.
+CREDENTIALS in the UDG consist of Verifiable Credentials issued by an issuing authority that can be presented and verified during an HSTP transaction.  Verifiable credentials consist of a DID credential document stored wrapped in a HSML document - referenced by the document’s SWID.  Credentials are presentable and verifiable in compliance with the W3C Verifiable Credentials specification  (<<w3c_verifiable_credentials>>).
 
 Types of credentials:
+
 - Contract credential - when a contract is posted for execution, it should specify the credential required to sign and execute that contract.
 - Peer-to-peer credential - In the case of automatic peer-to-peer discovery and connection, a proper credential is required.
 - Master credential - in the special case of domain ownership that involved a real person, a verifiable credential is used a master credential that can override other credentials. This credential is used to encrypt a personal data store owned by the user.
 - Exchange credential - controls the exchange of knowledge between nodes. In the case of peer-to-peer, the scope of the exchange is gated by this credential, where peer-to-peer copies.
 
+== Certification of agent credentials
 
-- Norm: A standard, or principle of right action, binding upon the members of a group and serving to guide, control, or regulate proper and acceptable behavior. (Includes statutory law)
-- Contract: A binding agreement between two parties, especially enforceable by law, or a similar internal agreement wholly within an organization
-6.4.2 Credentials for claims associated with entities
-- In the Spatial Web, credentials are used for several claims: Identity (6.2), Domain relationships (6.2), An Agent’s ability to perform an activity (6.3)
-6.4.3 Norms organized by domains
-- Spatial Web Domains are Entities in hyperspace that confer rights and responsibilities for associated Domains.
-6.4.4 Norms as structured language
-- Norms as described in D2 and the comment resolutions.
-6.4.5 Contracts as agreements for activities
-- A Contract in the Spatial Web is an encoded expression between agents regarding an activity.
+CREDENTIALS are used by AGENTS to make claims about abilities to perform an AGENT function.  The claim may be specific to a DOMAIN or to an ACTIVITY, i.e., ability to stably control the air temperature in a room using a residential HVAC system.
+
+To obtain a CREDENTIAL the AGENT must be certified. Besides issuing the CREDENTIAL artifact, certification includes the process of giving official or legal approval to an AGENT that has reached a particular standard.
+
+A framework for AGENT CREDENTIAL certification can be built based on previous systems for certification, e.g., medical devices, robots, automotive, railroad, avionics, etc. (<<fisher_2021>>)
+
+== Law as code
+
+Law in HSML
 
 
-== Decisions in multi-agent systems
+== Decisions based on norms and laws
 
-- [ ] Decision Theory in Multi-Agent Systems, Ki, Soh, 2004
+The actions of an Agent in multi-agent social systems must include decisions that consider norms and laws.
 
-<<tomasello_2022>>
-- objective-normative world.
-	- shared agencies comprise both shared experience on a common focus along with different perspectives.
-	- Modern human agency thus operates in a world of objective facts and objective moral values. 
-	- Construction Of Social Reality, John Searle, 1995
-	- person or object acquires status based on deontic powers given by the group 
-	- a reality made of fictional entities, like nations, like gods, like money, like corporations.
+In Multi-Agent Systems (MASs), multiple AGENTS operate in an environment and interact with some others. For an individual AGENT in a multi-agent system, their function is not only to interact with the environment but also to interact with other agents, perceive the states of other agents, and make decisions on how to respond to other agents’ actions. 
 
-== Certification of AGENT behavior
+The Spatial Web provides mechanisms and methods that enable agents to understand and interact with other entities in the system as well as humans. This goal is centered around agents’ decision making about when and how to interact with whom for pursuing specific goals or performing specific task. An important objective is to ensure that agents make right and good decisions - based on norms and laws - typically the best decision that they can do given what is known. Therefore, decision making is at the heart of building multi-agent systems.   
+
+Decision theory applies mathematical and statistical methodologies to help provide information on which decisions can be made. It is based on the axioms of probability and utility. To some degree, it is a combination of probability theory and utility theory. Decision Theory in the multi-agents must be accomodated by the UDG (<<[Xin_2004>>)
+
+Explainability refers to the ability of an AGENT to provide understandable reasons for its decisions and actions. One approach is to provide a framework for transparent introspection and decision-making by designing explainability with active inference (<<Albarracin_2023>>).
+
+Decision Theory and decision explainability are key aspects of social agents exhibiting safe and trusted behavior.  Safety and trustworthiness on the Spatial Web are enable by credentials, norms, and contracts.
+
+
+== Agents forming a contract
+
+AGENTS will form contracts using the UDG.  Contract must be consistent with laws, may be consistent with norms.
+
+Relationships between entities  AGENT, ACTIVITY, and CONTRACT relationships are shown in IEEE 2874 clause 6.6.11 including this Figure <<agents_contracts_activities>>
+
+[[agents_contracts_activities]]
+.Agent-Contract-Activity relationship diagram
+image::agents_contracts_activities.png["Diagram of the relationships between HSML AGENTs, ACTIVITY Schemas, ACTIVITY Instances, and CONTRACTs"]
+
+<<agents_contracts_activities>> pictures the core relationships that obtain in the HSML ontology among, a) AGENTs, b) ACTIVITY Schemas, c) ACTIVITIES (aka ACTIVITY Instances), d) CONTRACTs. A Requester is an AGENT requesting performance of a task or other CONTRACT. The loop connection on ACTIVITY Schema represents the composition of Complex ACTIVITY Schemas.
+
+For additional information on AGENTS forming contracts for ACTIVITIES, see SWF Agent Framework Design Specification.
+
+== Normative agent functions
+
+All social AGENTS will need the ability to recognize and acquire social norms.  To achieve collective action in the UDG, social agents need functions that categorize observed behaviors as approved or disapproved, and a motivation to drive behavior in accord with the norms. Social norms emerge in multi-agent systems containing this agent function and the UDG must provide the conditions under which this results in socially beneficial outcomes. (<<Vinitsky>>)   
+
+Some AGENTS will need to perform specialized functions.  These agents peform functions that maintain and enable the normative multiagent system.  These functions include (<<Verhagen_2018>>): 
+
+1. agents supporting communities in their task of recognizing, creating, and communicating norms to agents
+2. agents to simplify normative systems, recognize when norms have become redundant, and to remove norms
+3. agents to enforce norms.
+4. agents to construct organizations
+5. agents to create intermediate concepts and normative ontology, for example to decide about normative gaps
+6. agents to decide about norm conflicts
+7. agents to voluntarily give up some norm autonomy by allowing automated norm processing in agent acting and decision making
+8. legal responsibility of the agents and their principals
+
+
+== Governance including privacy
+
+Sharing of protected information between AGENTS
 
 
 == Requirements and Recommendations

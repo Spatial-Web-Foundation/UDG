@@ -279,3 +279,50 @@ span:uri[https://www.electropedia.org/]
       (May 1967). 
       "The Small World Problem". 
       Psychology Today. Ziff-Davis Publishing Company.
+
+* [[[searle_1995,Construction of Social Reality]]]
+      Author: John R. Searle
+      Year: 1995
+      Title: The Construction of Social Reality
+      Publisher: Free Press
+      Location: New York
+
+* [[[Verhagen_2018, Normative Multiagent Systems]]]
+      @inbook{inbook,
+      author = {Verhagen, Harko and Neumann, Martin and Singh, Munindar},
+      year = {2018},
+      month = {08},
+      pages = {3-25},
+      title = {Normative Multiagent Systems: Foundations and History},
+      isbn = {978-1-84890-285-5}
+      }
+
+* [[[Vinitsky,Learning agent acquires social norms]]]
+      Vinitsky, E., Köster, R., Agapiou, J. P., Duéñez-Guzmán, E. A., Vezhnevets, A. S., & Leibo, J. Z. 
+      (2023). 
+      A learning agent that acquires social norms from public sanctions in decentralized multi-agent settings. 
+      Collective Intelligence, 2(2). 
+      https://doi.org/10.1177/26339137231162025 
+      
+* [[[fisher_2021, certification of reliable autonomous systems]]]
+      Fisher, M., Mascardi, V., Rozier, K.Y. et al. 
+      Towards a framework for certification of reliable autonomous systems. 
+      Auton Agent Multi-Agent Syst 35, 8 (2021). 
+      https://doi.org/10.1007/s10458-020-09487-2
+
+* [[[Xin_2004, Decision Theory in Multi-Agent Systems]]]
+      Applications of Decision and Utility Theory in Multi-Agent Systems
+      Authors: Xin Li, Leen-Kiat Soh, University of NebraskaFollow
+      9-13-2004
+      University of Nebraska–Lincoln, Computer Science and Engineering Technical Report TR-UNL-CSE-2004-0014
+
+* [[[Albarracin_2023, Explainable AI with active inference]]]
+@misc{albarracin2023designingexplainableartificialintelligence,
+      title={Designing explainable artificial intelligence with active inference: A framework for transparent introspection and decision-making}, 
+      author={Mahault Albarracin and Inês Hipólito and Safae Essafi Tremblay and Jason G. Fox and Gabriel René and Karl Friston and Maxwell J. D. Ramstead},
+      year={2023},
+      eprint={2306.04025},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2306.04025}, 
+}

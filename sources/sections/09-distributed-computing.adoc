@@ -48,7 +48,6 @@ include::09-05-use-cases.adoc[leveloffset=+2]
 ==== Registry Node
 
 __Definition__. A __registry__ in the Spatial Web is a specific spatial web node that provides a number of services related to discovery, definition, search, DiD and alias resolution of resources. Most Spatial Web nodes provide registry services specifically for the resource within their respective graphs, though there are dedicated (public) nodes that exclusively handle these resources for public networks.
-____
 
 EDITOR: This document focuses solely on entity and domain registries. For more information about node registers, cf. link:node-registries.md[Node Registries].
 
