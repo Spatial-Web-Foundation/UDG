@@ -1,11 +1,5 @@
 = Hierarchical domain registries
 
-
-== Domain-specific registries
-
-Domain Authorities may establish a domain-specific registry.  A domain-specific registry may the same functions as the Spatial Web Registry (creation of did:swids and registering membership of domains).  The difference is the scope of a domain-specific registry is for a specific domain where as the Spatial Web Registry is the registry for all registered DOMAINS.  
-
-
 == Domain Authority role
 
 The Domain Authority plays five roles simultaneously in the Spatial Web:
@@ -17,10 +11,15 @@ The Domain Authority plays five roles simultaneously in the Spatial Web:
 * As an Index, it organizes and makes domain-related information discoverable in the UDG.
 
 
+== Domain-specific registries
+
+Domain Authorities may establish a domain-specific registry, i.e., a domain registry that is defined specifically for the entities of interest to the Domain authority.  A domain-specific registry may the same functions as the Spatial Web Registry (creation of did:swids and registering membership of domains).  The difference is the scope of a domain-specific registry is for a specific domain where as the Spatial Web Registry is the registry for all registered DOMAINS.  
+
+
 
 == Registry of Registries
 
-A domain-specific registry may be registered in the Spatial Web Registry.  As this registration may propogate through several layers of domain hiearchy, a hiearchy of registries is created.
+A domain-specific registry may be registered in the Spatial Web Registry.  As this registration may propagate through several layers of domain hierarchy, a hierarchy of registries is created.
 
 
 [[registry_hierarchy]]
