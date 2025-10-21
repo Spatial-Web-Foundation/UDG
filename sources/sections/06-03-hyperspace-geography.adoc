@@ -49,7 +49,7 @@ For Concept DOMAINS, the use of coordinates and graphs can be extended from geog
 
 == Generalize interfaces to hyperspaces
 
-It would be beneficial to coordinate interfaces that access data represented in differing classes of hyperspace.   Category theory defines a set of concepts to uniformly treat the multiple concepts of hyperspace: coordinate spaces, cellular spaces, concepts spaces, vector spaces.  
+It would be beneficial to coordinate interfaces that access data represented in differing classes of hyperspace. Category theory defines a set of concepts to uniformly treat the multiple concepts of hyperspace: coordinate spaces, cellular spaces, conceptual spaces, and vector spaces.  
 
 Category theory is a system of interfaces that are learned once, and then reliably applied across scientific fields.  Originating in abstract mathematics, specifically algebraic topology it thoroughly permeates, these fields: systems theory, bayesian learning, and  information theory and probability.  The theory can express functions that process structured data from computer science (e.g. lists and trees) and behave in stateful ways like automata. <<Gavranović>>
 
