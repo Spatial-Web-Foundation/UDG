@@ -4,7 +4,7 @@
 
 This clause describes applications use of Hyperspace Geography to various types of knowledge.  
 
-The main aim is for the UDG to serve as a medium for collective intelligence in the Spatial Web.
+The main aim is for the UDG to serve as a medium for collective intelligence in the Spatial Web.  As a medium it is the channels and methods through which ENTITIES in the Spatial Web send and receive HSTP messages. It plays a crucial role in how the message is perceived, interpreted, and understood using HSML. 
 
 == Geospatial and graph domains for urban energy grid
 
