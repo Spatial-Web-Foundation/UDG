@@ -2,22 +2,22 @@
 
 == Domain membership, identity and registries
 
-Registries in the Spatial Web are of two types, peforming two distinct functions:
+Registries in the Spatial Web are of two types, performing two distinct functions:
 
-* A Domain Registry is used to record the membership of an entity in a domain.  (See <<domain_membership>> )
+* A Domain Registry is used to record the membership of an ENTITY in a DOMAIN.  (See <<domain_membership>> )
 * A Verifiable Data Registry (VDR) provides the information for a SWID document.  (VDR is as defined in <<w3c_did>>)
 
 The two functions for Spatial Web registries are distinct, i.e., a Domain registry is not the source of SWIDs.  
 
 Because DOMAINS may be members of multiple upper domains, and DOMAINS may move between upper domains; DOMAIN identity may proceed registration.
 
-Registration of a DOMAIN in an upper domain results in the membership being recorded in the Registry and a credential being isssued to the registered ENTITY.
+Registration of a DOMAIN in an upper domDOMAINain results in the membership being recorded in the Registry and a credential being issued to the registered ENTITY.
 
 The Spatial Web registries follow these design goals and properties:
 
 * All ENTITIES (including CREDENTIALS) have SWIDs.
-* Uniqueness of SWIDs using the did:swid method is ensured by a VDR.  The VDR may be part of the Spatial Web Registry operated by the SWA or in a VDR seperate from the Spatial Web Registry
-* SWIDs may be created by a DID Issuer at behest of the Entity and not recorded in a centralized registry.
+* Uniqueness of SWIDs using the did:swid method is ensured by a VDR.  The VDR may be part of the Spatial Web Registry operated by the SWA or in a VDR separate from the Spatial Web Registry
+* SWIDs may be created by a DID Issuer at behest of the ENTITY and not recorded in a centralized registry.
 o The Spatial Web will include ENTITIES with DIDs created without interaction with any particular authority.
 
 These properties are elaborated in the Spatial Web Identifiers (SWIDs) and SWID Documents Implementation Specification (SWF STD-4:2025) and the DID Method for the Spatial Web (did:swid) Implementation Specification (SWF STD-5:2025).
