@@ -17,7 +17,9 @@ Social intelligence is composed of individual intelligence, but social intellige
 
 "The knowledge of the circumstances of which we must make use never exists in concentrated or integrated form, but solely as the dispersed bits of incomplete and frequently contradictory knowledge which all the separate individuals possess   <<Hayek_1945>>.""
 
-The UDG employs social networks to improve idea flow betwween AGENTS. Social physics provides the science for the design.  The design choices take into account social issues like autonomy, privacy, self-determination. These design choices are crtical to avoid creating a virtual Panopticon.
+The design approach for social intelligence in the UDG does not guarantee results or solutions to all problems, but it creates an institutional infrastructure that unleashes more local knowledge and individual initiative, and therefore does in fact produce better results and more solutions.
+
+The UDG employs social networks to improve idea flow between AGENTS. Social physics provides the science for the design.  The design choices take into account social issues like autonomy, privacy, self-determination. These design choices are crtical to avoid creating a virtual Panopticon.
 
 
 == Social idea flow
@@ -64,7 +66,6 @@ Idea flow takes into account all the elements of the influence model: network st
 
 The influence model allows for examination of social roles:  protagonist, attacker, supporter, neutral, and so on, in small groups, and in organizations, 
 
-	
 	
 
 == Networks, Groups, and Organizations

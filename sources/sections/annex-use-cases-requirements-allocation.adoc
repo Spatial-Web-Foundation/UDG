@@ -1,29 +1,22 @@
 ﻿= UDG Use Cases to IEEE P2874 Requirements Correlation
 
-Based on analysis of the UDG specification use cases and the IEEE P2874 requirements database containing 209 valid requirements.
+== Use cases summary by Spatial Web component
 
-== Complete Correlation Table
+* AIS (AI Systems) - 7 requirements
+Focus on agent intelligence, credential management, and dynamic interactions across the Spatial Web.
+* DSA (Domain-Specific Architectures) - 8 requirements
+Focus on architectural frameworks, IoT integration, domain governance, and identity management.
+* HSML (Hyperspace Modeling Language) - 20+ requirements
+Focus on entity representation, spatial modeling, template management, and rendering capabilities.
+* HSTP (Hyperspace Transport Protocol) - 14+ requirements
+Focus on communication protocols, IoT interoperability, message routing, and data exchange.
+* SWG (Spatial Web Governance) - 8+ requirements
+Focus on governance frameworks, multi-scale computing, fault tolerance, and system-wide policies.
+* UDG (Universal Domain Graph) - 23+ requirements
+Focus on core UDG functionality including discovery, registration, scaling, entity management, and distributed operations.
 
-.Complete Correlation Table
-[%autowidth]
-|===
-|Use Case Title |IEEE Code |Requirement Statement Description
-
-|Geographic
-|Implicitly or explicitly associated with a location
-|Concept
-|Intangible concepts and abstract ideas shared by a community of users
-|Organization
-|Pertaining to membership within an entity
-|Agent
-|Individual domains with active states and agency
-|Person
-|Special subtype of agent maintaining a self-sovereign identity
-|Thing
-|Bounded items without agency
-|===
-
-.Complete Correlation Table
+== UDG Use cases
+.Use Case Table
 [cols="3a,a,4a"]
 |===
 |Use Case Title |IEEE Code |Requirement Statement Description
@@ -158,9 +151,9 @@ Based on analysis of the UDG specification use cases and the IEEE P2874 requirem
 | | UDG-16 | UDG shall support the ability to accommodate an increasing number of connectivity endpoints, reaching internet scale
 |===
 
-== Complete Correlation Table (Sorted by IEEE Code)
+== Use cases sorted by Spatial Web component
 
-.Complete Correlation Table (Sorted by IEEE Code)
+.Use cases sorted by by requirement code
 [cols="3a,a,4a"]
 |===
 |IEEE Code |Use Case Title |Requirement Statement Description
@@ -554,22 +547,3 @@ Based on analysis of the UDG specification use cases and the IEEE P2874 requirem
 |UDG shall implement the use cases specified in the standard
 |===
 
-== Requirements by Code Category
-
-=== AIS (AI Systems) - 7 requirements
-Focus on agent intelligence, credential management, and dynamic interactions across the Spatial Web.
-
-=== DSA (Domain-Specific Architectures) - 8 requirements
-Focus on architectural frameworks, IoT integration, domain governance, and identity management.
-
-=== HSML (Hyperspace Modeling Language) - 20+ requirements
-Focus on entity representation, spatial modeling, template management, and rendering capabilities.
-
-=== HSTP (Hyperspace Transport Protocol) - 14+ requirements
-Focus on communication protocols, IoT interoperability, message routing, and data exchange.
-
-=== SWG (Spatial Web Governance) - 8+ requirements
-Focus on governance frameworks, multi-scale computing, fault tolerance, and system-wide policies.
-
-=== UDG (Universal Domain Graph) - 23+ requirements
-Focus on core UDG functionality including discovery, registration, scaling, entity management, and distributed operations.

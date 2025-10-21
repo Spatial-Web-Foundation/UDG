@@ -1,0 +1,52 @@
+= UDG requirements allocated to components
+
+== Spatial Web components
+
+Requirements defined in this UDG Design Specification are allocated to these components of the Spatial Web design:
+
+* Hyperspace Modeling Language (HSML) (SWF STD-02) 
+* Hyperspatial Transaction Protocol (HSTP) (SWF STD-03) 
+* SWID Documents (SWF STD-04) 
+* Spatial Web DID method (SWF STD-05) 
+* Spatial Web Registry  
+* UDG Node Design  
+* Agent Verification plan 
+* DSA (Domain-Specific Architectures) 
+* SWG (Spatial Web Governance)
+
+== UDG Design Specification requirements allocated to HSML
+
+TBD
+
+== UDG Design Specification requirements allocated to HSTP
+
+TBD
+
+== UDG Design Specification requirements allocated to SWID Docs
+
+TBD
+
+== UDG Design Specification requirements allocated to did:swid method
+
+TBD
+
+== UDG Design Specification requirements allocated to Registry
+
+TBD
+
+== UDG Design Specification requirements allocated to UDG Node
+
+TBD
+
+== UDG Design Specification requirements allocated to Agent
+
+TBD
+
+== UDG Design Specification requirements allocated to DSA
+
+TBD
+
+== UDG Design Specification requirements allocated to SWG
+
+TBD
+
