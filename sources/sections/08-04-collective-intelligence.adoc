@@ -1,56 +1,93 @@
 = Promoting collective intelligence
 
-== TBD
+== Collective intelligence as a public good
 
-Groups have a collective intelligence that is mostly independent of the intelligence of the individual participants.
+Collective intelligence is “a form of universally distributed intelligence, constantly enhanced, coordinated in real time, and resulting in the effective mobilization of skills.” <<Levy_1997>>
 
+Ensembles of individual units, in general, have the capacity to perform better in a variety of ways than individuals on their own, in part because individuals can share information and other resources, they can coordinate or collaborate on activities, and/or they have the potential for differentiation of function, any or all of which can be leveraged in the production or maintenance of a public good. However, for these opportunities to be leveraged in the service of a public good, the associated trade-offs that come from competing demands, their costs, and the limitations of individuals, must be well managed. <<Leonard_2022>>
 
-UDG maintanenance
+Collective, cultural intelligence has evovled in humans with many cognitive skills not possessed by their nearest primate relatives. The cultural intelligence hypothesis argues that this is mainly due to a species-specific set of social- cognitive skills, emerging early in ontogeny, for participating and exchanging knowledge in cultural groups. Herrmann_2007 The Spatial Web extends these skills to artificial social agents as described in <<Objective_normative_society>>.  
 
-UDG librarian agent
-
-exploration outside the group; engagement within the group
-
-altenate designs
-
-* udg computing node shall promote exploration and engagement
-* udg agent entities shall promote exploration and engagement
-
-polycentric governance shall promote exploration and engagement
-
-	- Collective intelligence as public good, Leonard and Levin, 2022
-		- PNAS Special Issue
-		- "Evolution of norms"
-	- Cultural Intelligence hypotheis, Hermann, Tomasello, Science 2007
-	- Coasean Bargaining at Scale, Cosmos Institute, 2025
-	- Librarian agents 
-	- Agents that promote social well being as Community infrastucture (eg TBL p280)
-	- IEEE 7008 Nudging for Robotic, Intelligent and Autonomous Systems
-	- Udg is a commons. How to avoid tragedy of commons
-		- [ ] Pentland 260 peer pressure 
-		- [ ] Similar to designing villages for citizen interaction.  Why are physjcal cities more liveable 
-		- [ ] Tech that allows people to decide
-	- [ ] Peer Pressure to Promote Cooperation, Pentland, 2013
+The Spatial Web plays the role of a collective intelligence for societal infrastructure. It hosts cognitive computing, i.e., inference (perception, learning, action selection). By combining and abstracting distributed information, the Spatial Web enables the formation of complex ideas and facilitates decision-making. The benefits of collective action can be numerous, from estimating hard-to-observe environmental cues, efficiently searching for resource, and mediating toward common understandings and shared norms. 
 
 
+== Exploration and enagement 
 
- 43. Building blocks of collective intelligence <<Pentland_2015>>
-	- Each cohesive community has its own stream of idea flow that allows the members to incorporate innovations from other people within it, and even to create a separate culture.
-	- As a consequence of these shared habits, human communities can develop a sort of collective intelligence that is greater than the members' individual intelligence.
-	- Engagement with and learning from others, along with the mutual sharing and vetting of ideas, generate the collective intelligence.
+Each cohesive community has its own stream of idea flow that allows the members to incorporate innovations from other people within it, and even to create a separate culture.  As a consequence of these shared habits, human communities can develop a sort of collective intelligence that is greater than the members' individual intelligence <<Pentland_2015>>. As described in <<exploration-engagement-network>>, engagement with and learning from other AGENTS, along with the mutual sharing and vetting of ideas in the UDG, generate the collective intelligence. 
+
+The UDG provides the structure for enagement and exposure.  Exposure is more important for driving idea flow than all the other factors combined highlights the overarching importance of automatic social learning <<Pentland_2015>>.  The UDG provides for automatic social learning. The UDG provides social network incentives to change idea flow that are distinct from using individual incentives.
+
+UDG shall promote exploration outside the DOMAIN
+UDG shall promote engagement within the DOMAIN
+
+== UDG librarian AGENT
+
+Maintenance and continous improvement of the UDG is essential.  The UDG librarian AGENT provides the knowledge maintenance function.  UDG Librarian AGENT functions are defined based on traditional librarian functions as extended with consideration of artificial intelligence:
+
+* Automated Cataloguing and Classification
+* Enhanced Search and Information Retrieval
+* Virtual Assistants and Chabot’s
+* Data Analysis and Usage Insights
+* Content Digitization and Preservation
+* Accessibility Services
+* Security and Fraud Detection
+* Content Curation and Personalization
+
+== Constructive engagement AGENT
+
+AGENTS that maximize the joy people get out of discussing things with others.  Such algorithms alread exist: for emaple, Spotify and Apple Music's algorihtms do a pretty good ov of electing music that listenres will enjory. Avoid damage that social neworks are causing when trained for maximizing attention. Such agents would mizimize quality of engagement not time-on-device. <<Lee_2025>>
+
+== Nudging AGENTS
+
+“Nudges” as exhibited by robotic, intelligent or autonomous systems are defined as overt or hidden suggestions or manipulations designed to influence the behavior or emotions of a user. This standard establishes a delineation of typical nudges (currently in use or that could be created). It contains concepts, functions and benefits necessary to establish and ensure ethically driven methodologies for the design of the robotic, intelligent and autonomous systems that incorporate them. <<ieee_p7008>>
 
 
-	- The fact that exposure turned out to be more important for driving idea flow than all the other factors combined highlights the overarching importance of automatic social learning in shaping our lives.
-	- providing social network incentives to change idea flow is afar more powerful method of changing behaviors than the traditional method of  using individual incentives.
+== Decentralization AGENTS
+
+Design methodologies for decentralized groups provide rules that individual agents should follow to make their own choices on-the-fly that account for environmental cues and the reward, state, and/or action of other agents, in the service of a system-level goal. A successful approach to be used in the Spatial Web is called Decentralized setting with networked agents where there is no centralized controller and agents are connected via a communication network, so that the local information can spread across the network, by information exchange with only each agent’s neighbors <<Zhang_2021>>
+
+The UDG communication and strategy must account for costs to individual AGENTS, such as in attention or energy, and trade-offs for the ensemble, such as the flexibility to respond to an important change in the environment versus stability that is robust to unimportant variability.   When there is a tension between the interests of the individual and those of the group, game-theoretic considerations may affect the level of collective intelligence that can be achieved.  Models of individual rules that yield collective dynamics with multi-stable solutions provide a means to examine and shape collective intelligence in evolved and designed systems. <<Leonard_2022>>
+
+== Collectively rational
+
+The UDG Collective commons is desiged to be collectively rational.  Whereas AGENTS may not be individually rational. AGENT behavior is determined as much by social context as by rational thinking or individual desires.  Each AGENT has a level of intelligence that can be described as Bounded Rationality. Using the terminology of economics, in most things AGENTS are collectively rational, and only in some areas are they individually rational <<Pentland_2015>>.
+
+== UDG is a commons
+
+The UDG is a universal, digital commons. The commons are resources accessible to all members of a society. These resources are held in common even when owned privately or publicly. Commons can also be understood as resources that groups of people (communities, user groups) manage for individual and collective benefit.
+
+A digital commons is "information and knowledge resources that are collectively created and owned or shared between or among a community and that tend to be non-exclusive, that is, be (generally freely) available to third parties
+Examples of digital commons are Wikipedia, free software and open-source hardware projects.
+
+While the original work on the tragedy of the commons concept suggested that all commons were doomed to failure, they remain important in the modern world. Work by later economists has found many examples of successful commons, and Elinor Ostrom won the Nobel Prize for analysing situations where they operate successfully. Tragedy of the commons in the Wiki-Commons is avoided by community control by individual authors within the Wikipedia community.[26]
+
+Cooperation in a large society of self-interested individuals is notoriously difficult to achieve when the externality of one individual’s action is spread thin and wide on the whole society. This leads to the ‘tragedyof the commons’ in which rational action will ultimately make everyone worse-off. 
+
+Achieving global cooperation can be encouraged by localizing externalities to peers in a social network, thus leveraging the power of peer-pressure to regulate behavior. The mechanism relies on a joint model of externalities and peer-pressure.  <<Mani_2013>>
 
 
-58. Collectively Rational, Not Individually Rational <<Pentland_2015>>
-	- we are now coming to realize that human behavior is determined as much by social context as by rational thinking or individual desires
-	- Bounded Rationality
-	- Our desires and preferences are mostly based on what our peer community agrees is valuable rather than on rational reflection based directly on our individual biological drives or inborn morals
-	- Using the terminology of economics, in most things we are collectively rational, and only in some areas are we individually rational.
+== polycentric governance 
+
+The Spatial Web employs polycentric governance which is a form of governance with multiple overlapping polycentric nodes of nested decision making, each of which operates with a degree of autonomy.
+
+The Spatial Web is an information infrastructure for society. As such, societal issues will need to be addressed in the governance of the Spatial Web, e.g., privacy, location information, trust, and self-sovereign identity.
+
+Polycentric governance of the UDG must address the concerns identified in <<STD-1>>:
+
+* Governance by legal authorities
+* Governance for ethical development
+* Governance for privacy.
+* Governance of location information.
+* Governance for identity management
+
+While the UDG provides the computing and communication system consistent with these polycentric governance concerns, legal and orgnizational aspects are addressed in the Spatil Web Governance Recommended Practices (currently under development).
 
 
 == Requirements and Recommendations
 
 TBD
+
+* udg computing node shall promote exploration and engagement
+* udg agent entities shall promote exploration and engagement
+* UDG and agents promote peer-pressure to promote cooperation
+* UDG and agents promote nudging consistent with IEEE P7008

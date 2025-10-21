@@ -1,7 +1,7 @@
 = Social Agents; shared goals and activities
 
 
-== Social agent type
+== Agent type: social
 
 The Spatial Web Agent Framework Design Specification <<swf_std_6>> defines several AGENT types for the purpose of explaining examples of agency used in the Spatial Web.  The agent types are distinguished by the functions they perform which are visible through behavior or statements of the agent’s developer. The canonical Agent Types are informative as the following:  
 

@@ -1,8 +1,8 @@
 = Idea flow in social networks
 
-== Social networks
+== Social intelligence 
 
-Groups have a collective intelligence that is mostly independent of the intelligence of the individual participants.
+Groups have a collective intelligence that is mostly independent of the intelligence of the individual participants.  The UDG a universal digital commons is a form of universally distributed intelligence, constantly enhanced, coordinated in real time, and resulting in the effective mobilization of skills.
 
 The UDG is a social network of ENTITIES in the Spatial Web.  In particular AGENTS will interact with other ENTITIES including other AGENTS to determine the state of the environment, to determine knowledge about other ENTITES, to
 coordinate ACTIVITIES.  The structure of relationships in the UDG Social viewpoint are in many cases more important than the knowledge content of ENTITES in the UDG KG.
@@ -13,95 +13,39 @@ coordinate ACTIVITIES.  The structure of relationships in the UDG Social viewpoi
 image::udg_notional.png[UDG as a social network showing varying network relations]
 
 
-== Social intelligence 
-
 Social intelligence is composed of individual intelligence, but social intelligence quality is distinct from individuals ideas.  Social intelligence is necessary as individual intelligence is more limited.
 
 "The knowledge of the circumstances of which we must make use never exists in concentrated or integrated form, but solely as the dispersed bits of incomplete and frequently contradictory knowledge which all the separate individuals possess   <<Hayek_1945>>.""
 
-Using social network engineering to improve idea flow. Social physics provides us the science, but the design choices must take into account social issues like autonomy, privacy, self-determination. Do not create the Panopticon.
-
-
-Idea sharing in UDG as a network of agents:
-
-* Idea flow and epistemology 
-* Norms and laws
-* Acrivity coordination
-** Network epistemology: how social network structure affects beliefs and knowledge
-** Some epistemic problems are caused by social structure, not by individually bad behavior.
-*** Group pathologies, like pluralistic ignorance, herding, and polarization,
-** Agents have an incentive to gain more information either by learning too fast or by adopting best-learning even when it would be good for the group that they "refrain from doing so".
-** Independence Thesis: norms of social epistemology are independent of norms of individual epistemology.
+The UDG employs social networks to improve idea flow betwween AGENTS. Social physics provides the science for the design.  The design choices take into account social issues like autonomy, privacy, self-determination. These design choices are crtical to avoid creating a virtual Panopticon.
 
 
 == Social idea flow
 
-idea flow, i.e., the spreading of new behaviors through a social network, may be conceptualized as exploration to harvest new ideas followed by engagement with peers to sift through those ideas and convert the good ideas into habits.
+Idea flow is the engagement and belief propagation which spreads new behaviors through a social network. Idea flow may be conceptualized as exploration to harvest new ideas followed by engagement with peers to sift through those ideas and convert the good ideas into habits.
 
-Social physics: engagement and belief propagation
+Social physics is a quantitative social science that describes reliable, mathematical connections between information and idea flow on the one hand and people’s behavior on the other <<Pentland_2015>>. Social physics seeks to understand how the flow of ideas and information translates into changes in behavior. It provides a causal theory of how social structures confer evolutionary advantage. An alternative term for social physics is computational social science.
 
-Social physics is a quantitative social science that describes reliable, mathematical connections between information and idea flow on the one hand and people’s behavior on the other. <<Pentland_2015>>
+One aspect of idea flow that by pooling ideas, we can get an average "wisdom of the crowd" a judgment that will be better than individual AGENT judgements and decisions. The effectiveness of idea-pooling for estimation problems works as long as there is no initial social interaction. It assumes that all the people in the crowd will act independently. When social interaction occurs, AGENTS begin influencing other AGENTS, and that may result in panics, bubbles, and fads.   In humans, the social learning strategy of feeding back the best current idea—that is, a constrained, artificial sort of social interaction that interleaves periods of idea harvesting with periods when experts evaluate the ideas—produces a wisdom of the crowd effect that works even for small groups. This can be effective in the Spatial Web as well.
 
-social physics seeks to understand how the flow of ideas and information translates into changes in behavior.
+Social Learning is measure of idea flow. It is the chance that a person's behavior will change when a new idea has appeared in their extended social network. 
 
-We need to begin building a causal theory of how our social structures confer evolutionary advantage. 
+Exploration refers to the use of social networks in harvesting ideas and information. Exploration is the part of idea flow that brings new ideas into a work group or community. Social learning, Diversity and Contrarians are important for effectie exploration.
 
-The basic concept is that by pooling ideas, we can get an average "wisdom of the crowd" judgment that will be better than 
+In order to acheive Enagement in the UDG, AGENTS must interact, cooperate and build trust.
 
-idea-pooling approach only works for estimation problems as long as there is no social interaction.7 
-		- In other words, it assumes that all the people in the crowd will act independently. The moment social interaction occurs, however, all bets are off: people begin influencing other people,6 and that results in panics, bubbles, and fads.7 
-		- In humans, the social learning strategy of feeding back the best current idea—that is, a constrained, artificial sort of social interaction that interleaves periods of idea harvesting with periods when experts evaluate the ideas—produces a wisdom of the crowd effect that works even for small groups.9 
+One measure of effectiveness of idea flow is creativity. Creative output depends strongly on two processes: idea discovery (exploration) and the integration of those ideas into new behaviors (engagement).  Exploration outside of the group, together with their engagement within the group. Exploration and Engagement networks are shown in <<exploration-engagement-networks>>. 
 
-29 Social Learning
-	- So our measure of idea flow is the chance that a person's behavior will change when a new idea has appeared in their extended social network. 
-
-Exploration
-	-  From here onward I will use the term “exploration” to refer to the use of social networks in harvesting ideas and information. Exploration is the part of idea flow that brings new ideas into a work group or community. 
-		- Social learning is critical
-		- Diversity is important
-		- Contrarians are important
-
-
-	- 77 Rules of Engagement
-			- Engagement requires interaction: 
-			- Engagement requires cooperation
-			- Building trust
-
-
-	- 96. Creativity
-	- creative output depends strongly on two processes: idea discovery (exploration) and the integration of those ideas into new behaviors (engagement)
-	- Exploration outside of the group, together with their engagement within the group.
-	- Figure 7. Exploration and Engagement networks
-
-	- 103 Improving Idea Flow
-	- With increased engagement comes an increase in opportunities for social learning, for sharing vital resources such as tacit operational knowledge and successful work habits.
-	- Collective Intelligence peformance, Pentland, 2010
-		- collective intelligence  is 
-			- not strongly correlated with the average or maximum individual intelligence of group members but 
-			- is correlated with 
-				- the average social sensitivity of group members, 
-				- the equality in distribution of conversational turn-taking, and 
-				- the proportion of females in the group.
-		- Computational social science - Wikipedia
+The UDG and AGENTS are designed to improve Idea Flow.  With increased engagement comes an increase in opportunities for social learning, for sharing vital resources such as tacit operational knowledge and successful work habits. Thois results in improved collective intelligence peformance. Collective intelligence is not strongly correlated with the average or maximum individual intelligence of group members but is correlated with the average social sensitivity of group members, the equality in distribution of conversational turn-taking, and for human groups, the proportion of females in the group. <<woolley_2010>>
 
 [[exploration-engagement-networks]]
 .Network structures for exploration vs engagement (Source: <<Pentland_2015>>)
 image::exploration-engagement-networks.png[Variation of network structure for exploration vs engagement]
 
 
-
-* Physics and Metaphysics of Social Power <<Albarracin_2025>>
-
-In the social realm, the acquisition and maintenance of power is intertwined with both social interactions and cognitive processing capacity: 
-	- socially-facilitated empowerment grants agents more information-processing capacities and opportunities,
-	- either by relying on others to bring about desired policies or ultimately outcomes, and/or by enjoying more information-processing possibilities as a result of relying on others for the reproduction of (material) tasks. 
-The effects of social empowerment thus imply an increased ability to harness computation toward desired ends, thereby augmenting the evolution of a specific state space.
-
-
-
 == The Mathematics of Social Influence
 
-An “influence model” can assitt in understanding social influence.  The model estimates how much the state of one AGENT  affects the state of another AGENT in the Spatial Web. The model can recover estimates of influence, generate results that are consistent with other measures of social networks, and uncovers important shifts in the way states may be transmitted between actors at different points in time. <<Pan_et_al_2013>>
+An “influence model” can assit in understanding social influence.  The model estimates how much the state of one AGENT  affects the state of another AGENT in the Spatial Web. The model can recover estimates of influence, generate results that are consistent with other measures of social networks, and uncovers important shifts in the way states may be transmitted between actors at different points in time. <<Pan_et_al_2013>>
 
 
 * Observable signals: O
@@ -125,25 +69,15 @@ The influence model allows for examination of social roles:  protagonist, attack
 
 == Networks, Groups, and Organizations
 
-Networks 
-- Definition: A set of relationships connecting individual AGENTS, organization DOMAIN, or groups of AGENTS and/or Organizational DOMAINS (perhaps modeled as a DOMAIN)
+Networks are a set of relationships connecting individual AGENTS, organization DOMAIN, or groups of AGENTS and/or Organizational DOMAINS (perhaps modeled as a DOMAIN)
+
+Networks can come in multiple forms:
  
-- Primary groups: 
-  Small, intimate groups that are central to an individual's identity and provide emotional and intellectual support. 
-  Examples: Family, close friends, and long-term work or church groups. Characteristics: Long-term and emotionally vital. 
-
-- Secondary groups: 
-  Larger, more impersonal groups that are often formed for a specific purpose or goal. 
-  Examples: A class, a workplace team, or a large organization. Characteristics: Often temporary and task-oriented.
-
-- Formal organizations: 
-  Large, structured groups that are designed to achieve specific objectives. 
-  Characteristics: Usually have a hierarchy, a professional leadership, and written records. 
-
-- Informal organizations: Looser, less structured groups that emerge within formal organizations, such as social friendships between coworkers. 
-
-- Bureaucracy: A formal system of organization characterized by a clear hierarchy, division of labor, and rules. 
-
+* Primary groups: Small, intimate groups that are central to an individual's identity and provide emotional and intellectual support. Examples: Family, close friends, and long-term work or church groups. Characteristics: Long-term and emotionally vital. 
+* Secondary groups:  Larger, more impersonal groups that are often formed for a specific purpose or goal.   Examples: A class, a workplace team, or a large organization. Characteristics: Often temporary and task-oriented.
+* Formal organizations:  Large, structured groups that are designed to achieve specific objectives.  Characteristics: Usually have a hierarchy, a professional leadership, and written records. 
+* Informal organizations: Looser, less structured groups that emerge within formal organizations, such as social friendships between coworkers. 
+* Bureaucracy: A formal system of organization characterized by a clear hierarchy, division of labor, and rules. 
 
 	
 == Requirements and Recommendations

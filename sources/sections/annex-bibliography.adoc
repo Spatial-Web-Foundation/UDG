@@ -325,4 +325,68 @@ span:uri[https://www.electropedia.org/]
       archivePrefix={arXiv},
       primaryClass={cs.AI},
       url={https://arxiv.org/abs/2306.04025}, 
-}
+      }
+
+* [[[Leonard_2022, Collective intelligence as a public good]]]
+      Leonard, N. E., & Levin, S. A. 
+      (2022). 
+      Collective intelligence as a public good. 
+      Collective Intelligence, 1(1). 
+      https://doi.org/10.1177/26339137221083293 
+
+* [[[Herrmann_2007, The Cultural Intelligence Hypothesis]]]
+      doi:10.1126/science.1146282,
+      author = {Esther Herrmann  and Josep Call  and María Victoria Hernàndez-Lloreda  and Brian Hare  and Michael Tomasello },
+      title = {Humans Have Evolved Specialized Skills of Social Cognition: The Cultural Intelligence Hypothesis},
+      journal = {Science},
+      volume = {317},
+      number = {5843},
+      pages = {1360-1366},
+      year = {2007},
+      doi = {10.1126/science.1146282},
+      URL = {https://www.science.org/doi/abs/10.1126/science.1146282},
+      eprint = {https://www.science.org/doi/pdf/10.1126/science.1146282},
+
+* [[[Levy_1997, Collective Intelligence]]]
+      @book{10.5555/550283,
+      author = {Levy, Pierre and Bononno, Robert},
+      title = {Collective Intelligence: Mankind's Emerging World in Cyberspace},
+      year = {1997},
+      isbn = {0306456354},
+      publisher = {Perseus Books},
+      address = {USA},
+      }
+
+* [[[Lee_2025, This is for everyone]]] 
+      Author: Tim Berners-Lee
+      Title: This is for everyone : the unfinished story of the World Wide Web
+      ISBN:9780374612467, 0374612463
+      Published:September 9, 2025
+      Format:Hardcover
+      Publisher:Farrar, Straus and Giroux
+
+* [[ieee_p7008, Nudging For Autonomous Systems ]]
+      IEEE P7008 WG Standard For Ethically Driven Nudging For Robotic, Intelligent And Autonomous Systems
+
+* [[[<<Zhang_2021, Multi-Agent Reinforcement Learning>>]]]
+      @misc{zhang2021multiagentreinforcementlearningselective,
+      title={Multi-Agent Reinforcement Learning: A Selective Overview of Theories and Algorithms}, 
+      author={Kaiqing Zhang and Zhuoran Yang and Tamer Başar},
+      year={2021},
+      eprint={1911.10635},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/1911.10635}, 
+      }
+
+* [[[Mani_2013, Peer Pressure to Promote Cooperation]]]
+      Mani, A., Rahwan, I. & Pentland, 
+      A. Inducing Peer Pressure to Promote Cooperation. 
+      Sci Rep 3, 1735 (2013). 
+      https://doi.org/10.1038/srep01735
+
+* [[[woolley_2010, Collective Intelligence Factor]]]
+      Anita Williams Woolley et al. ,
+      Evidence for a Collective Intelligence Factor in the Performance of Human Groups.
+      Science 330,686-688(2010).
+      DOI:10.1126/science.1193147
