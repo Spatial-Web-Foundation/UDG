@@ -5,12 +5,11 @@
 The Spatial Web hyperspace ENTITY provides the fundamental organizing method for entities in the UDG. To enable this role, <<IEEE_2874_2025, Spatial Web clause 6.2.3.7>> provides a formal definition of hyperspace, as any set whose elements are related by a formal notion of _path_.  The basic classes of hyperspace include: Graphs including Cellular spaces and Vector spaces with coordinate systems.
 
 
-
 [[basic-classes-of-hyperspace]]
 .Basic classes of hyperspace
 image::hyperspace_basic_classes.png[Basic classes of hyperspace and their relationships]
 
-The <<IEEE_2874_2025, Spatial Web Protocol Architecture and Governance>> standard defines the following hyperspace concepts:
+The <<IEEE_2874_2025, Spatial Web Protocol Architecture and Governance>> standard defines concepts for hyperspace summarized here for convienence:
 
 * Classes of hyperspace: graphs, vector spaces, hypergraphs, abstract data types.  
 * Hyperspaces of spaces: where a point of a space is a space of the corresponding type
@@ -21,28 +20,23 @@ The <<IEEE_2874_2025, Spatial Web Protocol Architecture and Governance>> standar
 * Operations: products, sums, subspaces
 * Connecting spaces: points in common to multiple subspaces, i.e., Portal.
 
-
 == Hyperspace attributes
 
 DOMAINS are represented in hyperspace by identifying the type of hyperspace and the location of the DOMAIN in the hyperspace. 
 
-Location identifies a specific coordinate or index value in a hyperspace.
-Location in hyperspace can be of several types: cell address, coordinate 
-Location in HSML:  graph:Node, cell identifier, coordinates as well-known-text, tensor 
+Location is a key attribute of HYPERSPACE.  Location identifies a specific coordinate or index value in a hyperspace. The Location attribute takes on a specific form based on the class of hyperspace: cell index for a cellular space, coordinate value for a coordinate reference system.  See the HSML Implementation Specification for the controlled attributes for location. 
 
-Geometries
-Entities have a hyperspace:spatialProperty (e.g., geo:hasGeometry, hspace:cell) to point to the actual value.
+Geometries are mathematical objects in the vector space class of hyperspace. ENTITIES in a vector space may have  a hyperspace:spatialProperty of geo:hasGeometry.  A geometry may be a single point location or it may be a geometric structure like a polygon or sphere in any number of dimensions.
 
-Entities as features of hyperspace
+ENTITIES as features may have attributes of location hyperspace as well as other attributes not associated with hyperspace.  This is similar to a Geographic Feature where location is one of several types of attributes associated with a geographic feature.  The existence of a feature is independent of any specific geometric representation associated with the feature.  A feature may have multiple geometries as attributes depending for example on scale it may be associated with a point or a complex polygon.  For example, a city may be have a point attribute and it may also have the city's boundary as a location in hyperspace.
 
-Neighborhoods in hyperspace 
+== Topological vs geometric representations
 
-== Topological vs vector space represenations
+Geometry is concerned with properties of space such as the distance, shape, size, and relative position of entities. Topology is concerned with properties that are invariant when an entity is deformed, e.g., stretching, twisting, crumpling, and bending.
 
-A topological space is one in which direct physical constraints are minimized in favor of conceptual ones. In effect, a domain consists of a set of places, each of which is a conceptual node connected by links. The set of all places that are
-traversable within the graph makeup the hyperspace for that domain, with the links in turn controlling access from one place to another within the domain.
+For a topological space, DOMAINS consists of a set of places, each of which is a conceptual node connected by links. The set of all places that are traversable within the graph makeup the hyperspace for that domain, with the links in turn controlling access from one place to another within the domain. Relationships between entities in topological space and geometric space are expressed in the Poincaré duality.
 
-<<topological_rooms_building>> is an example of a topological representation of a domain: a building with several rooms. It consists of six domains, but each domain does not necessarily have to represent a physical location in the real world. Instead, the domain is simply a scope for containment. It could represent stations in an assembly line, steps in a process, a detailed internal represntation of a given subsystem, and so forth.
+<<topological_rooms_building>> is an example of a topological representation of a domain: a building with several rooms. It consists of six DOMAINS, but each DOMAIN does not necessarily have to represent a physical location in the real world. Instead, the DOMAIN has a geometry that is the boundary of the room. It could represent stations in an assembly line, steps in a process, a detailed internal represntation of a given subsystem, and so forth.
 
 [[topological_rooms_building]]
 .Topological relationships of rooms in a building
@@ -79,9 +73,9 @@ In this case, the hyperspace for the domain consists of six "rooms", each connec
 
 * Finally, clocks (&=9719;) represents conditional locks - an external condition (such as a store being closed for the night) must be met before traversal can happen.
 
-This approach has a number of key advantages - first - you can control access to various domains because they are within the overall domain that are constrained by the links that connect them. Because links are contextual, you can only access certain subsystem if either you (or your agent) have the relevant key or some external condition is in force.
+Access to various domains can e controlled as they are within the overall domain that are constrained by the links that connect them. Because links are contextual, only certain subsystem can be accessed if the AGENT has the relevant key or some external condition is in force.
 
-The hyperspace of the domain then becomes the set of all domains within that domain. This solves another problem that a more physical realization introduces - determining whether you are at the edge of, or out of the boundaries of, a
+The hyperspace of the domain then becomes the set of all domains within that domain. This solves another problem that a more physical realization introduces - determining whether the AGENT is at the edge of, or out of the boundaries of, a
 physical space. In a topological model, if the place is not in the domain, then it is not accessible by ANY agent.
 
 Another example of a topological representation is to use a cellular space.  For example, consider a domain that represents a game (an instance) of _chess_. There are 66 potential cells where a given piece can be located - the 64 squares that make up an 8x8 chessboard, and two cache areas, one for each player, where pieces that are removed are located.
@@ -91,20 +85,20 @@ image::SCD_algebraic_notation.svg[Chess Board, using algebraic notation and the 
 
 Each of these cells has a distinct identifier that makes up its address, and, within the scope of a particular game of chess, is considered unique. Note that the places here are not globally unique - the same position may be used across multiple games across multiple servers - but within the context of its domain, it IS unique.
 
-We can also make up notations for each of the two caches - White Cache (WC) and Black Cache (BC) for pieces that are outside the formal scope of the board but nonetheless represent the location of a specific piece. If I move the White Queen (WQ) to e4, then that piece is now located in the cell 4 units up from the White queen's side of the board and five units (e) from the left edge of the board.
+Notations for each of the two caches are defined - White Cache (WC) and Black Cache (BC) - for pieces that are outside the formal scope of the board but nonetheless represent the location of a specific piece. If I move the White Queen (WQ) to e4, then that piece is now located in the cell 4 units up from the White queen's side of the board and five units (e) from the left edge of the board.
 
-It is worth noting that the hyperspace here is ONLY these particular squares (or caches). You cannot go to position j17, because such a position, while plausable, does not exist within the set of all permissible places in the hyperspace.
+The hyperspace here is ONLY these particular squares (or caches). Position j17 cannot be occupied because such a position, while plausable, does not exist within the set of all permissible places in the hyperspace.
 
-It is also worth noting that movement from cell to cell within a domain does not have to follow contiguity rules. The knight in particular is very constrained in where it can go (if the knight is on e4, than it can go to d6, f6, c3, c5, g3, g5, d2 or f2, but it cannot go to d4 or f4, which are contiguous to it ), but can also move over other pieces so long as the target place is not occupied by a piece of their own color.
+Movement from cell to cell within a domain does not have to follow contiguity rules. The knight in particular is very constrained in where it can go (if the knight is on e4, than it can go to d6, f6, c3, c5, g3, g5, d2 or f2, but it cannot go to d4 or f4, which are contiguous to it ), but can also move over other pieces so long as the target place is not occupied by a piece of their own color.
 
-This is worth reiterating - a Spatial Web Domain is not a perfect reproduction of the real world. The knight cannot move within its cell in this particular domain (though a representation could move within that square, it's not something that is considered in the model).
+A Spatial Web Domain is not a perfect reproduction of the real world. The knight cannot move within its cell in this particular domain (though a representation could move within that square, it's not something that is considered in the model).
 
-To extend this, you can consider a hexagonal tiling of a space, as may be considered by a table top war game. The addressing in this space is more complex, because each hexagon has a particular index (address) that can be derived from some particular algorithm. The link:https://h3geo.org[H3 System] system used by Uber is an illustration of such a tiling system on a sphere.
+Consider a hexagonal tiling of a space, as may be considered by a table top war game. The addressing in this space is more complex, because each hexagon has a particular index (address) that can be derived from some particular algorithm. The link:https://h3geo.org[H3 System] system used by Uber is an illustration of such a tiling system on a sphere.
 
 .Hexagonal tiling
 image::st_hexagongrid01.png[Hexagonal tiling]
 
-A cell can also be defined in terms of an array of such tiling indices. These can in turn be hashed in some fashion to am irregular polygon. For instance, in the game of Risk, you can create such polygon that describe each of the "countries" in the game. Note that what is important in Risk is the movement from country (say Kamchatka) to country (Alaska).
+A cell can also be defined in terms of an array of such tiling indices. These can in turn be hashed in some fashion to am irregular polygon. For instance, in the game of Risk, the "countries" in the game are defined by polygons, but what is important in Risk is the movement from country (say Kamchatka) to country (Alaska).
 
 .The Risk World View
 image::risk-map.png[The Risk World View]
@@ -161,16 +155,9 @@ image::north-america.png[Map of North America as a graph]
 
 This notion of identifying the cells within a domain is useful in a number of ways because it forces thinking in terms of topology, rather than geometry. There are ways of specifying the extents of particular cells from a rendering standpoint (typically as sheets of polygons) but in most domains, dealing with the conceptual representation of a place is often far more important than dealing with a precise geometrical distribution.
 
-In a topological view, cells are connected via links. These represent permissible trajectories that a given agent can move to from a given place, absent any other constraining information. For instance, from Ontario, one can go to the Eastern or Western United States, Greenland, Quebec or Alberta, but you cannot go to Central America or Iceland directly without passing through an intervening country.
+In a topological view, cells are connected via links. These represent permissible trajectories that a given agent can move to from a given place, absent any other constraining information. For instance, from Ontario, one can go to the Eastern or Western United States, Greenland, Quebec or Alberta, but going to Central America or Iceland cannot be done without passing through an intervening country.
 
 This approach requires a certain degree of pre-planning. One reason that games are used as a metaphor is that they often allow for a significant reduction in the number of dimensions necessarily to capture a model. They also make goal achievement more feasible, because the agent or thing in the system can identify a goal and work with the information inherent in the topology rather than trying to intrinsically capture the specifics of how to achieve these goals.
-
-
-== Topologies in higher dimensions
-
-Topologies also work in higher dimensions and non-geospatial contexts. If you have an assembly line, for instance, the actual position of an object becomes secondary to where it is in terms of station and process. This is a key point, because once you move into a topological description of space, you can connect places via workflows (or even talk about conceptual stations that represent a place where you gain more information or perform specific actions), without having to deal with physical proximity as well.
-
-For instance, a physical description of the body can be rendered in one of three ways: the physical, using a tranverse plane coordinate system, can be helpful for developing models, but because bodies can be wildly different from individual to individual, most doctors make use of a taxonomic approach for describing the various systems - skeletal, musculature, pulminary, vascular, etc, then using relational maps and juncture points to indicate the specific connections. This anatomical hyperspace can identify not only location but also body system, and can be tied into diagnostics and drug pathway interaction graphs. Similarly, voxel type systems can be used to identify (with CRT partitioning) specific entities as aggregates of voxels, just as you would use hex tiling to do the same thing in two dimensions.
 
 == Requirements and recommendations
 
