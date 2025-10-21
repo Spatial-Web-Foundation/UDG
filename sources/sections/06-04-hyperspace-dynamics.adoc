@@ -25,4 +25,17 @@
 	1. Etymology: changed in meaning over time 
 	2. Worlds of ideas and how they evolve
 
+
+== Spatial embedding of motion
+
+	-  BEHAVIOR-1K?
+		BEHAVIOR-1K is a comprehensive simulation benchmark for human-centered robotics. Compared to its predecessor, BEHAVIOR-100, this new benchmark is more grounded on actual human needs: the 1,000 activities come from the results of an extensive survey on “what do you want robots to do for you?”. It is more diverse in the type of scenes, objects, and activities. Powered by NVIDIA’s Omniverse, BEHAVIOR-1K also achieves a new level of realism in rendering and physics simulation. We hope that BEHAVIOR-1K’s human-grounded nature, diversity, and realism make it valuable for embodied AI and robot learning research.
+	- Behavior Domain Definition Language
+		BDDL is a predicate logic-based language inspired by, but distinct from, the Planning Domain Definition Language [1]. It defines each BEHAVIOR activity definition as a BDDL problem, consisting of of a categorized object list (:objects), an initial condition that has only ground literals (:init), and a goal condition that is a logical expression (:goal).
+	- Catalyzing a virtuous cycle of seeing, learning and doing
+	- Spatial intelligence models the world and reason about objects, places, and events in 3D space and time 
+	- Spatial intelligence is catalyzing robotic learning
+	- Key component for any embodied intelligence systems that needs to understand and interact with 3D world.
+	- HAI BEHAVIOR project will do for video activity labeling what  ImageNet was to image feature labeling
+
 == Requirements and Recommendations 

@@ -50,6 +50,8 @@ It is certain that there will be inconsistencies in the UDG, similar to inconsis
 
 === Links are relationships between ENTITIES.
 
+Relationships between entities are shown in <<spatial_web_ontology>>.
+
 A link is a relationship from an initiator ENTITY to a receiver ENTITY.  The link is part of the initiator ENTITY and indicates tat the initiator ENTITY seeks to point to the receiver ENTITY. There are no bidirectional links within the Spatial Web. All links are unidirectional (one way), but there may be analogous entities (portals) for each link that provide the corresponding link back to the original place or entity.
 
 [[fig-room-to-room]]
