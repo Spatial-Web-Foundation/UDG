@@ -2,6 +2,16 @@
 
 == SW Content node
 
+, which involves both communication across HSTP protocols (query/response) as well as joining nodes together to create ad-hoc super nodes (i.e., spatial web federation).
+
+Structure of the Spatial Web Node, including the primary hstp.d and hsml.d daemons, the domain graph, a credential graph, and a schema graph.
+
+Bridging HSTP and UDG scopes (handled through hstp.d and hsml.d respectively)
+
+Managing internal local hstp.d clocks (repeating internal events) to manage query and updates against live resources.
+
+Place, Person, Thing and SW Node registry for commonly referenced entities (the Spatial Web registry)
+
 === Spatial Web Node Design
 
 This section focuses primarily on the broad scope of the spatial web node system
@@ -185,9 +195,85 @@ operations, open links simply cause the agent to reset to the new place (and
 domain, if this changes, without UX involvement. However, key activation still
 requires the relevant credentials.
 
-== UDG Node
+== UDG Node and node network
 
-= UDG Node compoents
+=== Network of UDG nodes
+
+multiple tiers to the UDG Node network
+
+Distributed replicate synchronization
+BIG TABLE
+
+** **Extended Domain Graphs** - this extends the scope of a given domain by incorporating external graphs into the systems at the query level. This makes using common codebases and templates feasible
+** **Spatial Web Nodes** - Spatial web nodes are the physical backbone of the spatial web, and are primarily the servers that host the various managers of resources.
+** **Affiliation Networks** - Each node (and many domains within the nodes) belong to one or more affiliation networks. Some of these may be huge, with potentially millions of nodes, others may be the equivalent of local intranets. Moreover, affiliations can themselves be affiliated, creating a superstructure that can scale up to:
+** **The Spatial Web** - This is the aggregate of all affiliation networks.
+
+
+Not all (perhaps not even most) domains will be in publicly available affiliates. Many of these domains will be private networks intended for access only by  those with need to know (or to modify), especially those with IoT interconnections.
+
+The affiliate design is also a specific requirement for a decentralized architecture. A true peer-to-peer system likely will not scale to the same level (there are few Internet scale peer-to-peer systems after more than 35 years). This would especially be the case given the requirements to ensure private control over domains, along with the sensitivity of much of the internal data.
+
+
+=== Moving a DOMAIN between UDG Nodes
+
+Links are one of the few actions that can cross spacial web node boundaries.  Activating the link initiates a sequence of steps:
+
+* Negotiate a challenge that checks to make sure that the agent can be moved.
+* Identify if the agent has a corresponding swid on the new system. If not, create one.
+* Copy the metadata for that agent in the graph of the new server.
+* Attach the agent to the indicated place within the new domain.
+* Notify the current server that the agent has been successfully replaced.
+* Deactivate the agent on the current node (not remove, just deactivate) if the transfer was successful, otherwise send a note to the actor of the current agent that the link failed.
+
+This is more complex than moving within a given node because the latter simply requires changing pointers.
+
+=== Augmented Node Graphs
+
+In some cases, it is possible to attach the graph of one node to another in
+order to create a larger federated graph. This bypasses the normal HSTP protocol
+system. This is used primarily for those cases where a single domain may in fact
+be distributed across multiple servers, or where common resources such as
+schemas are shared across multiple chained nodes. The chained nodes are called
+__Augmenting Node Graphs__ and the chaining graph is called the __Augmented Node
+Graph__. More information will be forthcoming regarding such graphs.
+
+=== Directory Domain and Home Places
+
+A spatial web node can identify a particular domain that serves as it's
+directory domain. If no domain is specified by an hstp request, this will be the
+default domain. This domain is designed to provide a directory or catalog of the
+domains that are accessible to a given external agent based upon their
+credential profile, and also provides mechanisms to "sign in" if this is
+required to change the domains that they see.
+
+Similarly, within every domain, there is the option of specifying a home place.
+This is where agents are positioned when they first "enter" a given domain, if
+no domain is otherwise specified. In simple scenarios (such as the smart room
+scenario), there may be only one place in the domain, but in more complex
+scenarios (especially those representing tours or rpgs), this home place
+typically also serves the role of establishing context and backstory for the
+agent, providing instructions for interacting with the domain, and identifying
+pertinent "destinations".
+
+
+==== Home Domains
+
+There is a chicken and egg situation with regard to whether a given Spatial Web
+Node can be considered an agent or a domain. To get around this, there is a
+specific exception to the idea that all agents exist on places within domains.
+There is assumed to be on a given spatial web node a designated Home Domain that
+is explicitly stated to be associated with the node itself. It's "agency" in
+this particular case is the action of the node daemons, with specific
+capabilities. When a spatial web node is first set up, this home domain/agent
+holds the configuration metadata for the node itself, as well as any credentials
+that are specific to the node.
+
+Put another way, ___from the standpoint of the UDG, the Spatial Web Node is a
+domain, with an implicit super agent___. The mechanics of this are still to be
+determined.
+
+=== UDG Node components
 
 A typical Spatial Web UDG Node consists of a number of key components.
 

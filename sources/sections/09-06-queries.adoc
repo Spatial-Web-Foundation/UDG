@@ -123,6 +123,7 @@ Graph queries are somewhat different from traditional data structures. In a norm
 
 In a graph query, however, there are typically two different kinds of query. The first is similar to a search result - a table consisting of fields of value. This is very much akin to a SELECT query in SQL, and this form is useful for generating reports and maps. For instance, given the current architecture, the following query retrieves a list of all of the agents in a given domain (here, a list of people in a given building)
 
+.Understanding Graph Queries
 [source,sparql]
 ----
 # Sparql
@@ -142,6 +143,7 @@ WHERE {
 
 This generates a table:
 
+.Graph Queries table
 [cols="1,1", options="header"]
 |===
 | Person | Room
@@ -156,6 +158,7 @@ This generates a table:
 
 In this case, the select statement reads labeled properties from the WHERE statement, which in turn matches assertions in the graph, resulting in a subgraph.
 
+.Turtle for Graph Queries
 [source,turtle]
 ----
 # Turtle
@@ -184,7 +187,7 @@ Domain:ApartmentScenario_123 a Class:Domain ;
 
 Construct statements can then be used with the same WHERE statement to generate the subgraphs as Turtle, RDF/XML or JSON-LD, along with additional metadata.
 
-
+.Sparql for Graph Queries
 [source,sparql]
 ----
 # Sparql

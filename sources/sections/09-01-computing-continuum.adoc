@@ -1,102 +1,75 @@
-= Computing continuum
+= Computing Continuum 
 
-== Overview
+== Pantheon of SW Nodes
 
-Computing Continuum and Spatial Web Nodes.
+A Spatial Web Node (or SW Node) is a computing machine connected to the internet, capable of exchanging HSTP messages. SW Nodes include softrware components, e.g., daemons, that exchange Spatial Web entities as HSML. Each SW Node holds a portion of the UDG conceptual content.  Messages between SW Nodes update the state of ENTITIES in real time.
 
-Overall architecture of the spatial web node system, which involves both communication across HSTP protocols (query/response) as well as joining nodes together to create ad-hoc super nodes (i.e., spatial web federation).
+A broad view of the distributed computing architecture of the Spatial Web node system is depicted in the <<computing_continuum, Spatial Web computing continuum>>.
 
-Structure of the Spatial Web Node, including the primary hstp.d and hsml.d daemons, the domain graph, a credential graph, and a schema graph.
-
-Bridging HSTP and UDG scopes (handled through hstp.d and hsml.d respectively)
-
-Managing internal local hstp.d clocks (repeating internal events) to manage query and updates against live resources.
-
-Place, Person, Thing and SW Node registry for commonly referenced entities (the Spatial Web registry)
 
 [[computing_continuum]]
 .Distributed computing continuum
 image::computing_continuum.png[Distributed computing continuum]
 
+== UDG content in SW Nodes
 
-== Scale to Internet Level
+SW Nodes host and exchange the content defined in the conceptual viewpoints of the is design specification.  The table <sw-node-conceptual-content> provides a summary of UDG conceptual content held by the SW Nodes 
 
-There are multiple tiers to the proposed spatial web structure
+[[sw-node-conceptual-content]]
+.UDG conceptual content held in SW Nodes
+[cols="1a,3a,2a,2a,1a", options="header"]
+|===
+| SW Node | UDG KG | Hyperspace | Registries | Social
 
-** **Places and Agents** - These represent the fundamental layer on which the spatial web is built
-** **Domains** - Domains are in effect contextual, dynamic, interactive maps. They house places, agents, and supporting structures. Domains may be linked together across multiple nodes, though a single domain can only be on one node.
-** **Extended Domain Graphs** - this extends the scope of a given domain by incorporating external graphs into the systems at the query level. This makes using common codebases and templates feasible
-** **Spatial Web Nodes** - Spatial web nodes are the physical backbone of the spatial web, and are primarily the servers that host the various managers of resources.
-** **Affiliation Networks** - Each node (and many domains within the nodes) belong to one or more affiliation networks. Some of these may be huge, with potentially millions of nodes, others may be the equivalent of local intranets. Moreover, affiliations can themselves be affiliated, creating a superstructure that can scale up to:
-** **The Spatial Web** - This is the aggregate of all affiliation networks.
+| SW Content Node
+| Local ENTITIES
+| Embedding of local entities
+| DOMAIN Membership Credential
+| 
 
-. It is worth noting that not all (perhaps not even most) domains will be in publicly available affiliates. Many of these domains will be private networks intended for access only by  those with need to know (or to modify), especially those with IoT interconnections.
-. The affiliate design is also a specific requirement for a decentralized architecture. A true peer-to-peer system likely will not scale to the same level (there are few Internet scale peer-to-peer systems after more than 35 years). This would especially be the case given the requirements to ensure private control over domains, along with the sensitivity of much of the internal data.
+| UDG Node
+| Extended dynamic graph of ENTITIES
+| Generalized worlds/Atlases
+| Registry Relationships
+| Collective intelligence
 
-== SW Nodes
+| Registry Node
+| Issues membership credential
+| 
+| DOMAIN Membership register
+| 
 
-A Spatial Web Node (or SW Node) is a daemon on a computer server that host
-Spatial Web KG entities. It is roughly analogous to an http.d daemon that hosts
-a web contnet, and typically hosts a *__domain graph__* that maintains the state
-of multiple ENTITIES, DOMAINS, CREDENTIALS, CONTRACTS and related content.
+| Agent Node
+| Dynamic SITUATONS
+| Model uses generalized worlds
+| DOMAIN Membership Credential
+| Social epistemology 
 
-== Moving a DOMAIN between UDG Nodes
+| Thing Node
+| Sensing and Actuation of environment
+| Location in cyber-physical space
+| DOMAIN Membership Credential
+| Observations of physical world
 
-Links are one of the few actions that can cross spacial web node boundaries.  Activating the link initiates a sequence of steps:
+| DID issuer
+| SWID creation and resolution
+| 
+| SWID creation and resolution
+| 
 
-* Negotiate a challenge that checks to make sure that the agent can be moved.
-* Identify if the agent has a corresponding swid on the new system. If not, create one.
-* Copy the metadata for that agent in the graph of the new server.
-* Attach the agent to the indicated place within the new domain.
-* Notify the current server that the agent has been successfully replaced.
-* Deactivate the agent on the current node (not remove, just deactivate) if the transfer was successful, otherwise send a note to the actor of the current agent that the link failed.
+|===
 
-This is more complex than moving within a given node because the latter simply requires changing pointers.
+== Dynamic content between SW Nodes
 
-== Augmented Node Graphs
+Content in the Spatial Web will change across a range of timeframes.
 
-In some cases, it is possible to attach the graph of one node to another in
-order to create a larger federated graph. This bypasses the normal HSTP protocol
-system. This is used primarily for those cases where a single domain may in fact
-be distributed across multiple servers, or where common resources such as
-schemas are shared across multiple chained nodes. The chained nodes are called
-__Augmenting Node Graphs__ and the chaining graph is called the __Augmented Node
-Graph__. More information will be forthcoming regarding such graphs.
+. Agent speed: AGENTS interacting with moving THINGS with no HUMAN interaction. Latency: less than sub-millisecond range
+. Human reacting: HUMANS and AGENTS interacting with SW Content Nodes and moving THINGS.  Bandwidth:  30 frames per second
+. Human thinking: HUMANS and AGENTS interacting with static SW Nodes.  Latency: 250 msec
+. UDG synchronization:  UDG nodes updating content across UDG node network.  Latency: seconds
 
-== Directory Domain and Home Places
+As shown in <<computing_continuum, Spatial Web continuum>>, the Spatial Web distributed computing environment spans across a continuum of communication networks, e.g., internet, mobile, LAN/WAN. This continuum features a wide variety of computing nodes and communication protocols. Deployments of the Spatial Web shall take advantage of the bandwidth and latency features in the different layers of the continuum.
 
-A spatial web node can identify a particular domain that serves as it's
-directory domain. If no domain is specified by an hstp request, this will be the
-default domain. This domain is designed to provide a directory or catalog of the
-domains that are accessible to a given external agent based upon their
-credential profile, and also provides mechanisms to "sign in" if this is
-required to change the domains that they see.
-
-Similarly, within every domain, there is the option of specifying a home place.
-This is where agents are positioned when they first "enter" a given domain, if
-no domain is otherwise specified. In simple scenarios (such as the smart room
-scenario), there may be only one place in the domain, but in more complex
-scenarios (especially those representing tours or rpgs), this home place
-typically also serves the role of establishing context and backstory for the
-agent, providing instructions for interacting with the domain, and identifying
-pertinent "destinations".
-
-
-=== Home Domains
-
-There is a chicken and egg situation with regard to whether a given Spatial Web
-Node can be considered an agent or a domain. To get around this, there is a
-specific exception to the idea that all agents exist on places within domains.
-There is assumed to be on a given spatial web node a designated Home Domain that
-is explicitly stated to be associated with the node itself. It's "agency" in
-this particular case is the action of the node daemons, with specific
-capabilities. When a spatial web node is first set up, this home domain/agent
-holds the configuration metadata for the node itself, as well as any credentials
-that are specific to the node.
-
-Put another way, ___from the standpoint of the UDG, the Spatial Web Node is a
-domain, with an implicit super agent___. The mechanics of this are still to be
-determined.
 
 
 

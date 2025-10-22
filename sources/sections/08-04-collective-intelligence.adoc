@@ -11,7 +11,7 @@ Collective, cultural intelligence has evovled in humans with many cognitive skil
 The Spatial Web plays the role of a collective intelligence for societal infrastructure. It hosts cognitive computing, i.e., inference (perception, learning, action selection). By combining and abstracting distributed information, the Spatial Web enables the formation of complex ideas and facilitates decision-making. The benefits of collective action can be numerous, from estimating hard-to-observe environmental cues, efficiently searching for resource, and mediating toward common understandings and shared norms. 
 
 
-== Exploration and enagement 
+== Exploration and engagement 
 
 Each cohesive community has its own stream of idea flow that allows the members to incorporate innovations from other people within it, and even to create a separate culture.  As a consequence of these shared habits, human communities can develop a sort of collective intelligence that is greater than the members' individual intelligence (<<Pentland_2015>>). As described in (<<exploration-engagement-network>>), engagement with and learning from other AGENTS, along with the mutual sharing and vetting of ideas in the UDG, generate the collective intelligence. 
 
