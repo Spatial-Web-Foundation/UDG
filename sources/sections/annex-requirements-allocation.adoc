@@ -7,6 +7,4 @@ include::annex-requirements-summary.adoc[leveloffset=+2]
 
 include::annex-use-cases-requirements-allocation.adoc[leveloffset=+2]
 
-include::annex-use-cases-requirements-allocation.adoc[leveloffset=+2]
-
 include::annex-requirements-allocation-UDG-to-components.adoc[leveloffset=+2]
