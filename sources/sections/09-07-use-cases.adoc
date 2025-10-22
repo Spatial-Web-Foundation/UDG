@@ -233,17 +233,4 @@ NOTE: _It is possible that this will need to be changed to MUST and needs furthe
 
 . The specific implementation of replication is dependent upon the particular knowledge graph store in question. The assumption here is that whatever KG store will likely have some native replication for multiple servers supporting failover by periodically streaming triples that are active as part of revisions to the graph. This will likely be expressed in more detail as prototypes reach a sufficient level of  maturity.
 
-== Scale to Internet Level
-
-. There are multiple tiers to the proposed spatial web structure
-
-** **Places and Agents** - These represent the fundamental layer on which the spatial web is built
-** **Domains** - Domains are in effect contextual, dynamic, interactive maps. They house places, agents, and supporting structures. Domains may be linked together across multiple nodes, though a single domain can only be on one node.
-** **Extended Domain Graphs** - this extends the scope of a given domain by incorporating external graphs into the systems at the query level. This makes using common codebases and templates feasible
-** **Spatial Web Nodes** - Spatial web nodes are the physical backbone of the spatial web, and are primarily the servers that host the various managers of resources.
-** **Affiliation Networks** - Each node (and many domains within the nodes) belong to one or more affiliation networks. Some of these may be huge, with potentially millions of nodes, others may be the equivalent of local intranets. Moreover, affiliations can themselves be affiliated, creating a superstructure that can scale up to:
-** **The Spatial Web** - This is the aggregate of all affiliation networks.
-
-. It is worth noting that not all (perhaps not even most) domains will be in publicly available affiliates. Many of these domains will be private networks intended for access only by  those with need to know (or to modify), especially those with IoT interconnections.
-. The affiliate design is also a specific requirement for a decentralized architecture. A true peer-to-peer system likely will not scale to the same level (there are few Internet scale peer-to-peer systems after more than 35 years). This would especially be the case given the requirements to ensure private control over domains, along with the sensitivity of much of the internal data.
 

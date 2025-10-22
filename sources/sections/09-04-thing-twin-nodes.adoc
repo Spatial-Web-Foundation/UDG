@@ -1,0 +1,9 @@
+﻿= Thing and Twin Nodes
+
+== Thing nodes
+
+sensor and actuators without AGENT
+
+== Digital Twins for things
+
+sync with things

@@ -64,6 +64,7 @@ Below is an example of some of the relationships between the Public Domain of ba
 
 == MLB's Multi-Role Responsibilities in the UDG
 
+.MLB roles in the UDG
 [cols="1,2,3",options="header"]
 |===
 |Role |Definition |MLB's Function
