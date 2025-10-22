@@ -13,7 +13,7 @@ The Domain Authority plays five roles simultaneously in the Spatial Web:
 
 == Domain-specific registries
 
-Domain Authorities may establish a domain-specific registry, i.e., a domain registry that is defined specifically for the entities of interest to the Domain authority.  A domain-specific registry may the same functions as the Spatial Web Registry (creation of did:swids and registering membership of domains).  The difference is the scope of a domain-specific registry is for a specific domain where as the Spatial Web Registry is the registry for all registered DOMAINS.  
+Domain Authorities may establish a domain-specific registry, i.e., a domain registry that is defined specifically for the entities of interest to the Domain Authority.  A domain-specific registry may have the same functions as the Spatial Web Registry (creation of did:swids and registering membership of domains). The difference is that the scope of a domain-specific registry is for a specific domain whereas the Spatial Web Registry is the registry for all registered DOMAINS.  
 
 
 
