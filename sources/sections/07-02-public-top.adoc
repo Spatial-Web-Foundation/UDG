@@ -2,7 +2,11 @@
 
 == DOMAINS in general
 
-In the inhabitable world, a domain refers to the geopolitical territory governed by a single entity or government or a geophysical region characterized by a specific feature, type of growth or wildlife, etc. E.g. The domain of the US, the State, or your home.
+DOMAINS provide structure which matches the structure of people, places, concepts, and things as nested in nature as parent, child, and sibling relationships.
+
+The purpose of a DOMAIN is to offer a conceptual area in which to add definitions or behavior with HSML-compliant software that allows reality to be described from multiple perspectives and correlated hierarchies. It can be used to provide a single distinct container for things such as a geolocated physical object or a concept without having to be the thing itself.
+
+In the inhabitable world, a domain refers to the geopolitical territory governed by a single entity or government or a geophysical region characterized by a specific feature, type of growth or wildlife, etc. E.g. The domain of the United States, the State, or a person's home.
 
 In the human world, a domain refers to a cultural field of knowledge or influence or range of personal knowledge, or responsibility. E.g. The domain of science, art, or morals.
 
@@ -22,15 +26,16 @@ Purpose: A purpose of a DOMAIN is to offer a conceptual area in which to add def
 Public Domains have no owner and are for the public good like a wiki commons.  SWF acts as the steward for all public domains. Examples: knowledge concepts like baseball, traffic laws, lidar, weather, applied physics.
 
 Private Domains are domains registered by individuals, organizations and their agents.
-Examples: Los Angeles Dodgers, California DMV, your autonomous car, a weather sensor, Johns Hopkins University Applied Physics Laboratory.
+Examples: Los Angeles Dodgers, California DMV, an autonomous car, a weather sensor, Johns Hopkins University Applied Physics Laboratory.
+
 Top Domains are the highest Private domain of a domain hierarchy and managed by the Domain Authority, which governs the entire domain.  Examples: Major League Baseball, United States, Coca-Cola Company, NASA, Johns Hopkins University.
 
-Domain Authority: Domain Authority: Spatial Web entity that manages membership in the domain and defines norms for the domain.
+All DOMAINS are conrolled by a Domain Authority, which is a Spatial Web ENTITY that manages membership in the domain and defines norms for the domain.
 
 
 === Top Domains & UDG
 
-A top domain registers just one domain (topdomain.spatialweb) but can be linked to all relevant Public Domains in the UDG.
+A top domain registers just one domain but can be linked to all relevant Public Domains in the UDG.
 This ensures discoverability, governance inheritance, and interoperability without the need for multiple SWIDs.
 
 
