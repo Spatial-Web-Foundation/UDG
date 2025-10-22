@@ -11,7 +11,7 @@ The two functions for Spatial Web registries are distinct, i.e., a Domain regist
 
 Because DOMAINS may be members of multiple upper domains, and DOMAINS may move between upper domains; DOMAIN identity may proceed registration.
 
-Registration of a DOMAIN in an upper domDOMAINain results in the membership being recorded in the Registry and a credential being issued to the registered ENTITY.
+Registration of a DOMAIN in an upper DOMAIN results in the membership being recorded in the Registry and a credential being issued to the registered ENTITY.
 
 The Spatial Web registries follow these design goals and properties:
 
