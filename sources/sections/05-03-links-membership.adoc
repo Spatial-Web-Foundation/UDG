@@ -123,7 +123,6 @@ A use case is connecting one agent that is in effect a camera (a sensor array) w
 
 This could also be used to monitor the value of a given set of properties such as position, temperature, funds, or emotional state. Since in many cases, these values may be computed rather than intrinsic, this provides a light-weight mechanism for determining relevant state without needing to know the internal mechanisms for that agent.
 
-
 == Portals
 
 A __portal__ connects spaces as defined in <<IEEE_2874_2025, Spatial Web clause 6.2.3.7.2. Connecting spaces>>.  By identifying  sets of locations in hyperspace that connect two DOMAINS, a portal between the DOMAINS is created as a relationship between DOMAINS.  A portal need not be binary; it could be multiple sets of points to define an n-ary portal.  
@@ -166,6 +165,18 @@ A DOMAIN may have a location in hyperspace.  The location may be a single point 
 
 A DOMAIN location may be within an upper DOMAIN location. The DOMAIN may include sub-domains contained within the DOMAIN location.  For instance, a given planet domain may have multiple locations that represent the countries of that planet. 
 
+== Moving a DOMAIN between DOMAINS
+
+A DOMAIN may be in more than one DOMAIN, where "in" has several meanings based on differing relationships.  A DOMAIN may be a member of an upper DOMAIN and thereby holding a certificate of membership in the DOMAIN.  A DOMAIN may be in a DOMAIN by virtue of a LOCATION defined for an upper DOMAIN.  Movement between the DOMAINS in which a DOMAIN is in must be managed.
+
+* Negotiate a challenge that checks to make sure that the agent can be moved.
+* Identify if the agent has a corresponding swid on the new system. If not, create one.
+* Copy the metadata for that agent in the graph of the new server.
+* Attach the agent to the indicated place within the new domain.
+* Notify the current server that the agent has been successfully replaced.
+* Deactivate the agent on the current node (not remove, just deactivate) if the transfer was successful, otherwise send a note to the actor of the current agent that the link failed.
+
+Movement between DOMAINS is different than locating a DOMAINS information through the UDG Node Network (which is discussed in <<udg-node-network>>). 
 
 == SITUATIONS
 
@@ -184,6 +195,7 @@ A DOMAIN, in particular an AGENT, can create a SITUATION at any given moment in 
 
 
 == Dynamic relationships - paths
+
 
 === Updating relationships with time and activity
 

@@ -20,6 +20,65 @@ error (the analog to an HTTP 404 code).
 Once a connection is made, the corresponding certificate is cached so that this
 process of discovery doesn't need to take place again until the next TTL.
 
+
+=== Networks Neighborhoods of nodes
+
+A SW Node communicates with other SW Nodes via HSTP. SW Nodes connect in one of
+two ways:
+
+. Via __neighborhood connections__ made when the node connects via a nodelink (a
+specialized form of link that identifies a node) to another node. The successful
+negotiation caches the nodelink in the node's __nodecache__. This is a
+peer-to-peer connection.
+
+. Via registration with a __public node registry__. In this case, the node
+becomes visible to all other members of the registry. The registration process
+returns a set of credentials that translate selected links from a search into
+neighborhood links.
+
+In both cases, when a node queries another node about its neighborhood, it can
+cache the connections of the queried node. Case 2 in fact is essentially
+Case 1 at a larger scale. Each node contains a certain amount of intrinsic
+metadata about the type of domains on the system, which can in turn be used to
+provide a facet query to find links from another node that have similar or
+overlapping facets.
+
+For instance, if a given node mostly contained shipping information, the facets
+that it has can provide scores against another SW Node's registry metadata that
+was tied into shipping to retrieve those particular SW Nodes that are most like
+the requested nodes.
+
+In addition to that, when a Spatial Web Node first registers with a registry, it
+can retrieve schema definitions, common resources, code libraries and a
+"starter" set of node links that can then be used to add to the neighborhood of
+the registering node.
+
+Nodelinks typically have a time-to-live attribute (TTL) that indicates how long
+a link can remain active before it needs to be refreshed. If a nodelink cannot
+be resolved, then a secondary TTL is activated that indicates how long an
+interval should be taken before the link is considered dead, and consequently
+should be purged.
+
+==== Augmented Node Graphs
+
+In some cases, it is possible to attach the graph of one node to another in order to create a larger federated graph. This bypasses the normal HSTP protocol system. This is used primarily for those cases where a single domain may in fact
+be distributed across multiple servers, or where common resources such as schemas are shared across multiple chained nodes. The chained nodes are called __Augmenting Node Graphs__ and the chaining graph is called the __Augmented Node
+Graph__. More information will be forthcoming regarding such graphs.
+
+=== Directory Domain and Home Places
+
+If no DOMAIN is specified by an hstp request, this will be the default domain. This domain is designed to provide a directory or catalog of the domains that are accessible to a given external agent based upon their credential profile, and also provides mechanisms to "sign in" if this is required to change the domains that they see.
+
+Similarly, within every domain, there is the option of specifying a home place. This is where agents are positioned when they first "enter" a given domain, if no domain is otherwise specified. In simple scenarios (such as the smart room scenario), there may be only one place in the domain, but in more complex scenarios (especially those representing tours or rpgs), this home place typically also serves the role of establishing context and backstory for the agent, providing instructions for interacting with the domain, and identifying pertinent "destinations".
+
+
+==== Home Domains
+
+There is assumed to be on a given spatial web node a designated Home Domain that is explicitly stated to be associated with the node itself. It's "agency" in this particular case is the action of the node daemons, with specific
+capabilities. When a spatial web node is first set up, this home domain/agent holds the configuration metadata for the node itself, as well as any credentials that are specific to the node.
+
+Put another way, ___from the standpoint of the UDG, the Spatial Web Node is a domain, with an implicit super agent___. The mechanics of this are still to be determined.
+
 == Spatial Web Addresses
 
 In the Spatial Web, there is a distinction between a Spatial Web Identifier
@@ -241,3 +300,7 @@ removed from a network by revoking the credentials of the home domain for that
 machine. The machine is still findable via a URL, but the lack of credentials
 mean that the request for data can't validate (it will send back an error across
 hstp indicating the data won't validate).
+
+== Requirements and Recommendations
+
+TBD

@@ -1,4 +1,4 @@
-= Computing Continuum 
+= Computing continuum 
 
 == Pantheon of SW Nodes
 
@@ -17,41 +17,41 @@ SW Nodes host and exchange the content defined in the conceptual viewpoints of t
 
 [[sw-node-conceptual-content]]
 .UDG conceptual content held in SW Nodes
-[cols="1a,3a,2a,2a,1a", options="header"]
+[cols="1a,2a,2a,2a,2a", options="header"]
 |===
 | SW Node | UDG KG | Hyperspace | Registries | Social
 
-| SW Content Node
+| *SW Content Node*
 | Local ENTITIES
 | Embedding of local entities
 | DOMAIN Membership Credential
 | 
 
-| UDG Node
+| *UDG Node*
 | Extended dynamic graph of ENTITIES
 | Generalized worlds/Atlases
 | Registry Relationships
 | Collective intelligence
 
-| Registry Node
+| *Registry Node*
 | Issues membership credential
 | 
 | DOMAIN Membership register
 | 
 
-| Agent Node
+| *Agent Node*
 | Dynamic SITUATONS
 | Model uses generalized worlds
 | DOMAIN Membership Credential
 | Social epistemology 
 
-| Thing Node
+| *Thing Node*
 | Sensing and Actuation of environment
 | Location in cyber-physical space
 | DOMAIN Membership Credential
 | Observations of physical world
 
-| DID issuer
+| *DID issuer*
 | SWID creation and resolution
 | 
 | SWID creation and resolution
@@ -69,6 +69,12 @@ Content in the Spatial Web will change across a range of timeframes.
 . UDG synchronization:  UDG nodes updating content across UDG node network.  Latency: seconds
 
 As shown in <<computing_continuum, Spatial Web continuum>>, the Spatial Web distributed computing environment spans across a continuum of communication networks, e.g., internet, mobile, LAN/WAN. This continuum features a wide variety of computing nodes and communication protocols. Deployments of the Spatial Web shall take advantage of the bandwidth and latency features in the different layers of the continuum.
+
+The Spatial Web builds on internet mechanisms for time synchronization.  Extensions are needed for managing internal local hstp.d clocks (repeating internal events) to manage query and updates against live resources.
+
+== Requirements and Recommendations
+
+TBD
 
 
 

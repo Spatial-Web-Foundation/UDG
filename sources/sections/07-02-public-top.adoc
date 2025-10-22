@@ -20,6 +20,10 @@ Functionality: Domains provide structure, often parallel structures, for the exi
 
 Purpose: A purpose of a DOMAIN is to offer a conceptual area in which to add definitions or behavior with HSML-compliant software that allows reality to be described from multiple perspectives and correlated hierarchies. It can be used to provide a single distinct container for things such as a geolocation, physical object, or a concept without having to be the thing itself.
 
+The Spatial Web maintaining core repositories, taxonomic concepts, activity components and schemas. These items are avaialble for any DOMAIN to reuse, while the Domain may create their own definitions, they can use the public Spatial Web  concepts to provide core provenance and structure.
+
+The Spatial Web registry provides a clearinghouse for identifying and classifying public domains, using the Spatial Web UDG Taxonomy (and the corresponding hsml:hasTopic and related predicates) to help to identify relevant content.
+
 
 === Public and private domains
 

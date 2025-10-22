@@ -7,3 +7,7 @@ sensor and actuators without AGENT
 == Digital Twins for things
 
 sync with things
+
+== Requirements and Recommendations
+
+TBD

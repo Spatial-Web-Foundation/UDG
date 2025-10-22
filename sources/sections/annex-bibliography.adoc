@@ -390,3 +390,9 @@ span:uri[https://www.electropedia.org/]
       Evidence for a Collective Intelligence Factor in the Performance of Human Groups.
       Science 330,686-688(2010).
       DOI:10.1126/science.1193147
+
+* [[[solid_pods]]]
+      https://en.wikipedia.org/wiki/Solid_(web_decentralization_project)
+
+* [[[puppygraph]]
+      https://www.puppygraph.com/blog/distributed-graph-database

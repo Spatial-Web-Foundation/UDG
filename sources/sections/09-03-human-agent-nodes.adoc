@@ -179,3 +179,7 @@ constructing an approximate representation to indicate symbolic relationships.
 
 Note that a given entity may include both an icon and a link. The link is an
 abstraction on the entity, not the icon.
+
+== Requirements and Recommendations
+
+TBD

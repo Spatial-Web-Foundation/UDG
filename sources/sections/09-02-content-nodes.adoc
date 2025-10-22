@@ -2,42 +2,27 @@
 
 == SW Content node
 
-, which involves both communication across HSTP protocols (query/response) as well as joining nodes together to create ad-hoc super nodes (i.e., spatial web federation).
+=== Spatial Web Node design
 
-Structure of the Spatial Web Node, including the primary hstp.d and hsml.d daemons, the domain graph, a credential graph, and a schema graph.
+The primary, basic computing node in the Spatial Web is SW Content Node.  The SW Content Node contains the primary software components for communications in the Spatial Web, e.g., hstp.d daemon for handling all hstp messages.  Other SW Nodes extend the design SW Content Node.
 
-Bridging HSTP and UDG scopes (handled through hstp.d and hsml.d respectively)
+A SW Content Node's central focus is to enable the discovery and sharing of information in a way that preserves privacy. Similar to a <<solid_pods, SOLID Personal Online Data Store (PODS)>>, a HUMAN or AGENT user stores personal data hosted wherever the user desires. Applications that are authenticated are allowed to request data if the user has given the application permission. A HUMAN may distribute personal information among several pods; for example, different pods might contain personal profile data, contact information, financial information, health, travel plans, or other information. The user could then join a DOMAIN community by giving it permission to access the appropriate information in a specific SW Node. The user retains complete ownership and control of data in the user's SW Conent Node.
 
-Managing internal local hstp.d clocks (repeating internal events) to manage query and updates against live resources.
+Not all (perhaps not even most) DOMAINS will be in publicly available SW Nodes. Many DOMAINS will be private networks intended for access only by  those with need to know (or to modify), especially those with IoT interconnections.
 
-Place, Person, Thing and SW Node registry for commonly referenced entities (the Spatial Web registry)
 
-=== Spatial Web Node Design
+EDITOR: the SW Content Node design shown here needs to be updated based on or replace by the design used for the Spatial Web Foundation SDK shown in https://gitbook.spatialwebfoundation.org/
 
-This section focuses primarily on the broad scope of the spatial web node system
-and how it interacts with the UDG.
+Structure of the SW Content Node, including the primary hstp.d and hsml.d daemons, the domain graph, a credential graph, and a schema graph.
 
-A spatial web node is the abstraction of a long running application (the node
-daemon) that connects to other spatial web nodes to provide information about
-specific HSML domains or the structures that support them, communicating over
-the HSTP protocol. Like most modern web applications, a spatial web node can
-support both a server that maintains state of a domain graph model and provides
-stateful content (as HSML) and a client that can render that HSML in a form that
-a service or user can understand. The state of the domains is maintained within
-a specially design ___domain graph___ (currently built on top of a semantic RDF
-knowledge graph, though this likely will be hidden as an abstraction).
+A spatial web node is the abstraction of a long running application (the node daemon) that connects to other SW Nodes to provide information about specific HSML ENTITIES and communicats using HSTP. A SW Node can support both a server that maintains state of a local DOMAIN domain graph and provides stateful content (as HSML) and a client that can render that HSML in a form that a service or user can understand. The state of the local DOMAINS is maintained within a specially design ___domain graph___ (currently built on top of a semantic RDF knowledge graph, though this likely will be hidden as an abstraction).
 
-The node is controlled by a specific daemon (or persistant process) called the
-Spatial Web Node Manager (indicated by the swnode.d process). The precise
-implementation of the node will vary, but at least to start with, it will
-usually run on a specific port (or more likely sets of ports) on a given
-machine.
+The node is controlled by a specific daemon (or persistant process) called the Spatial Web Node Manager (indicated by the swnode.d process). The precise implementation of the node will vary, but at least to start with, it will usually run on a specific port (or more likely sets of ports) on a given machine.
 
-The role of the node daemon is to orchestrate the node's various activities, as shown in the following listing:
 
-[[fig-udg-node-design]]
-.UDG Computing Node Design
-image::UDG_Node_Design.png[UDG Computing Node Design]
+[[sw-node-design]]
+.SW Content Node Design
+image::sw_node_design.png[Spatial Web Content Node Design]
 
 // [source,mermaid]
 // ----
@@ -62,59 +47,29 @@ image::UDG_Node_Design.png[UDG Computing Node Design]
 
 === HSTP Manager
 
-This handles message routing from both external agents (users) and from other
-spatial web nodes, taking in HSTP based messages carrying HSML and payloads and
-transmitting HSTP responses back to users or (through the onboard client) to
-other nodes. These messages are generally sent to the domain manager, rather
-than executed directly. (Note, this is different from the current
-implementation, though the primary change will likely just be which system
-handles these executions).
+The HSTP Manager handles message routing from both external agents (users) and from other spatial web nodes, taking in HSTP based messages carrying HSML and payloads and transmitting HSTP responses back to users or (through the onboard client) to other nodes. These messages are generally sent to the domain manager, rather than executed directly. (Note, this is different from the current implementation, though the primary change will likely just be which system handles these executions).
 
 === Domain Manager
 
 The domain manager has a number of roles:
 
-* generates a domain thread from a domain template and populates it with
-appropriate agents, things and places.
-
-* works with the system clock (an internal tick) to invoke the activities on
-that thread of the relevant agents, which in turn is used for autonomous and
-semi-autonomous agents working in a state graph system,
-
+* generates a domain thread from a domain template and populates it with appropriate agents, things and places.
+* works with the system clock (an internal tick) to invoke the activities on that thread of the relevant agents, which in turn is used for autonomous and semi-autonomous agents working in a state graph system,
 * translates HSTP messages into UDG notifications for autonomous agents.
-
 * manages inter- and intra-agent communication within domains
-
-* determines whether the domain has reached critical states (such as an end
-state in a simulation)
-
-* communications with the node domain graph to read and update state within the
-graph.
-
+* determines whether the domain has reached critical states (such as an end state in a simulation)
+* communications with the node domain graph to read and update state within the graph.
 * passes relevant map responses (entity streams) back to the hstp manager.
 
 === Graph Manager
 
-The graph manager is a low level service that interacts directly with the graphs
-within the node in order to provide an abstraction layer for graph management.
-It performs a number of functions.
+The graph manager is a low level service that interacts directly with the graphs within the node in order to provide an abstraction layer for graph management. It performs a number of functions.
 
-* Translates HSQL query requests and updates into the implementation specific
-requests of the current graph technology. This exists primarily to ensure that
-there are no explicit dependencies upon the underlying graph store.
-
-* Provides a mechanism to add multiple external graphs to the current graph so
-that they can be queried as if they were a single graph. This is what is known
-as a federated graph (and it is currently just specific to RDF, but that may
-change). Such a graph doesn't necessarily scale well towards a large number of
-nodes (>100), but it can be very useful when building a domain that scales
-across multiple machines. By separating the graph manager from the domain
-manager, it becomes possible for the domain manager on one machine to work with
-multiple nodes simultaneously without having to go across hstp.
-
-* Graph replication. Replicating a graph (while something of an edge case) is
-easy enough to accomplish at the graph layer; RDF has global identifiers, and as
-such a graph can be replicated by simple serialisation into any RDF format.
+* Translates HSQL query requests and updates into the implementation specific requests of the current graph technology. This exists primarily to ensure that there are no explicit dependencies upon the underlying graph store.
+* Provides a mechanism to add multiple external graphs to the current graph so that they can be queried as if they were a single graph. This is what is known as a federated graph (and it is currently just specific to RDF, but that may
+change). Such a graph doesn't necessarily scale well towards a large number of nodes (>100), but it can be very useful when building a domain that scales across multiple machines. By separating the graph manager from the domain
+manager, it becomes possible for the domain manager on one machine to work with multiple nodes simultaneously without having to go across hstp.
+* Graph replication. Replicating a graph (while something of an edge case) is easy enough to accomplish at the graph layer; RDF has global identifiers, and as such a graph can be replicated by simple serialisation into any RDF format.
 Record deduplication is similarly straightforward, as RDF is specifically built
 to work on an index format such that multiple resources with the same URI
 automatically to the relevant ntuple index. This is one of the many reasons that
@@ -122,410 +77,163 @@ RDF is recommended from the graph layer.
 
 === HSML Manager
 
-HSML is used to describe the state of domains within the graph, but it is also
-used to indicate activities, frames of activity over time, conditional
-expressions and contexts, both within the domains and within HSTP messages
-containing relevant changes and credentials. The HSML process is used in
-conjunction with the domain managers to provide indications of how entities
-change. It is not necessarily a daemon, but instead exists primarily as an
-interpreter that can then pass information off toe domain manager to implement,
-generally through the graph manager interface.
+HSML is used to describe the state of domains within the graph, but it is also used to indicate activities, frames of activity over time, conditional expressions and contexts, both within the domains and within HSTP messages containing relevant changes and credentials. The HSML process is used in conjunction with the domain managers to provide indications of how entities change. It is not necessarily a daemon, but instead exists primarily as an interpreter that can then pass information off toe domain manager to implement, generally through the graph manager interface.
 
 === Agent Manager
 
-Things within domains are agents. An agent can be thought of as something that
-is capable of change within a domain, with the most prominant such change being
-a change of motion within some phase space, or a change of state. The agent
-manager performs a number of roles.
+Things within domains are agents. An agent can be thought of as something that is capable of change within a domain, with the most prominant such change being a change of motion within some phase space, or a change of state. The agent manager performs a number of roles.
 
-* The domain manager typically manages the the "tick" of the system clock and
-its dissemination to the various agents. The agent manage is what interprets the
-messages of the domain to any given agent.
-
-* Agent may be passive (they can only be activated by activities from other
-agents), active (they are capable of action independent of other agents), or
-inactive (they do not receive messages except for messages to activate in either
-passive or active mode). The inactive state exists primarily to reduce the
-number of cycles that a given agent requires for processing if not necessary.
-
-* The agent manager handles moving an agent from place to place, either through
-linking or through replication across domains over spatial web node boundaries.
-If linking between such boundaries (typical, for instance, accross affiliated
-nodes that have similar domain constraints), then the agent manager will freeze
-an agent (make it inactive and hidden) on one machine, and will then replicate
-the agent on a different spatial web node, or updating the existing history of
-the agent to an existing proxy on a different node.
-
-* Agents maintain an internal state history, the mechanisms for which are TBD,
-through the interface of the agent manager (there may be a history manager that
-specifically handles that operation, again TBD)
+* The domain manager typically manages the the "tick" of the system clock and its dissemination to the various agents. The agent manager is what interprets the messages of the domain to any given agent.
+* Agent may be passive (they can only be activated by activities from other agents), active (they are capable of action independent of other agents), or inactive (they do not receive messages except for messages to activate in either passive or active mode). The inactive state exists primarily to reduce the number of cycles that a given agent requires for processing if not necessary.
+* The agent manager handles moving an agent from place to place, either through linking or through replication across domains over spatial web node boundaries. If linking between such boundaries (typical, for instance, accross affiliated nodes that have similar domain constraints), then the agent manager will freeze an agent (make it inactive and hidden) on one machine, and will then replicate the agent on a different spatial web node, or updating the existing history of the agent to an existing proxy on a different node.
+* Agents maintain an internal state history, the mechanisms for which are TBD, through the interface of the agent manager (there may be a history manager that specifically handles that operation, again TBD)
 
 === Credential Manager
 
-The credential manager handles the creation of SWIDs on agents, places, and
-domains, as well as caching credentials from external hstp invocations, in
-effect acting as the wallet for the various domains within the node. This will
-typically be a proxy for various types of accreditation and verification
-mechanisms. Full implementation TBD.
+The credential manager handles the creation of SWIDs on agents, places, and domains, as well as caching credentials from external hstp invocations, in effect acting as the wallet for the various domains within the node. This will typically be a proxy for various types of accreditation and verification mechanisms. Full implementation TBD.
 
 === Client Manager
 
-This is a low level __command line interface__ for text-based communication with
-a spatial web node. Every node supports some kind of CLI interface and may
-support others (multimodal chat, 2 or 2 1/2 D maps, 3D environments, animations,
-and so forth).
+This is a low level __command line interface__ for text-based communication with a spatial web node. Every node supports some kind of CLI interface and may support others (multimodal chat, 2 or 2 1/2 D maps, 3D environments, animations, and so forth).
 
 
 === Dynamic handling of links 
 
-When a link is received by the domain manager, it uses the context determined by
-these parameters to determine other necessary metadata. These are then passed to
-the link's activation handler (or the defaults relevant by type) to perform the
-associated link action.
+When a link is received by the domain manager, it uses the context determined by these parameters to determine other necessary metadata. These are then passed to the link's activation handler (or the defaults relevant by type) to perform the associated link action.
 
-Links can be set up by the domain designer via the periodicity property as one
-of singleton (the link is only activated once) or periodic (the link is invoked
-across a given channel periodically until either the link is terminated or the
-channel's time-to-live (TTL) is exceeded). Once the link completes, it will
-either be reset (the default) or it will be expired (for links that expire upon
-use).
+Links can be set up by the domain designer via the periodicity property as one of singleton (the link is only activated once) or periodic (the link is invoked across a given channel periodically until either the link is terminated or the
+channel's time-to-live (TTL) is exceeded). Once the link completes, it will either be reset (the default) or it will be expired (for links that expire upon use).
 
-This operation is handled by the domain manager. Note that in fully autonomous
-operations, open links simply cause the agent to reset to the new place (and
-domain, if this changes, without UX involvement. However, key activation still
-requires the relevant credentials.
+This operation is handled by the domain manager. Note that in fully autonomous operations, open links simply cause the agent to reset to the new place (and domain, if this changes, without UX involvement. However, key activation still requires the relevant credentials.
 
+[[[udg-node-network]]]
 == UDG Node and node network
 
 === Network of UDG nodes
 
-multiple tiers to the UDG Node network
+==== Distributed graph database technology
 
-Distributed replicate synchronization
-BIG TABLE
+A UDG Node is a a type of SW Node that performs UDG functions.  UDG Nodes work as a network in as a Distributed replicate synchronization. 
 
-** **Extended Domain Graphs** - this extends the scope of a given domain by incorporating external graphs into the systems at the query level. This makes using common codebases and templates feasible
-** **Spatial Web Nodes** - Spatial web nodes are the physical backbone of the spatial web, and are primarily the servers that host the various managers of resources.
-** **Affiliation Networks** - Each node (and many domains within the nodes) belong to one or more affiliation networks. Some of these may be huge, with potentially millions of nodes, others may be the equivalent of local intranets. Moreover, affiliations can themselves be affiliated, creating a superstructure that can scale up to:
-** **The Spatial Web** - This is the aggregate of all affiliation networks.
+Design requirements are identified by thinking of the UDG Node Network as a Distributed Graph Database.  A distributed graph database stores data as vertices and edges, distributing this information across multiple machines. This architecture offers significant performance advantages over traditional, centralized databases, especially when handling large, interconnected datasets.  Instead of storing the entire UDG on a single server, a distributed graph database spreads it across numerous machines. This enables parallel processing, where multiple machines work concurrently on different parts of the data.  AS the UDG grows, scalability is handled by add more machines to the network. Distribution also makes the system more fault tolerant. (The discussion here is from <<puppygraph>>, but it is typical of other descriptions.)
 
+Components that graph databases employ to handle the complexity and scale of graph data distributed across several machines include these:
 
-Not all (perhaps not even most) domains will be in publicly available affiliates. Many of these domains will be private networks intended for access only by  those with need to know (or to modify), especially those with IoT interconnections.
+* Sharding. Sharding breaks down a large graph into smaller, more manageable pieces. Each shard represents a subset of vertices  and edges.
+* Distributed query processing.  When receiveing a query, the database first identifies which shards contain the relevant data. It then breaks the query into subqueries, each targeting a specific shard. Then the machines holding the shards process these subqueries in parallel.
+* Distributed concurrency control. Distributed graph databases use concurrency control mechanisms to prevent conflicts and make sure that the database remains consistent even during concurrent operations.
+* Replication.  Replication guarantees the availability and fault tolerance of distributed graph databases. Each shard is replicated across several machines, meaning that if one machine fails, the system can continue to function by redirecting queries to another replica.
 
-The affiliate design is also a specific requirement for a decentralized architecture. A true peer-to-peer system likely will not scale to the same level (there are few Internet scale peer-to-peer systems after more than 35 years). This would especially be the case given the requirements to ensure private control over domains, along with the sensitivity of much of the internal data.
+==== UDG node network tiers
 
+To organize the UDG Node Network will require multiple tiers:
 
-=== Moving a DOMAIN between UDG Nodes
+* Extended Domain Graphs - this extends the scope of a given domain by incorporating external graphs into the systems at the query level. This makes using common codebases and templates feasible
+* Spatial Web Nodes - Spatial web nodes are the physical backbone of the spatial web, and are primarily the servers that host the various managers of resources.
+* Affiliation Networks - Each node (and many domains within the nodes) belong to one or more affiliation networks. Some of these may be huge, with potentially millions of nodes, others may be the equivalent of local intranets. Moreover, affiliations can themselves be affiliated, creating a superstructure that can scale up to:
+* The Spatial Web - This is the aggregate of all affiliation networks.
 
-Links are one of the few actions that can cross spacial web node boundaries.  Activating the link initiates a sequence of steps:
+The affiliate design is a specific requirement for a decentralized architecture. A true peer-to-peer system likely will not scale to the same level (there are few Internet scale peer-to-peer systems after more than 35 years). This would especially be the case given the requirements to ensure private control over domains, along with the sensitivity of much of the internal data.
 
-* Negotiate a challenge that checks to make sure that the agent can be moved.
-* Identify if the agent has a corresponding swid on the new system. If not, create one.
-* Copy the metadata for that agent in the graph of the new server.
-* Attach the agent to the indicated place within the new domain.
-* Notify the current server that the agent has been successfully replaced.
-* Deactivate the agent on the current node (not remove, just deactivate) if the transfer was successful, otherwise send a note to the actor of the current agent that the link failed.
+=== UDG Node modules
 
-This is more complex than moving within a given node because the latter simply requires changing pointers.
+The UDG Node consists of a number of software modules.   The UDG Node includes all components in the SW Content Node design.  Additional components are needed in the UDG Node to accomplish the UDG functions as a distributed graph databased.
 
-=== Augmented Node Graphs
+* The udg.d domain daemon: This is an internal high frequency loop that is used in order to animate domains to manage state. It is only very peripherally connected to HSTP (primarily when dealing with SW Node to Node communication), but in general it this process that handles the internal state changes to the domain graph.
 
-In some cases, it is possible to attach the graph of one node to another in
-order to create a larger federated graph. This bypasses the normal HSTP protocol
-system. This is used primarily for those cases where a single domain may in fact
-be distributed across multiple servers, or where common resources such as
-schemas are shared across multiple chained nodes. The chained nodes are called
-__Augmenting Node Graphs__ and the chaining graph is called the __Augmented Node
-Graph__. More information will be forthcoming regarding such graphs.
+* augmented graph module: This module works in conjunction with the hsml.d process to join multiple domain graphs together into a single comprehensive graph. Note that this is used primarily to extend the domain graph for handling complex environments, and generally sits outside of the normal hstp.d processes.
 
-=== Directory Domain and Home Places
+* Transformation Pipeline: Ordinarily, the output from a query will be some form of graph. However, for a number of reasons, there will be times when the output needs to be transformed into some other format (most especially HSML) or filtered in some other way (such as through an LLM). The transformation pipeline handles this process.
 
-A spatial web node can identify a particular domain that serves as it's
-directory domain. If no domain is specified by an hstp request, this will be the
-default domain. This domain is designed to provide a directory or catalog of the
-domains that are accessible to a given external agent based upon their
-credential profile, and also provides mechanisms to "sign in" if this is
-required to change the domains that they see.
+* Collector: Certain operations involve aggregating the results of queries across multiple spatial web nodes. The Collector module (part of hstp.d) is a queue that collects incoming messages and aggregates them for transmission back to the client. The exact details of the collector module are still TBD.
 
-Similarly, within every domain, there is the option of specifying a home place.
-This is where agents are positioned when they first "enter" a given domain, if
-no domain is otherwise specified. In simple scenarios (such as the smart room
-scenario), there may be only one place in the domain, but in more complex
-scenarios (especially those representing tours or rpgs), this home place
-typically also serves the role of establishing context and backstory for the
-agent, providing instructions for interacting with the domain, and identifying
-pertinent "destinations".
+* Extension Modules: In all of these components, the fundamental design will be modular, such that each component can be extended by code depending upon implementation. For instance, the HSML encoder, the UDG.d and the HSTP.d all have access points for agentic systems and e-commerce capabilities, components can be used for converting external datasets into data analytics forms, transformations can be written that generate images, maps, and related formats and so forth. These module extensions would be integrated in by individual SW Node Administrators.
 
-
-==== Home Domains
-
-There is a chicken and egg situation with regard to whether a given Spatial Web
-Node can be considered an agent or a domain. To get around this, there is a
-specific exception to the idea that all agents exist on places within domains.
-There is assumed to be on a given spatial web node a designated Home Domain that
-is explicitly stated to be associated with the node itself. It's "agency" in
-this particular case is the action of the node daemons, with specific
-capabilities. When a spatial web node is first set up, this home domain/agent
-holds the configuration metadata for the node itself, as well as any credentials
-that are specific to the node.
-
-Put another way, ___from the standpoint of the UDG, the Spatial Web Node is a
-domain, with an implicit super agent___. The mechanics of this are still to be
-determined.
-
-=== UDG Node components
-
-A typical Spatial Web UDG Node consists of a number of key components.
-
-The hstp.d daemon::
-This is the analog to the http.d daemon that powers HTTP web servers. It handles
-the receipt of messages across channnels to the SW Node, and it also routes
-messages in outbound channels to their destination. Its primary purpose is to
-communicate with the broader Spatial Web, though it also has certain operations
-that it can perform on the underlying domain graph of the SW Node.
-
-The hsml.d process::
-This interprets incoming HSML messages and translates these into specific UDG
-query and update commands. It is usually invoked by the hstp.d daemon to provide
-interpretation of HSML, but it can also be used as necessary to create HSML
-DOMs. In this phase, the assumption is that the incoming HSML will be in some
-form of RDF - JSON-LD, Turtle, RDF-XML etc, but this is not necessarily a formal
-requirement so long as there is some consistent mapping to the internal
-representation.
-
-The udg.d domain daemon::
-This is an internal high frequency loop that is used in order to animate domains
-to manage state. It is only very peripherally connected to HSTP (primarily when
-dealing with SW Node to Node communication), but in general it this process that
-handles the internal state changes to the domain graph.
-
-The domain graph::
-The domain graph is a graph that maintains state within the various domains
-contained within the SW Node. Collectively, the set of all domain graphs of all
-Spatial Web Nodes is known as the __Universal Domain Graph__ (or __UDG__).
-However, it is worth noting that this is not a single comprehensive graph but
-rather a collection of graphs.
-
-augmented graph module::
-This is a module that works in conjunction with the hsml.d process to join
-multiple domain graphs together into a single comprehensive graph. Note that
-this is used primarily to extend the domain graph for handling complex
-environments, and generally sits outside of the normal hstp.d processes.
-
-certificate caches::
-There are multiple certificate caches that are maintained by each Spatial Web
-Node in order to reduce access time, especially for permissions. The caching
-mechanism also serves to help resolve SWIDs on the local system.
+== Registry Node
 
 SWID Generator::
 Each Spatial Web node contains a mechanism to generate SWIDs that follow SWID
 certificate standards, in effect acting like a wallet. This may be implemented
 as a subgraph in the system or as a separate blockchain.
 
-Transformation Pipeline::
-Ordinarily, the output from a query will be some form of graph. However, for a
-number of reasons, there will be times when the output needs to be transformed
-into some other format (most especially HSML) or filtered in some other way
-(such as through an LLM). The transformation pipeline handles this process.
 
-Collector::
-Certain operations involve aggregating the results of queries across multiple
-spatial web nodes. The Collector module (part of hstp.d) is a queue that
-collects incoming messages and aggregates them for transmission back to the
-client. The exact details of the collector module are still TBD.
+The SW Registry Node performs the computing and communication functions necessary to deploy the content and functions defined in <<section-conceptual-view-regisries>>
 
-Extension Modules::
-In all of these components, the fundamental design will be modular, such that
-each component can be extended by code depending upon implementation. For
-instance, the HSML encoder, the UDG.d and the HSTP.d all have access points for
-agentic systems and e-commerce capabilities, components can be used for
-converting external datasets into data analytics forms, transformations can be
-written that generate images, maps, and related formats and so forth. These
-module extensions would be integrated in by individual SW Node Administrators.
+A SW Registry Nodes is a specific SW Node that provides a number of services related to discovery, definition, search, DiD and alias resolution of resources. 
 
-== Registry Node
+The Registry Node consists of a number of software modules.   The Registry Node includes all components in the SW Content Node design.  Additional components are needed in the Registry Node to accomplish the Registry functions.
 
-=== Node for the Domain Registries
+EDITOR: this design linking SW Registry to IP concepts needs to be reviewed.
 
-__Definition__. A __registry__ in the Spatial Web is a specific spatial web node that provides a number of services related to discovery, definition, search, DiD and alias resolution of resources. Most Spatial Web nodes provide registry services specifically for the resource within their respective graphs, though there are dedicated (public) nodes that exclusively handle these resources for public networks.
+When a Spatial Web ENTITY is registered with a SW Registry several things happen:
 
-EDITOR: This document focuses solely on entity and domain registries. For more information about node registers, cf. link:node-registries.md[Node Registries].
+* The ipv6 address of the node server is registered, along with a web domain name and (if different from the default) a port. The SW registry can also register the relevant IP addresses.
 
-=== Networks Neighborhoods of nodes
+* A SW domain on a SW node can be assigned a public SW credential that indicates that the domain in question is a part of the SW network (similar networks can be established with different sets of credentials).
 
-A SW Node communicates with other SW Nodes via HSTP. SW Nodes connect in one of
-two ways:
+* Periodically, the spatial web node can send an update of all domains on that node that have the relevant credentials. This include any metadata (topics) that are associated with the domain. Note that these domains provide access points to other domains that may not necessarily be transmitted to the registry. As such they should be seen as starting points for various domain activities. Not all domains on a node need (or should) be so registered.
 
-. Via __neighborhood connections__ made when the node connects via a nodelink (a
-specialized form of link that identifies a node) to another node. The successful
-negotiation caches the nodelink in the node's __nodecache__. This is a
-peer-to-peer connection.
+* Registries that issue their own credentials create __affiliation networks__. For instance, a given company that produces lines of IoT devices with associated HSML interfaces may end up providing an affiliation network of all nodes that make use of these devices, and as such share common domain and agent interfaces, taxonomies, structures and so forth. Similarly, a multi-system role playing game may set up an affiliation network where each node hosts one or more domains in that particular universe, with the ability for agents to move from one node to another through the use of supported credentials in that affiliation network.
 
-. Via registration with a __public node registry__. In this case, the node
-becomes visible to all other members of the registry. The registration process
-returns a set of credentials that translate selected links from a search into
-neighborhood links.
+* A SW Node (and associated domains) can be part of multiple affiliation networks. For instance, a federal government may provide a core affiliation network for its member states, each both sharing resources and providing information, as well as identifying what other nodes are part of that affiliation.
 
-In both cases, when a node queries another node about its neighborhood, it can
-cache the connections of the queried node. Case 2 in fact is essentially
-Case 1 at a larger scale. Each node contains a certain amount of intrinsic
-metadata about the type of domains on the system, which can in turn be used to
-provide a facet query to find links from another node that have similar or
-overlapping facets.
-
-For instance, if a given node mostly contained shipping information, the facets
-that it has can provide scores against another SW Node's registry metadata that
-was tied into shipping to retrieve those particular SW Nodes that are most like
-the requested nodes.
-
-In addition to that, when a Spatial Web Node first registers with a registry, it
-can retrieve schema definitions, common resources, code libraries and a
-"starter" set of node links that can then be used to add to the neighborhood of
-the registering node.
-
-Nodelinks typically have a time-to-live attribute (TTL) that indicates how long
-a link can remain active before it needs to be refreshed. If a nodelink cannot
-be resolved, then a secondary TTL is activated that indicates how long an
-interval should be taken before the link is considered dead, and consequently
-should be purged.
-
-
-=== Repositories, Registries
-
-A __repository__ is a spatial web node that contains commonly utilized taxonomies, schemas, agents, activities, and other resources. A __registry__, on the other hand, is a way of registering the locations of specific spatial web nodes and their associated resources. The spatial web nodes, then would make use of the same DNS registry that HTTP and HTTPS uses, with the additional caveat that access would be moderated by credentials.
-
-The Spatial Web Foundation should be responsible for maintaining core repositories, especially places, taxonomic concepts, activity components and schemas. This is a common requirement, and while others can and will create
-their own definitions, they can use spatial web concepts to provide core
-provenance and structure.
-
-The Spatial Web Foundation should also be responsible for a Spatial Web
-Registration Authority (SWRA). The purpose of such a registry is to provide a
-clearinghouse for identifying and classifying public domains, using the Spatial
-Web UDG Taxonomy (and the corresponding hsml:hasTopic and related predicates) to
-help to identify relevant content.
-
-When a Spatial Web Node is registered with SWRA several things happen:
-
-
-* The ipv6 address of the node server is registered, along with a web domain
-name and (if different from the default) a port. The SWRA registry can also
-register the relevant IP addresses.
-
-* A SW domain on a SW node can be assigned a public SWRA credential that
-indicates that the domain in question is a part of the SWRA network (similar
-networks can be established with different sets of credentials).
-
-* Periodically, the spatial web node can send an update of all domains on that
-node that have the relevant credentials. This include any metadata (topics) that
-are associated with the domain. Note that these domains provide access points to
-other domains that may not necessarily be transmitted to the registry. As such
-they should be seen as starting points for various domain activities. Not all
-domains on a node need (or should) be so registered.
-
-* Registries that issue their own credentials create __affiliation networks__.
-For instance, a given company that produces lines of IoT devices with associated
-HSML interfaces may end up providing an affiliation network of all nodes that
-make use of these devices, and as such share common domain and agent interfaces,
-taxonomies, structures and so forth. Similarly, a multi-system role playing game
-may set up an affiliation network where each node hosts one or more domains in
-that particular universe, with the ability for agents to move from one node to
-another through the use of supported credentials in that affiliation network.
-
-* A SW Node (and associated domains) can be part of multiple affiliation
-networks. For instance, a federal government may provide a core affiliation
-network for its member states, each both sharing resources and providing
-information, as well as identifying what other nodes are part of that
-affiliation.
-
-* Both a repository and a registry are spatial web nodes. What differentiates
-them is primarily whether they have the additional functions of registration and
-whether they permit sharing within one or more affiliate networks. This are
-additional modules that can be added on to the base functionality of the spatial
-web node.
+* Both a repository and a registry are spatial web nodes. What differentiates them is primarily whether they have the additional functions of registration and whether they permit sharing within one or more affiliate networks. This are additional modules that can be added on to the base functionality of the spatial web node.
 
 * Moreover, a spatial web node can be both a repository and a registry.
 
 === Affiliation Networks
 
-An __affiliation network__ is a network of spatial web nodes which shares common
-resources, taxonomic classifications and typically a common registry. The
-registry serves as the hub of the network, identifying membership in the
-affiliation network as well as providing a mechanism for discovery within that
-network.
+EDITOR: the need and design of affiliation networks needs to be reviewed
 
-One of the roles of a registry is to issue and affiliation credential. This
-credential serves as a way of verifying that nodes within the network are in
-fact part of that network, and provide permissions that spatial web clients need
-to have in order to access certain features.
+An __affiliation network__ is a network of spatial web nodes which shares common resources, taxonomic classifications and typically a common registry. The registry serves as the hub of the network, identifying membership in the affiliation network as well as providing a mechanism for discovery within that network.
 
-For instance, a group of universities in a given region may establish an
-affiliated network. This means that each university effectively agrees to abide
-by specific taxonomies as a way of organizing information, provides common set
-of activities for performing such tasks as transferring students between
-universities, enrolling in classes, and so forth, and will often allow students
-and faculty from one university to access resources or get consistent grading at
-other universities within the affiliation.
+One of the roles of a registry is to issue and affiliation credential. This credential serves as a way of verifying that nodes within the network are in fact part of that network, and provide permissions that spatial web clients need to have in order to access certain features.
 
-This is accomplished through a "university league" credential which is issued
-when the node is added to the network. When a student registers to a given node,
-their user agent (the software client they interact with) within the system
-receives a corresponding private key credential that both makes the user a
-resource in the system and provides them access to that system.
+For instance, a group of universities in a given region may establish an affiliated network. This means that each university effectively agrees to abide by specific taxonomies as a way of organizing information, provides common set of activities for performing such tasks as transferring students between universities, enrolling in classes, and so forth, and will often allow students and faculty from one university to access resources or get consistent grading at other universities within the affiliation.
 
-This serves a number of functions. For instance, an administrator can perform an
-affiliation level search for a given student, faculty member, class, or program
-(among many other things), either by ID or by attributes. A student can register
-with another university within the affiliation to take a class remotely, or can
-even sign up to and use remotely controlled laboratories stations (such as
-observatory time at a telescope or participation within a collaborative
-concert). A teacher can make available resources such as books or training
-videos from protected repositories to all of her students.
+This is accomplished through a "university league" credential which is issued when the node is added to the network. When a student registers to a given node, their user agent (the software client they interact with) within the system receives a corresponding private key credential that both makes the user a resource in the system and provides them access to that system.
 
-In this particular case, the registry serves to identify those domains within
-the network of nodes of affiliated members that may contain the desired
-resources. When a query is made in the broader context of the affiliation, each
-of these affiliated nodes are then queried in turn and return the associated
-links to those resources as a structure (analogous to an RSS or Atom type
-structure) that are then collated by the calling domain.
+This serves a number of functions. For instance, an administrator can perform an affiliation level search for a given student, faculty member, class, or program (among many other things), either by ID or by attributes. A student can register with another university within the affiliation to take a class remotely, or can even sign up to and use remotely controlled laboratories stations (such as observatory time at a telescope or participation within a collaborative concert). A teacher can make available resources such as books or training videos from protected repositories to all of her students.
 
-Note that the nodes in these affiliated networks are not (typically) graph
-extensions. A graph extension expands the active domain graph of a given node
-and is normally secured, because it exposes all resources within that graph. An
-affiliation query, on the other hand, is a request for information (typically
-links but also maps) from other nodes in the affiliated network.
+In this particular case, the registry serves to identify those domains within the network of nodes of affiliated members that may contain the desired resources. When a query is made in the broader context of the affiliation, each of these affiliated nodes are then queried in turn and return the associated links to those resources as a structure (analogous to an RSS or Atom type structure) that are then collated by the calling domain.
 
-[source,mermaid]
-----
----
-config:
-  layout: elk
----
-flowchart TD
-  subgraph SWRAF[Spatial Web Affiliation]
-      subgraph ULN[University Network]
-         direction TB
-            Oxbridge1[<b>Domain</b><br>Oxbridge University]
-            Camford[<b>Domain</b><br>Camford University]
-            Eden[<b>Domain</b><br>Eden University]
-            Queens[<b>Domain</b><br>Queens College]
-      end
-      subgraph CL[College Rugby League]
-         direction TB
-         Oxbridge2[<b>Domain</b><br>Oxbridge University]
-         Amhurter[<b>Domain</b><br>Anhurter]
-         Chancery[<b>Domain</b><br>Chancery]
-      end
-      Oxbridge1 -.- Oxbridge2
-      ulna[<b>Domain</b><br>University League Registry]
-      cla[<b>Domain</b><br>College Rugby Registry]
-      ulna -->ULN
-      cla -->CL
-  end
-  swra[<b>Domain</b><br>Spatial Web Registry]
-  swra -->SWRAF
+Note that the nodes in these affiliated networks are not (typically) graph extensions. A graph extension expands the active domain graph of a given node and is normally secured, because it exposes all resources within that graph. An affiliation query, on the other hand, is a request for information (typically links but also maps) from other nodes in the affiliated network. 
 
-  style SWRAF fill:#FFFFF8
-----
+// [source,mermaid]
+// ----
+// ---
+// config:
+//  layout: elk
+// ---
+// flowchart TD
+//   subgraph SWRAF[Spatial Web Affiliation]
+//       subgraph ULN[University Network]
+//          direction TB
+//             Oxbridge1[<b>Domain</b><br>Oxbridge University]
+//             Camford[<b>Domain</b><br>Camford University]
+//             Eden[<b>Domain</b><br>Eden University]
+//             Queens[<b>Domain</b><br>Queens College]
+//       end
+//       subgraph CL[College Rugby League]
+//          direction TB
+//          Oxbridge2[<b>Domain</b><br>Oxbridge University]
+//          Amhurter[<b>Domain</b><br>Anhurter]
+//          Chancery[<b>Domain</b><br>Chancery]
+//       end
+//       Oxbridge1 -.- Oxbridge2
+//       ulna[<b>Domain</b><br>University League Registry]
+//       cla[<b>Domain</b><br>College Rugby Registry]
+//       ulna -->ULN
+//      cla -->CL
+//   end
+//   swra[<b>Domain</b><br>Spatial Web Registry]
+//   swra -->SWRAF
+// 
+//   style SWRAF fill:#FFFFF8
+// ----
+// 
+// Here, Oxbridge University is part of two affiliation networks - a university network and a rugby league network.
 
-Here, Oxbridge University is part of two affiliation networks - a university
-network and a rugby league network.
+== Requirements and Recommendations
+
+TBD
