@@ -6,7 +6,7 @@ DOMAINS provide structure which matches the structure of people, places, concept
 
 The purpose of a DOMAIN is to offer a conceptual area in which to add definitions or behavior with HSML-compliant software that allows reality to be described from multiple perspectives and correlated hierarchies. It can be used to provide a single distinct container for things such as a geolocated physical object or a concept without having to be the thing itself.
 
-In the inhabitable world, a domain refers to the geopolitical territory governed by a single entity or government or a geophysical region characterized by a specific feature, type of growth or wildlife, etc. E.g. The domain of the US, the State, or a person's home.
+In the inhabitable world, a domain refers to the geopolitical territory governed by a single entity or government or a geophysical region characterized by a specific feature, type of growth or wildlife, etc. E.g. The domain of the United States, the State, or a person's home.
 
 In the human world, a domain refers to a cultural field of knowledge or influence or range of personal knowledge, or responsibility. E.g. The domain of science, art, or morals.
 
