@@ -1,3 +1,4 @@
+[[domain-registry-hierarchy]]
 = Hierarchical domain registries
 
 == Domain Authority role

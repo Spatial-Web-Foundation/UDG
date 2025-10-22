@@ -1,95 +1,90 @@
 ﻿= Human and agent nodes
 
-== Human UI
+== Agent nodes
 
-=== Clients and Representations
+AGENT ENTITIES are hosted by Agent Nodes.  The Agent Node persists the model and goals used by the AGENT ENTITY.  Agent Nodes will interact with the UDG in multiple ways.  
 
-A __map__ has a very general meaning in HSML: it is a ___representation___ of a
-domain. A domain is a restful entity - it has an internal representation within
-the associated graph- but for a number of reasons the graph that gets produced
-when a request is made about a domain or other entity will likely not be
-identical to the internal graph, but will rather be a computed graph (as JSON-LD
-or similar structure).
+Agent Nodes manage AGENT SITUATIONS.  At any given time an AGENT may need to know what DOMAINS are in its environment.  The SITUATON ENTITY is the set of DOMAINS currently in the context of the AGENT. An AGENT will establish part of its SITUATION by querying the UDG.  If the AGENT is a cyber-physical ENTITY it will also use its local sensors to inform its SITUATION.  A SITUATION is part of the Model held by the Agent Node.
 
-There are three alternative approaches that can be taken with regard to
-representation.
+Agent Nodes interact with UDG nodes for information about Generalized Worlds.  Generalized worlds are defined in vector space class of HYPERSPACE and may include any kind of DOMAIN, e.g., geographic, conceptual or a combination.  Generalized Worlds are persisted and queried in UDG Nodes. An AGENT will discover local DOMAINS by querying the <<generalized-worlds, generalized worlds>> in which it is currently located.  
+
+Agent Nodes interact with the Domain Registry Network.  An AGENT may be a member of one or more DOMAINS. The Agent Node will interact with a Registry Node in order to register the AGENT as a member of an upper DOMAIN. The Agent Node will contain a Wallet for holding the DOMAIN Membership Credentials.  An Agent Node may query a Registry Node to determine the list of DOMAINS that are members of a DOMAIN.
+
+Agent Nodes provide the means for social interactions of AGENTS with other ENTITIES.  An Agent Node will iteract with other SW Nodes to provide the <<social-idea-flow, idea flow>> in the social network of the UDG.  An Agent Node will provide the communication management associated with the AGENTS exploration and enagement with other social AGENTS. The Agent Node will maintain communications with the various levels of <<groups-organizations-bureaucracy,social groups>> in which the social AGENT engages.  Note that the social networks are different from the SITUATION and DOMAINS based on Generalized World location. 
+
+An Agent Node consists of a number of software modules.   The Agent Node includes all components in the SW Content Node design.  Additional components are needed in the Agent Node to accomplish the AGENT functions.
+
+
+== Library Agent Node
+
+The <<librarian-agent, UDG librarian AGENT>> provides the knowledge maintenance function essential to the Maintenance and continous improvement of the UDG.  UDG Librarian AGENT functions are implemented in a Library Agent Node or Librarian Node. 
+
+A Librarian Node consists of a number of software modules.   The Librarian Node includes all components in the SW Content Node design.  Additional components are needed in the Librarian Node to accomplish the UDG Librarian AGENT functions.
+
+
+== Human Avatars
+
+=== Humans as AGENTS
+
+The Spatial Web ontology defines humans as a special type of AGENT ENTITY.  
+
+Humans participate in the Spatial Web through Agent Nodes with additional conditions.
+
+Presentation of the UDG contents to a human is done by a user interface of an Agent Node.
+
+EDITOR: It is not certain that this material about Human user representations belongs in this UDG Specification. It may be moved to the Agent Framework Design Specification 
+
+
+=== Human user representations
+
+A __map__ has a very general meaning in HSML: it is a ___representation___ of a domain. A domain is a restful entity - it has an internal representation within the associated graph- but for a number of reasons the graph that gets produced when a request is made about a domain or other entity will likely not be identical to the internal graph, but will rather be a computed graph (as JSON-LD or similar structure).
+
+There are three alternative approaches that can be taken with regard to representation.
 
 ==== Thin Client (Declarative - Wave 1)
 
-This was the original approach taken with the web from about 1993 to the early
-2000s. In this case, HTML was the declarative language that defined the
-structure of a web document, and while there was a limited amount of interaction
-via scripting (Javascript arrived in December 1995), for the most part the
-client experience tended to vary from browser to browser. Significantly, it
-should also be noted that most documents were comparatively small and self
-contained, meaning that all of the state of that document could be transmitted
-as a single message.
+This was the original approach taken with the web from about 1993 to the early 2000s. In this case, HTML was the declarative language that defined the structure of a web document, and while there was a limited amount of interaction via scripting (Javascript arrived in December 1995), for the most part the client experience tended to vary from browser to browser. Significantly, it should also be noted that most documents were comparatively small and self contained, meaning that all of the state of that document could be transmitted as a single message.
 
 ==== Thick Client (Imperative - Wave 2)
 
-This approach had its heyday from about 2005 to around 2022, and primarily
-involved the increasing use of Javascript to build applications of increasing
-complexity, while at the same time, building on increasing standardization on
-both core functionality (e.g., ECMAScript) and the increased modularization of
-defineable web components. In general, this approach works best for a clearly
-defined client - the browser page in effect acting as a platform for development
-of specialized clients.
+This approach had its heyday from about 2005 to around 2022, and primarily involved the increasing use of Javascript to build applications of increasing complexity, while at the same time, building on increasing standardization on both core functionality (e.g., ECMAScript) and the increased modularization of defineable web components. In general, this approach works best for a clearly defined client - the browser page in effect acting as a platform for development of specialized clients.
 
 ==== Thin Client Streaming (Declarative - Wave 3?)
 
-This is the rise of the chat interface - in essence a continuous stream of
-information that emerges as part of the prompt/response pattern inherent with
-LLMs and GenAI systems. This approach shifted the interface from being primarily
-static and fixed to one that reflected a continuous update, and has since
-shifted into a multimodal design pattern involving just-in-time editors being
-launched to create or edit objects that are generated as artifacts.
+This is the rise of the chat interface - in essence a continuous stream of information that emerges as part of the prompt/response pattern inherent with LLMs and GenAI systems. This approach shifted the interface from being primarily static and fixed to one that reflected a continuous update, and has since shifted into a multimodal design pattern involving just-in-time editors being launched to create or edit objects that are generated as artifacts.
 
-Ideally, the spatial Web should support all three of these modalities. There are
-two aspects that are important in all of these, however. First is the fact that
-the Spatial Web is temporal in nature as well as spatial - a typical application
-will not make one query against a particular system, but more than likely will
-continuously ask for changes in the state of that system. In essence, a
-connection is stateful, reporting the state of a system repeatedly until it is
-told not to. At the same time, there is a compelling use case for providing a
-historical rendition of a given domain or agent as it changes over time.
+Ideally, the Spatial Web should support all three of these modalities. There are two aspects that are important in all of these, however. First is the fact that the Spatial Web is temporal in nature as well as spatial - a typical application will not make one query against a particular system, but more than likely will continuously ask for changes in the state of that system. In essence, a connection is stateful, reporting the state of a system repeatedly until it is told not to. At the same time, there is a compelling use case for providing a historical rendition of a given domain or agent as it changes over time.
 
-This implies that the third case - streaming - will like be a major use case,
-which is actually one of the key advantages of using RDF. A typical interchange
-in this scenario may be as follows:
+This implies that the third case - streaming - will like be a major use case, which is actually one of the key advantages of using RDF. A typical interchange in this scenario may be as follows:
 
-[source,mermaid]
-----
----
-config:
-  theme: redux
----
-sequenceDiagram
-  actor client as Spatial Web<br>Client
-  actor swnode as Spatial Web<br>Node
-  actor domain as Spatial Web<br>Domain
-  autonumber
-  client ->> swnode: Open connection to domain
-  swnode ->> domain: Validate and Connect
-  domain ->> swnode: Connected
-  swnode ->> client: Connected and Open
-  client ->> domain: Get Map
-  domain ->> client: Full State of Map
-  loop  Every second
-    domain ->> client: Update of Map
-  end
-  client ->> domain: Stop Get Map
-  domain ->> client: Return summary
-  client ->> domain: Close connection
-  domain ->> swnode: Connection closed
-  swnode ->> client: Connection closed
-----
+// [source,mermaid]
+// ----
+// ---
+// config:
+//   theme: redux
+// ---
+// sequenceDiagram
+//   actor client as Spatial Web<br>Client
+//   actor swnode as Spatial Web<br>Node
+//   actor domain as Spatial Web<br>Domain
+//   autonumber
+//   client ->> swnode: Open connection to domain
+//   swnode ->> domain: Validate and Connect
+//   domain ->> swnode: Connected
+//   swnode ->> client: Connected and Open
+//   client ->> domain: Get Map
+//   domain ->> client: Full State of Map
+//  loop  Every second
+//     domain ->> client: Update of Map
+//   end
+//   client ->> domain: Stop Get Map
+//   domain ->> client: Return summary
+//   client ->> domain: Close connection
+//   domain ->> swnode: Connection closed
+//   swnode ->> client: Connection closed
+// ----
 
-In this particular case, the user requests an hsml:Map object (not currently
-defined) which can be represented as a JSON instance or Turtle stream that gives
-the current state of the domain, then periodically a delta indicated a state
-change. For the apartment as an example, the map would indicate the full state
-of the map domain as given above (assuming the user has the correct
-permissions). Thereafter, the domain will send messages along the lines of:
+In this particular case, the user requests an hsml:Map object (not currently defined) which can be represented as a JSON instance or Turtle stream that gives the current state of the domain, then periodically a delta indicated a state change. For the apartment as an example, the map would indicate the full state of the map domain as given above (assuming the user has the correct permissions). Thereafter, the domain will send messages along the lines of:
 
 ----
 <<__:JaneDoe hsml:hasLocation (7,3) >> hsml:message [ hsml:status hsml:DeleteNode;
@@ -103,82 +98,29 @@ hsml:time "2025-08-04T09:10:11"^^xsd:dateTime ;
 
 where `:JaneDoe` resolves to the internal identifier for the agent, and `<<...>>` indicates a reifier for the statement.
 
-To summarize, the client requests that the Spatial Web Node opens a connection
-to a domain, handing back the channel key for that domain to the client for
-direct communication. Once the key is open, the client requests a map (i.e,
-descriptive representations) that gives the relevant queried context for the
-domain in question as a structure, then, as the environment changes, provides
-updates to the map indicating when resources have changed.
+To summarize, the client requests that the Spatial Web Node opens a connection to a domain, handing back the channel key for that domain to the client for direct communication. Once the key is open, the client requests a map (i.e, descriptive representations) that gives the relevant queried context for the domain in question as a structure, then, as the environment changes, provides updates to the map indicating when resources have changed.
 
-When the client sends a message to stop, the server will stop the update and
-generate a new whole map that reflects the state of the domain at the end of the
-run.
+When the client sends a message to stop, the server will stop the update and generate a new whole map that reflects the state of the domain at the end of the run.
 
-Note that this process can be interspersed with commands to the representative
-agent within the domain. The commands coming from the client do not directly
-change the state of the domain. Rather they indicate to the domain that the
-agents should be directed to change their configuration to either achieve the
-goal or determine that they can't achieve the goal. An internal loop then
-manages the updates to the graph to set the relevant changes in state within the
-various agents in the domain.
+Note that this process can be interspersed with commands to the representative agent within the domain. The commands coming from the client do not directly change the state of the domain. Rather they indicate to the domain that the
+agents should be directed to change their configuration to either achieve the goal or determine that they can't achieve the goal. An internal loop then manages the updates to the graph to set the relevant changes in state within the various agents in the domain.
 
-Note that this approach can also work well when you have multiple agents that
-are interacting in the same domain, driven by different external clients (or
-internal autonomous agents).
+Note that this approach can also work well when you have multiple agents that are interacting in the same domain, driven by different external clients (or internal autonomous agents).
 
-=== Icons
+==== Icons
 
-The Spatial Web by itself is not meant as a vehicle for transmitting imagery or
-3D models, but because what it does generate are descriptions of physical
-systems, it is frequently desireable to have some way of indicating to a spatial
-web client how it should represent the entity in a map or projection. This is
-the role of icons, as represented by an `hsml:Icon` entity.
+The Spatial Web by itself is not meant as a vehicle for transmitting imagery or 3D models, but because what it does generate are descriptions of physical systems, it is frequently desireable to have some way of indicating to a spatial
+web client how it should represent the entity in a map or projection. This is the role of icons, as represented by an `hsml:Icon` entity.
 
-An __icon__ is an entity with a reference to either an internal or external
-media source, likely in the form:
+An __icon__ is an entity with a reference to either an internal or external media source, likely in the form:
 
-----
-[] a hsml:Place ;
-     hsml:topic <#concept/Countries/Canada>
-     hsml:hasIcon [
-        hsml:href <#images/maps/Canada.jpg> ;
-        hsml:hasMediaType <#concept/mediaTypes/Image> ;
-     ] .
-[] a hsml:Agent ;
-     hsml:topic <#concept/People/JaneDoe>
-     hsml:hasIcon [
-        hsml:href <#images/icons/JaneDoe.jpg> ;
-    ] .
-[] a hsml:Agent ;
-     hsml:topic <#concept/Building/EiffelTower>
-     hsml:hasIcon [
-        hsml:href <#images/icons/EiffelTower.png> ;
-        hsml:hasMediatype <#concept/mediaType/Image>
-    ], [
-        hsml:href <#models/icons/EiffelTower.obj> ;
-        hsml:hasMediatype <#concept/mediaType/3DModel>
-    ] .
-----
+The `hsml:href` is a pointer to the media resource in question, while `hsml:mediaType` indicates which media type it is used. This may be inferred based upon the extension in the href resource if this is known (as in the second example). The media type is used primarily to indicate to the user client how the resource should be displayed.
 
-The `hsml:href` is a pointer to the media resource in question, while
-`hsml:mediaType` indicates which media type it is used. This may be inferred
-based upon the extension in the href resource if this is known (as in the second
-example). The media type is used primarily to indicate to the user client how
-the resource should be displayed.
+For instance, in the third example, you have an agent representing the Eiffel Tower in Paris, France. If the user client is a 2D browser, then this may be represented as a transparent PNG file on top of a map. On the other hand, if the client is a 3D browser, this may be represented using the EiffelTower.obj 3D model.
 
-For instance, in the third example, you have an agent representing the Eiffel
-Tower in Paris, France. If the user client is a 2D browser, then this may be
-represented as a transparent PNG file on top of a map. On the other hand, if the
-client is a 3D browser, this may be represented using the EiffelTower.obj 3D
-model.
+Icons can maintain positional and orientation information appropriate to the entity. The goal with such icons is not necessarily to provide a precise representation or rendering, but rather to provide to the user agent a way of constructing an approximate representation to indicate symbolic relationships.
 
-Icons can maintain positional and orientation information appropriate to the
-entity. The goal with such icons is not necessarily to provide a precise
-representation or rendering, but rather to provide to the user agent a way of
-constructing an approximate representation to indicate symbolic relationships.
-
-Note that a given entity may include both an icon and a link. The link is an
-abstraction on the entity, not the icon.
+Note that a given entity may include both an icon and a link. The link is an abstraction on the entity, not the icon.
 
 == Requirements and Recommendations
 

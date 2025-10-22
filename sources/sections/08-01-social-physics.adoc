@@ -21,7 +21,7 @@ The design approach for social intelligence in the UDG does not guarantee result
 
 The UDG employs social networks to improve idea flow between AGENTS. Social physics provides the science for the design.  The design choices take into account social issues like autonomy, privacy, self-determination. These design choices are crtical to avoid creating a virtual Panopticon.
 
-
+[[social-idea-flow]]
 == Social idea flow
 
 Idea flow is the engagement and belief propagation which spreads new behaviors through a social network. Idea flow may be conceptualized as exploration to harvest new ideas followed by engagement with peers to sift through those ideas and convert the good ideas into habits.
@@ -67,10 +67,10 @@ Idea flow takes into account all the elements of the influence model: network st
 The influence model allows for examination of social roles:  protagonist, attacker, supporter, neutral, and so on, in small groups, and in organizations, 
 
 	
+[[groups-organizations-bureaucracy]]
+== Groups, Organizations and Bureaucracy
 
-== Networks, Groups, and Organizations
-
-Networks are a set of relationships connecting individual AGENTS, organization DOMAIN, or groups of AGENTS and/or Organizational DOMAINS (perhaps modeled as a DOMAIN)
+Social networks are a set of relationships connecting individual AGENTS, organization DOMAIN, or groups of AGENTS and/or Organizational DOMAINS (perhaps modeled as a DOMAIN)
 
 Networks can come in multiple forms:
  

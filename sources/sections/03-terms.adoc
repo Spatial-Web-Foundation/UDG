@@ -40,6 +40,16 @@ NOTE: ENTITY is the base item in the Spatial Web Ontology. <<section-hsml-concep
 
 A type of vector space in which the notions of distance and angle are defined.
 
+==== Generalized worlds
+
+ENTITIES embedded in a vector class of HYPERSPACE using a generalized coordinate reference system to define location in a high dimensional space.
+
+NOTE: Generalized worlds are a generalization of geographic information referenced to a geographic coordinate reference system.
+
+NOTE: see also World2Vec
+
+NOTE: the term "generalized worlds" may be changed, but the concept as defined in <<generalized-worlds>> needs to be defined and given a stable term.
+
 ==== geographic coordinate reference system
 
 Coordinate reference system that has a geodetic reference frame and an ellipsoidal coordinate system.

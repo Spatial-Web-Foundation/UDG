@@ -21,7 +21,7 @@ Spatial embeddings can be visualized using cartographic methods.  <<BigKnolwedge
 .Cartographic visualization of spatial embedded concepts
 image::geospatial_explorer.png[Cartographic example of spatial embedding of geographic concepts]
 
-
+[[hyperspace-reference-systems]]
 == Hyperspace Reference Systems (HRSs)
 
 Vector emdeddings occur in a vector space.  Vector spaces are indexed using coordinate systems.  The coordinates are the index. 

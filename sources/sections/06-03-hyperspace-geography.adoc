@@ -30,10 +30,10 @@ Representations in AI models, particularly deep networks, are converging <<Huh>>
  
 Harnessing the universal geometry of embeddings provides a method for translating text embeddings from one vector space to another <<Jha>>.
 
-
+[[generalized-worlds]]
 == Generalized worlds in hyperspace
 
-Spatial embedding of the world results in generalized features in hyperspace. Development is needed along the lines of linking UDG KG entities with features in vector spaces that share a HRS.  This ability to go between graph and coordinate domains may provide a basis for semantic interoperability.
+Spatial embedding of the world results in generalized features in hyperspace. Development is needed along the lines of linking UDG KG entities with features in vector spaces that share a Hyperspace Reference System (HRS).  This ability to go between graph and coordinate domains may provide a basis for semantic interoperability.
 
 Additionally, generalized hyperspace world models could provide the ability to go between graph and coordinate domains may provide a basis for semantic interoperability. The UDG KG contains a graph of Spatial Web Entities which could be alternatively mapped using a vector hyperspace. Traditional geography is useful in supporting the development of alternative representations. Using traditional geography helps users map (conceptually) current reference systems with which they may be familiar/use to hyperspace reference systems.
 

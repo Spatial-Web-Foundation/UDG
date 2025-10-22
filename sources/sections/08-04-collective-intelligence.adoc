@@ -20,6 +20,7 @@ The UDG provides the structure for enagement and exposure.  Exposure is more imp
 UDG shall promote exploration outside the DOMAIN
 UDG shall promote engagement within the DOMAIN
 
+[[librarian-agent]]
 == UDG librarian AGENT
 
 Maintenance and continous improvement of the UDG is essential.  The UDG librarian AGENT provides the knowledge maintenance function.  UDG Librarian AGENT functions are defined based on traditional librarian functions as extended with consideration of artificial intelligence:

@@ -106,7 +106,7 @@ channel's time-to-live (TTL) is exceeded). Once the link completes, it will eith
 
 This operation is handled by the domain manager. Note that in fully autonomous operations, open links simply cause the agent to reset to the new place (and domain, if this changes, without UX involvement. However, key activation still requires the relevant credentials.
 
-[[[udg-node-network]]]
+[[udg-node-network]]
 == UDG Node and node network
 
 === Network of UDG nodes
@@ -123,6 +123,8 @@ Components that graph databases employ to handle the complexity and scale of gra
 * Distributed query processing.  When receiveing a query, the database first identifies which shards contain the relevant data. It then breaks the query into subqueries, each targeting a specific shard. Then the machines holding the shards process these subqueries in parallel.
 * Distributed concurrency control. Distributed graph databases use concurrency control mechanisms to prevent conflicts and make sure that the database remains consistent even during concurrent operations.
 * Replication.  Replication guarantees the availability and fault tolerance of distributed graph databases. Each shard is replicated across several machines, meaning that if one machine fails, the system can continue to function by redirecting queries to another replica.
+
+Scalability of the UDG Node Network is needed in order to meet the estimated size of the Spatial Web (<udg-size-estimate>).
 
 ==== UDG node network tiers
 
@@ -149,19 +151,22 @@ The UDG Node consists of a number of software modules.   The UDG Node includes a
 
 * Extension Modules: In all of these components, the fundamental design will be modular, such that each component can be extended by code depending upon implementation. For instance, the HSML encoder, the UDG.d and the HSTP.d all have access points for agentic systems and e-commerce capabilities, components can be used for converting external datasets into data analytics forms, transformations can be written that generate images, maps, and related formats and so forth. These module extensions would be integrated in by individual SW Node Administrators.
 
-== Registry Node
+* Generalized World module: This module provides services on <<generalized-worlds, Generalized Worlds>>.  The module provides a persistent store of <<hyperspace-reference-systems, HRSs>> and the ENTITIES embedded in the Worlds held in the node.  The module peforms queries including spatial queries on the Generalized Worlds. 
 
-SWID Generator::
-Each Spatial Web node contains a mechanism to generate SWIDs that follow SWID
-certificate standards, in effect acting like a wallet. This may be implemented
-as a subgraph in the system or as a separate blockchain.
+== Registry Node and network
 
+The <<domain-registry-hierarchy, hierarchy of DOMAIN Registries>> is implemented as a network of Registry Nodes.
 
-The SW Registry Node performs the computing and communication functions necessary to deploy the content and functions defined in <<section-conceptual-view-regisries>>
+A Registry Node performs the computing and communication functions necessary to deploy the content and functions defined in <<section-conceptual-view-regisries>>
 
-A SW Registry Nodes is a specific SW Node that provides a number of services related to discovery, definition, search, DiD and alias resolution of resources. 
+A Registry Node is a specific SW Node that provides a number of services related to discovery, definition, search, DiD and alias resolution of resources. 
 
 The Registry Node consists of a number of software modules.   The Registry Node includes all components in the SW Content Node design.  Additional components are needed in the Registry Node to accomplish the Registry functions.
+
+* Membership Register: Module for persistent storage and management of the DOMAINS that are members of an upper DOMAIN.
+* Credentials generator: Module to generate Verifiable Credentials that support the claim that a DOMAIN is a member of an upper DOMAIN.  
+* SWID Generator:  Module to generate SWIDs using the did:swid method.  
+* Registry management:  Module to satisfy auditability requirements of the registry.
 
 EDITOR: this design linking SW Registry to IP concepts needs to be reviewed.
 
