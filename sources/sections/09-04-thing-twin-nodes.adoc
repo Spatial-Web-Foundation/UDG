@@ -1,12 +1,32 @@
-﻿= Thing and Twin Nodes
+﻿= Thing and twin Nodes
 
 == Thing nodes
 
 sensor and actuators without AGENT
 
+ *Thing Node*
+
+
+THING ENTITIES are hosted by Thing Nodes.  Thing Nodes include the physical devices layer of the <<[[computing_continuum, computing continuum>>.   A THING DOMAIN is a bounded entity without agency.  A Thing Node provides a Spatial Web presence for physical devices.  Thing Nodes will interact with the UDG in multiple ways.  
+
+Thing Nodes provide Observations to UDG.  Observations are the result of a sensing event and the use of processing to convert the physical energy detected by the sensor into a digital message.  The observation message is communicated using HSML.  Multiple SW Nodes may access a Thing Node to observe the environment.
+
+Thing Nodes affect the environment on behalf of other SW Nodes.  
+
+Thing Nodes interact with UDG nodes to provide information about <<generalized-worlds, generalized worlds>>.  THING DOMAINS may be located in Generalized Worlds. When an AGENT seeks information about DOMAINS in a generalized world, it may include requests to Thing Nodes.  This is a bridge between cyber and physical worlds.
+
+THING DOMAINS may be registered in a DOMAIN registry.  In that case, the Thing Node will hold the Membership Credential that supports the claim of the THING being part of the upper DOMAIN.
+
+An Agent Node consists of a number of software modules.   The Agent Node includes all components in the SW Content Node design.  Additional components are needed in the Agent Node to accomplish the AGENT functions.
+
 == Digital Twins for things
 
-sync with things
+A Digital Twin is a virtual representation of entities and processes, synchronized at a specified frequency and fidelity.
+
+Digital Twins, serve as a bridge between the physical and digital Domains, allowing agents to test hypotheses, optimize strategies, and learn from virtual scenarios without direct physical intervention. These interactions not only extend the operational capabilities of AGENTs but also foster a deeper integration of the physical and digital environments, shaping the outcomes and behaviors within both realms.
+
+The Digital Twin of a THING may be part of the Thing Node or it may be a seperate Node.
+
 
 == Requirements and Recommendations
 
