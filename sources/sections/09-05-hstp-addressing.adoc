@@ -1,115 +1,74 @@
-﻿= HSTP and addressing, ACLS
+﻿= HSTP addressing, credentials
 
+== HSTP operations
 
-== Discovery
+HSTP is an application-level protocol for distributed and interoperable computer systems and end-point devices. HSTP enables HSML-compliant systems to communicate to one another to execute functionality and share data.
+
+An HSTP operation (as defined in <<std-3>>) includes information from the UDG in order to determine the target for an hstp operation, including:
+
+* Target.   A target identifies the intended recipient or target system for the operation specified in the message. The format can be a spatial Domain with modifiers, a SWID with modifiers, a specific URI endpoint with modifiers, a protocol version, or the requester’s own SWID. The primary formats expected are SWIDs or URIs. 
+* Neighbors An optional list of the sending system’s (requester’s in a request, target’s in a response) publicly-listed neighboring SWIDs within the Universal Domain Graph (UDG).
+
+EDITOR: STD-3 indicates that this information is under development and will be detailed in a future draft
+
+== Networks Neighborhoods of nodes
+
+EDITOR:  It is not clear how this clause relates to other items in the Spatial Web design.  After editing, this clause may be useful in relation to HSTP operations  or it may be deleted.
+
+A SW Node communicates with other SW Nodes via HSTP. SW Nodes connect in one of two ways:
+
+* Via __neighborhood connections__ made when the node connects via a nodelink (a specialized form of link that identifies a node) to another node. The successful negotiation caches the nodelink in the node's __nodecache__. This is a peer-to-peer connection.
+* Via registration with a __public node registry__. In this case, the node becomes visible to all other members of the registry. The registration process returns a set of credentials that translate selected links from a search into neighborhood links.
+
+In both cases, when a node queries another node about its neighborhood, it can cache the connections of the queried node. Case 2 in fact is essentially Case 1 at a larger scale. Each node contains a certain amount of intrinsic metadata about the type of domains on the system, which can in turn be used to provide a facet query to find links from another node that have similar or overlapping facets.
+
+For instance, if a given node mostly contained shipping information, the facets that it has can provide scores against another SW Node's registry metadata that was tied into shipping to retrieve those particular SW Nodes that are most like the requested nodes.
+
+In addition to that, when a Spatial Web Node first registers with a registry, it can retrieve schema definitions, common resources, code libraries and a "starter" set of node links that can then be used to add to the neighborhood of the registering node.
+
+Nodelinks typically have a time-to-live attribute (TTL) that indicates how long a link can remain active before it needs to be refreshed. If a nodelink cannot be resolved, then a secondary TTL is activated that indicates how long an interval should be taken before the link is considered dead, and consequently should be purged.
 
 When a nodelink is activated, it follows a specific discovery process:
 
-* Is there a corrresponding certificate in the local nodelink cache. If so, use
-this, if it's not expired.
+* Is there a corrresponding certificate in the local nodelink cache. If so, use this, if it's not expired.
+* Otherwise, check the immediate peers (the immediate neighborhood) to see if a nodelink is resolvable. This is important because not all nodelinks are public.
+* If the link cannot be resolved in the immediate neighborhood, go to the public node registries.
+* If no node is found at that point of resolution, return an HSTP No Address error (the analog to an HTTP 404 code).
 
-* Otherwise, check the immediate peers (the immediate neighborhood) to see if a
-nodelink is resolvable. This is important because not all nodelinks are public.
-
-* If the link cannot be resolved in the immediate neighborhood, go to the public
-node registries.
-
-* If no node is found at that point of resolution, return an HSTP No Address
-error (the analog to an HTTP 404 code).
-
-Once a connection is made, the corresponding certificate is cached so that this
-process of discovery doesn't need to take place again until the next TTL.
+Once a connection is made, the corresponding certificate is cached so that this process of discovery doesn't need to take place again until the next TTL.
 
 
-=== Networks Neighborhoods of nodes
+== Augmented Node Graphs
 
-A SW Node communicates with other SW Nodes via HSTP. SW Nodes connect in one of
-two ways:
+EDITOR:  It is not clear how this clause relates to other items in the Spatial Web design.  After editing, this clause may be useful in relation to HSTP operations  or it may be deleted.
 
-. Via __neighborhood connections__ made when the node connects via a nodelink (a
-specialized form of link that identifies a node) to another node. The successful
-negotiation caches the nodelink in the node's __nodecache__. This is a
-peer-to-peer connection.
+In some cases, it is possible to attach the graph of one node to another in order to create a larger federated graph. This bypasses the normal HSTP protocol system. This is used primarily for those cases where a single domain may in fact be distributed across multiple servers, or where common resources such as schemas are shared across multiple chained nodes. The chained nodes are called __Augmenting Node Graphs__ and the chaining graph is called the __Augmented Node Graph__. More information will be forthcoming regarding such graphs.
 
-. Via registration with a __public node registry__. In this case, the node
-becomes visible to all other members of the registry. The registration process
-returns a set of credentials that translate selected links from a search into
-neighborhood links.
+== Directory Domain and Home Domains
 
-In both cases, when a node queries another node about its neighborhood, it can
-cache the connections of the queried node. Case 2 in fact is essentially
-Case 1 at a larger scale. Each node contains a certain amount of intrinsic
-metadata about the type of domains on the system, which can in turn be used to
-provide a facet query to find links from another node that have similar or
-overlapping facets.
-
-For instance, if a given node mostly contained shipping information, the facets
-that it has can provide scores against another SW Node's registry metadata that
-was tied into shipping to retrieve those particular SW Nodes that are most like
-the requested nodes.
-
-In addition to that, when a Spatial Web Node first registers with a registry, it
-can retrieve schema definitions, common resources, code libraries and a
-"starter" set of node links that can then be used to add to the neighborhood of
-the registering node.
-
-Nodelinks typically have a time-to-live attribute (TTL) that indicates how long
-a link can remain active before it needs to be refreshed. If a nodelink cannot
-be resolved, then a secondary TTL is activated that indicates how long an
-interval should be taken before the link is considered dead, and consequently
-should be purged.
-
-==== Augmented Node Graphs
-
-In some cases, it is possible to attach the graph of one node to another in order to create a larger federated graph. This bypasses the normal HSTP protocol system. This is used primarily for those cases where a single domain may in fact
-be distributed across multiple servers, or where common resources such as schemas are shared across multiple chained nodes. The chained nodes are called __Augmenting Node Graphs__ and the chaining graph is called the __Augmented Node
-Graph__. More information will be forthcoming regarding such graphs.
-
-=== Directory Domain and Home Places
+EDITOR:  It is not clear how this clause relates to other items in the Spatial Web design.  After editing, this clause may be useful in relation to HSTP operations  or it may be deleted.
 
 If no DOMAIN is specified by an hstp request, this will be the default domain. This domain is designed to provide a directory or catalog of the domains that are accessible to a given external agent based upon their credential profile, and also provides mechanisms to "sign in" if this is required to change the domains that they see.
 
 Similarly, within every domain, there is the option of specifying a home place. This is where agents are positioned when they first "enter" a given domain, if no domain is otherwise specified. In simple scenarios (such as the smart room scenario), there may be only one place in the domain, but in more complex scenarios (especially those representing tours or rpgs), this home place typically also serves the role of establishing context and backstory for the agent, providing instructions for interacting with the domain, and identifying pertinent "destinations".
 
-
-==== Home Domains
-
-There is assumed to be on a given spatial web node a designated Home Domain that is explicitly stated to be associated with the node itself. It's "agency" in this particular case is the action of the node daemons, with specific
-capabilities. When a spatial web node is first set up, this home domain/agent holds the configuration metadata for the node itself, as well as any credentials that are specific to the node.
+There is assumed to be on a given spatial web node a designated Home Domain that is explicitly stated to be associated with the node itself. It's "agency" in this particular case is the action of the node daemons, with specific capabilities. When a spatial web node is first set up, this home domain/agent holds the configuration metadata for the node itself, as well as any credentials that are specific to the node.
 
 Put another way, ___from the standpoint of the UDG, the Spatial Web Node is a domain, with an implicit super agent___. The mechanics of this are still to be determined.
 
 == Spatial Web Addresses
 
-In the Spatial Web, there is a distinction between a Spatial Web Identifier
-(SWID) and a ___Spatial Web URL___ (here, proposed as __SWURL__). The SWID
-provides an address to a credential that verifies the existence of that
-resource, but does not in fact identify where a resource is within the spatial
-web. This makes it far more difficult to create a linking system as such
-credentials are not necessarily guaranteed to be within the same indexing
-system.
+EDITOR:  It is not clear how this clause relates to other items in the Spatial Web design.  After editing, this clause may be useful in relation to HSTP operations  or it may be deleted.
 
-___Addressing__ and ___credentialing__ serve two different functions. A
-__spatial web resource locator__ (or SWURL) identifies where a given resource is
-located on the spatial web. The address typically will identify a spatial node
-(the physical system where the resource is located) coupled with an identifier
-for that resource on that machine.
+In the Spatial Web, there is a distinction between a Spatial Web Identifier (SWID) and a ___Spatial Web URL___ (here, proposed as __SWURL__). The SWID provides an address to a credential that verifies the existence of that resource, but does not in fact identify where a resource is within the spatial web. This makes it far more difficult to create a linking system as such credentials are not necessarily guaranteed to be within the same indexing system.
 
-A SWAD does not make any guarantees by itself about the verifiability of the
-address (this is the role of the SWID), nor does it identify the resource
-semantically. Instead, the SWURL is a label that locates the resource on the web
-itself.
+___Addressing__ and ___credentialing__ serve two different functions. A __spatial web resource locator__ (or SWURL) identifies where a given resource is located on the spatial web. The address typically will identify a spatial node (the physical system where the resource is located) coupled with an identifier for that resource on that machine.
 
-Just as a resource has a SWID, it also has a SWURL. The SWURL is a ___local
-name___ that is assigned to the resource in question, utilizing HTTP naming
-conventions. A resource may have more than one SWAD, or none. If a resource has
-no SWURL, then the SWURL defaults to the portion of the SWID after the
-"did:swid:" method. If a resource has multiple SWRLs, then any of these can be
-used to reference that resource.
+A SWAD does not make any guarantees by itself about the verifiability of the address (this is the role of the SWID), nor does it identify the resource semantically. Instead, the SWURL is a label that locates the resource on the web itself.
 
-The UGD.d resolves local SWRLs and returns the resource in question, but only
-after it verifies credential access for that resource via its SWID, returning an
-Unverified Access Error if the resource fails its credential check.
+Just as a resource has a SWID, it also has a SWURL. The SWURL is a ___local name___ that is assigned to the resource in question, utilizing HTTP naming conventions. A resource may have more than one SWAD, or none. If a resource has no SWURL, then the SWURL defaults to the portion of the SWID after the "did:swid:" method. If a resource has multiple SWRLs, then any of these can be used to reference that resource.
+
+The UGD.d resolves local SWRLs and returns the resource in question, but only after it verifies credential access for that resource via its SWID, returning an Unverified Access Error if the resource fails its credential check.
 
 For instance, if the spatial web node has a SWURL of:
 
@@ -117,25 +76,16 @@ For instance, if the spatial web node has a SWURL of:
 https://mySmartRoom.com:8200
 ----
 
-with 8200 indicating the port number where the hstp.d daemon is located (there
-is no port specifically dedicated to the spatial web, but it would be a good
-idea to be thinking about this), then resources that are defined on that node
-(such as domains, agents, scripts, etc.) can be further accessed by normal http
-qualification methods, such as:
+with 8200 indicating the port number where the hstp.d daemon is located (there is no port specifically dedicated to the spatial web, but it would be a good idea to be thinking about this), then resources that are defined on that node (such as domains, agents, scripts, etc.) can be further accessed by normal http qualification methods, such as:
 
 ----
 https://mySmartRoom.com:8200#agent-light-123
 ----
 
-If done with a content type of `application/hsml+json`, this would retrieve an
-HSML description giving the relevant details of the resource in JSON-LD (not
-necessarily the internal one-to-one encodings - the internal graph exists not
-for commonality but for state management). If the content type is `text/html`
-then what gets returned is a summary of that resource or system in an HTML
-format, and so forth.
+If done with a content type of `application/hsml+json`, this would retrieve an HSML description giving the relevant details of the resource in JSON-LD (not necessarily the internal one-to-one encodings - the internal graph exists not
+for commonality but for state management). If the content type is `text/html` then what gets returned is a summary of that resource or system in an HTML format, and so forth.
 
-Internally, this same entity is represented as a graph, quite possibly one given
-as a blank node:
+This same entity is represented as a graph, quite possibly one given as a blank node:
 
 [source,turtle]
 ----
@@ -152,12 +102,9 @@ prefix swid: <did:swid:>
     .
 ----
 
-The notation <agent/light-123> for the swrl is indicative that (at least in
-RDF) this is an IRI fragment relative to the containing spatial web node.
+The notation <agent/light-123> for the swrl is indicative that (at least in RDF) this is an IRI fragment relative to the containing spatial web node.
 
-A __blank node__ is a node that has an IRI that is defined within a graph, but
-is not defined globally. This structure makes it possible within Turtle to write
-something like:
+A __blank node__ is a node that has an IRI that is defined within a graph, but is not defined globally. This structure makes it possible within Turtle to write something like:
 
 [source,turtle]
 ----
@@ -188,118 +135,53 @@ The domain and agent SWRLs in this scenario then resolve to:
     <https://mySmartRoom.com#agent/light-123>
 ----
 
-Every spatial web node has a distinct base, and for the most part, resources are
-defined relative to those nodes. This is a bit of a departure from the normal
-best practices for the semantic web, but the distinction here is that most
-spatial web resources are effectively local to their nodes. Because a given
-resource can have multiple SWRLs, this also implies that most references will be
-indirect - "give me the (graph) node that has this SWURL", just as one would say
-"give me the (graph) node that has this SWID".
+Every spatial web node has a distinct base, and for the most part, resources are defined relative to those nodes. This is a bit of a departure from the normal best practices for the semantic web, but the distinction here is that most spatial web resources are effectively local to their nodes. Because a given resource can have multiple SWRLs, this also implies that most references will be indirect - "give me the (graph) node that has this SWURL", just as one would say "give me the (graph) node that has this SWID".
 
-One other key point - the spatial web does not recognize URL parameters being
-passed as part of a GET request - if you need to pass parameters, these should
-be passed as the body of a POST request. This keeps the address space clean,
-makes it easier to validate incoming requests, and is more consistent with
-regards to semantic web principles.
-
-
+One other key point - the spatial web does not recognize URL parameters being passed as part of a GET request - if you need to pass parameters, these should be passed as the body of a POST request. This keeps the address space clean, makes it easier to validate incoming requests, and is more consistent with regards to semantic web principles.
 
 == Node access security and credentials
 
-A central part of the Spatial Web is the use of secure credentials in order to
-maintain ___surety___ within the web, where __surety__ can be defined as the
-verification that an assertion being made about a particular entity was valid.
+EDITOR:  It is not clear how this clause relates to other items in the Spatial Web design.  After editing, this clause may be useful in relation to HSTP operations  or it may be deleted.
 
-Surety is made possible through the use of credentials that can be issued both
-by spatial web nodes that identify that specific resources have been created by
-that node, as well as assertions made by external authorities that a given agent
-has the relevant credentials to perform specific activities pursuant to a
-contract.
+A central part of the Spatial Web is the use of secure credentials in order to maintain ___surety___ within the web, where __surety__ can be defined as the verification that an assertion being made about a particular entity was valid.
 
-The mechanism that binds these credentials is the __Spatial Web Identifier__ (or
-__SWID__), which is a specific key that references a credential ___within___ the
-Spatial Web Node. This key is a ___decentralized identifier___ (or __DID__)
-according to the <<w3c_did_core,W3C DID Core Specification>>. All DiDs issued by
-a spatial web node are further considered to have a SWID method that indicates
-that such credentials follow the Spatial Web standard (D3.3.1). The specific
+Surety is made possible through the use of credentials that can be issued both by spatial web nodes that identify that specific resources have been created by that node, as well as assertions made by external authorities that a given agent has the relevant credentials to perform specific activities pursuant to a contract.
+
+The mechanism that binds these credentials is the __Spatial Web Identifier__ (or __SWID__), which is a specific key that references a credential ___within___ the Spatial Web Node. This key is a ___decentralized identifier___ (or __DID__)
+according to the <<w3c_did_core,W3C DID Core Specification>>. All DiDs issued by a spatial web node are further considered to have a SWID method that indicates that such credentials follow the Spatial Web standard (D3.3.1). The specific
 format for such credentials is still being worked out.
 
 === Credential Stores and Addresses
 
-The __credential.d__ daemon is responsible for both the issuance of SWIDs as
-well as the resolution of SWIDs. It is _recommended_ that each Spatial Web node
-maintains a specific cache of credentials that are issued by it as part of the
-domain graph architecture, with the SWIDs then being treated as identifiers by
-the system to those credentials.
+The __credential.d__ daemon is responsible for both the issuance of SWIDs as well as the resolution of SWIDs. It is _recommended_ that each Spatial Web node maintains a specific cache of credentials that are issued by it as part of the
+domain graph architecture, with the SWIDs then being treated as identifiers by the system to those credentials.
 
-A credential in this particular case can serve primarily as a passthru reference
-to an external DiD that has a specific issuer that can be resolved within the
-internal SW Credential structure, and which utilizes a separate addressing
-mechanism (such as https) to identify the location of the issuing server _if
-that server is not the current spatial web node_.
+A credential in this particular case can serve primarily as a passthru reference to an external DiD that has a specific issuer that can be resolved within the internal SW Credential structure, and which utilizes a separate addressing mechanism (such as https) to identify the location of the issuing server _if that server is not the current spatial web node_.
 
-A SWID is ___not___ a ___Spatial Web URL___ (__SWURL__). The SWID serves to
-either identify the credential within the current Spatial Web Node or, through
-reference, to point to the location of an issuing server, while the SWURL
-provides an address (a ___Uniform Resource Locator___ or ___URL___) to a
-resource within the broader spatial web network, which in turn may have a SWID
-to its relevant credential.
+A SWID is ___not___ a ___Spatial Web URL___ (__SWURL__). The SWID serves to either identify the credential within the current Spatial Web Node or, through reference, to point to the location of an issuing server, while the SWURL provides an address (a ___Uniform Resource Locator___ or ___URL___) to a resource within the broader spatial web network, which in turn may have a SWID to its relevant credential.
 
-The D3.3.1 specification indicates that all entities must have SWIDs. This
-perforce indicates that all entities must have credentials. It should be noted
-that not all credentials issued by the spatial web nodes _must_ be
-cryptographically secure, though this may be a requirement imposed within a
-future specification.
+The D3.3.1 specification indicates that all entities must have SWIDs. This perforce indicates that all entities must have credentials. It should be noted that not all credentials issued by the spatial web nodes _must_ be cryptographically secure, though this may be a requirement imposed within a future specification.
 
 === Credential Issuance
 
-A Spatial Web node is able to issue credentials to all entities that it creates.
-When that entity, such as a domain or agent, is created within the domain graph
-for the node, the SW Node will issue a cryptographically bound SWID that is
-associated with that entity and that consequently provides surety for the
-existence of that entity throughout the entity's life span.
+A Spatial Web node is able to issue credentials to all entities that it creates. When that entity, such as a domain or agent, is created within the domain graph for the node, the SW Node will issue a cryptographically bound SWID that is associated with that entity and that consequently provides surety for the existence of that entity throughout the entity's life span.
 
-Moreover, when an entity undergoes a material change, such as an agent moving
-from one domain to another which necessitates the creation of an additional
-proxy between those domains, then a new credential is issued indicating the
-change of "ownership" of that entity, along with a pointer indicating the
-previous owner (in effect forming a transitive chain). Such SWID transfers act,
-in effect, as a chain of custody for the resource.
+Moreover, when an entity undergoes a material change, such as an agent moving from one domain to another which necessitates the creation of an additional proxy between those domains, then a new credential is issued indicating the change of "ownership" of that entity, along with a pointer indicating the previous owner (in effect forming a transitive chain). Such SWID transfers act, in effect, as a chain of custody for the resource.
 
-One key point - an entity is always bound to its spatial web node. The flipside
-to this is that ___each spatial web node issues its own SWIDs___. Put another
-way, there is no centralized authority for the issuance of SWIDs on resources.
-Instead, to find a given entity, you use the SWURL for that entity to locate it
-in the Spatial Web, then you validate that the entity is as stated based upon
-its credential on the indicated node.
+One key point - an entity is always bound to its spatial web node. The flipside to this is that ___each spatial web node issues its own SWIDs___. Put another way, there is no centralized authority for the issuance of SWIDs on resources. Instead, to find a given entity, you use the SWURL for that entity to locate it in the Spatial Web, then you validate that the entity is as stated based upon its credential on the indicated node.
 
-Additionally, additional credentials can be bound to the same SWID, a key point
-in making contracts work. These are typically tied into activities and norms and
-often require multiple different SWID holders to create a contract with its own
-SWID that binds the activities of agents together as specified by the boundaries
-of the contract itself. This work is still under development.
+Additionally, additional credentials can be bound to the same SWID, a key point in making contracts work. These are typically tied into activities and norms and often require multiple different SWID holders to create a contract with its own SWID that binds the activities of agents together as specified by the boundaries of the contract itself. This work is still under development.
 
 === Credential Revocation and Registries
 
-Just as the Spatial Web Node is the issuer of a credential, so too can it revoke
-a particular credential to indicate that the credential is no longer valid. Note
-that Spatial Web Nodes can also issue credentials indicating membership by other
+Just as the Spatial Web Node is the issuer of a credential, so too can it revoke a particular credential to indicate that the credential is no longer valid. Note that Spatial Web Nodes can also issue credentials indicating membership by other
 spatial web nodes within an affiliated network for which it acts as a registry.
 
-This in turn means that revocation of a given spatial web node from a given
-affiliation network is never accomplished by that node, but rather by the
-affiliation holder, unless the registry node is also part of the affiliation
-network (ie, is self registering).
+This in turn means that revocation of a given spatial web node from a given affiliation network is never accomplished by that node, but rather by the affiliation holder, unless the registry node is also part of the affiliation network (ie, is self registering).
 
-EDITOR: It may be that a given registry is explicitly not a part of its own
-affiliation network. This is still to be determined, as it has implications on
-what a registry node can support.
+EDITOR: It may be that a given registry is explicitly not a part of its own affiliation network. This is still to be determined, as it has implications on what a registry node can support.
 
-Because a spatial web node has its own implicit home domain, a node can be
-removed from a network by revoking the credentials of the home domain for that
-machine. The machine is still findable via a URL, but the lack of credentials
-mean that the request for data can't validate (it will send back an error across
-hstp indicating the data won't validate).
+Because a spatial web node has its own implicit home domain, a node can be removed from a network by revoking the credentials of the home domain for that machine. The machine is still findable via a URL, but the lack of credentials mean that the request for data can't validate (it will send back an error across hstp indicating the data won't validate).
 
 == Requirements and Recommendations
 
