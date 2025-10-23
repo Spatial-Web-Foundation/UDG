@@ -61,11 +61,13 @@
 
 include::sections/00-abstract.adoc[]
 
-include::sections/00-introduction.adoc[]
+// include::sections/00-introduction.adoc[]
 
 include::sections/01-overview.adoc[]
 
-include::sections/02-normrefs.adoc[]
+include::sections/02-normrefs-temp.adoc 
+
+// include::sections/02-normrefs.adoc[]
 
 include::sections/03-terms.adoc[]
 
@@ -83,9 +85,9 @@ include::sections/09-distributed-computing.adoc[]
 
 include::sections/annex-bibliography.adoc[]
 
-include::sections/annex-requirements-allocation.adoc[]
+// include::sections/annex-requirements-allocation.adoc[]
 
-include::sections/annex-application-scenario.adoc[]
+// include::sections/annex-application-scenario.adoc[]
 
 
 
