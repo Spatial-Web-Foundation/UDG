@@ -5,33 +5,38 @@
 
 Spatial Web DOMAINS have a variety of relationships with one another, thereby reflecting the complexity of the real world and the interconnectedness of its many parts. The UDG's ability to represent and navigate arbitrarily complex relationships is central to its role as the foundational component of the Spatial Web and ensures that DOMAIN-specific data is not only coherent within itself but also in coordination with other DOMAINS.
 
-There are several types of relationships between ENITITIES in the UDG.  The following relationships are defined in this clause: 
+There are several types of relationships between ENITITIES in the UDG. Relationships between ENTITIES are shown in the <<spatial_web_ontology>>. The following relationships are defined in this clause: 
 
- * Links represent relationships between an initiator ENTITY to a receiver ENTITY
- * Portals are relationships between locations in two or more DOMAINS, providing a leap between DOMAINS
- * Membership is a relationship type that signifies that a DOMAIN is a member of a DOMAIN that is of a higher order or level
- * Situations are a set of DOMAINS currently in the context of a DOMAIN
- * Dynamic relationships bring in the notion of paths
+ * *Links* represent relationships between an initiator ENTITY to a receiver ENTITY
+ * *Portals* are relationships between locations in two or more DOMAINS, providing a leap between DOMAINS
+ * *Membership* is a relationship type that signifies that a DOMAIN is a member of a DOMAIN that is of a higher order or level
+ * *Situations* are a set of DOMAINS currently in the context of a DOMAIN
+ * *Dynamic* relationships bring in the notion of paths
 
 The complexity of the relationships in the UDG can be charaterized using mereology. The approach draws on ideas from mereology (the theory of parthood relations), order theory (the study of hierarchy), and category theory (the mathematics of structure). In the Spatial Web, DOMAINS may be related in structures of arbitrary complexity. [WHO? WHERE is the clause?] discusses the complexity as hierarchy, heterarchy, and holonic as described in <<domain_relationships>>.
 
-
 [[domain_relationships]]
 .Mereological relationships in domain hypergraphs
-[%autowidth]
+[cols="1a,6a", options="header"]
 |===
 | Type of Relationship | Description
 | Hierarchical
 | * DOMAINS may be a member of one and only one upper DOMAIN. 
+|
 | * DOMAINS may not have links to other DOMAINS.   
+|
 | * Coordination between DOMAINS occurs through the Domain Authority of the DOMAIN in which the DOMAIN is a member. 
 | Heterarchical
 | * DOMAINS may be members of one and only one upper DOMAIN. 
+|
 | * DOMAINS may have links to other DOMAINS. 
+|
 | * Coordination between DOMAINS occurs through the Domain Authority of the upper DOMAIN and through relationships to other DOMAINS. 
 | Holonic
 | * DOMAINs may be members of multiple upper DOMAINS.
+|
 | * DOMAINS may have links to other DOMAINS. 
+|
 | * Coordination between DOMAINS occurs through the Domain Authority of the upper DOMAIN and through relationships to other DOMAINS.
 |===
  
@@ -41,16 +46,11 @@ The complexity of the relationships in the UDG can be charaterized using mereolo
 image::domain_relationship_types.png["Figure shows three types of mereological relationships between domain hypergraphs: hierarchy, heterarchy, holonic."]
 
 
-It is certain that there will be inconsistencies in the UDG, similar to inconsistencies in the WWW. Some inconsistencies will be from relationships between DOMAINS as described in this clause. Other inconsistencies will be the result of the content of DOMAINS in the UDG.  UDG operations will need to be resilient to inconsistencies in the relationships between nodes and the content of nodes.
-
-
 
 [[links]]
 == Links between ENTITIES
 
 === Links are relationships between ENTITIES.
-
-Relationships between entities are shown in <<spatial_web_ontology>>.
 
 A link is a relationship from an initiator ENTITY to a receiver ENTITY.  The link is part of the initiator ENTITY and indicates tat the initiator ENTITY seeks to point to the receiver ENTITY. There are no bidirectional links within the Spatial Web. All links are unidirectional (one way), but there may be analogous entities (portals) for each link that provide the corresponding link back to the original place or entity.
 
