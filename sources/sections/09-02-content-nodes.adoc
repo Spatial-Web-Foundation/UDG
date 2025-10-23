@@ -151,7 +151,7 @@ The UDG Node consists of a number of software modules.   The UDG Node includes a
 
 * Extension Modules: In all of these components, the fundamental design will be modular, such that each component can be extended by code depending upon implementation. For instance, the HSML encoder, the UDG.d and the HSTP.d all have access points for agentic systems and e-commerce capabilities, components can be used for converting external datasets into data analytics forms, transformations can be written that generate images, maps, and related formats and so forth. These module extensions would be integrated in by individual SW Node Administrators.
 
-* Generalized World module: This module provides services on <<generalized-worlds, Generalized Worlds>>.  The module provides a persistent store of <<hyperspace-reference-systems, HRSs>> and the ENTITIES embedded in the Worlds held in the node.  The module peforms queries including spatial queries on the Generalized Worlds. 
+* Hyperworld module: This module provides services on <<hyperworlds, Hyperworlds>>.  The module provides a persistent store of <<hyperspace-reference-systems, HRSs>> and the ENTITIES embedded in the Worlds held in the node.  The module peforms queries including spatial queries on Hyperworlds. 
 
 == Registry Node and network
 

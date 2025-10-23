@@ -13,7 +13,7 @@ Thing Nodes provide Observations to UDG.  Observations are the result of a sensi
 
 Thing Nodes affect the environment on behalf of other SW Nodes.  
 
-Thing Nodes interact with UDG nodes to provide information about <<generalized-worlds, generalized worlds>>.  THING DOMAINS may be located in Generalized Worlds. When an AGENT seeks information about DOMAINS in a generalized world, it may include requests to Thing Nodes.  This is a bridge between cyber and physical worlds.
+Thing Nodes interact with UDG nodes to provide information about <<hyperworlds, Hyperworlds>>.  THING DOMAINS may be located in Hyperworlds. When an AGENT seeks information about DOMAINS in a Hyperworld, it may include requests to Thing Nodes.  This is a bridge between cyber and physical worlds.
 
 THING DOMAINS may be registered in a DOMAIN registry.  In that case, the Thing Node will hold the Membership Credential that supports the claim of the THING being part of the upper DOMAIN.
 

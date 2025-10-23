@@ -24,18 +24,18 @@ DOMAINS in the Spatial Web exist independently of having a hyperspace represenat
 
 Recent research has shown that features in LLM spatial embeddings may have universal applicability.  Such universal applicability provides the basis for building interoperability methods between hyperspace models in the Spatial Web.
 
-The <<Anthropic>> Claude 3 LLM was found to include a diversity of highly abstract features. Examples include features for famous people, features for countries and cities. Many features are multilingual (responding to the same concept across languages) and multimodal (responding to the same concept in both text and images), as well as encompassing both abstract and concrete instantiations of the same idea.
+The (<<Anthropic>>) Claude 3 LLM was found to include a diversity of highly abstract features. Examples include features for famous people, features for countries and cities. Many features are multilingual (responding to the same concept across languages) and multimodal (responding to the same concept in both text and images), as well as encompassing both abstract and concrete instantiations of the same idea.
 
-Representations in AI models, particularly deep networks, are converging <<Huh>>. Different neural networks representations are becoming more aligned. Convergence is occurring across modalities: vision models and language. This convergence is driving toward a shared statistical model of reality, akin to Plato's concept of an ideal reality. 
+Representations in AI models, particularly deep networks, are converging (<<Huh>>). Different neural networks representations are becoming more aligned. Convergence is occurring across modalities: vision models and language. This convergence is driving toward a shared statistical model of reality, akin to Plato's concept of an ideal reality. 
  
-Harnessing the universal geometry of embeddings provides a method for translating text embeddings from one vector space to another <<Jha>>.
+Harnessing the universal geometry of embeddings provides a method for translating text embeddings from one vector space to another (<<Jha>>).
 
-[[generalized-worlds]]
-== Generalized worlds in hyperspace
+[[hyperworlds]]
+== Hyperworlds
 
-Spatial embedding of the world results in generalized features in hyperspace. Development is needed along the lines of linking UDG KG entities with features in vector spaces that share a Hyperspace Reference System (HRS).  This ability to go between graph and coordinate domains may provide a basis for semantic interoperability.
+Spatial embedding of any ENTITY using HYPERSPACE results in generalized features populating Hyperworlds. Spatial analysis of features in Hyperworlds can provide insights not previously available. To support the analsysis Hyperworlds there must be development of well-known (<<hyperspace-reference-systems>>, HRSs), i.e., HRSs with as much generality in Hyperspace as WGS-84 has in geographic space.  Hyperworlds make visible relationships between generalized features leading to new insights.
 
-Additionally, generalized hyperspace world models could provide the ability to go between graph and coordinate domains may provide a basis for semantic interoperability. The UDG KG contains a graph of Spatial Web Entities which could be alternatively mapped using a vector hyperspace. Traditional geography is useful in supporting the development of alternative representations. Using traditional geography helps users map (conceptually) current reference systems with which they may be familiar/use to hyperspace reference systems.
+Hyperworld models with the ability to go between graph and coordinate spaces provide a basis for new forms of semantic interoperability. The UDG KG contains a graph of ENTITIES which could be alternatively mapped using a vector space and Hyperworld. Traditional geography is useful in supporting the development of alternative representations. Using traditional geography helps users map (conceptually) current reference systems with which they may be familiar/use to hyperspace reference systems. This ability to go between UDG KG graph and UDG Hyperspace coordinates may provide a basis for semantic interoperability.
 
 
 == Geography as both geometry and topology

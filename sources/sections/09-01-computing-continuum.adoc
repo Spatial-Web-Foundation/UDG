@@ -29,7 +29,7 @@ SW Nodes host and exchange the content defined in the conceptual viewpoints of t
 
 | *UDG Node*
 | Extended dynamic graph of ENTITIES
-| Generalized worlds/Atlases
+| Hyperworlds and Atlases
 | Registry Relationships
 | Collective intelligence
 
@@ -41,7 +41,7 @@ SW Nodes host and exchange the content defined in the conceptual viewpoints of t
 
 | *Agent Node*
 | Dynamic SITUATONS
-| Model uses generalized worlds
+| Model uses Hyperworlds
 | DOMAIN Membership Credential
 | Social epistemology 
 
