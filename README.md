@@ -6,8 +6,6 @@ The **Universal Domain Graph(UDG) design Specification** defines functions perfo
 
 The purpose of this specification is to define a design of the Spatial Web UDG. The UDG design defines requirements for the Spatial Web implementation specifications and guides domain-specific Spatial Web architecture development.
 
-The UDG Design Specification fulfills compliance requirements of *IEEE P2874 Standard for Spatial Web Protocol, Architecture, and Governance*
-
 The document is structured as an architecture description consistent with the approach defined in <<ISO_IEC_IEEE_42010_2022, System architecture description>>. 
 
 This document provides these architecture views that define the UDG system design:
@@ -17,3 +15,7 @@ This document provides these architecture views that define the UDG system desig
 * UDG as a network of registries
 * UDG as a social network
 * UDG Distributed Computing
+
+The UDG Design Specification fulfills compliance requirements of *IEEE P2874 Standard for Spatial Web Protocol, Architecture, and Governance*
+
+Comments about the Spatial Web and this document can be sent tothe Spatial Web Foundation at info@spatialwebfoundation.org 
