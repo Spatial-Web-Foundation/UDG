@@ -263,7 +263,7 @@ This analogy also corresponds with non-Hilbert spaces, such as heat/pressure sta
 
 [[fig-ice-steam-plasma]]
 .Transitions of state between ice, steam, plasma
-image::ice-steam-plasma.png[Transitions of state between ice, steam, plasma]
+image::ice-steam-plasma.png["Transitions of state between ice, steam, plasma" ]
 
 // [source,mermaid]
 // ----

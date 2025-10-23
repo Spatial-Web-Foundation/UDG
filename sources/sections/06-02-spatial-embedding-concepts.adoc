@@ -19,7 +19,7 @@ Scalability of embedding needs to be assessed for the Spatial Web. <<Weller>> ha
 Spatial embeddings can be visualized using cartographic methods.  <<BigKnolwedge>> has developed methods for applying cartographic metaphors and methods for rendering a spatial embedding of non-geographic concepts in to a map-like form.  Vizualization tools can be used for analysis of the conceptual space.  The visualization also serves as a locatting mechanism, e.g., "GPS" for locating knowledge. The visualization requires that the knowledge system works based on a known reference system. This calls for the definition of Hyperspace Reference Systems.
 
 .Cartographic visualization of spatial embedded concepts
-image::geospatial_explorer.png[Cartographic example of spatial embedding of geographic concepts]
+image::geospatial_explorer.png[Cartographic example of spatial embedding of geographic concepts, width=640,height=480]
 
 [[hyperspace-reference-systems]]
 == Hyperspace Reference Systems (HRSs)

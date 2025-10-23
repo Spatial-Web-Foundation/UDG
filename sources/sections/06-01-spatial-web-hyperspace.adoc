@@ -98,66 +98,6 @@ Consider a hexagonal tiling of a space, as may be considered by a table top war 
 .Hexagonal tiling
 image::st_hexagongrid01.png[Hexagonal tiling]
 
-A cell can also be defined in terms of an array of such tiling indices. These can in turn be hashed in some fashion to am irregular polygon. For instance, in the game of Risk, the "countries" in the game are defined by polygons, but what is important in Risk is the movement from country (say Kamchatka) to country (Alaska).
-
-.The Risk World View
-image::risk-map.png[The Risk World View]
-
-In this particular map, the specific boundaries or definitions as geometries are less important than the underlying topology of the map (shown here specifically for North America)
-
-[[map_north_america]]
-.Map of North America as a graph
-image::north-america.png[Map of North America as a graph]
-
-// [source,mermaid]
-// ----
-// graph TD
-//
-//     subgraph North America
-//         Alaska(Alaska)
-//         NWTerritory(NW Territory)
-//         Greenland(Greenland)
-//         Alberta(Alberta)
-//         Ontario(Ontario)
-//         Quebec(Quebec)
-//         WesternUS(Western US)
-//         EasternUS(Eastern US)
-//         CentralAmerica(Central America)
-//
-//         Alaska --- NWTerritory
-//         Alaska --- Alberta
-//         Alaska --- Kamchatka_Asia
-//
-//         NWTerritory --- Greenland
-//         NWTerritory --- Alberta
-//         NWTerritory --- Ontario
-//
-//         Greenland --- Ontario
-//         Greenland --- Quebec
-//         Greenland --- Iceland_Europe
-//
-//         Alberta --- Ontario
-//         Alberta --- WesternUS
-//
-//         Ontario --- Quebec
-//         Ontario --- EasternUS
-//         Ontario --- WesternUS
-//
-//         WesternUS --- EasternUS
-//         WesternUS --- CentralAmerica
-//
-//         EasternUS --- CentralAmerica
-//
-//         CentralAmerica --- Venezuela_SA
-//     end
-//
-// ----
-
-This notion of identifying the cells within a domain is useful in a number of ways because it forces thinking in terms of topology, rather than geometry. There are ways of specifying the extents of particular cells from a rendering standpoint (typically as sheets of polygons) but in most domains, dealing with the conceptual representation of a place is often far more important than dealing with a precise geometrical distribution.
-
-In a topological view, cells are connected via links. These represent permissible trajectories that a given agent can move to from a given place, absent any other constraining information. For instance, from Ontario, one can go to the Eastern or Western United States, Greenland, Quebec or Alberta, but going to Central America or Iceland cannot be done without passing through an intervening country.
-
-This approach requires a certain degree of pre-planning. One reason that games are used as a metaphor is that they often allow for a significant reduction in the number of dimensions necessarily to capture a model. They also make goal achievement more feasible, because the agent or thing in the system can identify a goal and work with the information inherent in the topology rather than trying to intrinsically capture the specifics of how to achieve these goals.
 
 == Requirements and recommendations
 
