@@ -4,8 +4,8 @@
 
 Registries in the Spatial Web are of two types, performing two distinct functions:
 
-* A Domain Registry is used to record the membership of an ENTITY in a DOMAIN.  (See <<domain_membership>> )
-* A Verifiable Data Registry (VDR) provides the information for a SWID document.  (VDR is as defined in <<w3c_did>>)
+* A Domain Registry is used to record the membership of an ENTITY in a DOMAIN.  (See (<<domain_membership>>))
+* A Verifiable Data Registry (VDR) provides the information for a SWID document.  (VDR is as defined in (<<w3c_did>>))
 
 The two functions for Spatial Web registries are distinct, i.e., a Domain registry is not the source of SWIDs.  
 

@@ -64,7 +64,7 @@ While the original work on the tragedy of the commons concept suggested that all
 
 Cooperation in a large society of self-interested individuals is notoriously difficult to achieve when the externality of one individual’s action is spread thin and wide on the whole society. This leads to the ‘tragedyof the commons’ in which rational action will ultimately make everyone worse-off. 
 
-Achieving global cooperation can be encouraged by localizing externalities to peers in a social network, thus leveraging the power of peer-pressure to regulate behavior. The mechanism relies on a joint model of externalities and peer-pressure.  <<Mani_2013>>
+Achieving global cooperation can be encouraged by localizing externalities to peers in a social network, thus leveraging the power of peer-pressure to regulate behavior. The mechanism relies on a joint model of externalities and peer-pressure.  (<<Mani_2013>>)
 
 
 == polycentric governance 

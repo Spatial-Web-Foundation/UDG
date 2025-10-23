@@ -4,7 +4,7 @@
 
 A Spatial Web Node (or SW Node) is a computing machine connected to the internet, capable of exchanging HSTP messages. SW Nodes include softrware components, e.g., daemons, that exchange Spatial Web entities as HSML. Each SW Node holds a portion of the UDG conceptual content.  Messages between SW Nodes update the state of ENTITIES in real time.
 
-A broad view of the distributed computing architecture of the Spatial Web node system is depicted in the <<computing_continuum, Spatial Web computing continuum>>.
+A broad view of the distributed computing architecture of the Spatial Web node system is depicted in the (<<computing_continuum, Spatial Web computing continuum>>).
 
 
 [[computing_continuum]]
@@ -68,7 +68,7 @@ Content in the Spatial Web will change across a range of timeframes.
 . Human thinking: HUMANS and AGENTS interacting with static SW Nodes.  Latency: 250 msec
 . UDG synchronization:  UDG nodes updating content across UDG node network.  Latency: seconds
 
-As shown in <<computing_continuum, Spatial Web continuum>>, the Spatial Web distributed computing environment spans across a continuum of communication networks, e.g., internet, mobile, LAN/WAN. This continuum features a wide variety of computing nodes and communication protocols. Deployments of the Spatial Web shall take advantage of the bandwidth and latency features in the different layers of the continuum.
+As shown in (<<computing_continuum, Spatial Web continuum>>), the Spatial Web distributed computing environment spans across a continuum of communication networks, e.g., internet, mobile, LAN/WAN. This continuum features a wide variety of computing nodes and communication protocols. Deployments of the Spatial Web shall take advantage of the bandwidth and latency features in the different layers of the continuum.
 
 The Spatial Web builds on internet mechanisms for time synchronization.  Extensions are needed for managing internal local hstp.d clocks (repeating internal events) to manage query and updates against live resources.
 

@@ -6,7 +6,7 @@
 
 The primary, basic computing node in the Spatial Web is SW Content Node.  The SW Content Node contains the primary software components for communications in the Spatial Web, e.g., hstp.d daemon for handling all hstp messages.  Other SW Nodes extend the design SW Content Node.
 
-A SW Content Node's central focus is to enable the discovery and sharing of information in a way that preserves privacy. Similar to a <<solid_pods, SOLID Personal Online Data Store (PODS)>>, a HUMAN or AGENT user stores personal data hosted wherever the user desires. Applications that are authenticated are allowed to request data if the user has given the application permission. A HUMAN may distribute personal information among several pods; for example, different pods might contain personal profile data, contact information, financial information, health, travel plans, or other information. The user could then join a DOMAIN community by giving it permission to access the appropriate information in a specific SW Node. The user retains complete ownership and control of data in the user's SW Conent Node.
+A SW Content Node's central focus is to enable the discovery and sharing of information in a way that preserves privacy. Similar to a (<<solid_pods, SOLID Personal Online Data Store (PODS)>>), a HUMAN or AGENT user stores personal data hosted wherever the user desires. Applications that are authenticated are allowed to request data if the user has given the application permission. A HUMAN may distribute personal information among several pods; for example, different pods might contain personal profile data, contact information, financial information, health, travel plans, or other information. The user could then join a DOMAIN community by giving it permission to access the appropriate information in a specific SW Node. The user retains complete ownership and control of data in the user's SW Conent Node.
 
 Not all (perhaps not even most) DOMAINS will be in publicly available SW Nodes. Many DOMAINS will be private networks intended for access only by  those with need to know (or to modify), especially those with IoT interconnections.
 
@@ -115,7 +115,7 @@ This operation is handled by the domain manager. Note that in fully autonomous o
 
 A UDG Node is a a type of SW Node that performs UDG functions.  UDG Nodes work as a network in as a Distributed replicate synchronization. 
 
-Design requirements are identified by thinking of the UDG Node Network as a Distributed Graph Database.  A distributed graph database stores data as vertices and edges, distributing this information across multiple machines. This architecture offers significant performance advantages over traditional, centralized databases, especially when handling large, interconnected datasets.  Instead of storing the entire UDG on a single server, a distributed graph database spreads it across numerous machines. This enables parallel processing, where multiple machines work concurrently on different parts of the data.  AS the UDG grows, scalability is handled by add more machines to the network. Distribution also makes the system more fault tolerant. (The discussion here is from <<puppygraph>>, but it is typical of other descriptions.)
+Design requirements are identified by thinking of the UDG Node Network as a Distributed Graph Database.  A distributed graph database stores data as vertices and edges, distributing this information across multiple machines. This architecture offers significant performance advantages over traditional, centralized databases, especially when handling large, interconnected datasets.  Instead of storing the entire UDG on a single server, a distributed graph database spreads it across numerous machines. This enables parallel processing, where multiple machines work concurrently on different parts of the data.  AS the UDG grows, scalability is handled by add more machines to the network. Distribution also makes the system more fault tolerant. (The discussion here is from (<<puppygraph>>), but it is typical of other descriptions.)
 
 Components that graph databases employ to handle the complexity and scale of graph data distributed across several machines include these:
 
@@ -151,13 +151,13 @@ The UDG Node consists of a number of software modules.   The UDG Node includes a
 
 * Extension Modules: In all of these components, the fundamental design will be modular, such that each component can be extended by code depending upon implementation. For instance, the HSML encoder, the UDG.d and the HSTP.d all have access points for agentic systems and e-commerce capabilities, components can be used for converting external datasets into data analytics forms, transformations can be written that generate images, maps, and related formats and so forth. These module extensions would be integrated in by individual SW Node Administrators.
 
-* Hyperworld module: This module provides services on <<hyperworlds, Hyperworlds>>.  The module provides a persistent store of <<hyperspace-reference-systems, HRSs>> and the ENTITIES embedded in the Worlds held in the node.  The module peforms queries including spatial queries on Hyperworlds. 
+* Hyperworld module: This module provides services on (<<hyperworlds, Hyperworlds>>).  The module provides a persistent store of (<<hyperspace-reference-systems, HRSs>>) and the ENTITIES embedded in the Worlds held in the node.  The module peforms queries including spatial queries on Hyperworlds. 
 
 == Registry Node and network
 
-The <<domain-registry-hierarchy, hierarchy of DOMAIN Registries>> is implemented as a network of Registry Nodes.
+The (<<domain-registry-hierarchy, hierarchy of DOMAIN Registries>>) is implemented as a network of Registry Nodes.
 
-A Registry Node performs the computing and communication functions necessary to deploy the content and functions defined in <<section-conceptual-view-regisries>>
+A Registry Node performs the computing and communication functions necessary to deploy the content and functions defined in (<<section-conceptual-view-regisries>>)
 
 A Registry Node is a specific SW Node that provides a number of services related to discovery, definition, search, DiD and alias resolution of resources. 
 

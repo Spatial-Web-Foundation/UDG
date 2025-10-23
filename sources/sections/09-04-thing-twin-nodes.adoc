@@ -7,13 +7,13 @@ sensor and actuators without AGENT
  *Thing Node*
 
 
-THING ENTITIES are hosted by Thing Nodes.  Thing Nodes include the physical devices layer of the <<[[computing_continuum, computing continuum>>.   A THING DOMAIN is a bounded entity without agency.  A Thing Node provides a Spatial Web presence for physical devices.  Thing Nodes will interact with the UDG in multiple ways.  
+THING ENTITIES are hosted by Thing Nodes.  Thing Nodes include the physical devices layer of the (<<[[computing_continuum, computing continuum>>).   A THING DOMAIN is a bounded entity without agency.  A Thing Node provides a Spatial Web presence for physical devices.  Thing Nodes will interact with the UDG in multiple ways.  
 
 Thing Nodes provide Observations to UDG.  Observations are the result of a sensing event and the use of processing to convert the physical energy detected by the sensor into a digital message.  The observation message is communicated using HSML.  Multiple SW Nodes may access a Thing Node to observe the environment.
 
 Thing Nodes affect the environment on behalf of other SW Nodes.  
 
-Thing Nodes interact with UDG nodes to provide information about <<hyperworlds, Hyperworlds>>.  THING DOMAINS may be located in Hyperworlds. When an AGENT seeks information about DOMAINS in a Hyperworld, it may include requests to Thing Nodes.  This is a bridge between cyber and physical worlds.
+Thing Nodes interact with UDG nodes to provide information about (<<hyperworlds, Hyperworlds>>).  THING DOMAINS may be located in Hyperworlds. When an AGENT seeks information about DOMAINS in a Hyperworld, it may include requests to Thing Nodes.  This is a bridge between cyber and physical worlds.
 
 THING DOMAINS may be registered in a DOMAIN registry.  In that case, the Thing Node will hold the Membership Credential that supports the claim of the THING being part of the upper DOMAIN.
 

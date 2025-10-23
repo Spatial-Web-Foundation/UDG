@@ -4,7 +4,7 @@
 
 HSTP is an application-level protocol for distributed and interoperable computer systems and end-point devices. HSTP enables HSML-compliant systems to communicate to one another to execute functionality and share data.
 
-An HSTP operation (as defined in <<std-3>>) includes information from the UDG in order to determine the target for an hstp operation, including:
+An HSTP operation as defined in (<<std-3>>), includes information from the UDG in order to determine the target for an hstp operation, including:
 
 * Target.   A target identifies the intended recipient or target system for the operation specified in the message. The format can be a spatial Domain with modifiers, a SWID with modifiers, a specific URI endpoint with modifiers, a protocol version, or the requester’s own SWID. The primary formats expected are SWIDs or URIs. 
 * Neighbors An optional list of the sending system’s (requester’s in a request, target’s in a response) publicly-listed neighboring SWIDs within the Universal Domain Graph (UDG).
@@ -148,7 +148,7 @@ A central part of the Spatial Web is the use of secure credentials in order to m
 Surety is made possible through the use of credentials that can be issued both by spatial web nodes that identify that specific resources have been created by that node, as well as assertions made by external authorities that a given agent has the relevant credentials to perform specific activities pursuant to a contract.
 
 The mechanism that binds these credentials is the __Spatial Web Identifier__ (or __SWID__), which is a specific key that references a credential ___within___ the Spatial Web Node. This key is a ___decentralized identifier___ (or __DID__)
-according to the <<w3c_did_core,W3C DID Core Specification>>. All DiDs issued by a spatial web node are further considered to have a SWID method that indicates that such credentials follow the Spatial Web standard (D3.3.1). The specific
+according to the (<<w3c_did_core,W3C DID Core Specification>>). All DiDs issued by a spatial web node are further considered to have a SWID method that indicates that such credentials follow the Spatial Web standard (D3.3.1). The specific
 format for such credentials is still being worked out.
 
 === Credential Stores and Addresses

@@ -46,7 +46,7 @@ In Multi-Agent Systems (MASs), multiple AGENTS operate in an environment and int
 
 The Spatial Web provides mechanisms and methods that enable agents to understand and interact with other entities in the system as well as humans. This goal is centered around agents’ decision making about when and how to interact with whom for pursuing specific goals or performing specific task. An important objective is to ensure that agents make right and good decisions - based on norms and laws - typically the best decision that they can do given what is known. Therefore, decision making is at the heart of building multi-agent systems.   
 
-Decision theory applies mathematical and statistical methodologies to help provide information on which decisions can be made. It is based on the axioms of probability and utility. To some degree, it is a combination of probability theory and utility theory. Decision Theory in the multi-agents must be accomodated by the UDG (<<[Xin_2004>>)
+Decision theory applies mathematical and statistical methodologies to help provide information on which decisions can be made. It is based on the axioms of probability and utility. To some degree, it is a combination of probability theory and utility theory. Decision Theory in the multi-agents must be accomodated by the UDG (<<Xin_2004>>)
 
 Explainability refers to the ability of an AGENT to provide understandable reasons for its decisions and actions. One approach is to provide a framework for transparent introspection and decision-making by designing explainability with active inference (<<Albarracin_2023>>).
 
@@ -57,13 +57,13 @@ Decision Theory and decision explainability are key aspects of social agents exh
 
 AGENTS will form contracts using the UDG.  Contract must be consistent with laws, may be consistent with norms.
 
-Relationships between entities  AGENT, ACTIVITY, and CONTRACT relationships are shown in IEEE 2874 clause 6.6.11 including this Figure <<agents_contracts_activities>>
+Relationships between entities  AGENT, ACTIVITY, and CONTRACT relationships are shown in IEEE 2874 clause 6.6.11 including this Figure (<<agents_contracts_activities>>):
 
 [[agents_contracts_activities]]
 .Agent-Contract-Activity relationship diagram
 image::agents_contracts_activities.png["Diagram of the relationships between HSML AGENTs, ACTIVITY Schemas, ACTIVITY Instances, and CONTRACTs"]
 
-<<agents_contracts_activities>> pictures the core relationships that obtain in the HSML ontology among, a) AGENTs, b) ACTIVITY Schemas, c) ACTIVITIES (aka ACTIVITY Instances), d) CONTRACTs. A Requester is an AGENT requesting performance of a task or other CONTRACT. The loop connection on ACTIVITY Schema represents the composition of Complex ACTIVITY Schemas.
+(<<agents_contracts_activities>>) shows the core relationships in the HSML ontology among, a) AGENTs, b) ACTIVITY Schemas, c) ACTIVITIES (aka ACTIVITY Instances), d) CONTRACTs. A Requester is an AGENT requesting performance of a task or other CONTRACT. The loop connection on ACTIVITY Schema represents the composition of Complex ACTIVITY Schemas.
 
 For additional information on AGENTS forming contracts for ACTIVITIES, see SWF Agent Framework Design Specification.
 

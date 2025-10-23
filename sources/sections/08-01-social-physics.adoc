@@ -36,7 +36,7 @@ Exploration refers to the use of social networks in harvesting ideas and informa
 
 In order to acheive Enagement in the UDG, AGENTS must interact, cooperate and build trust.
 
-One measure of effectiveness of idea flow is creativity. Creative output depends strongly on two processes: idea discovery (exploration) and the integration of those ideas into new behaviors (engagement).  Exploration outside of the group, together with their engagement within the group. Exploration and Engagement networks are shown in <<exploration-engagement-networks>>. 
+One measure of effectiveness of idea flow is creativity. Creative output depends strongly on two processes: idea discovery (exploration) and the integration of those ideas into new behaviors (engagement).  Exploration outside of the group, together with their engagement within the group. Exploration and Engagement networks are shown in (<<exploration-engagement-networks>>). 
 
 The UDG and AGENTS are designed to improve Idea Flow.  With increased engagement comes an increase in opportunities for social learning, for sharing vital resources such as tacit operational knowledge and successful work habits. Thois results in improved collective intelligence peformance. Collective intelligence is not strongly correlated with the average or maximum individual intelligence of group members but is correlated with the average social sensitivity of group members, the equality in distribution of conversational turn-taking, and for human groups, the proportion of females in the group. (<<woolley_2010>>)
 

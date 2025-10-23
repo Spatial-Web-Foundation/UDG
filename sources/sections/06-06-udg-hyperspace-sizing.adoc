@@ -5,7 +5,7 @@
 
 == Internet scale
 
-<<IEEE_2874_2025>> requires the Spatial Web be designed for internet scale.  Internet scale has changed as the Internet has evolved and grown.  Internet Protocol version 4 (IPv4) address size was found to be inadequate.  IPv6 address space was greatly increased to meet future demands.
+(<<IEEE_2874_2025>)> requires the Spatial Web be designed for internet scale.  Internet scale has changed as the Internet has evolved and grown.  Internet Protocol version 4 (IPv4) address size was found to be inadequate.  IPv6 address space was greatly increased to meet future demands.
 
 The Spatial Web size estimates listed below are currently less than the IPv6 scale.  While the Spatial Web estimates below are justified, the need for extensibility of the Spatial Web should be anticipated. 
 
@@ -27,7 +27,7 @@ Estimates of the UDG size are given below.  Here is a summary:
 
 The UDG is similar to existing, proprietary knowledge graphs.
 
-<<Noy, Industry-scale knowledge graphs: lessons and challenges>> provides a summary of large existing knowledge graphs.  These knowledge graphs may have grown a handful of orders of magnitude since 2019 when the size of each was:
+(<<Noy, Industry-scale knowledge graphs: lessons and challenges>>) provides a summary of large existing knowledge graphs.  These knowledge graphs may have grown a handful of orders of magnitude since 2019 when the size of each was:
 
 * Microsoft’s knowledge graph:  approximately 2 billion primary entities,  2*10^9^ entities as of 2019.
 * 2023 estimate of large knowledge graphs 10^12^ entities

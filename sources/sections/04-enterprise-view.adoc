@@ -30,6 +30,6 @@ Each viewpoint of the UDG includes requirements that are specific to Spatial Web
 
 [[fig-udg-enterprise]]
 .UDG Enterprise Viewpoint
-image::enterprise_ov1_diagram.png[UDG enterprise view showing conceptual and distributed views, pdfwidth=80vw]
+image::enterprise_ov1_diagram.png[UDG enterprise view showing conceptual and distributed views, pdfwidth=60vw]
 
 
