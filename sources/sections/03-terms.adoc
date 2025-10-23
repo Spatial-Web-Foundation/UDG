@@ -1,3 +1,196 @@
 == Terms, definitions and abbreviated terms
 
-TBD
+=== Terms and definitions
+
+==== distributed computing
+
+Model of computing in which a set of nodes coordinates its activities by means of digital messages passed between the nodes.
+
+[.source]
+<<ISO_IEC_23188_2020,clause=3.1.1>>
+
+
+==== dimension
+
+A measurable extent of some kind, such as length, breadth, depth, or height.
+
+
+==== DOMAIN
+
+Sphere of knowledge, influence, or ACTIVITY.
+
+related:seealso[ENTITY]
+
+==== domain authority
+
+An ENTITY that is CREDENTIALED to have the ability to define within a DOMAIN the norms and terms under which CONTRACTS are created governing: AGENTS, ACTIVITIES and CREDENTIALS within that DOMAIN.
+
+==== ENTITY
+
+that which is perceived, known, or inferred to exist, has existed, or is anticipated to exist.
+
+[example]
+An event, idea, object, person, process, etc.
+
+NOTE: An ENTITY can exist whether data about it are available or not.
+
+NOTE: ENTITY is the base item in the Spatial Web Ontology. <<section-hsml-conceptual-model>>
+
+==== Euclidean space
+
+A type of vector space in which the notions of distance and angle are defined.
+
+==== Generalized worlds
+
+ENTITIES embedded in a vector class of HYPERSPACE using a generalized coordinate reference system to define location in a high dimensional space.
+
+NOTE: Generalized worlds are a generalization of geographic information referenced to a geographic coordinate reference system.
+
+NOTE: see also World2Vec
+
+NOTE: the term "generalized worlds" may be changed, but the concept as defined in <<generalized-worlds>> needs to be defined and given a stable term.
+
+==== geographic coordinate reference system
+
+Coordinate reference system that has a geodetic reference frame and an ellipsoidal coordinate system.
+
+[.source]
+<<ISO_19111_2019,clause=3.1.35>>
+
+
+==== graph space
+
+A set of nodes and edges such that every edge has both a source node and a target node.
+
+NOTE: Graph space is a type of HYPERSPACE.
+
+==== HYPERSPACE
+
+preferred:[SPACE]
+
+A set of 'points' such that, for every ordered pair of points, there is a possibly empty set of 'paths' from the first point to the second, and such that there is an 'identity' path from every point to itself.
+
+==== Hyperspace Modelling Language
+
+[%metadata]
+abbreviation-type:: initialism
+
+preferred:[HSML]
+
+A human- and machine-readable modeling language and semantic data ontology schema that describes objects, relations, actions, activities and their permissions.
+
+NOTE: Uses of HSML include the expression and automated execution of legal, financial, and physical activities.
+
+==== Hyperspace Transaction Protocol
+preferred:[HSTP]
+
+[%metadata]
+abbreviation-type:: initialism
+
+
+Generic protocol designed to underwrite automated contracting transactions that are required for building a coherent, decentralized, secure, and privacy-respecting {{Spatial Web}}.
+
+==== register
+
+Set of files containing identifiers assigned to items with descriptions of the associated items
+
+[.source]
+<<ISO_19135_1_2015,clause=4.1.9>>
+
+==== relationship
+
+Links, portals, membership, situations, paths
+
+==== representation
+
+Model that can be used to describe some aspect of a world.
+
+NOTE: Representations can be passive or active. A passive representation reflects a possible state of affairs, typically the state of some spatiotemporally local slice of an AGENT'S environment, while an active representation changes the state of a system to conform to the representation.
+
+NOTE: Representation can be probabilistic (e.g., a conditional probability distribution or Bayesian belief) and pertain to either states of the world generating data or content, at a particular moment in time, or contingencies and dynamics that could depend upon the actions of a user.
+
+==== Spatial Web
+
+Network structures supported by the protocol, architecture, and governance related to HSTP and HSML and their supporting components.
+
+==== spatial web identifier
+preferred:[SWID]
+
+A decentralized identifier used to uniquely identify an ENTITY, DOMAIN, or other item within the {{Spatial Web}}.
+
+==== Spatial Web Domain Server
+
+Networked server that provides location-based identification of HYPERSPACE assets and ownership information to Spatial Web Domains.
+
+/NOTE: A Spatial Web Domain Server handles spatial content retrieval and spatial transaction validation, whereby the rules for particular areas can be described as spatial permissions in their associated assets.
+
+==== Spatial Web Node
+
+Computing machine connected to the internet, capable of exchanging HSTP messages.
+
+==== universal domain graph
+preferred:[UDG]
+
+A distributed hypergraph which contains all relationships between all known {{SWID,SWIDs}} in the Spatial Web.
+
+NOTE:  The universal domain graph is the complete {{Spatial Web,Spatial Web}} hypergraph.
+
+==== distributed universal domain graph system
+preferred:[distributed UDG system]
+
+The set of coordinated Spatial Web Nodes that provide services on the distributed UDG.
+
+==== UDG entity graph
+
+all instances of SW entities and connections represented in HSML
+
+==== UDG node graph:
+
+all distributed computing SW Nodes and connections using HSTP
+
+==== UDG Node
+
+a type of distributed computing Spatial Web Node that performs UDG functions
+
+Compare with Spatial Web Domain Server
+
+==== vector space
+
+Type of space composed of {{dimension,dimensions}} where each {{dimension}} is the set of real numbers.
+
+NOTE: Vector space is a type of {{HYPERSPACE}}, and {{Euclidean space}} is a type of vector space.
+
+
+=== Abbreviated terms
+
+AI:: artificial intelligence
+API:: application programming interface
+AR:: augmented reality
+BFO:: basic formal ontology
+CRS:: coordinate reference system
+CRUD:: create, read, update, and delete
+DGGS:: Discrete Global Grid System
+DLT:: distributed ledger technology
+FAIR:: Findable, Accessible, Interoperable, and Reusable
+glTF:: GL Transmission Format
+IIC:: Industry IoT Consortium
+IoT:: Internet of Things
+IRI:: Internationalized Resource Identifier
+M2M:: machine to machine
+MIME:: Multipurpose Internet Mail Extensions
+OGC:: Open Geospatial Consortium
+OWL:: Web Ontology Language
+RDF:: Resource Description Framework
+SHACL:: Shapes Constraint Language
+SKOS:: Simple Knowledge Organization System
+SPARQL:: SPARQL Protocol and RDF Query Language
+SWE:: Sensor Web Enablement
+UDG:: Universal Domain Graph
+UDT:: Urban Digital Twin
+VC:: verifiable credentials
+VR:: virtual reality
+W3C:: World Wide Web Consortium
+WoT:: Web of Things
+XR:: collective reference to both AR and VR
+ZKP:: zero-knowledge proof
+
