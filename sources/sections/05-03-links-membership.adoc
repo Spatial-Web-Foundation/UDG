@@ -20,15 +20,15 @@ The complexity of the relationships in the UDG can be charaterized using mereolo
 [cols="1,6", options="header"]
 |===
 | Type of Relationship | Description
-3+| Hierarchical
+.3+| Hierarchical
 | * DOMAINS may be a member of one and only one upper DOMAIN. 
 | * DOMAINS may not have links to other DOMAINS.   
 | * Coordination between DOMAINS occurs through the Domain Authority of the DOMAIN in which the DOMAIN is a member. 
-3+| Heterarchical
+.3+| Heterarchical
 | * DOMAINS may be members of one and only one upper DOMAIN. 
 | * DOMAINS may have links to other DOMAINS. 
 | * Coordination between DOMAINS occurs through the Domain Authority of the upper DOMAIN and through relationships to other DOMAINS. 
-3+| Holonic
+.3+| Holonic
 | * DOMAINs may be members of multiple upper DOMAINS.
 | * DOMAINS may have links to other DOMAINS. 
 | * Coordination between DOMAINS occurs through the Domain Authority of the upper DOMAIN and through relationships to other DOMAINS.

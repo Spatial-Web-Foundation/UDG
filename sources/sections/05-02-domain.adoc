@@ -165,16 +165,12 @@ did:swid:c124151stqwf98cjjklm
 
 Another organization (such as the aforemention UPNA) may then create an association through their own alias to the SWRA alias:
 
-----
 hstp:gov:upna:Place:Earth
-    Place:isAnalogOf hstp:org:swra:Place:Earth
-----
+Place:isAnalogOf hstp:org:swra:Place:Earth
 
 Aliases can also be applied from different protocols. For instance, UPNA might use an HTTP-based URL as an allias:
 
-----
 http://sw.upna.gov/Place/Earth
-----
 
 This would map to the credential endpoint for the registry, which would then
 retrieve the credential to the relevant entity as a document. If this was called
