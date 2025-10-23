@@ -65,9 +65,7 @@ include::sections/00-abstract.adoc[]
 
 include::sections/01-overview.adoc[]
 
-include::sections/02-normrefs-temp.adoc 
-
-// include::sections/02-normrefs.adoc[]
+include::sections/02-normrefs.adoc[]
 
 include::sections/03-terms.adoc[]
 
