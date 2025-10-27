@@ -18,24 +18,44 @@
 :toc-figures: true
 :toc-tables: true
 :comment: [backcover] leadership team list below
+
 :fullname: Gabriel René
 :role-description: leadership
 :contributor-position: Executive Director / Founder
+
 :fullname_2: Dan Mapes
 :role-description_2: leadership
 :contributor-position_2: Managing Director / Founder
-:fullname_3: Bastiaan den Braber
+
+:fullname_3: Michael Wadden
 :role-description_3: leadership
-:contributor-position_3: Director of Operations
-:fullname_4: George Percivall
+:contributor-position_3: Managing Director / Outreach
+
+:fullname_4: Capm Petersen 
 :role-description_4: leadership
-:contributor-position_4: Distinguished Engineering Fellow
-:fullname_5: Dan Richardson
+:contributor-position_3: Director of Innovation & Strategy
+
+:fullname_5: Bastiaan den Braber
 :role-description_5: leadership
-:contributor-position_5: Director of Market Analysis
-:fullname_6: Dr. Sarah Grace Manski
+:contributor-position_3: Director of Operations
+
+:fullname_6: George Percivall
 :role-description_6: leadership
+:contributor-position_4: Distinguished Engineering Fellow
+
+:fullname_7: Dr. Jacqueline Hynes
+:role-description_7: leadership
+:contributor-position_4: Research Engineer
+
+:fullname_8: Dan Richardson
+:role-description_8: leadership
+:contributor-position_5: Director of Market Analysis
+
+:fullname_9: Dr. Sarah Grace Manski
+:role-description_9: leadership
 :contributor-position_6: Senior Ethics Advisor
+
+
 :comment: [backcover] participants list below
 :fullname_7: George Percivall (lead editor)
 :fullname_8: Kurt Cagle
