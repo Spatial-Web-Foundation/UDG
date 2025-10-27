@@ -46,9 +46,9 @@
 :role-description_9: leadership
 :contributor-position_9: Senior Ethics Advisor
 :comment: [backcover] participants list below
-:fullname_7: George Percivall (lead editor)
-:fullname_8: Kurt Cagle
-:fullname_9: Christine Perey
+:fullname_10: George Percivall (lead editor)
+:fullname_11: Kurt Cagle
+:fullname_12: Christine Perey
 
 // 20250319 rwp override background colors for admonitions in the current document
 // based on ticket
