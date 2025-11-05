@@ -27,7 +27,7 @@ Estimates of the UDG size are given below.  Here is a summary:
 
 The UDG is similar to existing, proprietary knowledge graphs.
 
-(<<Noy, Industry-scale knowledge graphs: lessons and challenges>>) provides a summary of large existing knowledge graphs.  These knowledge graphs may have grown a handful of orders of magnitude since 2019 when the size of each was:
+(<<noy, Industry-scale knowledge graphs: lessons and challenges>>) provides a summary of large existing knowledge graphs.  These knowledge graphs may have grown a handful of orders of magnitude since 2019 when the size of each was:
 
 * Microsoft’s knowledge graph:  approximately 2 billion primary entities,  2*10^9^ entities as of 2019.
 * 2023 estimate of large knowledge graphs 10^12^ entities

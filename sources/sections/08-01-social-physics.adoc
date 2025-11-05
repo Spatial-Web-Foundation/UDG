@@ -47,7 +47,7 @@ image::exploration-engagement-networks.png[Variation of network structure for ex
 
 == The Mathematics of Social Influence
 
-An “influence model” can assit in understanding social influence.  The model estimates how much the state of one AGENT  affects the state of another AGENT in the Spatial Web. The model can recover estimates of influence, generate results that are consistent with other measures of social networks, and uncovers important shifts in the way states may be transmitted between actors at different points in time. (<<Pan_et_al_2013>>)
+An “influence model” can assit in understanding social influence.  The model estimates how much the state of one AGENT  affects the state of another AGENT in the Spatial Web. The model can recover estimates of influence, generate results that are consistent with other measures of social networks, and uncovers important shifts in the way states may be transmitted between actors at different points in time. (<<pan_2013>>)
 
 
 * Observable signals: O
@@ -56,7 +56,7 @@ An “influence model” can assit in understanding social influence.  The model
 
 
 [[influence_model]]
-.Inflence model equation (Source: (<<Pan_et_al_2013>>))
+.Inflence model equation (Source: (<<pan_2013>>))
 image::influence_model.png[Inflence model equation]
 
 
