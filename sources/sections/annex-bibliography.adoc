@@ -66,6 +66,11 @@ span:uri[https://www.electropedia.org/]
 // Groups
 // ------------------------------------
 
+
+// ------------------------------------
+// other references
+// ------------------------------------
+
 // * [[[designing_ecosystems, Ecosystems of intelligence 2024]]]
 //   “Designing ecosystems of intelligence from first principles,”
 //   Friston, K. J., M. J. Ramstead, A. B. Kiefer et al., 
@@ -73,80 +78,96 @@ span:uri[https://www.electropedia.org/]
 * [[[designing_ecosystems,doi:10.1177/26339137231222481]]]
 
 
-// [[[stse, Spatio-temporal state embedding 2025]]]
+// [[[stse_2025, Spatio-temporal state embedding 2025]]]
 // Spatio-temporal state embedding for knowledge graph completion
 // Xiaoyu Ji, Yibing Cao, Jiangshui Zhang, Xinke Zhao,
 // STSE: Spatio-temporal state embedding for knowledge graph completion,
-// Knowledge-Based Systems, Volume 317, 2025, 113469,
-// ISSN 0950-7051,
-// https://doi.org/10.1016/j.knosys.2025.113469.
-// (https://www.sciencedirect.com/science/article/pii/S0950705125005167)
-* [[[stse,doi:10.1016/j.knosys.2025.113469]]]
+* [[[stse_2025,doi:10.1016/j.knosys.2025.113469]]]
 
 
-* [[[Element_84,Earth Observation Vector Embeddings]]]
-span:title[The Case for a Centralized Earth Observation Vector Embeddings Catalog]
-Authors: Jason Gilman, Adeel Hassan, Nathan Zimmerman
-https://github.com/Element84/vector-embeddings-catalog-whitepaper?tab=readme-ov-file
-2025-06-05
-
-// [[[embeddings_of_earth, Global Embeddings of Earth]]]
-// title={Global and Dense Embeddings of Earth: Major TOM Floating in the Latent Space}, 
-// author={Mikolaj Czerkawski and Marcin Kluczek and Jędrzej S. Bojanowski},
-// year={2024},
-// eprint={2412.05600},
-// archivePrefix={arXiv},
-// primaryClass={cs.CV},
-// url=https://arxiv.org/abs/2412.05600,
-
-* [[[embeddings_of_earth,doi:10.48550/arXiv.2412.05600]]]
+* [[[Element_84_2025,1]]]
+span:type[article]
+span:surname[Gilman], span:initials[J.]
+span:surname[Hassan], span:initials[A.]
+span:surname[Zimmerman], span:initials[N.]
+span:title[The Case for a Centralized Earth Observation Vector Embeddings Catalog].
+span:date[2025-06-05]
+span:publisher[Element 84]
+Available at: span:uri[https://github.com/Element84/vector-embeddings-catalog-whitepaper/blob/main/VectorEmbeddings_WhitePaper_June2025.pdf]
 
 
-//  [[[AlphaEarth, AlphaEarth]]]
-// title={AlphaEarth Foundations: An embedding field model for accurate and //efficient global mapping from sparse label data}, 
-// author={Christopher F. Brown and Michal R. Kazmierski and Valerie J. Pasquarella and William J. Rucklidge and Masha Samsikova and Chenhui Zhang and Evan Shelhamer and Estefania Lahera and Olivia Wiles and Simon Ilyushchenko and Noel Gorelick and Lihui Lydia Zhang and Sophia Alj and Emily Schechter and Sean Askay and Oliver Guinan and Rebecca Moore and Alexis Boukouvalas and Pushmeet Kohli},
-// year={2025},
-//eprint={2507.22291},
-//archivePrefix={arXiv},
-//primaryClass={cs.CV},
-// Available at: span:uri[https://arxiv.org/abs/2507.22291}, 
+* [[[embeddings_of_earth_2024,1]]]
+span:type[article]
+span:surname[Blattner], span:initials[M.]
+span:surname[Pasquarella], span:initials[V.J.]
+span:surname[Kazmierski], span:initials[M.R.]
+span:surname[Samsikova], span:initials[M.]
+span:surname[Rucklidge], span:initials[W.J.]
+span:surname[Brown], span:initials[C.F.]
+span:title[Embeddings of Earth: A Foundation Model for Planetary Representation Learning].
+span:date[2024-12-08]
+span:doi[10.48550/arXiv.2412.05600]
+Available at: span:uri[https://arxiv.org/abs/2412.05600]
+// * [[[embeddings_of_earth,doi:10.48550/arXiv.2412.05600]]]
 
+
+* [[[alphaearth_2025,1]]]
+span:type[article]
+span:surname[Brown], span:initials[C.F.]
+span:surname[Kazmierski], span:initials[M.R.]
+span:surname[Pasquarella], span:initials[V.J.]
+span:surname[Rucklidge], span:initials[W.J.]
+span:surname[Samsikova], span:initials[M.]
+span:title[AlphaEarth Foundations: An embedding field model for accurate and efficient global mapping from sparse label data].
+span:date[2025-07-31]
+span:doi[10.48550/arXiv.2507.22291]
+Available at: span:uri[https://arxiv.org/abs/2507.22291]
 // autofetch not resolving; need to check;
-* [[[alphaearth,doi:10.48550/arXiv.2507.22291]]]
+// * [[[alphaearth_2025,doi:10.48550/arXiv.2507.22291]]]
 
 
-// [[[blattner, Tangential Action Spaces]]]
-// title={Tangential Action Spaces: Geometry, Memory and Cost in Holonomic and Nonholonomic Agents}, 
-// author={Marcel Blattner},
-// year={2025},
-// eprint={2509.03399},
-// archivePrefix={arXiv},
-// primaryClass={eess.SY},
-// Available at: span:uri[https://arxiv.org/abs/2509.03399},
 
+* [[[blattner_2025,1]]]
+span:type[article]
+span:surname[Blattner], span:initials[M.]
+span:title[Tangential Action Spaces: Geometry, Memory and Cost in Holonomic and Nonholonomic Agents].
+span:date[2025-09-02]
+span:doi[10.48550/arXiv.2509.03399]
+Available at: span:uri[https://arxiv.org/abs/2509.03399]
 // autofetch not resolving; need to check;
-* [[[blattner,doi:10.48550/arXiv.2509.03399]]]
+// * [[[blattner,doi:10.48550/arXiv.2509.03399]]]
 
 
 
-*  [[[BigKnolwedge, BigKnowledge]]]
-Title: BigKnowledge: Not Just a Metaphor
-Date: Jul 31, 2024
-Author: André Skupin of BigKnowledge
-url=https://researchmethodscommunity.sagepub.com/blog/concept-grant-update-bigknowledge 
+* [[[bigknowledge_2024,1]]]
+span:type[article]
+span:surname[Skupin], span:initials[A.]
+span:title[BigKnowledge: Not Just a Metaphor].
+span:date[2024-07-31]
+span:publisher[Sage Research Methods Community]
+span:uri[https://researchmethodscommunity.sagepub.com/blog/concept-grant-update-bigknowledge]
+
 
 
 // Hyperdimensional Computing: An Introduction to Computing in Distributed Representation with High-Dimensional Random Vectors
 * [[[hyperdim_comp,doi:10.1007/s12559-009-9009-8]]]
 
 
-// [[[miklov_2013, Words and Phrases and their Compositionality]]]
-// author = {miklov_2013, Tomas and Sutskever, Ilya and Chen, Kai and Corrado, Greg S and Dean, Jeff},
-// booktitle = {Advances in Neural Information Processing Systems},
-// editor = {C.J. Burges and L. Bottou and M. Welling and Z. Ghahramani and K.Q. 
-
-// autofetch not resolving; need to check;
-* [[[miklov_2013,doi:10.48550/arXiv.1310.4546]]]
+* [[[mikolov_2013,1]]]
+span:type[article]
+span:surname[Mikolov], span:initials[T.]
+span:surname[Sutskever], span:initials[I.]
+span:surname[Chen], span:initials[K.]
+span:surname[Corrado], span:initials[G.]
+span:surname[Dean], span:initials[J.]
+span:title[Distributed Representations of Words and Phrases and their Compositionality].
+span:date[2013-10-16]
+span:archivePrefix[arXiv]
+span:eprint[1310.4546]
+span:doi[10.48550/arXiv.1310.4546]
+span:uri[https://arxiv.org/abs/1310.4546]
+// arxiv dois not autofetching correctly
+// * [[[mikolov_2013,doi:10.48550/arXiv.1310.4546]]]
 
 
 
@@ -157,13 +178,14 @@ span:organization[GitHub]
 Available at: span:uri[https://github.com/dav/word2vec].
 
 
+// not sure about this entry
 // * [[[World2Vec, World2Vec]]]
 // is this word2vec?
 // // Available at: span:uri[https://x.com/ylecun/status/1523018860731023361]
 // Author: Yann LeCunn
 // the x.com link points to this document encoded below
 
-
+// is this the reference above?
 // * [[[lerer_2019_pytorch_biggraph,1]]]
 * [[[World2Vec, World2Vec]]]
 span:surname[Lerer], span:initials[A.]
@@ -195,25 +217,6 @@ span:surname[Lindsey], span:initials[J.]
 span:surname[Bricken], span:initials[T.]
 span:surname[Chen], span:initials[B.]
 span:surname[Pearce], span:initials[A.]
-span:surname[Citro], span:initials[C.]
-span:surname[Ameisen], span:initials[E.]
-span:surname[Jones], span:initials[A.]
-span:surname[Cunningham], span:initials[H.]
-span:surname[Turner], span:initials[N. L.]
-span:surname[McDougall], span:initials[C.]
-span:surname[MacDiarmid], span:initials[M.]
-span:surname[Tamkin], span:initials[A.]
-span:surname[Durmus], span:initials[E.]
-span:surname[Hume], span:initials[T.]
-span:surname[Mosconi], span:initials[F.]
-span:surname[Freeman], span:initials[C. D.]
-span:surname[Sumers], span:initials[T. R.]
-span:surname[Rees], span:initials[E.]
-span:surname[Batson], span:initials[J.]
-span:surname[Jermyn], span:initials[A.]
-span:surname[Carter], span:initials[S.]
-span:surname[Olah], span:initials[C.]
-span:surname[Henighan], span:initials[T.]
 span:organization[Anthropic]
 span:type[inproceedings]
 span:title[Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet].
@@ -287,10 +290,6 @@ Available at: span:uri[https://arxiv.org/abs/2402.15332].
 // Natasha Noy, Yuqing Gao, Anshu Jain, Anant Narayanan, Alan Patterson, Jamie Taylor
 * [[[noy,doi:10.1145/3331166]]]
 
-// --------------- rwp working below
-
-* [[[wikipedia-KG, Knolwedge Graphs]]]
-https://en.wikipedia.org/wiki/Knowledge_graph
 
 
 * [[[Weller, Limitations of Embedding]]]
@@ -303,24 +302,34 @@ primaryClass={cs.IR},
 Available at: span:uri[https://arxiv.org/abs/2508.21038],
 
 
-* [[[Pentland_2015, Social physics]]]
-Pentland, A. 
-(2015). 
-Social physics: how good ideas spread—the lessons from a new science. 
-New York: Penguin Books.
+* [[[Pentland_2015,1]]]
+span:type[book]
+span:surname[Pentland], span:initials[A.]
+span:title[Social Physics: How Good Ideas Spread—The Lessons from a New Science].
+span:publisher[Penguin Books]
+span:date[2015-01-27]
+span:uri[https://www.penguinrandomhouse.com/books/314230/social-physics-by-alex-pentland/]
 
 
-* [[[Hayek_1945, Knowledge in Societ]]]
-The Use of Knowledge in Society
-F. A. Hayek
-The American Economic Review, Vol. 35, No. 4. (Sep., 1945), pp. 519-530.
-Stable URL: http://links.jstor.org/sici?sici=0002-8282%28194509%2935%3A4%3C519%3ATUOKIS%3E2.0.CO%3B2-1
+* [[[Hayek_1945,1]]]
+span:type[article]
+span:surname[Hayek], span:initials[F.A.]
+span:title[The Use of Knowledge in Society].
+span:container-title[The American Economic Review]
+span:volume[35]
+span:number[4]
+span:date[1945-09]
+span:pages[519–530]
+Available at: span:uri[https://www.jstor.org/stable/1809376]
 
 
-* [[[Zollman_2025, Network epistemology]]]
-Network epistemology, 
-Kevin J.S. Zollman CMU 
-Not yet published.  Advanced copy from the author recieved May 2025
+* [[[zollman_2025,1]]]
+span:type[unpublished]
+span:surname[Zollman], span:initials[K.J.S.]
+span:title[Network Epistemology].
+span:note[Advanced copy received from the author, May 2025.]
+span:publisher[Carnegie Mellon University]
+span:date[2025]
 
 
 // Wei Pan, Wen Dong, M. Cebrian, Taemie Kim, J. H. Fowler, and A. S. Pentland.
@@ -328,27 +337,30 @@ Not yet published.  Advanced copy from the author recieved May 2025
 * [[[pan_2013, doi:10.1109/msp.2011.942737]]]
  
 
+// not finding this one used in the document...
+* [[[albarracin_2025,1]]]
+span:type[article]
+span:surname[Albarracin], span:initials[M.]
+span:surname[de Jager], span:initials[S.]
+span:surname[Hyland], span:initials[D.]
+span:surname[Manski], span:initials[S.G.]
+span:title[The Physics and Metaphysics of Social Powers: Bridging Cognitive Processing and Social Dynamics, a New Perspective on Power through Active Inference].
+Available at: span:uri[https://arxiv.org/abs/2501.19368].
+span:date[2025]
 
-* [[[Albarracin_2025, Metaphysics of Social Powers]]]
-title={The Physics and Metaphysics of Social Powers: Bridging Cognitive Processing and Social Dynamics, a New Perspective on Power through Active Inference}, 
-author={Mahault Albarracin and Sonia de Jager and David Hyland and Sarah Grace Manski},
-year={2025},
-eprint={2501.19368},
-archivePrefix={arXiv},
-primaryClass={physics.soc-ph},
-Available at: span:uri[https://arxiv.org/abs/2501.19368], 
 
 // Veissière SPL, Constant A, Ramstead MJD, Friston KJ, Kirmayer LJ. 
 // Thinking through other minds: A variational approach to cognition and culture. 
 * [[[veissiere_2020, doi:10.1017/S0140525X19001213]]]
  
 
-* [[[tomasello_2022, Evolution of Agency]]]
-Title: The Evolution of Agency: Behavioral Organization from Lizards to Humans
-Author: Michael Tomasello
-Publisher: MIT Press
-Publication Date: September 6, 2022
-ISBN: 978-0262047005
+
+* [[[tomasello_2022,1]]]
+span:type[book]
+span:surname[Tomasello], span:initials[M.]
+span:title[The Evolution of Agency: Behavioral Organization from Lizards to Humans].
+span:publisher[MIT Press]
+span:date[2022-09-06]
 
 
 // Natural Curiosity - Putting Knowledge to Work: New Directions for Knowledge-First Epistemology
@@ -362,32 +374,38 @@ ISBN: 978-0262047005
  
 
 
-* [[[Milgram_1967, Small World Problem]]] 
-Milgram, Stanley 
-(May 1967). 
-"The Small World Problem". 
-Psychology Today. Ziff-Davis Publishing Company.
+* [[[milgram_1967,1]]]
+span:type[article]
+span:surname[Milgram], span:initials[S.]
+span:title[The Small World Problem].
+span:container-title[Psychology Today]
+span:publisher[Ziff-Davis Publishing Company]
+span:pages[60–67]
+span:date[1967-05]
 
 
-* [[[searle_1995,Construction of Social Reality]]]
-Author: John R. Searle
-Year: 1995
-Title: The Construction of Social Reality
-Publisher: Free Press
-Location: New York
+* [[[searle_1995,1]]]
+span:type[book]
+span:surname[Searle], span:initials[J.R.]
+span:title[The Construction of Social Reality].
+span:publisher[Free Press]
+span:date[1995]
 
 
-* [[[Verhagen_2018, Normative Multiagent Systems]]]
-@inbook{inbook,
-author = {Verhagen, Harko and Neumann, Martin and Singh, Munindar},
-year = {2018},
-month = {08},
-pages = {3-25},
-title = {Normative Multiagent Systems: Foundations and History},
-isbn = {978-1-84890-285-5}
-}
 
-// -------------- working above 
+// Verhagen, Harko and Neumann, Martin and Singh, Munindar,
+// Normative Multiagent Systems: Foundations and History,
+
+* [[[verhagen_2018,1]]]
+span:type[inbook]
+span:surname[Verhagen], span:initials[H.]
+span:surname[Neumann], span:initials[M.]
+span:surname[Singh], span:initials[M.P.]
+span:title[Normative Multiagent Systems: Foundations and History].
+span:date[2018-08]
+span:pages[3–25]
+span:publisher[College Publications]
+
 
 // Vinitsky, E., Köster, R., Agapiou, J. P., Duéñez-Guzmán, E. A., Vezhnevets, A. S., & Leibo, J. Z. 
 // A learning agent that acquires social norms from public sanctions in decentralized multi-agent settings. 
@@ -485,8 +503,24 @@ Available at: span:uri[https://arxiv.org/abs/1911.10635].
 * [[[woolley_2010, doi:10.1126/science.1193147]]]
 
 
-* [[[solid_pods]]]
-https://en.wikipedia.org/wiki/Solid_(web_decentralization_project)
+// wikipedia references
 
-* [[[puppygraph]]
-https://www.puppygraph.com/blog/distributed-graph-database
+* [[[wikipedia-kg,1]]]
+span:type[article]
+span:title[Knowledge Graph]
+span:date[accessed 2025-11-06]
+span:uri[https://en.wikipedia.org/wiki/Knowledge_graph]
+
+
+* [[[solid_pods,1]]]
+span:type[website]
+span:title[Solid (web decentralization project)].
+span:organization[Wikipedia]
+Available at: span:uri[https://en.wikipedia.org/wiki/Solid_(web_decentralization_project)].
+
+
+* [[[puppygraph,1]]]
+span:type[website]
+span:title[Distributed Graph Database].
+span:organization[PuppyGraph]
+Available at: span:uri[https://www.puppygraph.com/blog/distributed-graph-database].

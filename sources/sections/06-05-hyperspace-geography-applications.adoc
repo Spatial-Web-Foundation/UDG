@@ -18,12 +18,12 @@ The Urban digital twin / Smart city applciation scenario (<<IEEE_2874_2025, Spat
 
 == Improving KGs using geospatial features
 
-Integration of geospatial features into knowledge graphs can enable more precise characterization of knowledge dynamics across temporal and geographic dimensions.. The absence of geospatial information significantly undermines the value of such knowledge representations. Spatial embedding can coordinate relational semantics with spatial-temporal geography models.  A geometry-aware embedding space that dynamically fuses spatial grids and temporal slices through spatio-temporal states, enables robust reasoning on heterogeneous graphs (<<stse>>).
+Integration of geospatial features into knowledge graphs can enable more precise characterization of knowledge dynamics across temporal and geographic dimensions.. The absence of geospatial information significantly undermines the value of such knowledge representations. Spatial embedding can coordinate relational semantics with spatial-temporal geography models.  A geometry-aware embedding space that dynamically fuses spatial grids and temporal slices through spatio-temporal states, enables robust reasoning on heterogeneous graphs (<<stse_2025>>).
 
 
 == Global Earth observation models
 
-Massive Earth Observation (EO) archives containing hundreds of petabytes of dataoffer a huge potential for understanding the Earth’s resources and potential hazards tosecurity while also addressing societal challenges (<<Element_84>>). There is a growing need for efficient vector representations of the underlying raw data. The approach of extracting feature representations from pretrained deep neural networks is a powerful approach that can provide semantic abstractions of the input data. Several projects are creating global and dense embedding datasets released openly and for free. (<<embeddings_of_earth>>), (<<AlphaEarth>>).
+Massive Earth Observation (EO) archives containing hundreds of petabytes of dataoffer a huge potential for understanding the Earth’s resources and potential hazards tosecurity while also addressing societal challenges (<<element_84_2025>>). There is a growing need for efficient vector representations of the underlying raw data. The approach of extracting feature representations from pretrained deep neural networks is a powerful approach that can provide semantic abstractions of the input data. Several projects are creating global and dense embedding datasets released openly and for free. (<<embeddings_of_earth_2024>>), (<<alphaearth_2025>>).
 
 == Telecoupling
 

@@ -71,7 +71,7 @@ For additional information on AGENTS forming contracts for ACTIVITIES, see SWF A
 
 All social AGENTS will need the ability to recognize and acquire social norms.  To achieve collective action in the UDG, social agents need functions that categorize observed behaviors as approved or disapproved, and a motivation to drive behavior in accord with the norms. Social norms emerge in multi-agent systems containing this agent function and the UDG must provide the conditions under which this results in socially beneficial outcomes. (<<vinitsky_2023>>)   
 
-Some AGENTS will need to perform specialized functions.  These agents peform functions that maintain and enable the normative multiagent system.  These functions include (<<Verhagen_2018>>): 
+Some AGENTS will need to perform specialized functions.  These agents peform functions that maintain and enable the normative multiagent system.  These functions include (<<verhagen_2018>>): 
 
 1. agents supporting communities in their task of recognizing, creating, and communicating norms to agents
 2. agents to simplify normative systems, recognize when norms have become redundant, and to remove norms

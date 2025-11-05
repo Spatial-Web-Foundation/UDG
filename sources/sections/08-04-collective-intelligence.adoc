@@ -13,9 +13,9 @@ The Spatial Web plays the role of a collective intelligence for societal infrast
 
 == Exploration and engagement 
 
-Each cohesive community has its own stream of idea flow that allows the members to incorporate innovations from other people within it, and even to create a separate culture.  As a consequence of these shared habits, human communities can develop a sort of collective intelligence that is greater than the members' individual intelligence (<<Pentland_2015>>). As described in (<<exploration-engagement-network>>), engagement with and learning from other AGENTS, along with the mutual sharing and vetting of ideas in the UDG, generate the collective intelligence. 
+Each cohesive community has its own stream of idea flow that allows the members to incorporate innovations from other people within it, and even to create a separate culture.  As a consequence of these shared habits, human communities can develop a sort of collective intelligence that is greater than the members' individual intelligence (<<pentland_2015>>). As described in (<<exploration-engagement-network>>), engagement with and learning from other AGENTS, along with the mutual sharing and vetting of ideas in the UDG, generate the collective intelligence. 
 
-The UDG provides the structure for enagement and exposure.  Exposure is more important for driving idea flow than all the other factors combined highlights the overarching importance of automatic social learning (<<Pentland_2015>>).  The UDG provides for automatic social learning. The UDG provides social network incentives to change idea flow that are distinct from using individual incentives.
+The UDG provides the structure for enagement and exposure.  Exposure is more important for driving idea flow than all the other factors combined highlights the overarching importance of automatic social learning (<<pentland_2015>>).  The UDG provides for automatic social learning. The UDG provides social network incentives to change idea flow that are distinct from using individual incentives.
 
 UDG shall promote exploration outside the DOMAIN
 UDG shall promote engagement within the DOMAIN
@@ -51,7 +51,7 @@ The UDG communication and strategy must account for costs to individual AGENTS, 
 
 == Collectively rational
 
-The UDG Collective commons is desiged to be collectively rational.  Whereas AGENTS may not be individually rational. AGENT behavior is determined as much by social context as by rational thinking or individual desires.  Each AGENT has a level of intelligence that can be described as Bounded Rationality. Using the terminology of economics, in most things AGENTS are collectively rational, and only in some areas are they individually rational (<<Pentland_2015>>).
+The UDG Collective commons is desiged to be collectively rational.  Whereas AGENTS may not be individually rational. AGENT behavior is determined as much by social context as by rational thinking or individual desires.  Each AGENT has a level of intelligence that can be described as Bounded Rationality. Using the terminology of economics, in most things AGENTS are collectively rational, and only in some areas are they individually rational (<<pentland_2015>>).
 
 == UDG is a commons
 
