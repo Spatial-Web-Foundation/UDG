@@ -76,3 +76,5 @@ SW Nodes host and exchange the content defined in the conceptual viewpoints of t
 | 
 | SWID creation and resolution
 | 
+
+|===
