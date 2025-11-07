@@ -91,11 +91,9 @@ include::sections/08-conceptual-social.adoc[]
 
 include::sections/09-distributed-computing.adoc[]
 
-include::sections/annex-requirements-allocation.adoc
+include::sections/annex-requirements-allocation.adoc[]
 
 include::sections/annex-bibliography.adoc[]
-
-// include::sections/annex-requirements-allocation.adoc[]
 
 include::sections/annex-application-scenario.adoc[]
 
