@@ -3,10 +3,10 @@
 
 include::annex-requirements-allocation-2874.adoc[leveloffset=+2]
 
+include::annex-requirements-allocation-UDG-to-components.adoc[leveloffset=+2]
+
 // include::annex-requirements-allocation-2874-notes.adoc[leveloffset=+2]
 
 // include::annex-requirements-summary.adoc[leveloffset=+2]
 
 // include::annex-use-cases-requirements-allocation.adoc[leveloffset=+2]
-
-// include::annex-requirements-allocation-UDG-to-components.adoc[leveloffset=+2]

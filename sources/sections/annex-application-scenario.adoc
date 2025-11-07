@@ -1,5 +1,8 @@
+[appendix,obligation=informative]
+== Application Scenarios
+
 [[annex-application-scenario-tourist]]
-=== Application Scenario: Cultural Location Tourism
+=== Cultural Location Tourism
 
 ==== Overview
 

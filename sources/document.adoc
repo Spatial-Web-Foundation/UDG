@@ -1,7 +1,7 @@
 = Universal Domain Graph (UDG) Design
 :docnumber: 6
-:edition: 0.0.1
-:revdate: 2025-10-24
+:edition: 0.1
+:revdate: 2025-11-07
 :copyright-year: 2025
 :language: en
 :title-intro-en: The Spatial Web
@@ -12,7 +12,7 @@
 :mn-output-extensions: xml,html,pdf,rxl
 :doctype: standard
 :status: published
-:docidentifier: SWF STD-6:2025 (0.0.1)
+:docidentifier: SWF STD-6:2025 (0.1)
 :imagesdir: images
 :local-cache-only:
 :toc-figures: true
@@ -49,6 +49,7 @@
 :fullname_10: George Percivall (lead editor)
 :fullname_11: Kurt Cagle
 :fullname_12: Christine Perey
+:fullname_13: Reese Plews
 
 // 20250319 rwp override background colors for admonitions in the current document
 // based on ticket
@@ -89,6 +90,8 @@ include::sections/07-conceptual-registry.adoc[]
 include::sections/08-conceptual-social.adoc[]
 
 include::sections/09-distributed-computing.adoc[]
+
+include::sections/annex-requirements-allocation.adoc
 
 include::sections/annex-bibliography.adoc[]
 

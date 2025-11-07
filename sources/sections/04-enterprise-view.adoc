@@ -33,3 +33,46 @@ Each viewpoint of the UDG includes requirements that are specific to Spatial Web
 image::enterprise_ov1_diagram.png[UDG enterprise view showing conceptual and distributed views, pdfwidth=60vw]
 
 
+SW Nodes host and exchange the content defined in the conceptual viewpoints of the is design specification.  The table <sw-node-conceptual-content> provides a summary of UDG conceptual content held by the SW Nodes 
+
+[[concepts-mapped-to-nodes]]
+.UDG functional content deployed in physical SW Nodes
+[cols="1a,2a,2a,2a,2a", options="header"]
+|===
+| SW Node | UDG KG | Hyperspace | Registries | Social
+
+| *SW Content Node*
+| Local ENTITIES
+| Embedding of local entities
+| DOMAIN Membership Credential
+| 
+
+| *UDG Node*
+| Extended dynamic graph of ENTITIES
+| Hyperworlds and Atlases
+| Registry Relationships
+| Collective intelligence
+
+| *Registry Node*
+| Issues membership credential
+| 
+| DOMAIN Membership register
+| 
+
+| *Agent Node*
+| Dynamic SITUATONS
+| Model uses Hyperworlds
+| DOMAIN Membership Credential
+| Social epistemology 
+
+| *Thing Node*
+| Sensing and Actuation of environment
+| Location in cyber-physical space
+| DOMAIN Membership Credential
+| Observations of physical world
+
+| *DID issuer*
+| SWID creation and resolution
+| 
+| SWID creation and resolution
+| 
