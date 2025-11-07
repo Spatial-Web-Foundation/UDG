@@ -1,398 +1,554 @@
-
 [appendix,obligation=informative]
 == Bibliography
 
 [bibliography]
 === Bibliography
+
+
+// some documents in these groups below are not presently used in the document
+// uncomment for use when needed
+
+
 // Standards
 // ------------------------------------
 // IEEE documents
 // ------------------------------------
-* [[[IEEE_730_2014,IEEE Std 730-2014]]]
-* [[[IEEE_802.1AR_2018,IEEE Std 802.1AR-2018]]]
-* [[[IEEE_1589_2020,IEEE Std 1589-2020]]]
-* [[[IEEE_1874_2013,IEEE Std 1874-2013]]]
-* [[[IEEE_2660.1_2020,IEEE Std 2660.1-2020]]]
-* [[[IEEE_2755_2017,IEEE Std 2755-2017]]]
+
+// * [[[IEEE_730_2014,IEEE Std 730-2014]]]
+// * [[[IEEE_802.1AR_2018,IEEE Std 802.1AR-2018]]]
+// * [[[IEEE_1589_2020,IEEE Std 1589-2020]]]
+// * [[[IEEE_1874_2013,IEEE Std 1874-2013]]]
+// * [[[IEEE_2660.1_2020,IEEE Std 2660.1-2020]]]
+// * [[[IEEE_2755_2017,IEEE Std 2755-2017]]]
+
+
+// IEEE P7008 WG Standard For Ethically Driven Nudging For Robotic, 
+// Intelligent And Autonomous Systems
+// not resolving via autofetch as of 2025-11
+* [[[IEEE_P7008,Nudging for Autonomous Systems]]]
+
+
 // ------------------------------------
 // ISO/IEC documents
 // ------------------------------------
+
 * [[[ISO_19111_2019,ISO 19111:2019]]]
 * [[[ISO_19135_1_2015,ISO 19135-1:2015]]]
-* [[[ISO_22300_2021,ISO 22300:2021]]]
-* [[[ISO_IEC_23188_2020,ISO/IEC 23188:2020]]]
-* [[[ISO_37101_2016,ISO 37101:2016]]]
-* [[[ISO_IEC_IEEE_42010_2022,ISO/IEC/IEEE 42010:2022]]]
-* [[[ISO_IEC_12113_2022,ISO/IEC 12113:2022]]]
-* [[[ISO_IEC_TR_18121_2015,ISO/IEC TR 18121:2015]]]
+// * [[[ISO_22300_2021,ISO 22300:2021]]]
+* [[[ISO_IEC_23188_2020,ISO/IEC TR 23188:2020]]]
+// * [[[ISO_37101_2016,ISO 37101:2016]]]
+// * [[[ISO_IEC_12113_2022,ISO/IEC 12113:2022]]]
+// * [[[ISO_IEC_TR_18121_2015,ISO/IEC TR 18121:2015]]]
+
+
 // ------------------------------------
 // ISO/IEC/IEEE documents
 // ------------------------------------
-* [[[ISO_IEC_IEEE_21451-1_2010,ISO/IEC/IEEE 21451-1:2010]]]
+
+// * [[[ISO_IEC_IEEE_21451-1_2010,ISO/IEC/IEEE 21451-1:2010]]]
 * [[[ISO_IEC_IEEE_24765_2017,ISO/IEC/IEEE 24765:2017]]]
+* [[[ISO_IEC_IEEE_42010_2022,ISO/IEC/IEEE 42010:2022]]]
+
+
+
 // ------------------------------------
 // IEC Electropedia: The World's Online Electrotechnical Vocabulary
 // ------------------------------------
-// 20240208 iev autofetch not resolving, using manual option
-// * [[[ievterms,IEV]]]
-* [[[ievterms_m,1]]]
-span:organization[International Electrotechnical Commission (IEC)]
-span:title[IEC Electropedia: The World's Online Electrotechnical Vocabulary]
-span:type[website]
-span:date[2024]
-span:uri[https://www.electropedia.org/]
+
+// * [[[ievterms_m,1]]]
+// span:organization[International Electrotechnical Commission (IEC)]
+// span:title[IEC Electropedia: The World's Online Electrotechnical Vocabulary]
+// span:type[website]
+// span:date[2024]
+// Available at: span:uri[https://www.electropedia.org/]
+
+// autofetch working 2025-11
+* [[[ievterms,IEV]]]
+
+
+
 // ------------------------------------
 // OGC documents
 // ------------------------------------
-* [[[ogc_citygml,OGC 20-010]]], OGC OGC City Geography Markup Language (CityGML) Part 1: Conceptual Model Standard
-* [[[ogc_gml,OGC 07-036]]], OpenGIS Geography Markup Language (GML) Encoding Standard
+
+
+// not presently used in the document
+// * [[[ogc_citygml,OGC 20-010]]], OGC OGC City Geography Markup Language (CityGML) Part 1: Conceptual Model Standard
+
+// not presently used in the document
+// * [[[ogc_gml,OGC 07-036]]], OpenGIS Geography Markup Language (GML) Encoding Standard
+
 // ------------------------------------
 // W3C documents
 // ------------------------------------
-* [[[w3c_respon_spatial,W3C responsible-use-spatial]]]
-* [[[w3c_rdf,W3C rdf-concepts]]]
-* [[[w3c_did_core,W3C did-core]]]
+
+// not presently used in the document
+// * [[[w3c_respon_spatial,W3C responsible-use-spatial]]]
+
+// in normative references
+// * [[[w3c_rdf,W3C rdf-concepts]]]
+
+// in normative references
+// * [[[w3c_did_core,W3C did-core]]]
+
+
+// ------------------------------------
 // IETF documents
-* [[[http3_rfc,IETF RFC 9114]]]
+// ------------------------------------
+
+// not presently used in the document
+// * [[[http3_rfc,IETF RFC 9114]]]
+
+// ------------------------------------
 // Groups
-* [[[Ecosystems_intelligence, Ecosystems of intelligence 2024]]]
-       Friston, K. J., M. J. Ramstead, A. B. Kiefer et al., “Designing ecosystems of intelligence from first principles,” Collective Intelligence, vol. 3 no. 1, 2024, http://journals.sagepub.com/doi/10.1177/26339137231222481.
-* [[[stse, Spatio-temporal state embedding 2025]]]
-      Spatio-temporal state embedding for knowledge graph completion
-      Xiaoyu Ji, Yibing Cao, Jiangshui Zhang, Xinke Zhao,
-      STSE: Spatio-temporal state embedding for knowledge graph completion,
-      Knowledge-Based Systems, Volume 317, 2025, 113469,
-      ISSN 0950-7051,
-      https://doi.org/10.1016/j.knosys.2025.113469.
-      (https://www.sciencedirect.com/science/article/pii/S0950705125005167)
-* [[[Element_84,Earth Observation Vector Embeddings]]]
-      The Case for a Centralized Earth Observation Vector Embeddings Catalog
-      Authors: Jason Gilman, Adeel Hassan, Nathan Zimmerman
-      https://github.com/Element84/vector-embeddings-catalog-whitepaper?tab=readme-ov-file
-      2025-06-05
-* [[[Embeddings_of_Earth, Global Embeddings of Earth]]]
-      title={Global and Dense Embeddings of Earth: Major TOM Floating in the Latent Space}, 
-      author={Mikolaj Czerkawski and Marcin Kluczek and Jędrzej S. Bojanowski},
-      year={2024},
-      eprint={2412.05600},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2412.05600}, 
-* [[[AlphaEarth, AlphaEarth]]]
-      title={AlphaEarth Foundations: An embedding field model for accurate and efficient global mapping from sparse label data}, 
-      author={Christopher F. Brown and Michal R. Kazmierski and Valerie J. Pasquarella and William J. Rucklidge and Masha Samsikova and Chenhui Zhang and Evan Shelhamer and Estefania Lahera and Olivia Wiles and Simon Ilyushchenko and Noel Gorelick and Lihui Lydia Zhang and Sophia Alj and Emily Schechter and Sean Askay and Oliver Guinan and Rebecca Moore and Alexis Boukouvalas and Pushmeet Kohli},
-      year={2025},
-      eprint={2507.22291},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2507.22291}, 
-* [[[blattner, Tangential Action Spaces]]]
-      title={Tangential Action Spaces: Geometry, Memory and Cost in Holonomic and Nonholonomic Agents}, 
-      author={Marcel Blattner},
-      year={2025},
-      eprint={2509.03399},
-      archivePrefix={arXiv},
-      primaryClass={eess.SY},
-      url={https://arxiv.org/abs/2509.03399},
-*  [[[BigKnolwedge, BigKnowledge]]]
-      Title: BigKnowledge: Not Just a Metaphor
-      Date: Jul 31, 2024
-      Author: André Skupin of BigKnowledge
-      url=https://researchmethodscommunity.sagepub.com/blog/concept-grant-update-bigknowledge 
-* [[[Kanerva, Hyperdimensional Computing]]]
-      Cogn Comput (2009) 1:139–159 DOI 10.1007/s12559-009-9009-8
-      Hyperdimensional Computing: An Introduction to Computing in Distributed Representation with High-Dimensional Random Vectors
-      Pentti Kanerva
-      Published online: 28 January 2009
-      Springer Science+Business Media, LLC 2009
-* [[[Mikolov, Words and Phrases and their Compositionality]]]
-      author = {Mikolov, Tomas and Sutskever, Ilya and Chen, Kai and Corrado, Greg S and Dean, Jeff},
-      booktitle = {Advances in Neural Information Processing Systems},
-      editor = {C.J. Burges and L. Bottou and M. Welling and Z. Ghahramani and K.Q. Weinberger},
-      pages = {},
-      publisher = {Curran Associates, Inc.},
-      title = {Distributed Representations of Words and Phrases and their Compositionality},
-      url = {https://proceedings.neurips.cc/paper_files/paper/2013/file/9aa42b31882ec039965f3c4923ce901b-Paper.pdf},
-      volume = {26},
-      year = {2013}
-
-* [[[word2vec, word2vec]]]
-      https://github.com/dav/word2vec
-
-* [[[World2Vec, World2Vec]]]
-      https://x.com/ylecun/status/1523018860731023361
-      Author: Yann LeCunn
-
-* [[[PBG, PyTorch-BigGraph]]]
-      title={PyTorch-BigGraph: A Large-scale Graph Embedding System}, 
-      author={Adam Lerer and Ledell Wu and Jiajun Shen and Timothee Lacroix and Luca Wehrstedt and Abhijit Bose and Alex Peysakhovich},
-      year={2019},
-      eprint={1903.12287},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/1903.12287}, 
-
-* [[[Anthropic, Monosemanticity]]]
-      title Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet
-      Authors: Adly Templeton*, Tom Conerly*, Jonathan Marcus, Jack Lindsey, Trenton Bricken, Brian Chen, Adam Pearce, Craig Citro, Emmanuel Ameisen, Andy Jones, Hoagy Cunningham, Nicholas L Turner, Callum McDougall, Monte MacDiarmid, Alex Tamkin, Esin Durmus, Tristan Hume, Francesco Mosconi, C. Daniel Freeman, Theodore R. Sumers, Edward Rees, Joshua Batson, Adam Jermyn, Shan Carter, Chris Olah, Tom Henighan
-      Affiliations: Anthropic
-      Published: May 21, 2024
+// ------------------------------------
 
 
-* [[[Jha, Universal Geometry of Embeddings]]]
-      title={Harnessing the Universal Geometry of Embeddings}, 
-      author={Rishi Jha and Collin Zhang and Vitaly Shmatikov and John X. Morris},
-      year={2025},
-      eprint={2505.12540},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2505.12540},
+// ------------------------------------
+// other references
+// ------------------------------------
 
-* [[[Huh, Platonic Representation Hypothesis]]]
-      title={The Platonic Representation Hypothesis}, 
-      author={Minyoung Huh and Brian Cheung and Tongzhou Wang and Phillip Isola},
-      year={2024},
-      eprint={2405.07987},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2405.07987}, 
+// * [[[designing_ecosystems, Ecosystems of intelligence 2024]]]
+//   “Designing ecosystems of intelligence from first principles,”
+//   Friston, K. J., M. J. Ramstead, A. B. Kiefer et al., 
+//   Collective Intelligence, vol. 3 no. 1, 2024, http://journals.sagepub.com/doi/10.1177/26339137231222481.
+* [[[designing_ecosystems,doi:10.1177/26339137231222481]]]
 
 
-* [[[Gavranović, Categorical Deep Learning]]]
-      title={Position: Categorical Deep Learning is an Algebraic Theory of All Architectures}, 
-      author={Bruno Gavranović and Paul Lessard and Andrew Dudzik and Tamara von Glehn and João G. M. Araújo and Petar Veličković},
-      year={2024},
-      eprint={2402.15332},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2402.15332}, 
-
-* [[[Hull_and_Liu, Telecoupling]]]
-      Hull, V. and J. Liu. 2018. 
-      Telecoupling: A new frontier for global sustainability. 
-      Ecology and Society 23(4):41. 
-      https://www.ecologyandsociety.org/vol23/iss4/art41/ 
-      https://doi.org/10.5751/ES-10494-230441
-      Guest Editorial, part of a Special Feature on Telecoupling: A New Frontier for Global Sustainability
+// [[[stse_2025, Spatio-temporal state embedding 2025]]]
+// Spatio-temporal state embedding for knowledge graph completion
+// Xiaoyu Ji, Yibing Cao, Jiangshui Zhang, Xinke Zhao,
+// STSE: Spatio-temporal state embedding for knowledge graph completion,
+* [[[stse_2025,doi:10.1016/j.knosys.2025.113469]]]
 
 
-* [[[Manning,metacoupling framework]]]
-      Nicholas Manning, Yingjie Li, Jianguo Liu,
-      Broader applicability of the metacoupling framework than Tobler’s first law of geography for global sustainability: A systematic review, 
-      Geography and Sustainability, Volume 4, Issue 1,
-      2023,
-      Pages 6-18,
-      ISSN 2666-6839,
-      https://doi.org/10.1016/j.geosus.2022.11.003.
+* [[[Element_84_2025,1]]]
+span:type[article]
+span:surname[Gilman], span:initials[J.]
+span:surname[Hassan], span:initials[A.]
+span:surname[Zimmerman], span:initials[N.]
+span:title[The Case for a Centralized Earth Observation Vector Embeddings Catalog].
+span:date[2025]
+span:publisher[Element 84]
+Available at: span:uri[https://github.com/Element84/vector-embeddings-catalog-whitepaper/blob/main/VectorEmbeddings_WhitePaper_June2025.pdf]
 
 
-* [[[Noy,  Industry-scale knowledge graphs]]]
-      Industry-scale knowledge graphs: lessons and challenges
-      Authors: Natasha Noy, Yuqing Gao, Anshu Jain, Anant Narayanan, Alan Patterson, Jamie TaylorAuthors Info & Claims
-      Communications of the ACM, Volume 62, Issue 8
-      Pages 36 - 43
-      https://doi.org/10.1145/3331166
-      Published: 24 July 2019
+* [[[embeddings_of_earth_2024,1]]]
+span:type[article]
+span:surname[Blattner], span:initials[M.]
+span:surname[Pasquarella], span:initials[V.J.]
+span:surname[Kazmierski], span:initials[M.R.]
+span:surname[Samsikova], span:initials[M.]
+span:surname[Rucklidge], span:initials[W.J.]
+span:surname[Brown], span:initials[C.F.]
+span:title[Embeddings of Earth: A Foundation Model for Planetary Representation Learning].
+span:date[2024]
+Available at: span:uri[https://arxiv.org/abs/2412.05600]
+// * [[[embeddings_of_earth,doi:10.48550/arXiv.2412.05600]]]
 
 
-* [[[wikipedia-KG, Knolwedge Graphs]]]
-      https://en.wikipedia.org/wiki/Knowledge_graph
-      
-      
-* [[[Weller, Limitations of Embedding]]]
-      title={On the Theoretical Limitations of Embedding-Based Retrieval}, 
-      author={Orion Weller and Michael Boratko and Iftekhar Naim and Jinhyuk Lee},
-      year={2025},
-      eprint={2508.21038},
-      archivePrefix={arXiv},
-      primaryClass={cs.IR},
-      url={https://arxiv.org/abs/2508.21038},
-
-* [[[Pentland_2015, Social physics]]]
-      Pentland, A. 
-      (2015). 
-      Social physics: how good ideas spread—the lessons from a new science. 
-      New York: Penguin Books.
-
-* [[[Hayek_1945, Knowledge in Societ]]]
-      The Use of Knowledge in Society
-      F. A. Hayek
-      The American Economic Review, Vol. 35, No. 4. (Sep., 1945), pp. 519-530.
-      Stable URL: http://links.jstor.org/sici?sici=0002-8282%28194509%2935%3A4%3C519%3ATUOKIS%3E2.0.CO%3B2-1
+* [[[alphaearth_2025,1]]]
+span:type[article]
+span:surname[Brown], span:initials[C.F.]
+span:surname[Kazmierski], span:initials[M.R.]
+span:surname[Pasquarella], span:initials[V.J.]
+span:surname[Rucklidge], span:initials[W.J.]
+span:surname[Samsikova], span:initials[M.]
+span:title[AlphaEarth Foundations: An embedding field model for accurate and efficient global mapping from sparse label data].
+span:date[2025]
+Available at: span:uri[https://arxiv.org/abs/2507.22291]
+// autofetch not resolving; need to check;
+// * [[[alphaearth_2025,doi:10.48550/arXiv.2507.22291]]]
 
 
-* [[[Zollman_2025, Network epistemology]]]
-      Network epistemology, 
-      Kevin J.S. Zollman CMU 
-      Not yet published.  Advanced copy from the author recieved May 2025
 
-* [[[Pan_et_al_2013, Modeling Dynamical Influence]]]
-      Wei Pan, Wen Dong, M. Cebrian, Taemie Kim, J. H. Fowler, and A. S. Pentland.
-      “Modeling Dynamical Influence in Human Interaction: Using Data to Make Better Inferences About Influence Within Social Systems.” 
-      IEEE Signal Processing Magazine 29, no. 2 (March 2012): 77–86.
-      As Published: http://dx.doi.org/10.1109/msp.2011.942737
-
-* [[[Albarracin_2025, Metaphysics of Social Powers]]]
-      title={The Physics and Metaphysics of Social Powers: Bridging Cognitive Processing and Social Dynamics, a New Perspective on Power through Active Inference}, 
-      author={Mahault Albarracin and Sonia de Jager and David Hyland and Sarah Grace Manski},
-      year={2025},
-      eprint={2501.19368},
-      archivePrefix={arXiv},
-      primaryClass={physics.soc-ph},
-      url={https://arxiv.org/abs/2501.19368}, 
+* [[[blattner_2025,1]]]
+span:type[article]
+span:surname[Blattner], span:initials[M.]
+span:title[Tangential Action Spaces: Geometry, Memory and Cost in Holonomic and Nonholonomic Agents].
+span:date[2025]
+Available at: span:uri[https://arxiv.org/abs/2509.03399]
+// autofetch not resolving; need to check;
+// * [[[blattner,doi:10.48550/arXiv.2509.03399]]]
 
 
-* [[[Veissière_et_al_2020, Thinking through other minds]]]
-       Veissière SPL, Constant A, Ramstead MJD, Friston KJ, Kirmayer LJ. 
-       (2020) 
-       Thinking through other minds: A variational approach to cognition and culture. 
-       Behavioral and Brain Sciences 43, e90: 1–75. 
-       doi:10.1017/ S0140525X19001213
 
-* [[[tomasello_2022, Evolution of Agency]]]
-      Title: The Evolution of Agency: Behavioral Organization from Lizards to Humans
-      Author: Michael Tomasello
-      Publisher: MIT Press
-      Publication Date: September 6, 2022
-      ISBN: 978-0262047005
+* [[[bigknowledge_2024,1]]]
+span:type[article]
+span:surname[Skupin], span:initials[A.]
+span:title[BigKnowledge: Not Just a Metaphor].
+span:date[2024]
+span:publisher[Sage Research Methods Community]
+Available at: span:uri[https://researchmethodscommunity.sagepub.com/blog/concept-grant-update-bigknowledge]
 
-* [[[Nagel_2024, Natural Curiosity]]]]
-      RT Book, Section
-      A1 Nagel, Jennifer
-      T1 Natural Curiosity
-      T2 Putting Knowledge to Work: New Directions for Knowledge-First Epistemology
-      A2 Logins, Artūrs
-      A2 Vollet, Jacques-Henri
-      YR 2024
-      DO 10.1093/9780191976766.003.0007
-      UL https://doi.org/10.1093/9780191976766.003.0007
 
-* [[[Friston_2017, Active Inference, Curiosity and Insight]]]
-      Friston, Karl & Lin, Marco & Frith, Chris & Pezzulo, Giovanni & Hobson, J. & Ondobaka, Sasha. 
-      (2017). 
-      Active Inference, Curiosity and Insight. 
-      Neural Computation. 29. 2633-2683. 
-      10.1162/neco_a_00999. 
 
-* [[[Milgram_1967, Small World Problem]]] 
-      Milgram, Stanley 
-      (May 1967). 
-      "The Small World Problem". 
-      Psychology Today. Ziff-Davis Publishing Company.
+// Hyperdimensional Computing: An Introduction to Computing in Distributed Representation with High-Dimensional Random Vectors
+* [[[hyperdim_comp,doi:10.1007/s12559-009-9009-8]]]
 
-* [[[searle_1995,Construction of Social Reality]]]
-      Author: John R. Searle
-      Year: 1995
-      Title: The Construction of Social Reality
-      Publisher: Free Press
-      Location: New York
 
-* [[[Verhagen_2018, Normative Multiagent Systems]]]
-      @inbook{inbook,
-      author = {Verhagen, Harko and Neumann, Martin and Singh, Munindar},
-      year = {2018},
-      month = {08},
-      pages = {3-25},
-      title = {Normative Multiagent Systems: Foundations and History},
-      isbn = {978-1-84890-285-5}
-      }
+* [[[mikolov_2013,1]]]
+span:type[article]
+span:surname[Mikolov], span:initials[T.]
+span:surname[Sutskever], span:initials[I.]
+span:surname[Chen], span:initials[K.]
+span:surname[Corrado], span:initials[G.]
+span:surname[Dean], span:initials[J.]
+span:title[Distributed Representations of Words and Phrases and their Compositionality].
+span:date[2013]
+Available at: span:uri[https://arxiv.org/abs/1310.4546]
+// arxiv dois not autofetching correctly
+// * [[[mikolov_2013,doi:10.48550/arXiv.1310.4546]]]
 
-* [[[Vinitsky,Learning agent acquires social norms]]]
-      Vinitsky, E., Köster, R., Agapiou, J. P., Duéñez-Guzmán, E. A., Vezhnevets, A. S., & Leibo, J. Z. 
-      (2023). 
-      A learning agent that acquires social norms from public sanctions in decentralized multi-agent settings. 
-      Collective Intelligence, 2(2). 
-      https://doi.org/10.1177/26339137231162025 
-      
-* [[[fisher_2021, certification of reliable autonomous systems]]]
-      Fisher, M., Mascardi, V., Rozier, K.Y. et al. 
-      Towards a framework for certification of reliable autonomous systems. 
-      Auton Agent Multi-Agent Syst 35, 8 (2021). 
-      https://doi.org/10.1007/s10458-020-09487-2
 
-* [[[Xin_2004, Decision Theory in Multi-Agent Systems]]]
-      Applications of Decision and Utility Theory in Multi-Agent Systems
-      Authors: Xin Li, Leen-Kiat Soh, University of NebraskaFollow
-      9-13-2004
-      University of Nebraska–Lincoln, Computer Science and Engineering Technical Report TR-UNL-CSE-2004-0014
 
-* [[[Albarracin_2023, Explainable AI with active inference]]]
-@misc{albarracin2023designingexplainableartificialintelligence,
-      title={Designing explainable artificial intelligence with active inference: A framework for transparent introspection and decision-making}, 
-      author={Mahault Albarracin and Inês Hipólito and Safae Essafi Tremblay and Jason G. Fox and Gabriel René and Karl Friston and Maxwell J. D. Ramstead},
-      year={2023},
-      eprint={2306.04025},
-      archivePrefix={arXiv},
-      primaryClass={cs.AI},
-      url={https://arxiv.org/abs/2306.04025}, 
-      }
+* [[[word2vec,1]]]
+span:type[website]
+span:title[word2vec].
+span:organization[GitHub]
+Available at: span:uri[https://github.com/dav/word2vec].
 
-* [[[Leonard_2022, Collective intelligence as a public good]]]
-      Leonard, N. E., & Levin, S. A. 
-      (2022). 
-      Collective intelligence as a public good. 
-      Collective Intelligence, 1(1). 
-      https://doi.org/10.1177/26339137221083293 
 
-* [[[Herrmann_2007, The Cultural Intelligence Hypothesis]]]
-      doi:10.1126/science.1146282,
-      author = {Esther Herrmann  and Josep Call  and María Victoria Hernàndez-Lloreda  and Brian Hare  and Michael Tomasello },
-      title = {Humans Have Evolved Specialized Skills of Social Cognition: The Cultural Intelligence Hypothesis},
-      journal = {Science},
-      volume = {317},
-      number = {5843},
-      pages = {1360-1366},
-      year = {2007},
-      doi = {10.1126/science.1146282},
-      URL = {https://www.science.org/doi/abs/10.1126/science.1146282},
-      eprint = {https://www.science.org/doi/pdf/10.1126/science.1146282},
+// not sure about this entry
+// * [[[World2Vec, World2Vec]]]
+// is this word2vec?
+// // Available at: span:uri[https://x.com/ylecun/status/1523018860731023361]
+// Author: Yann LeCunn
+// the x.com link points to this document encoded below
 
-* [[[Levy_1997, Collective Intelligence]]]
-      @book{10.5555/550283,
-      author = {Levy, Pierre and Bononno, Robert},
-      title = {Collective Intelligence: Mankind's Emerging World in Cyberspace},
-      year = {1997},
-      isbn = {0306456354},
-      publisher = {Perseus Books},
-      address = {USA},
-      }
+// is this the reference above?
+// * [[[lerer_2019_pytorch_biggraph,1]]]
+* [[[world2vec, World2Vec]]]
+span:surname[Lerer], span:initials[A.]
+span:surname[Wu], span:initials[L.]
+span:surname[Shen], span:initials[J.]
+span:surname[Lacroix], span:initials[T.]
+span:surname[Wehrstedt], span:initials[L.]
+span:surname[Bose], span:initials[A.]
+span:surname[Peysakhovich], span:initials[A.]
+span:type[inproceedings]
+span:title[PyTorch-BigGraph: A Large-scale Graph Embedding System].
+span:date[2019].
+Available at: span:uri[https://arxiv.org/abs/1903.12287].
 
-* [[[Lee_2025, This is for everyone]]] 
-      Author: Tim Berners-Lee
-      Title: This is for everyone : the unfinished story of the World Wide Web
-      ISBN:9780374612467, 0374612463
-      Published:September 9, 2025
-      Format:Hardcover
-      Publisher:Farrar, Straus and Giroux
+// autofetch not resolving; need to check;
+// * [[[pbg,doi:10.48550/arXiv.1903.12287]]]
 
-* [[ieee_p7008, Nudging For Autonomous Systems ]]
-      IEEE P7008 WG Standard For Ethically Driven Nudging For Robotic, Intelligent And Autonomous Systems
 
-* [[[<<Zhang_2021, Multi-Agent Reinforcement Learning>>]]]
-      @misc{zhang2021multiagentreinforcementlearningselective,
-      title={Multi-Agent Reinforcement Learning: A Selective Overview of Theories and Algorithms}, 
-      author={Kaiqing Zhang and Zhuoran Yang and Tamer Başar},
-      year={2021},
-      eprint={1911.10635},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/1911.10635}, 
-      }
+// * [[[Anthropic, Monosemanticity]]]
+// title Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet
+// Authors: Adly Templeton*, Tom Conerly*, Jonathan Marcus, Jack Lindsey, Trenton 
 
-* [[[Mani_2013, Peer Pressure to Promote Cooperation]]]
-      Mani, A., Rahwan, I. & Pentland, 
-      A. Inducing Peer Pressure to Promote Cooperation. 
-      Sci Rep 3, 1735 (2013). 
-      https://doi.org/10.1038/srep01735
+* [[[anthropic_2024,1]]]
+span:surname[Templeton], span:initials[A.]
+span:surname[Conerly], span:initials[T.]
+span:surname[Marcus], span:initials[J.]
+span:surname[Lindsey], span:initials[J.]
+span:surname[Bricken], span:initials[T.]
+span:surname[Chen], span:initials[B.]
+span:surname[Pearce], span:initials[A.]
+span:organization[Anthropic]
+span:type[inproceedings]
+span:title[Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet].
+span:date[2024].
+Available at: span:uri[https://transformer-circuits.pub/2023/monosemantic-features/index.html].
 
-* [[[woolley_2010, Collective Intelligence Factor]]]
-      Anita Williams Woolley et al. ,
-      Evidence for a Collective Intelligence Factor in the Performance of Human Groups.
-      Science 330,686-688(2010).
-      DOI:10.1126/science.1193147
 
-* [[[solid_pods]]]
-      https://en.wikipedia.org/wiki/Solid_(web_decentralization_project)
 
-* [[[puppygraph]]
-      https://www.puppygraph.com/blog/distributed-graph-database
+// * [[[Jha, Universal Geometry of Embeddings]]]
+// title={Harnessing the Universal Geometry of Embeddings}, 
+// author={Rishi Jha and Collin Zhang and Vitaly Shmatikov and John X. Morris},
+
+* [[[jha_universal_geometry,1]]]
+span:surname[Jha], span:initials[R.]
+span:surname[Zhang], span:initials[C.]
+span:surname[Shmatikov], span:initials[V.]
+span:surname[Morris], span:initials[J. X.]
+span:type[inproceedings]
+span:title[Harnessing the Universal Geometry of Embeddings].
+span:date[2025].
+Available at: span:uri[https://arxiv.org/abs/2505.12540].
+
+
+
+// * [[[Huh, Platonic Representation Hypothesis]]]
+// title={The Platonic Representation Hypothesis}, 
+// author={Minyoung Huh and Brian Cheung and Tongzhou Wang and Phillip Isola},
+
+* [[[huh_platonic_representation,1]]]
+span:surname[Huh], span:initials[M.]
+span:surname[Cheung], span:initials[B.]
+span:surname[Wang], span:initials[T.]
+span:surname[Isola], span:initials[P.]
+span:type[inproceedings]
+span:title[The Platonic Representation Hypothesis].
+span:date[2024].
+Available at: span:uri[https://arxiv.org/abs/2405.07987].
+
+
+// * [[[Gavranović, Categorical Deep Learning]]]
+// Position: Categorical Deep Learning is an Algebraic Theory of All Architectures, 
+// Bruno Gavranović and Paul Lessard and Andrew Dudzik and Tamara von Glehn and João G. M. Araújo and Petar Veličković},
+
+* [[[gavranovic_2024,1]]]
+span:surname[Gavranović], span:initials[B.]
+span:surname[Lessard], span:initials[P.]
+span:surname[Dudzik], span:initials[A.]
+span:surname[von Glehn], span:initials[T.]
+span:surname[Araújo], span:initials[J. G. M.]
+span:surname[Veličković], span:initials[P.]
+span:type[inproceedings]
+span:title[Position: Categorical Deep Learning is an Algebraic Theory of All Architectures].
+span:date[2024].
+Available at: span:uri[https://arxiv.org/abs/2402.15332].
+
+
+// Hull, V. and J. Liu. 2018. 
+// Telecoupling: A new frontier for global sustainability. 
+* [[[hull_2018, doi:10.5751/ES-10494-230441]]]
+
+
+// Nicholas Manning, Yingjie Li, Jianguo Liu,
+// Broader applicability of the metacoupling framework than Tobler’s first law of geography for global sustainability: A systematic review, 
+* [[[manning_2023,doi:10.1016/j.geosus.2022.11.003]]]
+
+
+// Industry-scale knowledge graphs: lessons and challenges
+// Natasha Noy, Yuqing Gao, Anshu Jain, Anant Narayanan, Alan Patterson, Jamie Taylor
+* [[[noy,doi:10.1145/3331166]]]
+
+
+
+* [[[weller_2025,1]]]
+span:type[article]
+span:surname[Weller], span:initials[O.]
+span:surname[Boratko], span:initials[M.]
+span:surname[Naim], span:initials[I.]
+span:surname[Lee], span:initials[J.]
+span:title[On the Theoretical Limitations of Embedding-Based Retrieval].
+span:date[2025]
+Available at: span:uri[https://arxiv.org/abs/2508.21038]
+
+
+
+* [[[pentland_2015,1]]]
+span:type[book]
+span:surname[Pentland], span:initials[A.]
+span:title[Social Physics: How Good Ideas Spread—The Lessons from a New Science].
+span:publisher[Penguin Books]
+span:date[2015]
+Available at: span:uri[https://www.penguinrandomhouse.com/books/314230/social-physics-by-alex-pentland/]
+
+
+* [[[hayek_1945,1]]]
+span:type[article]
+span:surname[Hayek], span:initials[F.A.]
+span:title[The Use of Knowledge in Society].
+span:container-title[The American Economic Review]
+span:volume[35]
+span:number[4]
+span:date[1945]
+span:pages[519–530]
+Available at: span:uri[https://www.jstor.org/stable/1809376]
+
+
+* [[[zollman_2025,1]]]
+span:type[unpublished]
+span:surname[Zollman], span:initials[K.J.S.]
+span:title[Network Epistemology].
+span:note[Advanced copy received from the author, May 2025.]
+span:publisher[Carnegie Mellon University]
+span:date[2025]
+
+
+// Wei Pan, Wen Dong, M. Cebrian, Taemie Kim, J. H. Fowler, and A. S. Pentland.
+// “Modeling Dynamical Influence in Human Interaction: Using Data to Make Better Inferences About Influence Within Social Systems.”
+* [[[pan_2013, doi:10.1109/msp.2011.942737]]]
+ 
+
+// not finding this one used in the document...
+* [[[albarracin_2025,1]]]
+span:type[article]
+span:surname[Albarracin], span:initials[M.]
+span:surname[de Jager], span:initials[S.]
+span:surname[Hyland], span:initials[D.]
+span:surname[Manski], span:initials[S.G.]
+span:title[The Physics and Metaphysics of Social Powers: Bridging Cognitive Processing and Social Dynamics, a New Perspective on Power through Active Inference].
+span:date[2025]
+Available at: span:uri[https://arxiv.org/abs/2501.19368].
+
+
+// Veissière SPL, Constant A, Ramstead MJD, Friston KJ, Kirmayer LJ. 
+// Thinking through other minds: A variational approach to cognition and culture. 
+* [[[veissiere_2020, doi:10.1017/S0140525X19001213]]]
+ 
+
+* [[[tomasello_2022,1]]]
+span:type[book]
+span:surname[Tomasello], span:initials[M.]
+span:title[The Evolution of Agency: Behavioral Organization from Lizards to Humans].
+span:publisher[MIT Press]
+span:date[2022]
+
+
+// Natural Curiosity - Putting Knowledge to Work: New Directions for Knowledge-First Epistemology
+// Nagel, Jennifer
+* [[[nagel_2024, doi:10.1093/9780191976766.003.0007]]]
+
+
+// Active Inference, Curiosity and Insight. 
+// Friston, Karl & Lin, Marco & Frith, Chris & Pezzulo, Giovanni & Hobson, J. & Ondobaka, Sasha.
+* [[[friston_2017, doi:10.1162/neco_a_00999]]]
+ 
+
+
+* [[[milgram_1967,1]]]
+span:type[article]
+span:surname[Milgram], span:initials[S.]
+span:title[The Small World Problem].
+span:container-title[Psychology Today]
+span:publisher[Ziff-Davis Publishing Company]
+span:pages[60–67]
+span:date[1967]
+
+
+* [[[searle_1995,1]]]
+span:type[book]
+span:surname[Searle], span:initials[J.R.]
+span:title[The Construction of Social Reality].
+span:publisher[Free Press]
+span:date[1995]
+
+
+
+// Verhagen, Harko and Neumann, Martin and Singh, Munindar,
+// Normative Multiagent Systems: Foundations and History,
+
+* [[[verhagen_2018,1]]]
+span:type[inbook]
+span:surname[Verhagen], span:initials[H.]
+span:surname[Neumann], span:initials[M.]
+span:surname[Singh], span:initials[M.P.]
+span:title[Normative Multiagent Systems: Foundations and History].
+span:date[2018]
+span:pages[3–25]
+span:publisher[College Publications]
+
+
+// Vinitsky, E., Köster, R., Agapiou, J. P., Duéñez-Guzmán, E. A., Vezhnevets, A. S., & Leibo, J. Z. 
+// A learning agent that acquires social norms from public sanctions in decentralized multi-agent settings. 
+* [[[vinitsky_2023, doi:10.1177/26339137231162025]]]
+
+
+// Fisher, M., Mascardi, V., Rozier, K.Y. et al. 
+// Towards a framework for certification of reliable autonomous systems. 
+* [[[fisher_2021,doi:10.1007/s10458-020-09487-2]]]
+
+
+// Applications of Decision and Utility Theory in Multi-Agent Systems
+// Authors: Xin Li, Leen-Kiat Soh, University of NebraskaFollow
+* [[[xin_2004,1]]]
+span:surname[Li], span:initials[X.]
+span:surname[Soh], span:initials[L.-K.]
+span:type[techreport]
+span:title[Applications of Decision and Utility Theory in Multi-Agent Systems].
+span:organization[University of Nebraska–Lincoln, Computer Science and Engineering]
+span:date[2004].
+span:note[Technical Report TR-UNL-CSE-2004-0014].
+Available at: span:uri[https://digitalcommons.unl.edu/csetechreports/85/]
+
+
+// * [[[Albarracin_2023, Explainable AI with active inference]]]
+// Designing explainable artificial intelligence with active inference: A framework for transparent introspection and decision-making, 
+// Mahault Albarracin and Inês Hipólito and Safae Essafi Tremblay and Jason G. Fox and Gabriel René and Karl Friston and Maxwell J. D. Ramstead},
+* [[[albarracin_2023,1]]]
+span:surname[Albarracin], span:initials[M.]
+span:surname[Hipólito], span:initials[I.]
+span:surname[Essafi Tremblay], span:initials[S.]
+span:surname[Fox], span:initials[J. G.]
+span:surname[René], span:initials[G.]
+span:surname[Friston], span:initials[K.]
+span:surname[Ramstead], span:initials[M. J. D.]
+span:type[inproceedings]
+span:title[Designing explainable artificial intelligence with active inference: A framework for transparent introspection and decision-making].
+span:date[2023].
+Available at: span:uri[https://arxiv.org/abs/2306.04025].
+
+
+// Leonard, N. E., & Levin, S. A. 
+// Collective intelligence as a public good. 
+* [[[Leonard_2022,doi:10.1177/26339137221083293]]]
+
+
+// author = Esther Herrmann  and Josep Call  and María Victoria Hernàndez-Lloreda  and Brian Hare  and Michael Tomasello,
+// title = Humans Have Evolved Specialized Skills of Social Cognition: The Cultural Intelligence Hypothesis,
+* [[[Herrmann_2007,doi:10.1126/science.1146282]]]
+
+
+// Levy, Pierre and Bononno, Robert,
+// Collective Intelligence: Mankind's Emerging World in Cyberspace,
+* [[[levy_1997,1]]]
+span:surname[Levy], span:initials[P.]
+span:surname[Bononno], span:initials[R.]
+span:type[book]
+span:title[Collective Intelligence: Mankind's Emerging World in Cyberspace].
+span:organization[Perseus Books]
+span:date[1997].
+
+
+// Author: Tim Berners-Lee
+// Title: This is for everyone : the unfinished story of the World Wide Web
+* [[[bernerslee_2025,1]]]
+span:surname[Berners-Lee], span:initials[T.]
+span:type[book]
+span:title[This is for everyone : the unfinished story of the World Wide Web].
+span:organization[Farrar, Straus and Giroux]
+span:date[2025].
+
+
+// * [[[<<Zhang_2021, Multi-Agent Reinforcement Learning>>]]]
+// Multi-Agent Reinforcement Learning: A Selective Overview of Theories and Algorithms, 
+// Kaiqing Zhang and Zhuoran Yang and Tamer Başar,
+* [[[zhang_2021_multiagent_rl,1]]]
+span:surname[Zhang], span:initials[K.]
+span:surname[Yang], span:initials[Z.]
+span:surname[Başar], span:initials[T.]
+span:type[inproceedings]
+span:title[Multi-Agent Reinforcement Learning: A Selective Overview of Theories and Algorithms].
+span:date[2021].
+Available at: span:uri[https://arxiv.org/abs/1911.10635].
+
+
+// Inducing Peer Pressure to Promote Cooperation.
+// Mani, A., Rahwan, I. & Pentland, A.  
+* [[[mani_2013, doi:10.1038/srep01735]]]
+
+
+// Anita Williams Woolley et al.
+// Evidence for a Collective Intelligence Factor in the Performance of Human Groups.
+* [[[woolley_2010, doi:10.1126/science.1193147]]]
+
+
+// wikipedia references
+
+* [[[wikipedia-kg,1]]]
+span:type[article]
+span:title[Knowledge Graph]
+span:accessed[2025-11-01]
+span:uri[https://en.wikipedia.org/wiki/Knowledge_graph]
+
+
+* [[[solid_pods,1]]]
+span:type[website]
+span:title[Solid (web decentralization project)].
+span:organization[Wikipedia]
+span:accessed[2025-11-01]
+Available at: span:uri[https://en.wikipedia.org/wiki/Solid_(web_decentralization_project)].
+
+
+* [[[puppygraph,1]]]
+span:type[website]
+span:title[Distributed Graph Database].
+span:organization[PuppyGraph]
+span:accessed[2025-11-01]
+Available at: span:uri[https://www.puppygraph.com/blog/distributed-graph-database].

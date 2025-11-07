@@ -15,7 +15,7 @@ image::udg_notional.png[UDG as a social network showing varying network relation
 
 Social intelligence is composed of individual intelligence, but social intelligence quality is distinct from individuals ideas.  Social intelligence is necessary as individual intelligence is more limited.
 
-"The knowledge of the circumstances of which we must make use never exists in concentrated or integrated form, but solely as the dispersed bits of incomplete and frequently contradictory knowledge which all the separate individuals possess" (<<Hayek_1945>>).
+"The knowledge of the circumstances of which we must make use never exists in concentrated or integrated form, but solely as the dispersed bits of incomplete and frequently contradictory knowledge which all the separate individuals possess" (<<hayek_1945>>).
 
 The design approach for social intelligence in the UDG does not guarantee results or solutions to all problems, but it creates an institutional infrastructure that unleashes more local knowledge and individual initiative, and therefore does in fact produce better results and more solutions.
 
@@ -26,7 +26,7 @@ The UDG employs social networks to improve idea flow between AGENTS. Social phys
 
 Idea flow is the engagement and belief propagation which spreads new behaviors through a social network. Idea flow may be conceptualized as exploration to harvest new ideas followed by engagement with peers to sift through those ideas and convert the good ideas into habits.
 
-Social physics is a quantitative social science that describes reliable, mathematical connections between information and idea flow on the one hand and people’s behavior on the other (<<Pentland_2015>>). Social physics seeks to understand how the flow of ideas and information translates into changes in behavior. It provides a causal theory of how social structures confer evolutionary advantage. An alternative term for social physics is computational social science.
+Social physics is a quantitative social science that describes reliable, mathematical connections between information and idea flow on the one hand and people’s behavior on the other (<<pentland_2015>>). Social physics seeks to understand how the flow of ideas and information translates into changes in behavior. It provides a causal theory of how social structures confer evolutionary advantage. An alternative term for social physics is computational social science.
 
 An aspect of idea flow is that of pooling ideas a "wisdom of the crowd" judgment will be better than individual AGENT judgements. The effectiveness of idea-pooling for estimation problems works as long as there is no initial social interaction. It assumes that all the people in the crowd will act independently. When social interaction occurs, AGENTS begin influencing other AGENTS, and that may result in panics, bubbles, and fads.   In humans, the social learning strategy of feeding back the best current idea—that is, a constrained, artificial sort of social interaction that interleaves periods of idea harvesting with periods when experts evaluate the ideas—produces a wisdom of the crowd effect that works even for small groups. This can be effective in the Spatial Web as well.
 
@@ -41,13 +41,13 @@ One measure of effectiveness of idea flow is creativity. Creative output depends
 The UDG and AGENTS are designed to improve Idea Flow.  With increased engagement comes an increase in opportunities for social learning, for sharing vital resources such as tacit operational knowledge and successful work habits. Thois results in improved collective intelligence peformance. Collective intelligence is not strongly correlated with the average or maximum individual intelligence of group members but is correlated with the average social sensitivity of group members, the equality in distribution of conversational turn-taking, and for human groups, the proportion of females in the group. (<<woolley_2010>>)
 
 [[exploration-engagement-networks]]
-.Network structures for exploration vs engagement (Source: (<<Pentland_2015>>))
+.Network structures for exploration vs engagement (Source: (<<pentland_2015>>))
 image::exploration-engagement-networks.png[Variation of network structure for exploration vs engagement]
 
 
 == The Mathematics of Social Influence
 
-An “influence model” can assit in understanding social influence.  The model estimates how much the state of one AGENT  affects the state of another AGENT in the Spatial Web. The model can recover estimates of influence, generate results that are consistent with other measures of social networks, and uncovers important shifts in the way states may be transmitted between actors at different points in time. (<<Pan_et_al_2013>>)
+An “influence model” can assit in understanding social influence.  The model estimates how much the state of one AGENT  affects the state of another AGENT in the Spatial Web. The model can recover estimates of influence, generate results that are consistent with other measures of social networks, and uncovers important shifts in the way states may be transmitted between actors at different points in time. (<<pan_2013>>)
 
 
 * Observable signals: O
@@ -56,7 +56,7 @@ An “influence model” can assit in understanding social influence.  The model
 
 
 [[influence_model]]
-.Inflence model equation (Source: (<<Pan_et_al_2013>>))
+.Inflence model equation (Source: (<<pan_2013>>))
 image::influence_model.png[Inflence model equation]
 
 

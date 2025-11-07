@@ -3,7 +3,7 @@
 
 === Knowledge Graphs
 
-This clause considers the UDG as a knowledge graph (KG). A KG is a representation of information that uses a graph-structured data model to represent and operate on data <<wikipedia-KG>>. 
+This clause considers the UDG as a knowledge graph (KG). A KG is a representation of information that uses a graph-structured data model to represent and operate on data <<wikipedia-kg>>. 
 
 The UDG KG is a graph where the nodes are Spatial Web ENTITIES. Interlinking of ENTITIES in the UDG is accomplished using Links, portals, membership, situations, paths (see <<relationships>>).
 
