@@ -8,9 +8,9 @@ Spatial embedding was a key technology to the recent advances in LLM AI.  A surv
 
 Spatial embedding enables useful functions based on syntactic and semantic regularities in language, and that each relationship is characterized by a relation-specific vector offset. This allows vector-oriented reasoning based on the offsets between words. For example, the male/female relationship is automatically learned, and with the induced vector representations, “King - Man + Woman” results in a vector very close to “Queen.”(<<mikolov_2013>>)
 
-(<<World2Vec>>) was an internal name for the PyTorch-BigGraph: A Large-scale Graph Embedding System project (<<PBG>>).
+(<<world2vec>>) was an internal name for the PyTorch-BigGraph: A Large-scale Graph Embedding System project (<<PBG>>).
 
-Scalability of embedding needs to be assessed for the Spatial Web. (<<Weller>>) showed there are limits of embedding models under a certain vector paradigm and calls for future research to develop methods that can resolve this fundamental limitation.
+Scalability of embedding needs to be assessed for the Spatial Web. (<<weller_2025>>) showed there are limits of embedding models under a certain vector paradigm and calls for future research to develop methods that can resolve this fundamental limitation.
 
 
 

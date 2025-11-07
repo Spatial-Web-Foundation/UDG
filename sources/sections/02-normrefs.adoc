@@ -1,7 +1,8 @@
 [bibliography]
 == Normative references
 
-* [[[IEEE_2874_2025,IEEE Std 2874-2025 Spatial Web Protocol, Architecture, and Governance]]].
+// 2784-2025 may not yet be fetching correctly
+* [[[IEEE_2874_2025,IEEE Std 2874-2025]]].
 * [[[IEEE_7007_2021,IEEE Std 7007-2021]]]
 
 * [[[h3geo,1]]],
@@ -11,6 +12,6 @@ span:type[website]
 span:date[2024]
 span:uri[https://h3geo.org]
 
-* [[[w3c_rdf12-concepts,W3C WD rdf12-concepts]]]
+* [[[w3c_rdf12-concepts,W3C WD rdf12-concepts]]], RDF 1.2 Concepts and Abstract Data Model
 * [[[w3c_did,W3C did-core]]], Decentralized Identifiers (DIDs) v1.0
-* [[[w3c_verifiable_credentials,W3C vc-data-model]]], W3C Verifiable Credentials Data Model v1.1
+* [[[w3c_verifiable_credentials,W3C vc-data-model-1.1]]], W3C Verifiable Credentials Data Model v1.1
