@@ -195,7 +195,7 @@ span:surname[Chen], span:initials[K.]
 span:surname[Corrado], span:initials[G.]
 span:surname[Dean], span:initials[J.]
 span:title[Distributed Representations of Words and Phrases and their Compositionality].
-span:date[2013-10-16]
+span:date[2013]
 Available at: span:uri[https://arxiv.org/abs/1310.4546]
 // arxiv dois not autofetching correctly
 // * [[[mikolov_2013,doi:10.48550/arXiv.1310.4546]]]
@@ -336,7 +336,7 @@ span:type[book]
 span:surname[Pentland], span:initials[A.]
 span:title[Social Physics: How Good Ideas Spread—The Lessons from a New Science].
 span:publisher[Penguin Books]
-span:date[2015-01-27]
+span:date[2015]
 Available at: span:uri[https://www.penguinrandomhouse.com/books/314230/social-physics-by-alex-pentland/]
 
 
@@ -534,7 +534,7 @@ Available at: span:uri[https://arxiv.org/abs/1911.10635].
 * [[[wikipedia-kg,1]]]
 span:type[article]
 span:title[Knowledge Graph]
-span:date[accessed 2025-11-06]
+span:accessed[2025-11-01]
 span:uri[https://en.wikipedia.org/wiki/Knowledge_graph]
 
 
@@ -542,6 +542,7 @@ span:uri[https://en.wikipedia.org/wiki/Knowledge_graph]
 span:type[website]
 span:title[Solid (web decentralization project)].
 span:organization[Wikipedia]
+span:accessed[2025-11-01]
 Available at: span:uri[https://en.wikipedia.org/wiki/Solid_(web_decentralization_project)].
 
 
@@ -549,4 +550,5 @@ Available at: span:uri[https://en.wikipedia.org/wiki/Solid_(web_decentralization
 span:type[website]
 span:title[Distributed Graph Database].
 span:organization[PuppyGraph]
+span:accessed[2025-11-01]
 Available at: span:uri[https://www.puppygraph.com/blog/distributed-graph-database].
